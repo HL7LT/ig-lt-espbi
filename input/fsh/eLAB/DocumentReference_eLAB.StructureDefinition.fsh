@@ -1,5 +1,5 @@
 Profile: ElabDocumentReference
-Parent: DocumentReference
+Parent: DocumentReferenceLt
 Id: elab-documentreference
 Title: "ElabDocumentReference"
 Description: "Dokumento nuoroda / Document reference"

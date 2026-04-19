@@ -1,5 +1,5 @@
 Profile: LtEspbiObservation
-Parent: Observation
+Parent: ObservationLt
 Id: lt-espbi-observation
 Title: "LtEspbiObservation"
 Description: "Apžiūros duomenų profilis / Observation profile."

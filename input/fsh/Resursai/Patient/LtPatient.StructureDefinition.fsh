@@ -1,5 +1,5 @@
 Profile: LtEspbiPatient
-Parent: Patient
+Parent: PatientLt
 Id: lt-espbi-patient
 Title: "LtEspbiPatient"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"

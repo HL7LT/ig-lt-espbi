@@ -1,5 +1,5 @@
 Profile: LtEspbiOrganization
-Parent: Organization
+Parent: OrganizationLt
 Id: ltorganization
 Title: "LtEspbiOrganization"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"

@@ -1,5 +1,5 @@
 Profile: ElabHealthcareService
-Parent: HealthcareService
+Parent: HealthcareServiceLt
 Id: elab-healthcare-service
 Title: "ElabHealthcareService"
 Description: "Įstaigos atliekamas tyrimas"

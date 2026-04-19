@@ -1,5 +1,5 @@
 Profile: ElabSpecimen
-Parent: Specimen
+Parent: SpecimenLtLab
 Id: elab-specimen
 Title: "eLAB Specimen"
 Description: "Ėminys / eLAB laboratory specimen."

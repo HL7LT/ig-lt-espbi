@@ -1,5 +1,5 @@
 Profile: ElabPatient
-Parent: Patient
+Parent: PatientLt
 Id: elab-patient
 Title: "ElabPatient"
 Description: "Pacientas / Patient"

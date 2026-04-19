@@ -3,8 +3,8 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: lt.esveikata.fhir.espbi
-canonical: http://esveikata.lt/fhir/espbi
+id: lt.esveikata.fhir
+canonical: http://esveikata.lt/fhir
 name: LTEspbi
 title: ESPBI IS FHIR5
 description: Lithuanian ESPBI Implementation Guide (R5)

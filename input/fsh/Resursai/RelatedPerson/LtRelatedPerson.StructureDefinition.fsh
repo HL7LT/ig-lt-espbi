@@ -1,5 +1,5 @@
 Profile: LtEspbiRelatedPerson
-Parent: RelatedPerson
+Parent: RelatedPersonLt
 Id: lt-espbi-related-person
 Title: "LtEspbiRelatedPerson"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person"

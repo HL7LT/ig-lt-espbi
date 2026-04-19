@@ -1,5 +1,5 @@
 Profile: LtEspbiPractitionerRoleSpecialUser
-Parent: PractitionerRole
+Parent: PractitionerRoleLt
 Id: lt-espbi-practitioner-role-special-user
 Title: "LtEspbiPractitionerRoleSpecialUser"
 Description: "Sveikatos priežiūros specialisto vaidmens profilis, skirtas duomenims apie sisteminį naudotoją pateikti / PractitionerRole for providing system user data"

@@ -1,5 +1,5 @@
 Profile: LtEspbiDiagnosticReport
-Parent: DiagnosticReport
+Parent: DiagnosticReportLt
 Id: lt-espbi-diagnostic-report
 Title: "LtEspbiDiagnosticReport"
 Description: "Tyrimo rezultatų protokolas / DiagnosticReport"

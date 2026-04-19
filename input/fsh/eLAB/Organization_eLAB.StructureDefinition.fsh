@@ -1,5 +1,5 @@
 Profile: ElabOrganization
-Parent: Organization
+Parent: OrganizationLt
 Id: elab-organization
 Title: "ElabOrganization"
 Description: "Įstaiga arba padalinys / Organization"

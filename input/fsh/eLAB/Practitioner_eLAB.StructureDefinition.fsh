@@ -1,5 +1,5 @@
 Profile: ElabPractitioner
-Parent: Practitioner
+Parent: PractitionerLt
 Id: elab-practitioner
 Title: "ElabPractitioner"
 Description: "Sveikatos priežiūros specialistas / Practitioner"
