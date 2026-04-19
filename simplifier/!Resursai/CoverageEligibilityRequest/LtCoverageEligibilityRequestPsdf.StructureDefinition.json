@@ -1,0 +1,44 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-request-psdf",
+  "name": "LtEspbiCoverageEligibilityRequestPsdf",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CoverageEligibilityRequest",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-request",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CoverageEligibilityRequest.purpose",
+        "path": "CoverageEligibilityRequest.purpose",
+        "fixedCode": "validation"
+      },
+      {
+        "id": "CoverageEligibilityRequest.serviced[x]",
+        "path": "CoverageEligibilityRequest.serviced[x]",
+        "short": "Data (arba laikotarpis), kuriam tikrinamas PSDF draustumas / Date (or period) for which PSDF (Compulsory Health Insurance) eligibility is verified",
+        "definition": "Data (arba laikotarpis), kuriam tikrinamas PSDF draustumas.",
+        "min": 1
+      },
+      {
+        "id": "CoverageEligibilityRequest.created",
+        "path": "CoverageEligibilityRequest.created",
+        "short": "Užklausos pateikimo data ir laikas / Request date and time",
+        "definition": "Data ir laikas, kada užklausa buvo pateikta (sukurta)."
+      },
+      {
+        "id": "CoverageEligibilityRequest.insurer",
+        "path": "CoverageEligibilityRequest.insurer",
+        "definition": "Nuoroda į draudiko, kuriam buvo adresuota užklausa, Organization resursą. PSDF draudimo atveju tai turėtų būti Valstybinė ligonių kasa (VLK), kurios JAR kodas yra 191351679."
+      },
+      {
+        "id": "CoverageEligibilityRequest.insurance",
+        "path": "CoverageEligibilityRequest.insurance",
+        "max": "0"
+      }
+    ]
+  }
+}

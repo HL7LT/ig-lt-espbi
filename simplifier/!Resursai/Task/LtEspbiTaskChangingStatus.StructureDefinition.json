@@ -1,0 +1,319 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-task-changing-status",
+  "name": "LtEspbiTaskChangingStatus",
+  "status": "draft",
+  "description": "Skyrimo atsakas keičiantis skyrimo būseną  / The Task for changing the status of the order",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Task",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-task",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Task.implicitRules",
+        "path": "Task.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Task.language",
+        "path": "Task.language",
+        "max": "0"
+      },
+      {
+        "id": "Task.text",
+        "path": "Task.text",
+        "max": "0"
+      },
+      {
+        "id": "Task.contained",
+        "path": "Task.contained",
+        "max": "0"
+      },
+      {
+        "id": "Task.extension",
+        "path": "Task.extension",
+        "max": "0"
+      },
+      {
+        "id": "Task.modifierExtension",
+        "path": "Task.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Task.identifier",
+        "path": "Task.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Task.instantiatesCanonical",
+        "path": "Task.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "Task.instantiatesUri",
+        "path": "Task.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "Task.basedOn",
+        "path": "Task.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "Task.groupIdentifier",
+        "path": "Task.groupIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "Task.partOf",
+        "path": "Task.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Task.status",
+        "path": "Task.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "Task.statusReason",
+        "path": "Task.statusReason",
+        "max": "0"
+      },
+      {
+        "id": "Task.businessStatus",
+        "path": "Task.businessStatus",
+        "max": "0"
+      },
+      {
+        "id": "Task.intent",
+        "path": "Task.intent",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "order"
+          }
+        ]
+      },
+      {
+        "id": "Task.priority",
+        "path": "Task.priority",
+        "max": "0"
+      },
+      {
+        "id": "Task.doNotPerform",
+        "path": "Task.doNotPerform",
+        "max": "0"
+      },
+      {
+        "id": "Task.code",
+        "path": "Task.code",
+        "max": "0"
+      },
+      {
+        "id": "Task.description",
+        "path": "Task.description",
+        "max": "0"
+      },
+      {
+        "id": "Task.focus",
+        "path": "Task.focus",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "ServiceRequest/387657"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Task.focus.id",
+        "path": "Task.focus.id",
+        "max": "0"
+      },
+      {
+        "id": "Task.focus.extension",
+        "path": "Task.focus.extension",
+        "max": "0"
+      },
+      {
+        "id": "Task.focus.type",
+        "path": "Task.focus.type",
+        "max": "0"
+      },
+      {
+        "id": "Task.focus.identifier",
+        "path": "Task.focus.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Task.focus.display",
+        "path": "Task.focus.display",
+        "max": "0"
+      },
+      {
+        "id": "Task.for",
+        "path": "Task.for",
+        "max": "0"
+      },
+      {
+        "id": "Task.encounter",
+        "path": "Task.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Task.requestedPeriod",
+        "path": "Task.requestedPeriod",
+        "max": "0"
+      },
+      {
+        "id": "Task.executionPeriod",
+        "path": "Task.executionPeriod",
+        "max": "0"
+      },
+      {
+        "id": "Task.authoredOn",
+        "path": "Task.authoredOn",
+        "max": "0"
+      },
+      {
+        "id": "Task.lastModified",
+        "path": "Task.lastModified",
+        "short": "Skyrimo būsenos pakeitimo data / When the response was made",
+        "definition": "Skyrimo būsenos pakeitimo data.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-02-01T10:30:02+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Task.requester",
+        "path": "Task.requester",
+        "max": "0"
+      },
+      {
+        "id": "Task.requestedPerformer",
+        "path": "Task.requestedPerformer",
+        "max": "0"
+      },
+      {
+        "id": "Task.owner",
+        "path": "Task.owner",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer",
+        "path": "Task.performer",
+        "min": 1
+      },
+      {
+        "id": "Task.performer.id",
+        "path": "Task.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.extension",
+        "path": "Task.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.modifierExtension",
+        "path": "Task.performer.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.function",
+        "path": "Task.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.actor",
+        "path": "Task.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Task.performer.actor.id",
+        "path": "Task.performer.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.actor.extension",
+        "path": "Task.performer.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.actor.type",
+        "path": "Task.performer.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.actor.identifier",
+        "path": "Task.performer.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Task.performer.actor.display",
+        "path": "Task.performer.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "Task.location",
+        "path": "Task.location",
+        "max": "0"
+      },
+      {
+        "id": "Task.reason",
+        "path": "Task.reason",
+        "max": "0"
+      },
+      {
+        "id": "Task.insurance",
+        "path": "Task.insurance",
+        "max": "0"
+      },
+      {
+        "id": "Task.note",
+        "path": "Task.note",
+        "max": "0"
+      },
+      {
+        "id": "Task.relevantHistory",
+        "path": "Task.relevantHistory",
+        "max": "0"
+      },
+      {
+        "id": "Task.restriction",
+        "path": "Task.restriction",
+        "max": "0"
+      },
+      {
+        "id": "Task.input",
+        "path": "Task.input",
+        "max": "0"
+      },
+      {
+        "id": "Task.output",
+        "path": "Task.output",
+        "max": "0"
+      }
+    ]
+  }
+}

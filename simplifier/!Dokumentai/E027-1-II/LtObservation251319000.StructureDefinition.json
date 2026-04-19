@@ -1,0 +1,147 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-251319000",
+  "name": "LtEspbiObservation251319000",
+  "status": "draft",
+  "description": "Pieniniai dantys K / Decayed primary tooth count; Nuolatiniai dantys K / Decayed permanent tooth count",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "251319000"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "251319000"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Pieniniai/nuolatiniai dantys K / Decayed primary/permanent tooth count",
+        "definition": "Pieniniai dantys k (E027-1-II).\r\nNuolatiniai dantys K (E027-1-II).\r\n\r\nLauko taisyklės:\r\n- Maksimalus dantų skaičius 32.\r\n- Mažiausia leidžiama reikšmė -1, kai nėra išdygusių pieninių/nuolatinių dantų.\r\n- Sveikasis skaičius.\r\n- Visų KPI reikšmė -1, kai nėra išdygusių pieninių/nuolatinių dantų.",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 2
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-val-4",
+            "severity": "error",
+            "human": "Number of teeth must be between (-1) - 32.",
+            "expression": "$this >= -1 and $this <= 32"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

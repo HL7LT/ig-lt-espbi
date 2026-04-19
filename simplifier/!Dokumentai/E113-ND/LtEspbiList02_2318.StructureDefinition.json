@@ -1,0 +1,180 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-02-2318",
+  "name": "LtEspbiList02_2318",
+  "status": "draft",
+  "description": "Moters žalingi įpročiai (iki nėštumo) / A woman's bad habits (before pregnancy)",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ListCode",
+                  "code": "02.2318",
+                  "display": "Moters žalingi įpročiai (iki nėštumo)"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ListCode"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "02.2318"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "min": 1
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "min": 1
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "min": 1
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "List.entry:didHadSmokingAddiction",
+        "path": "List.entry",
+        "sliceName": "didHadSmokingAddiction",
+        "short": "Ar turėjo rūkymo priklausomybę / Did had a smoking addiction",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "List.entry:didHadSmokingAddiction.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:didHadSmokingAddiction.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2319"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:wasAddictedToPassiveSmoking",
+        "path": "List.entry",
+        "sliceName": "wasAddictedToPassiveSmoking",
+        "short": "Ar turėjo pasyvaus rūkymo priklausomybę / Was addicted to passive smoking",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "List.entry:wasAddictedToPassiveSmoking.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:wasAddictedToPassiveSmoking.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2320"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:didHadAlcoholAddiction",
+        "path": "List.entry",
+        "sliceName": "didHadAlcoholAddiction",
+        "short": "Ar turėjo alkoholio  priklausomybę / Did had an alcohol addiction",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "List.entry:didHadAlcoholAddiction.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:didHadAlcoholAddiction.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2321"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:didHaveDrugAddiction",
+        "path": "List.entry",
+        "sliceName": "didHaveDrugAddiction",
+        "short": "Ar turėjo priklausomybę nuo narkotikų / Did have a drug addiction",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "List.entry:didHaveDrugAddiction.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:didHaveDrugAddiction.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2322"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

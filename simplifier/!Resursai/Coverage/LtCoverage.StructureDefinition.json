@@ -1,0 +1,212 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage",
+  "name": "LtEspbiCoverage",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Coverage",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Coverage",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Coverage",
+        "path": "Coverage",
+        "constraint": [
+          {
+            "key": "cov-1",
+            "severity": "error",
+            "human": "ltExtInsuranceGivenCountry must be present if Coverage.type = '1' (Apdraustas EEE šalyje ar Šveicarijoje).",
+            "expression": "(type.coding.code = '1') implies (extension.where(url = 'http://esveikata.lt/Profile/ltnhr-Coverage/insuranceGivenCountry').exists())"
+          },
+          {
+            "key": "cov-2",
+            "severity": "error",
+            "human": "Coverage.identifier must be present if Coverage.type = '1' (Kita).",
+            "expression": "(type.coding.code = '1') implies (identifier.exists())"
+          }
+        ]
+      },
+      {
+        "id": "Coverage.id",
+        "path": "Coverage.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension",
+        "path": "Coverage.extension",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:ltExtInsuranceGivenCountry",
+        "path": "Coverage.extension",
+        "sliceName": "ltExtInsuranceGivenCountry",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-Coverage/insuranceGivenCountry"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.identifier",
+        "path": "Coverage.identifier",
+        "short": "Draudimo dokumento duomenys / Insurance document details",
+        "definition": "Privaloma nurodyti, jei pacientas yra apdraustas kitoje (ne EEE ar Šveicarijoje) šalyje.",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.identifier.extension:ltExtDocumentCountry",
+        "path": "Coverage.identifier.extension",
+        "sliceName": "ltExtDocumentCountry",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-Coverage/documentCountry"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Coverage.identifier.extension:ltExtPersonIdentityNumber",
+        "path": "Coverage.identifier.extension",
+        "sliceName": "ltExtPersonIdentityNumber",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-Coverage/personIdentityNumber"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Coverage.identifier.type",
+        "path": "Coverage.identifier.type",
+        "short": "Draudimo dokumento tipas / Insurance document type it references to",
+        "definition": "Nurodo dokumento tipą.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje insurance-doc-type.",
+        "min": 1
+      },
+      {
+        "id": "Coverage.identifier.type.coding",
+        "path": "Coverage.identifier.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Coverage.identifier.type.coding.system",
+        "path": "Coverage.identifier.type.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/InsuranceDocument/Type"
+      },
+      {
+        "id": "Coverage.identifier.type.coding.code",
+        "path": "Coverage.identifier.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Coverage.identifier.type.coding.display",
+        "path": "Coverage.identifier.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.identifier.system",
+        "path": "Coverage.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/IdentityDocument/ehicNumber"
+      },
+      {
+        "id": "Coverage.identifier.value",
+        "path": "Coverage.identifier.value",
+        "short": "Dokumento numeris / Document number",
+        "min": 1
+      },
+      {
+        "id": "Coverage.identifier.period",
+        "path": "Coverage.identifier.period",
+        "definition": "Dokumento galiojimo periodas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.identifier.period.start",
+        "path": "Coverage.identifier.period.start",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.identifier.period.end",
+        "path": "Coverage.identifier.period.end",
+        "short": "Draudimo dokumentas galioja iki / Insurance document expiration Date",
+        "min": 1
+      },
+      {
+        "id": "Coverage.status",
+        "path": "Coverage.status",
+        "definition": "Draudimo būsena.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/fm-status. Galimos reikšmės: active | cancelled | draft | entered-in-error.",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.kind",
+        "path": "Coverage.kind",
+        "short": "Draudimo pobūdis / Nature of insurance",
+        "definition": "Nurodo draudimo pobūdį.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/coverage-kind. Galimos reikšmės: insurance | self-pay | other.",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.type",
+        "path": "Coverage.type",
+        "short": "Paciento draustumas kitoje šalyje / Insurance in other country",
+        "definition": "Nurodoma, jei draustumas kitoje šalyje - pacientas apdraustas EEE šalyje ar Šveicarijoje arba kitoje šalyje.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje insurance-other-country.",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.type.coding",
+        "path": "Coverage.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Coverage.type.coding.system",
+        "path": "Coverage.type.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Profile/ltnhr-encounter#insurance.insuranceOtherCountry"
+      },
+      {
+        "id": "Coverage.type.coding.code",
+        "path": "Coverage.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Coverage.beneficiary",
+        "path": "Coverage.beneficiary",
+        "short": "Pacientas, kurio draudimo duomenys yra aprašomi / Patient whose insurance details are described",
+        "definition": "Nuoroda į paciento, kurio draudimo duomenys yra aprašomi, resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.beneficiary.reference",
+        "path": "Coverage.beneficiary.reference",
+        "min": 1
+      }
+    ]
+  }
+}

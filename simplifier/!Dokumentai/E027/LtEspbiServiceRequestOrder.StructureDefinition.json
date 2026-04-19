@@ -1,0 +1,706 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request-order",
+  "name": "LtEspbiServiceRequestOrder",
+  "status": "draft",
+  "description": "Siuntimo duomenys / Order data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ServiceRequest",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ServiceRequest",
+        "path": "ServiceRequest",
+        "constraint": [
+          {
+            "key": "sere-1",
+            "severity": "error",
+            "human": "If ServiceRequest.performerType is not provided, the extension lt-espbi-ext-emergency-room must be present and its valueBoolean shall be true",
+            "expression": "performerType.exists() or (extension.where(url = 'http://esveikata.lt/fhir/Extension/lt-espbi-ext-emergency-room').exists() and extension.where(url = 'http://esveikata.lt/fhir/Extension/lt-espbi-ext-emergency-room').valueBoolean = true)"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.implicitRules",
+        "path": "ServiceRequest.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.language",
+        "path": "ServiceRequest.language",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.text",
+        "path": "ServiceRequest.text",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.contained",
+        "path": "ServiceRequest.contained",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtLiftInfo",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtLiftInfo",
+        "short": "Pavėžėjimo paslauga / Ride service",
+        "definition": "Pacientui reikalinga pavėžėjimo paslauga\r\n\r\nNegali būti naudojami kartu su slaugos paslaugomis.",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-servicerequest/liftInfo"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtNursingOrder",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtNursingOrder",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-servicerequest/nursingOrder"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtUrgencyNote",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtUrgencyNote",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-service-request-urgency-note"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtLongTermCare",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtLongTermCare",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-servicerequest/longTermCare"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtServiceRequestIndication",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtServiceRequestIndication",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-service-request-indication"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtEmergencyRoom",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtEmergencyRoom",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-emergency-room"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.modifierExtension",
+        "path": "ServiceRequest.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.identifier",
+        "path": "ServiceRequest.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.instantiatesCanonical",
+        "path": "ServiceRequest.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.instantiatesUri",
+        "path": "ServiceRequest.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.basedOn",
+        "path": "ServiceRequest.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.replaces",
+        "path": "ServiceRequest.replaces",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requisition",
+        "path": "ServiceRequest.requisition",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.status",
+        "path": "ServiceRequest.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.intent",
+        "path": "ServiceRequest.intent",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "order"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.category",
+        "path": "ServiceRequest.category",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/OrderType",
+                  "code": "1",
+                  "display": "Siuntimo konsultuoti, gydyti skyrimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.category.id",
+        "path": "ServiceRequest.category.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.extension",
+        "path": "ServiceRequest.category.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.id",
+        "path": "ServiceRequest.category.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.extension",
+        "path": "ServiceRequest.category.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.version",
+        "path": "ServiceRequest.category.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.userSelected",
+        "path": "ServiceRequest.category.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.priority",
+        "path": "ServiceRequest.priority",
+        "definition": "Paslaugos suteikimo skubumas.\r\nGalimos reikšmės:\r\n- routine : Užsakymas yra pateiktas vykdyti.\r\n- urgent : Užsakymas yra atšaukiamas.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/request-priority. Galimos reikšmės: routine | urgent | asap | stat\r\nSiūloma naudoti reikšmes atitinkamai\r\n\r\nAtsižvelgiant į DDR pakeitimus, siūloma naudoti reikšmes atitinkamai: \r\nroutine - Planinė (neskubi);\r\nurgent - Planinė (skubi);\r\nstat - Būtinoji (kai pacientui turi būti suteikta skubioji medicinos pagalba).",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.doNotPerform",
+        "path": "ServiceRequest.doNotPerform",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code",
+        "path": "ServiceRequest.code",
+        "definition": "Paslaugos ar procedūros kodas, nuoroda ar tekstinis aprašymas.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje order-type (http://esveikata.lt/classifiers/OrderType). Naudojamas patologijos tyrimo užsakymo atveju.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje diagnostic-type (http://esveikata.lt/classifiers/DiagnosticOrder/ItemCode). Naudojamas tyrimų pavadinimų klasifikatorius E200 dokumento atveju.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje certificate-task (http://esveikata.lt/classifiers/CertificateTask). Pažymos užduoties kodas.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje ipr-service (http://esveikata.lt/classifiers/IPRService), kai nurodomos paslaugos.",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/IPRService",
+                    "code": "1",
+                    "display": "??????"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.code.id",
+        "path": "ServiceRequest.code.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.extension",
+        "path": "ServiceRequest.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept",
+        "path": "ServiceRequest.code.concept",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.code.concept.id",
+        "path": "ServiceRequest.code.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.extension",
+        "path": "ServiceRequest.code.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding",
+        "path": "ServiceRequest.code.concept.coding",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.id",
+        "path": "ServiceRequest.code.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.extension",
+        "path": "ServiceRequest.code.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.system",
+        "path": "ServiceRequest.code.concept.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/IPRService"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.version",
+        "path": "ServiceRequest.code.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.display",
+        "path": "ServiceRequest.code.concept.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.userSelected",
+        "path": "ServiceRequest.code.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.reference",
+        "path": "ServiceRequest.code.reference",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.orderDetail",
+        "path": "ServiceRequest.orderDetail",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.quantity[x]",
+        "path": "ServiceRequest.quantity[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject",
+        "path": "ServiceRequest.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/32856257683256"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.subject.id",
+        "path": "ServiceRequest.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.extension",
+        "path": "ServiceRequest.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.type",
+        "path": "ServiceRequest.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.identifier",
+        "path": "ServiceRequest.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.display",
+        "path": "ServiceRequest.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.focus",
+        "path": "ServiceRequest.focus",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter",
+        "path": "ServiceRequest.encounter",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Encounter/1000017570"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.encounter.id",
+        "path": "ServiceRequest.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.extension",
+        "path": "ServiceRequest.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.type",
+        "path": "ServiceRequest.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.identifier",
+        "path": "ServiceRequest.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.display",
+        "path": "ServiceRequest.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.occurrence[x]",
+        "path": "ServiceRequest.occurrence[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.asNeeded[x]",
+        "path": "ServiceRequest.asNeeded[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.authoredOn",
+        "path": "ServiceRequest.authoredOn",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-20T22:03:04+00:00"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.requester",
+        "path": "ServiceRequest.requester",
+        "definition": "Nuoroda į sveikatos priežiūros specialisto, sukūrusio siuntimą, resursą.\r\n",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/987654321"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.requester.id",
+        "path": "ServiceRequest.requester.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.extension",
+        "path": "ServiceRequest.requester.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.type",
+        "path": "ServiceRequest.requester.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.identifier",
+        "path": "ServiceRequest.requester.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.display",
+        "path": "ServiceRequest.requester.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType",
+        "path": "ServiceRequest.performerType",
+        "definition": "Specialisto, pas kurį siunčiamas pacientas, prof. kvalifikacija.\r\n\r\nLaukas privalomas, jeigu yra kuriamas siuntimo konsultacijos, tyrimų, gydymo skyrimas.\r\nLaukas negali būti nurodytas kitų tipų skyrimams.\r\nDraudžiama keisti lauko reikšmę  atnaujinant Order resurso duomenis.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje qualification-code.",
+        "example": [
+          {
+            "label": "example, when performer is practitioner",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/QualificationCode",
+                  "code": "221227",
+                  "display": "Gydytojas neurologas"
+                }
+              ]
+            }
+          },
+          {
+            "label": "example, when performer is department",
+            "valueCodeableConcept": {
+              "text": "Skubiosios pagalbos skyrius"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.performerType.id",
+        "path": "ServiceRequest.performerType.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.id",
+        "path": "ServiceRequest.performerType.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.extension",
+        "path": "ServiceRequest.performerType.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.version",
+        "path": "ServiceRequest.performerType.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.display",
+        "path": "ServiceRequest.performerType.coding.display",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.userSelected",
+        "path": "ServiceRequest.performerType.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.text",
+        "path": "ServiceRequest.performerType.text",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer",
+        "path": "ServiceRequest.performer",
+        "short": "Įstaiga ar ASPN įstaiga į kur siunčiamas pacientas",
+        "definition": "Nuoroda į sveikatos priežiūros įstaigą, kuriai siunčiamas pacientas.\r\nPrivaloma jei Order.type = 21 (Slaugos paslaugų namuose skyrimas) bei Order#nursingOrder.type = 1 (ASPN)",
+        "max": "0",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.performer.id",
+        "path": "ServiceRequest.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.extension",
+        "path": "ServiceRequest.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.type",
+        "path": "ServiceRequest.performer.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.identifier",
+        "path": "ServiceRequest.performer.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.display",
+        "path": "ServiceRequest.performer.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.location",
+        "path": "ServiceRequest.location",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason",
+        "path": "ServiceRequest.reason",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-diagnosis"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.reason.id",
+        "path": "ServiceRequest.reason.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.extension",
+        "path": "ServiceRequest.reason.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept",
+        "path": "ServiceRequest.reason.concept",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference",
+        "path": "ServiceRequest.reason.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.reason.reference.id",
+        "path": "ServiceRequest.reason.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.extension",
+        "path": "ServiceRequest.reason.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.type",
+        "path": "ServiceRequest.reason.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.identifier",
+        "path": "ServiceRequest.reason.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.display",
+        "path": "ServiceRequest.reason.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.insurance",
+        "path": "ServiceRequest.insurance",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo",
+        "path": "ServiceRequest.supportingInfo",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.specimen",
+        "path": "ServiceRequest.specimen",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.bodySite",
+        "path": "ServiceRequest.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.bodyStructure",
+        "path": "ServiceRequest.bodyStructure",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.note",
+        "path": "ServiceRequest.note",
+        "definition": "Aktuali paciento klinikinė informacija - vartojami vaistai, nėštumas, kt.\r\n\r\nBūklės vertinime identifikuota slaugos problema.\r\n\r\nPapildomas aprašymas laboratorijai ar siuntimo tikslas specialistui, kuriam siunčiamas pacientas konsultuotis.",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Papildomo aprašymo specialistui tekstas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.note.id",
+        "path": "ServiceRequest.note.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.note.extension",
+        "path": "ServiceRequest.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.patientInstruction",
+        "path": "ServiceRequest.patientInstruction",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.relevantHistory",
+        "path": "ServiceRequest.relevantHistory",
+        "max": "0"
+      }
+    ]
+  }
+}

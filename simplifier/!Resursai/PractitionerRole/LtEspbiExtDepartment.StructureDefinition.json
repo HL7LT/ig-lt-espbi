@@ -1,0 +1,267 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-practitioner/department",
+  "name": "LtEspbiExtDepartment",
+  "status": "draft",
+  "description": "Sveikatos priežiūros įstaigos skyrius, kuriame dirba sveikatos priežiūros specialistas / Department(s) where specialists works ",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "PractitionerRole"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Sveikatos priežiūros įstaigos skyrius, kuriame dirba sveikatos priežiūros specialistas / Department(s) where specialists works ",
+        "definition": "Sveikatos priežiūros įstaigos skyrius, kuriame dirba sveikatos priežiūros specialistas. Jis gali būti įdarbintas keliose sveikatos priežiūros įstaigos skyriuose."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:organization",
+        "path": "Extension.extension",
+        "sliceName": "organization",
+        "short": "Skyrius(iai), kur dirba specialistas / Department(s) where specialists works",
+        "definition": "Nuoroda į sveikatos priežiūros įstaigos skyriaus resursą, kuriame dirba sveikatos priežiūros specialistas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:organization.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:organization.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "organization"
+      },
+      {
+        "id": "Extension.extension:organization.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:organization.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:organization.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:organization.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:organization.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:organization.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:organization.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment",
+        "path": "Extension.extension",
+        "sliceName": "employment",
+        "short": "Specialisto įdarbinimo tam tikrame skyriuje informacija",
+        "definition": "Specialisto įdarbinimo tam tikrame skyriuje informacija."
+      },
+      {
+        "id": "Extension.extension:employment.extension",
+        "path": "Extension.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:employment.extension:period",
+        "path": "Extension.extension.extension",
+        "sliceName": "period",
+        "short": "Periodas, kuriuo specialistas dirba šiame skyriuje",
+        "definition": "Nuo kada ir iki kada sveikatos priežiūros specialistas įdarbintas sveikatos priežiūros įstaigos skyriuje. Nurodomi duomenys - metai, mėnuo, diena.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:employment.extension:period.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:period.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "period"
+      },
+      {
+        "id": "Extension.extension:employment.extension:period.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:employment.extension:period.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:period.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:period.value[x].start",
+        "path": "Extension.extension.extension.value[x].start",
+        "short": "Periodo pradžios data. Patenka į periodą imtinai",
+        "definition": "Periodo pradžios data. Patenka į periodą imtinai.",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:employment.extension:period.value[x].end",
+        "path": "Extension.extension.extension.value[x].end",
+        "definition": "Periodo pabaigos data. Jeigu datos nėra yra laikoma, kad periodas tęsiasi (nėra pasibaigęs)."
+      },
+      {
+        "id": "Extension.extension:employment.extension:license",
+        "path": "Extension.extension.extension",
+        "sliceName": "license",
+        "short": "Licencija pagal, kuria specialistas dirba šiame skyriuje ",
+        "definition": "Licencija pagal, kuria specialistas dirba šiame skyriuje ",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "license"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding",
+        "path": "Extension.extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding.id",
+        "path": "Extension.extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding.extension",
+        "path": "Extension.extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding.system",
+        "path": "Extension.extension.extension.value[x].coding.system",
+        "short": "Unikalus klasifikatoriaus pavadinimas (URI).",
+        "definition": "Unikalus klasifikatoriaus pavadinimas (URI).\r\nReikšmė pagal nutylėjimą http://esveikata.lt/classifiers/LicenceCode.",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/LicenceCode"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding.version",
+        "path": "Extension.extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding.code",
+        "path": "Extension.extension.extension.value[x].coding.code",
+        "short": "Licencijos kodas iš klasifikatoriaus.",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding.display",
+        "path": "Extension.extension.extension.value[x].coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].coding.userSelected",
+        "path": "Extension.extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.extension:license.value[x].text",
+        "path": "Extension.extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:employment.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "employment"
+      },
+      {
+        "id": "Extension.extension:employment.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-practitioner/department"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

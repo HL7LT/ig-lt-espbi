@@ -1,0 +1,290 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-practitionerRole",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole",
+  "version": "0.3.28",
+  "name": "ElabPractitionerRole",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Sveikatos priežiūros specialisto rolė įstaigoje / Practitioner role in organization",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "interface",
+      "uri": "http://hl7.org/fhir/interface",
+      "name": "Interface Pattern"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "PractitionerRole",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "PractitionerRole.identifier",
+        "path": "PractitionerRole.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.identifier.system",
+        "path": "PractitionerRole.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.identifier.value",
+        "path": "PractitionerRole.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.identifier:ESPBI",
+        "path": "PractitionerRole.identifier",
+        "sliceName": "ESPBI",
+        "short": "ESPBI Practitioner resurso identifikatorius / ESPBI Practitioner id",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.identifier:ESPBI.system",
+        "path": "PractitionerRole.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/ESPBI"
+      },
+      {
+        "id": "PractitionerRole.identifier:StampCode",
+        "path": "PractitionerRole.identifier",
+        "sliceName": "StampCode",
+        "short": "Spaudo numeris / Stamp code",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.identifier:StampCode.system",
+        "path": "PractitionerRole.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/StampCode"
+      },
+      {
+        "id": "PractitionerRole.period",
+        "path": "PractitionerRole.period",
+        "short": "Laiko periodas, kuriuo specialistas turi šią rolę įstaigoje / The period during which the practitioner is authorized to perform in these role(s)",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.practitioner",
+        "path": "PractitionerRole.practitioner",
+        "short": "Specialistas / Practitioner that provides services for the organization",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitioner"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.organization",
+        "path": "PractitionerRole.organization",
+        "short": "Įstaiga, kurioje dirba šis specialistas (arba padalinys, jei dirbama ne tėvinėje įstaigoje) / Practitioner workplace organization (or subunit, if working outside the parent organization)",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.code",
+        "path": "PractitionerRole.code",
+        "short": "Specialisto vaidmuo įstaigoje / Roles which this practitioner may perform",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.code.coding",
+        "path": "PractitionerRole.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "PractitionerRole.code.coding.code",
+        "path": "PractitionerRole.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.code.coding:RoleType",
+        "path": "PractitionerRole.code.coding",
+        "sliceName": "RoleType",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.code.coding:RoleType.system",
+        "path": "PractitionerRole.code.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/RoleType"
+      },
+      {
+        "id": "PractitionerRole.specialty",
+        "path": "PractitionerRole.specialty",
+        "short": "Specialisto profesija / Specific specialty of the practitioner",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.specialty.coding",
+        "path": "PractitionerRole.specialty.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.specialty.coding.code",
+        "path": "PractitionerRole.specialty.coding.code",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.specialty.coding:QualificationCode",
+        "path": "PractitionerRole.specialty.coding",
+        "sliceName": "QualificationCode",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.specialty.coding:QualificationCode.system",
+        "path": "PractitionerRole.specialty.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/QualificationCode"
+      },
+      {
+        "id": "PractitionerRole.contact",
+        "path": "PractitionerRole.contact",
+        "short": "Specialisto darbo vietos kontaktinė informacija / Official contact details relating to this PractitionerRole",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.contact.telecom",
+        "path": "PractitionerRole.contact.telecom",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Contact details (phone/email and more)"
+      },
+      {
+        "id": "PractitionerRole.contact.telecom.value",
+        "path": "PractitionerRole.contact.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.contact.telecom:Phone",
+        "path": "PractitionerRole.contact.telecom",
+        "sliceName": "Phone",
+        "short": "Telefono numeris / Phone number",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.contact.telecom:Phone.system",
+        "path": "PractitionerRole.contact.telecom.system",
+        "fixedCode": "phone"
+      },
+      {
+        "id": "PractitionerRole.contact.telecom:Email",
+        "path": "PractitionerRole.contact.telecom",
+        "sliceName": "Email",
+        "short": "Elektroninis paštas / Email",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.contact.telecom:Email.system",
+        "path": "PractitionerRole.contact.telecom.system",
+        "fixedCode": "email"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-documentreference/grantee",
+  "name": "LtEspbiExtGrantee",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DocumentReference"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Nuoroda į sutikimą patvirtinusio arba atšaukusio paciento arba jo atstovo resursą, arba specialisto resursą"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-documentreference/grantee"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustHaveValue": true
+      }
+    ]
+  }
+}

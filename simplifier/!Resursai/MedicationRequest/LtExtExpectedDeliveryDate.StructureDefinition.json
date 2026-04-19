@@ -1,0 +1,54 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-espbi-med-request/expectedDeliveryDate",
+  "name": "LtEspbiExtExpectedDeliveryDate",
+  "status": "draft",
+  "description": "Planuojama pristatymo data, kai receptas buvo rezervuotas vaistinėje (nenuotoliniu būdu) / Planned delivery date when the prescription was reserved at the pharmacy (non-remote method)",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationRequest.dispenseRequest"
+    },
+    {
+      "type": "element",
+      "expression": "DeviceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Planuojama pristatymo data, kai receptas buvo rezervuotas vaistinėje (nenuotoliniu būdu) / Planned delivery date when the prescription was reserved at the pharmacy (non-remote method)",
+        "definition": "Planuojama pristatymo data, kai receptas buvo rezervuotas vaistinėje (nenuotoliniu būdu)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-espbi-med-request/expectedDeliveryDate"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

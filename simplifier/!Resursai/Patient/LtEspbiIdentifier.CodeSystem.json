@@ -1,0 +1,74 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-espbi-identifier",
+  "url": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-identifier",
+  "version": "0.0.1",
+  "name": "LtEspbiIdentifier",
+  "status": "draft",
+  "description": "Identifikatorius / Identifier",
+  "caseSensitive": true,
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "http://esveikata.lt/classifiers/Identifier/SVEIDRAID",
+      "display": "SVEIDRA identifier",
+      "definition": "Kodas SVEIDRA IS sistemoje"
+    },
+    {
+      "code": "http://esveikata.lt/classifiers/Identifier/JAR",
+      "display": "JAR code",
+      "definition": "Juridinių asmenų registro (JAR) įstaigos kodas."
+    },
+    {
+      "code": "http://esveikata.lt/classifiers/Identifier/ActivityPlaceNumber",
+      "display": "VAPRIS",
+      "definition": "VAPRIS veiklos vietos identifikatorius"
+    },
+    {
+      "code": "http://esveikata.lt/classifiers/Identifier/SPILISActivityPlaceNumber",
+      "display": "SPĮLIS",
+      "definition": "SPĮLIS veiklos vietos identifikatorius"
+    },
+    {
+      "code": "http://esveikata.lt/Identifier/PersonalCode",
+      "display": "Personal Code",
+      "definition": "Asmens kodas"
+    },
+    {
+      "code": "http://esveikata.lt/Identifier/Patient/ESPBI",
+      "display": "ESPBI",
+      "definition": "ESPBI id"
+    },
+    {
+      "code": "http://esveikata.lt/Identifier/Patient/DIK",
+      "display": "DIK",
+      "definition": "DIK identifikacinis kodas"
+    },
+    {
+      "code": "http://esveikata.lt/Identifier/Patient/SveidraID",
+      "display": "SveidraID",
+      "definition": "Identifikatorius SVEIDRA IS"
+    },
+    {
+      "code": "http://esveikata.lt/Identifier/Patient/eFormNumber",
+      "display": "eFormNumber",
+      "definition": "E formos pažymos nr."
+    },
+    {
+      "code": "http://esveikata.lt/Identifier/Patient/ForeignPersonalCode",
+      "display": "ForeignPersonalCode",
+      "definition": "Užsienio valstybės piliečio asmens kodas"
+    },
+    {
+      "code": "http://esveikata.lt/Identifier/eDelivery",
+      "display": "eDelivery",
+      "definition": "E. pristatymo dėžutė"
+    },
+    {
+      "code": "http://esveikata.lt/classifiers/IdentityDocument/SerieNumber",
+      "display": "SerieNumber",
+      "definition": "Asmens tapatybę patvirtinančio dokumento serija ir numeris"
+    }
+  ]
+}

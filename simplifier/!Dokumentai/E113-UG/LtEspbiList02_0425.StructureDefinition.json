@@ -1,0 +1,85 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-02-0425",
+  "name": "LtEspbiList02_0425",
+  "status": "draft",
+  "description": "Vaisiaus tyrimo informacija / Fetal examination information",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ListCode",
+                  "code": "02.0425",
+                  "display": "Vaisiaus tyrimo informacija"
+                }
+              ],
+              "text": "Tyrimai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ListCode"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "02.0425"
+      },
+      {
+        "id": "List.code.coding.display",
+        "path": "List.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "List.code.text",
+        "path": "List.code.text",
+        "max": "0"
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "short": "Elementų kiekis priklauso nuo vaisių kiekio / The quantity of elements depends on the count of fetuses ",
+        "min": 1
+      },
+      {
+        "id": "List.entry.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-02-0427"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

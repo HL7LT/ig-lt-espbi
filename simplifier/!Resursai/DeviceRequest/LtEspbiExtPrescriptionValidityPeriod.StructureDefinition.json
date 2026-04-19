@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-validity-period",
+  "name": "LtEspbiExtPrescriptionValidityPeriod",
+  "status": "draft",
+  "description": "Recepto galiojimo laikotarpis / Prescription validity period",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Recepto galiojimo laikotarpis / Prescription validity period",
+        "definition": "Recepto galiojimo laikotarpis",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-validity-period"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "Extension.value[x].id",
+        "path": "Extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].extension",
+        "path": "Extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].start",
+        "path": "Extension.value[x].start",
+        "short": "Recepto galiojimo pradžios data",
+        "definition": "Recepto galiojimo pradžios data",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].end",
+        "path": "Extension.value[x].end",
+        "short": "Recepto galiojimo pabaigos data",
+        "definition": "Recepto galiojimo pabaigos data",
+        "min": 1
+      }
+    ]
+  }
+}

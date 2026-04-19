@@ -1,0 +1,226 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1605",
+  "name": "LtEspbiObservation02_1605",
+  "status": "draft",
+  "description": "Vaisiaus tyrimo informacija / Fetal assessment information",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.1605",
+                  "display": "Vaisiaus tyrimo informacija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.1605"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Vaisiaus pavadinimas / Fetal name",
+        "definition": "Automatiškai sukuriamas gaubiamasis tolimesnės informacijos atributas, pagal pateiktą vaisių skaičių. Vaisiaus pavadinimas, tai lotyniškos abėcėlės tvarka priskiriama raidė.\r\npvz.: pirmas vaisius, - A; antras vaisius, - B; trečias vaisius, - C ir t.t.\r\nValidacijos taisyklė:\r\nPrivalomai sukuriamas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Vaisiaus tyrimo informacija / Fetal assessment information",
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:fetalHeartRate",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalHeartRate",
+        "short": "Vaisiaus širdies ritmas (VŠR) / Fetal heart rate",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55283-6-quantity"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/612"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetalMovements",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalMovements",
+        "short": "Vaisiaus judesiai / Fetal movements",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-56834-5"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "exaple",
+            "valueReference": {
+              "reference": "Observation/613"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetalPosition",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalPosition",
+        "short": "Vaisiaus padėtis / Fetal position",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11875-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/614"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetalPrimordial",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalPrimordial",
+        "short": "Vaisiaus pirmeiga / Fetal primordial",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1606"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/615"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

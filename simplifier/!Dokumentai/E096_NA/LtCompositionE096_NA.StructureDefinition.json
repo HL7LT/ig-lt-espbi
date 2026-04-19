@@ -1,0 +1,1540 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e096-an",
+  "name": "LtEspbiCompositionE096_AN",
+  "status": "draft",
+  "description": "E096-AN Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifier/DocCode",
+                  "code": "01.0004",
+                  "display": "Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai"
+                }
+              ],
+              "text": "Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding",
+        "path": "Composition.type.coding",
+        "short": "Dokumento tipas E096-AN  dokumentui / Document type by loinc for E096-AN document"
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://esveikata.lt/classifier/DocCode"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "01.0004"
+      },
+      {
+        "id": "Composition.type.text",
+        "path": "Composition.type.text",
+        "short": "Dokumento pavadinimas  E096-AN dokumentui / Document title for E096-AN document."
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "definition": "Dokumento parengimo asmens sveikatos priežiūros įstaigoje data ir laikas.\r\n\r\nNegali būti ateities laikas. Laikas <= dabartinis laikas"
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "E096-AN Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/EventType",
+                    "code": "7",
+                    "display": "Atvykimas į SPĮ gauti stacionarinių paslaugų"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Provenance/1112230001"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader",
+        "path": "Composition.section",
+        "sliceName": "NGNheader",
+        "short": "NGN antraštė / NGN header",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0100",
+                  "display": "NGN antraštė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0100"
+      },
+      {
+        "id": "Composition.section:NGNheader.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            },
+            {
+              "type": "value",
+              "path": "code.coding.system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyCardID",
+        "short": "Nėštumo kortelės unikalus ID / Pregnancy card unique ID",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0131",
+                  "display": "Nėštumo kortelės unikalus ID"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0131"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/31"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyFirstDay",
+        "short": "Nėštumo pirmoji diena / First day of pregnancy",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0132",
+                  "display": "Nėštumo pirmoji diena"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0132"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0132"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/32"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyWeek",
+        "short": "Nėštumo savaitė / Pregnancy week",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49051-6",
+                  "display": "Gestational age in weeks"
+                }
+              ],
+              "text": "Nėštumo savaitė"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49051-6"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49051-6"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/33"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyDay",
+        "short": "Nėštumo diena / Pregnancy day",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49052-4",
+                  "display": "Gestational age in days"
+                }
+              ],
+              "text": "Nėštumo diena"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49052-4"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49052-4"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/34"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData",
+        "path": "Composition.section",
+        "sliceName": "clinicalData",
+        "short": "Medicininiai duomenys / Clinical Data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0615",
+                  "display": "Medicininiai duomenys"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0615"
+      },
+      {
+        "id": "Composition.section:clinicalData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases",
+        "path": "Composition.section.section",
+        "sliceName": "birthLossCases",
+        "short": "Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai / Cases of near-miss and mortality during pregnancy, childbirth, or the postpartum period",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0610",
+                  "display": "Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0610"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-02-0610"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/123"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthLossCases.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied",
+        "path": "Composition.section.section",
+        "sliceName": "womanDied",
+        "short": "Moteris mirė / Woman died",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0611",
+                  "display": "Moteris mirė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0611"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0611"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/123"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:womanDied.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath",
+        "path": "Composition.section.section",
+        "sliceName": "mainCauseOfDeath",
+        "short": "Pagrindinė mirties priežastis / Main cause of death",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0613",
+                  "display": "Pagrindinė mirties priežastis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0613"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0613"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1234"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:mainCauseOfDeath.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

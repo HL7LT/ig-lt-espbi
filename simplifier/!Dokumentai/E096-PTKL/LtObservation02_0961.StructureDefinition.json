@@ -1,0 +1,134 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0961",
+  "name": "LtEspbiObservation02_0961",
+  "status": "draft",
+  "description": "Fiksuotas naujagimio gimimo laikas / Recorded time of newborn's birth",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.0961",
+                  "display": "Fiksuotas naujagimio gimimo laikas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.0961"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Fiksuotas naujagimio gimimo laikas / Recorded time of newborn's birth",
+        "definition": "Fiksuotas naujagimio gimimo laikas (E096-PTKL).\r\nData ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-09-17T14:13:54.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-eff-2-02-0961",
+            "severity": "warning",
+            "human": "Effective date ant time must not be later than the current date.",
+            "expression": "effectiveDateTime <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Procedūra atliko / The procedure performed",
+        "definition": "Procedūrą atliko (E096-PTKL).\r\nNuoroda į Gydytoją anesteziologą reanimatologą kataloge D2. Sveikatinimo specialistų katalogas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

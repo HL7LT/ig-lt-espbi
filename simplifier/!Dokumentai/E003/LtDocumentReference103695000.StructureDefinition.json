@@ -1,0 +1,497 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-103695000",
+  "name": "LtEspbiDocumentReference103695000",
+  "status": "draft",
+  "description": "Išduota medicininė pažyma / Medical Certificate given",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.implicitRules",
+        "path": "DocumentReference.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.language",
+        "path": "DocumentReference.language",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.text",
+        "path": "DocumentReference.text",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.contained",
+        "path": "DocumentReference.contained",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.extension",
+        "path": "DocumentReference.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.modifierExtension",
+        "path": "DocumentReference.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier",
+        "path": "DocumentReference.identifier",
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.identifier.extension",
+        "path": "DocumentReference.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "masterIdentifier",
+        "short": "Išduotos pažymos numeris / Certificate of No.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/CertificateNumber",
+              "value": "XX-XXXXXXX"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.id",
+        "path": "DocumentReference.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.extension",
+        "path": "DocumentReference.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.use",
+        "path": "DocumentReference.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.type",
+        "path": "DocumentReference.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.system",
+        "path": "DocumentReference.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/CertificateNumber"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.period",
+        "path": "DocumentReference.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.assigner",
+        "path": "DocumentReference.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:docVersionIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "docVersionIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:certificateNumberIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "certificateNumberIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.version",
+        "path": "DocumentReference.version",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.basedOn",
+        "path": "DocumentReference.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "current"
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.docStatus",
+        "path": "DocumentReference.docStatus",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.modality",
+        "path": "DocumentReference.modality",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type",
+        "path": "DocumentReference.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "103695000",
+                  "display": "Medicininė pažyma"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.type.id",
+        "path": "DocumentReference.type.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.extension",
+        "path": "DocumentReference.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.id",
+        "path": "DocumentReference.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.extension",
+        "path": "DocumentReference.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.system",
+        "path": "DocumentReference.type.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "DocumentReference.type.coding.version",
+        "path": "DocumentReference.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.code",
+        "path": "DocumentReference.type.coding.code",
+        "fixedCode": "103695000"
+      },
+      {
+        "id": "DocumentReference.type.coding.display",
+        "path": "DocumentReference.type.coding.display",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.type.coding.userSelected",
+        "path": "DocumentReference.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.category",
+        "path": "DocumentReference.category",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.subject.id",
+        "path": "DocumentReference.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.extension",
+        "path": "DocumentReference.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.type",
+        "path": "DocumentReference.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.identifier",
+        "path": "DocumentReference.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.display",
+        "path": "DocumentReference.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.context",
+        "path": "DocumentReference.context",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.event",
+        "path": "DocumentReference.event",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.bodySite",
+        "path": "DocumentReference.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.facilityType",
+        "path": "DocumentReference.facilityType",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.practiceSetting",
+        "path": "DocumentReference.practiceSetting",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.period",
+        "path": "DocumentReference.period",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2024-10-22T06:00:00+00:00",
+              "end": "2024-10-22T06:01:00+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.period.id",
+        "path": "DocumentReference.period.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.period.extension",
+        "path": "DocumentReference.period.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.period.start",
+        "path": "DocumentReference.period.start",
+        "short": "Nedarbingumo (nedarbingumo pažymėjimo) pradžios data / Incapacity Start Date"
+      },
+      {
+        "id": "DocumentReference.period.end",
+        "path": "DocumentReference.period.end",
+        "short": "Nedarbingumo (nedarbingumo pažymėjimo) pabaigos data / Incapacity End Date",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2024-10-22T06:43:41+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.author",
+        "path": "DocumentReference.author",
+        "short": "Pažymėjimą išrašęs specialistas / The author of certificate",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.author.id",
+        "path": "DocumentReference.author.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.extension",
+        "path": "DocumentReference.author.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.type",
+        "path": "DocumentReference.author.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.identifier",
+        "path": "DocumentReference.author.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.display",
+        "path": "DocumentReference.author.display",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.attester",
+        "path": "DocumentReference.attester",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.custodian",
+        "path": "DocumentReference.custodian",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo",
+        "path": "DocumentReference.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.description",
+        "path": "DocumentReference.description",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.securityLabel",
+        "path": "DocumentReference.securityLabel",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.id",
+        "path": "DocumentReference.content.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.extension",
+        "path": "DocumentReference.content.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.modifierExtension",
+        "path": "DocumentReference.content.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.id",
+        "path": "DocumentReference.content.attachment.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.extension",
+        "path": "DocumentReference.content.attachment.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.contentType",
+        "path": "DocumentReference.content.attachment.contentType",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "text/plain"
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.content.attachment.language",
+        "path": "DocumentReference.content.attachment.language",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.data",
+        "path": "DocumentReference.content.attachment.data",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.url",
+        "path": "DocumentReference.content.attachment.url",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.size",
+        "path": "DocumentReference.content.attachment.size",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.hash",
+        "path": "DocumentReference.content.attachment.hash",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.title",
+        "path": "DocumentReference.content.attachment.title",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.creation",
+        "path": "DocumentReference.content.attachment.creation",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.height",
+        "path": "DocumentReference.content.attachment.height",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.width",
+        "path": "DocumentReference.content.attachment.width",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.frames",
+        "path": "DocumentReference.content.attachment.frames",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.duration",
+        "path": "DocumentReference.content.attachment.duration",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.pages",
+        "path": "DocumentReference.content.attachment.pages",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.profile",
+        "path": "DocumentReference.content.profile",
+        "max": "0"
+      }
+    ]
+  }
+}

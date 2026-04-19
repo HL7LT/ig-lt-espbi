@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-direct",
+  "name": "LtEspbiConditionDeathCauseDirect",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "definition": "Nurodoma mirties priežasties kategorija: direct (\"Tiesioginė mirties priežastis\").",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DeathCauseCategory",
+                  "code": "direct",
+                  "display": "Tiesioginė mirties priežastis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.category.coding.code",
+        "path": "Condition.category.coding.code",
+        "fixedCode": "direct"
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "definition": "Tiesioginės mirties priežasties kodas.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am arba klasifikatoriuje rare-diseases."
+      },
+      {
+        "id": "Condition.code.text",
+        "path": "Condition.code.text",
+        "definition": "Į medicininį mirties liudijimą įrašomas tiesioginės mirties priežasties tekstas."
+      }
+    ]
+  }
+}

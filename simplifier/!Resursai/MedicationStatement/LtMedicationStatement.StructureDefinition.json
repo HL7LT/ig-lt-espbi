@@ -1,0 +1,243 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-statement",
+  "name": "LtEspbiMedicationStatement",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationStatement",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MedicationStatement",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationStatement.id",
+        "path": "MedicationStatement.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.meta",
+        "path": "MedicationStatement.meta",
+        "short": "Resurso versijos informacija / Resource version information",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.status",
+        "path": "MedicationStatement.status",
+        "short": "Būsena / A code representing the status of recording the medication statement.",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas https://www.hl7.org/fhir/valueset-medication-statement-status.html. \r\nGalimos reikšmės: recorded | entered-in-error | draft.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.medication",
+        "path": "MedicationStatement.medication",
+        "short": "Nuoroda į vaisto resursą / Reference to medication given",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "reference": {
+                "reference": "Medication/123456"
+              }
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.medication.reference",
+        "path": "MedicationStatement.medication.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationStatement.medication.reference.reference",
+        "path": "MedicationStatement.medication.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationStatement.subject",
+        "path": "MedicationStatement.subject",
+        "short": "Pacientas, vartojantis vaistus / Who is/was taking  the medication",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationStatement.subject.reference",
+        "path": "MedicationStatement.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationStatement.effective[x]",
+        "path": "MedicationStatement.effective[x]",
+        "short": "Vaistinio preparato vartojimo laikotarpis / The date/time or interval when the medication is/was/will be taken",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2025-01-01",
+              "end": "2025-01-30"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.effective[x].start",
+        "path": "MedicationStatement.effective[x].start",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.effective[x].end",
+        "path": "MedicationStatement.effective[x].end",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.reason",
+        "path": "MedicationStatement.reason",
+        "short": "Vartojimo priežastis / Reason for why the medication is being/was taken",
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.reason.reference",
+        "path": "MedicationStatement.reason.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationStatement.reason.reference.reference",
+        "path": "MedicationStatement.reason.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationStatement.dosage",
+        "path": "MedicationStatement.dosage",
+        "short": "Išsami informacija apie tai, kaip vaistai yra / buvo vartojami arba turėtų būti vartojami / Details of how medication is/was taken or should be taken",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.timing",
+        "path": "MedicationStatement.dosage.timing",
+        "short": "Dozuočių skaičius /  Number of doses",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueTiming": {
+              "repeat": {
+                "frequency": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationStatement.dosage.timing.repeat",
+        "path": "MedicationStatement.dosage.timing.repeat",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.timing.repeat.frequency",
+        "path": "MedicationStatement.dosage.timing.repeat.frequency",
+        "short": "Nurodoma, kiek kartų vaistas vartojamas per numatytą laikotarpį / Indicates the number of repetitions that should occur within a period. ",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.timing.repeat.period",
+        "path": "MedicationStatement.dosage.timing.repeat.period",
+        "short": "Laikotarpio trukmė, kuriam taikomas pasikartojimų dažnis / The duration to which the frequency applies. I.e. Event occurs frequency times per period",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.timing.repeat.periodUnit",
+        "path": "MedicationStatement.dosage.timing.repeat.periodUnit",
+        "short": "Laikotarpio laiko vienetai, nurodyti pagal UCUM standartą / The units of time for the period in UCUM units ",
+        "definition": "FHIR R5 rekomenduoja naudoti šiuos laikotarpio laiko vienetus:  s | min | h | d | wk | mo | a.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.route",
+        "path": "MedicationStatement.dosage.route",
+        "short": "Vaistinio preparato vartojimo būdas / How drug should enter body",
+        "definition": "FHIR R5 rekomenduojama naudoti reikšmių rinkinį http://hl7.org/fhir/ValueSet/route-codes, kuriame pateikiamos 163 galimos reikšmės.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "text": "įkvėpti"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.route.text",
+        "path": "MedicationStatement.dosage.route.text",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.doseAndRate",
+        "path": "MedicationStatement.dosage.doseAndRate",
+        "short": "Dozė /Dose",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "MedicationStatement.dosage.doseAndRate.dose[x]",
+        "path": "MedicationStatement.dosage.doseAndRate.dose[x]",
+        "short": "Vaistinio preparato kiekis vienai dozei / Amount of medication per dose",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 22,
+              "unit": "ml",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

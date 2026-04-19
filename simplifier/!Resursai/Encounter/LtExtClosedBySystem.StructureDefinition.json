@@ -1,0 +1,49 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-encounter/closedBySystem",
+  "name": "LtEspbiExtClosedBySystem",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Encounter"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Požymis, kad atvykimas buvo automatiškai uždarytas sistemos / True if encounter was closed by the system automatically",
+        "definition": "Požymis, kad atvykimas buvo automatiškai uždarytas sistemos.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-encounter/closedBySystem"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-questionnaire-response",
+  "name": "LtEspbiQuestionnaireResponse",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "QuestionnaireResponse",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "QuestionnaireResponse.id",
+        "path": "QuestionnaireResponse.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.meta",
+        "path": "QuestionnaireResponse.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.questionnaire",
+        "path": "QuestionnaireResponse.questionnaire",
+        "short": "Nuoroda (kanoninis URL) į klausimyną / Canonical URL of Questionnaire being answered",
+        "definition": "Nuoroda (kanoninis URL) į klausimyną, kuriame detaliai apibrėžti klausimai, į kuriuos pateikiami atsakymai.",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-questionnaire"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.status",
+        "path": "QuestionnaireResponse.status",
+        "short": "Klausimyno atsakymų statusas / The current state of the questionnaire response",
+        "definition": "Klausimyno atsakymų statusas.\r\nFHIR R5 atveju turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/questionnaire-answers-status|5.0.0. Galimos reikšmės:  in-progress | completed | amended | entered-in-error | stopped",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.subject",
+        "path": "QuestionnaireResponse.subject",
+        "short": "Paciento duomenys / Information about the patient",
+        "definition": "Pacientas, apie kurį teikiami klausimyno atsakymai.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.subject.reference",
+        "path": "QuestionnaireResponse.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.encounter",
+        "path": "QuestionnaireResponse.encounter",
+        "short": "Atvykimo duomenys / Patient Reception Data",
+        "definition": "Nuoroda į atvykimo duomenis.",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.encounter.reference",
+        "path": "QuestionnaireResponse.encounter.reference",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.authored",
+        "path": "QuestionnaireResponse.authored",
+        "short": "Vertinimo data / Assessment date",
+        "definition": "Atsakymo į klausimyną (su pacientu susijusios informacijos vertinimo) data ir / arba laikas (kada vartotojas paskutinį kartą atliko resurso informacijos pakeitimus).",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-10-20T08:17:05+00:00"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.author",
+        "path": "QuestionnaireResponse.author",
+        "short": "Sveikatos priežiūros specialisto duomenys / Information about health care specialist",
+        "definition": "Informacija apie atsakymus į klausimyną teikiantį sveikatos priežiūros specialistą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000015885"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.author.reference",
+        "path": "QuestionnaireResponse.author.reference",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item",
+        "path": "QuestionnaireResponse.item",
+        "short": "Atsakymų į klausimyną elementas / Questionnaire response element",
+        "definition": "Atsakymų į klausimyną elementas, atitinkantis tam tikrą Questionnaire resurso, į kurį teikiami atsakymai, grupę arba klausimą. Atsakymai į klausimyną (QuestionnaireResponse resursas) gali turėti daug aukščiausio lygio elementų (grupių ir atsakymų į klausimus), o kiekvienas jų gali turėti daug \"vaikinių\" elementų (grupių ir atsakymų į klausimus) ir taip toliau.\r\nAtsakymų į klausimus elementų struktūrą ir hierarchiją apibrėžia Questionnaire resursas, į kurį teikiami atsakymai. Klausimyno struktūros išlaikymui atsakymuose į klausimyną turi būti ne tik elementai, atitinkantys klausimyno klausimus, bet ir elementai, atitinkantys klausimyno klausimų grupes (išskyrus tuos atvejus, kai klausimyne nurodyta, kad klausimų grupė yra neprivaloma ir nepateikiamas nei vienas atsakymas į šios klausimų grupės klausimą). Klausimų grupės elemento atveju pateikiamas \"tuščias\" atsakymas (atsakymo į klausimą elemente nurodoma tik \"linkId\" reikšmė, o \"answer\" reikšmė nenurodoma).\r\nQuestionnaireResponse resurso grupių / atsakymų struktūra atitinka Questionnaire resurso grupių / klausimų struktūrą, išskyrus šiuos atvejus:\r\n1. QuestionnaireResponse resurse gali nebūti tam tikrų grupių / atsakymų, jei prie atitinkamų Questionnaire resurso grupių / klausimų buvo nurodyta, kad jie yra neprivalomi.\r\n2. Jei Questionnaire resurse nurodytas elementas yra klausimas ir jo \"tėvinis\" elementas yra ne klausimų grupė, o klausimas, jis yra laikomas \"tėvinį\" klausimą detalizuojančiu klausimu, todėl atsakymas į jį QuestionnaireResponse resurse yra pateikiamas ne kaip item.item elementas, o kaip item.answer.item elementas.",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "short": "Nuoroda į Questionnaire elementą / Link to questionnaire item",
+        "definition": "Nuoroda į Questionnaire elementą (klausimų grupę arba klausimą, į kurį pateikiamas atsakymas). Pateikiama atitinkamo Questionnaire resurso klausimo ar klausimų grupės \"linkId\" reikšmė.",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.text",
+        "path": "QuestionnaireResponse.item.text",
+        "short": "Klausimų grupės pavadinimas arba klausimo tekstas / Name for group or question text",
+        "definition": "Rekomenduojama, kad QuestionnaireResponse resurse būtų atkartojamas atitinkame Questionnaire resurse nurodytas elemento tekstas (klausimų grupės pavadinimas arba klausimo tekstas). Tai palengvintų QuestionnaireResponse resurso peržiūrą, nes būtų galima jį peržiūrėti be atitinkamo Questionnaire resurso duomenų. Sprendimas, ar šis resurso elementas turėtų būti privalomas, turėtų būti priimtas FHIR R5 diegimo į ESPBI metu.",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "short": "Atsakymas (-ai) į klausimyno klausimą / Answer(s) to the question",
+        "definition": "Atsakymas į klausimyno klausimą. Atsakymo duomenų tipas ir kiti apribojimai (pvz., ar atsakymas turi atitikti reikšmę iš galimų reikšmių sąrašo, ar gali būti pateikti keli atsakymai į klausimą ir kt.) priklauso nuo klausimo apibrėžimo klausimyne.",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer.value[x]",
+        "path": "QuestionnaireResponse.item.answer.value[x]",
+        "short": "Atsakymo į klausimą duomenys / Question answer data",
+        "definition": "Atsakymo į klausimą duomenys. Atsakymo duomenų tipas turi atitikti atitinkamo Questionnaire klausimo elemente nurodytą atsakymo duomenų tipą.",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer.item",
+        "path": "QuestionnaireResponse.item.answer.item",
+        "short": "Atsakymo į klausimą \"vaikinis\" elementas (-ai) / Child item(s) of question",
+        "definition": "Atsakymo į klausimą \"vaikinis\" elementas (-ai): atsakymas (-ai) į sub-klausimą (-us) ir / ar sub-klausimų grupė (-ės).",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.item",
+        "path": "QuestionnaireResponse.item.item",
+        "short": "Klausimų grupės \"vaikinis\" elementas (-ai) / Child item(s) of group item",
+        "definition": "Klausimų grupės \"vaikinis\" elementas (-ai): atsakymas (-ai) į klausimų grupės klausimą (-us) ir / ar sub-grupė (-ės).",
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,1984 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-dispense-evai-01",
+  "name": "LtEspbiDeviceDispenseEvai_01",
+  "status": "draft",
+  "description": "MPP ar medicinos prietaiso išdavimo duomenys / MPP or medical device dispense",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DeviceDispense",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-dispence",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DeviceDispense.implicitRules",
+        "path": "DeviceDispense.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.language",
+        "path": "DeviceDispense.language",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.text",
+        "path": "DeviceDispense.text",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.contained",
+        "path": "DeviceDispense.contained",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtStatusChangeInformation"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusWho",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "statusWho"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusWho.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Practitioner/1000010475"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusWhen",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "statusWhen"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusWhen.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2015-03-06T12:00:56.037+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusConfirmedBy",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "statusConfirmedBy"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusConfirmedBy.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Practitioner/1000010475"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusConfirmationDate",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "statusConfirmationDate"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation.extension:statusConfirmationDate.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2015-03-06T12:00:56.037+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceCompensationTag",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceCompensationTag"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceCompensationTag.value[x]",
+        "path": "DeviceDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDueDate",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceDueDate"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDueDate.value[x]",
+        "path": "DeviceDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDate": "2015-11-11"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDevicePrice"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:retail",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "retail"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:retail.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 10,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:paid",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "paid"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:paid.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 7,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:compensated",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "compensated"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:compensated.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 3,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:techPaid",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "techPaid"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice.extension:techPaid.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 3,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDescription",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceDescription",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-description"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDescription.value[x]",
+        "path": "DeviceDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Mėtų arbata."
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceDispensePackage",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-dispense-package"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage.extension:name",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "name"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage.extension:name.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "N10"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage.extension:size",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "size"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage.extension:size.value[x].value",
+        "path": "DeviceDispense.extension.extension.value[x].value",
+        "fixedDecimal": 5
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage.extension:size.value[x].unit",
+        "path": "DeviceDispense.extension.extension.value[x].unit",
+        "fixedString": "N"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage.extension:size.value[x].system",
+        "path": "DeviceDispense.extension.extension.value[x].system",
+        "fixedUri": "Quantity"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispensePackage.extension:size.value[x].code",
+        "path": "DeviceDispense.extension.extension.value[x].code",
+        "fixedCode": "N"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceRemotePharmacyTag",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceRemotePharmacyTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-remote-pharmacy-tag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceRemotePharmacyTag.value[x]",
+        "path": "DeviceDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLowestPriceTag",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceLowestPriceTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-lowest-price-tag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLowestPriceTag.value[x]",
+        "path": "DeviceDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceMppBarcode",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceMppBarcode",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-mpp-barcode"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceMppBarcode.value[x]",
+        "path": "DeviceDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2789444566221"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtLowIncome",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtLowIncome",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/lowIncome"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtLowIncome.extension:surchargeCompensated",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "surchargeCompensated"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtLowIncome.extension:surchargeCompensated.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 3,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtLowIncome.extension:tag",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "tag"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtLowIncome.extension:tag.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtLowIncome.extension:surchargeEligible",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "surchargeEligible",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispenseTags",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceDispenseTags",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-dispense-tags"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispenseTags.extension:TagsNoValidPrescriptionTag",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "TagsNoValidPrescriptionTag"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispenseTags.extension:TagsNoValidPrescriptionTag.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispenseTags.extension:OverLimitQuantityTag",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "OverLimitQuantityTag"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDispenseTags.extension:OverLimitQuantityTag.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceLenses",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-lenses"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:opticalDevice",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "opticalDevice"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:opticalDevice.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": " http://hl7.org/fhir/ValueSet/vision-product",
+                  "code": "al"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:type",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "type"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:type.value[x]",
+        "path": "DeviceDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type",
+                  "code": "sd"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification",
+        "path": "DeviceDispense.extension.extension",
+        "sliceName": "lensSpecification"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:eye",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "eye"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:eye.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "fixedCode": "example",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "left"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:sphere",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "sphere"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:sphere.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:cylinder",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "cylinder"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:cylinder.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:prism",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "prism"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:prism.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:cylinderAxis",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "cylinderAxis"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:cylinderAxis.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 80,
+              "unit": "Degrees",
+              "system": "http://unitsofmeasure.org",
+              "code": "deg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:add",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "add"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:add.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:prismBase",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "prismBase"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:prismBase.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/vision-base-codes",
+                  "code": "bu",
+                  "display": "Bazė nukreipta į viršų"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:prismAxis",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "prismAxis"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:prismAxis.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 80,
+              "unit": "Degrees",
+              "system": "http://unitsofmeasure.org",
+              "code": "deg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:nearPD",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "nearPD"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:nearPD.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:distancePD",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "distancePD"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:distancePD.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:backCurve",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "backCurve"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:backCurve.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:diameter",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "diameter"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:diameter.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:distanceBetweenPupils",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "distanceBetweenPupils"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 20,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:description",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "description"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:description.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Artumui"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:note",
+        "path": "DeviceDispense.extension.extension.extension",
+        "sliceName": "note"
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceLenses.extension:lensSpecification.extension:note.value[x]",
+        "path": "DeviceDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Gražiai išpjauti stiklus."
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDeliveryDate",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceDeliveryDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-delivery-date"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.modifierExtension",
+        "path": "DeviceDispense.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.identifier",
+        "path": "DeviceDispense.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.basedOn",
+        "path": "DeviceDispense.basedOn",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DeviceRequest/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.id",
+        "path": "DeviceDispense.basedOn.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension",
+        "path": "DeviceDispense.basedOn.extension",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePrescriptionDocumentNumber",
+        "path": "DeviceDispense.basedOn.extension",
+        "sliceName": "ltEspbiExtDevicePrescriptionDocumentNumber",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-prescription-document-number"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePrescriptionDocumentNumber.value[x]",
+        "path": "DeviceDispense.basedOn.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1234567891"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtPrescriptionForm",
+        "path": "DeviceDispense.basedOn.extension",
+        "sliceName": "ltEspbiExtPrescriptionForm",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/prescriptionForm"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtPrescriptionForm.value[x]",
+        "path": "DeviceDispense.basedOn.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-prescription-form",
+                  "code": "el"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription",
+        "path": "DeviceDispense.basedOn.extension",
+        "sliceName": "ltEspbiExtDevicePaperPrescription",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-paper-prescription"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:type",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "type"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:type.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/medicationPrescriptionType",
+                  "code": "va",
+                  "display": "Vaistas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "form"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/PaperPrescriptionForm",
+                  "code": "1",
+                  "display": "1 Forma"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:date",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "date"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:date.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDate": "2015-03-06"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:validityPeriod",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "validityPeriod"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:validityPeriod.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2014-03-06T12:00:56.037+00:00",
+              "end": "2015-03-06T12:00:56.037+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:series",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "series"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:series.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "ABC"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:number",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "number"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:number.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1234567891"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:conditionCode",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "conditionCode"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:conditionCode.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/TLK-10-AM",
+                  "code": "J11.1",
+                  "display": "Gripas su kitais kvėpavimo takų pažeidimais, virusas nenustatytas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:compensationCode",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "compensationCode"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:compensationCode.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Medication/CompensationCode",
+                  "code": "1",
+                  "display": "Vaikui (100%)"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:aagaSgasNumber",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "aagaSgasNumber"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:aagaSgasNumber.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2014/123456/123"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:authorLabelNumber",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "authorLabelNumber"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:authorLabelNumber.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "12345678"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:author",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "author"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:author.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000000003"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:authorDepartment",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "authorDepartment"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:authorDepartment.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/123546789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:dispenserNote",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "dispenserNote"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:dispenserNote.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Pastaba farmacijos specialistui"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:quantity",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "quantity"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:quantity.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "mg",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "mg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "tags"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:tagsGkTag",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "tagsGkTag"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:tagsGkTag.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:specialTag",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "specialTag"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:specialTag.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:specialistDecisionTag",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "specialistDecisionTag"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:specialistDecisionTag.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:labelingExemptionTag",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "labelingExemptionTag"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:tags.extension:labelingExemptionTag.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:deviceReference",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "deviceReference"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:deviceReference.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Device/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicalAids",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "medicalAids"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicalAids.extension:groupCode",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "groupCode"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicalAids.extension:groupCode.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "67890"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicalAids.extension:groupName",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "groupName"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicalAids.extension:groupName.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Respiracinės pagalbos priemonės"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicalAids.extension:name",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "name"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicalAids.extension:name.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Astmos inhaliatorius"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "lenses"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:opticalDevice",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "opticalDevice"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:opticalDevice.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": " http://hl7.org/fhir/ValueSet/vision-product",
+                  "code": "al"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:type",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "type"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:type.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type",
+                  "code": "sd"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "lensSpecification"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:eye",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "eye"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:eye.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "left"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:sphere",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "sphere"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:sphere.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:cylinder",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "cylinder"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:cylinder.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:cylinderAxis",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "cylinderAxis"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 80,
+              "unit": "Degrees",
+              "system": "http://unitsofmeasure.org",
+              "code": "deg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:add",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "add"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:add.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:prism",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "prism"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:prism.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Diopter",
+              "system": "http://unitsofmeasure.org",
+              "code": "[diop]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:prismBase",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "prismBase"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:prismBase.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/vision-base-codes",
+                  "code": "bu",
+                  "display": "Bazė nukreipta į viršų"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:prismAxis",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "prismAxis"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 80,
+              "unit": "Degrees",
+              "system": "http://unitsofmeasure.org",
+              "code": "deg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:nearPD",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "nearPD"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:nearPD.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:distancePD",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "distancePD"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:distancePD.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:backCurve",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "backCurve"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:backCurve.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:diameter",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "diameter"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:diameter.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "distanceBetweenPupils"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:description",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "description"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:description.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "fixedString": "Aprašymas",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Gražiai išpjauti stiklus."
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:note",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension",
+        "sliceName": "note"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:lenses.extension:lensSpecification.extension:note.value[x]",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Gražiai išpjauti stiklus."
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "form2"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2.extension:tag",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "tag"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2.extension:tag.url",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2.extension:series",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "series"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2.extension:series.url",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.url",
+        "fixedUri": "series"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2.extension:number",
+        "path": "DeviceDispense.basedOn.extension.extension.extension",
+        "sliceName": "number"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2.extension:number.url",
+        "path": "DeviceDispense.basedOn.extension.extension.extension.url",
+        "fixedUri": "number"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:form2.url",
+        "path": "DeviceDispense.basedOn.extension.extension.url",
+        "fixedUri": "form2"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicationReference",
+        "path": "DeviceDispense.basedOn.extension.extension",
+        "sliceName": "medicationReference"
+      },
+      {
+        "id": "DeviceDispense.basedOn.extension:ltEspbiExtDevicePaperPrescription.extension:medicationReference.url",
+        "path": "DeviceDispense.basedOn.extension.extension.url",
+        "fixedUri": "medicationReference"
+      },
+      {
+        "id": "DeviceDispense.basedOn.type",
+        "path": "DeviceDispense.basedOn.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.basedOn.identifier",
+        "path": "DeviceDispense.basedOn.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.basedOn.display",
+        "path": "DeviceDispense.basedOn.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.partOf",
+        "path": "DeviceDispense.partOf",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.status",
+        "path": "DeviceDispense.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "in-progress"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.statusReason",
+        "path": "DeviceDispense.statusReason",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.category",
+        "path": "DeviceDispense.category",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.device",
+        "path": "DeviceDispense.device",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "reference": {
+                "reference": "Device/1234567"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.device.id",
+        "path": "DeviceDispense.device.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.device.extension",
+        "path": "DeviceDispense.device.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.subject",
+        "path": "DeviceDispense.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000004454"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.subject.id",
+        "path": "DeviceDispense.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.subject.extension",
+        "path": "DeviceDispense.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.subject.type",
+        "path": "DeviceDispense.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.subject.identifier",
+        "path": "DeviceDispense.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.subject.display",
+        "path": "DeviceDispense.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.receiver",
+        "path": "DeviceDispense.receiver",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000004454"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.receiver.id",
+        "path": "DeviceDispense.receiver.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.receiver.extension",
+        "path": "DeviceDispense.receiver.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.receiver.type",
+        "path": "DeviceDispense.receiver.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.receiver.identifier",
+        "path": "DeviceDispense.receiver.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.receiver.display",
+        "path": "DeviceDispense.receiver.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.encounter",
+        "path": "DeviceDispense.encounter",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.supportingInformation",
+        "path": "DeviceDispense.supportingInformation",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.id",
+        "path": "DeviceDispense.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.extension",
+        "path": "DeviceDispense.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.modifierExtension",
+        "path": "DeviceDispense.performer.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.function",
+        "path": "DeviceDispense.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.actor",
+        "path": "DeviceDispense.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Practitioner/1000004440"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.performer.actor.id",
+        "path": "DeviceDispense.performer.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.actor.extension",
+        "path": "DeviceDispense.performer.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.actor.type",
+        "path": "DeviceDispense.performer.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.actor.identifier",
+        "path": "DeviceDispense.performer.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.performer.actor.display",
+        "path": "DeviceDispense.performer.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.location",
+        "path": "DeviceDispense.location",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.type",
+        "path": "DeviceDispense.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.quantity",
+        "path": "DeviceDispense.quantity",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "mg",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "mg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.quantity.id",
+        "path": "DeviceDispense.quantity.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.quantity.extension",
+        "path": "DeviceDispense.quantity.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.preparedDate",
+        "path": "DeviceDispense.preparedDate",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.whenHandedOver",
+        "path": "DeviceDispense.whenHandedOver",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2015-03-06T12:00:56.037+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.destination",
+        "path": "DeviceDispense.destination",
+        "max": "0"
+      },
+      {
+        "id": "DeviceDispense.note",
+        "path": "DeviceDispense.note",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Gausiai užgerti vandeniu."
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.usageInstruction",
+        "path": "DeviceDispense.usageInstruction",
+        "example": [
+          {
+            "label": "example",
+            "valueMarkdown": "Vartojimo instrukcija"
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.eventHistory",
+        "path": "DeviceDispense.eventHistory",
+        "max": "0"
+      }
+    ]
+  }
+}

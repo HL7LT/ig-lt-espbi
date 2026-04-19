@@ -1,0 +1,591 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "name": "LtEspbiProcedureDomain",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.implicitRules",
+        "path": "Procedure.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.language",
+        "path": "Procedure.language",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.text",
+        "path": "Procedure.text",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.contained",
+        "path": "Procedure.contained",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.modifierExtension",
+        "path": "Procedure.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.identifier",
+        "path": "Procedure.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.instantiatesCanonical",
+        "path": "Procedure.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.instantiatesUri",
+        "path": "Procedure.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.basedOn",
+        "path": "Procedure.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf.id",
+        "path": "Procedure.partOf.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf.extension",
+        "path": "Procedure.partOf.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf.reference",
+        "path": "Procedure.partOf.reference",
+        "min": 1
+      },
+      {
+        "id": "Procedure.partOf.type",
+        "path": "Procedure.partOf.type",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf.identifier",
+        "path": "Procedure.partOf.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf.display",
+        "path": "Procedure.partOf.display",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.status",
+        "path": "Procedure.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.statusReason",
+        "path": "Procedure.statusReason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.category",
+        "path": "Procedure.category",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code.id",
+        "path": "Procedure.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code.extension",
+        "path": "Procedure.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code.coding.id",
+        "path": "Procedure.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code.coding.extension",
+        "path": "Procedure.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code.coding.version",
+        "path": "Procedure.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code.coding.userSelected",
+        "path": "Procedure.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.subject",
+        "path": "Procedure.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/123456789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.subject.id",
+        "path": "Procedure.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.subject.extension",
+        "path": "Procedure.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.subject.type",
+        "path": "Procedure.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.subject.identifier",
+        "path": "Procedure.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.subject.display",
+        "path": "Procedure.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focus",
+        "path": "Procedure.focus",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.encounter",
+        "path": "Procedure.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.recorded",
+        "path": "Procedure.recorded",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.recorder",
+        "path": "Procedure.recorder",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reported[x]",
+        "path": "Procedure.reported[x]",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.id",
+        "path": "Procedure.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.extension",
+        "path": "Procedure.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.modifierExtension",
+        "path": "Procedure.performer.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.function.id",
+        "path": "Procedure.performer.function.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.function.extension",
+        "path": "Procedure.performer.function.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.function.coding.id",
+        "path": "Procedure.performer.function.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.function.coding.extension",
+        "path": "Procedure.performer.function.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.function.coding.version",
+        "path": "Procedure.performer.function.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.function.coding.userSelected",
+        "path": "Procedure.performer.function.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/12345678"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer.actor.id",
+        "path": "Procedure.performer.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor.extension",
+        "path": "Procedure.performer.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor.type",
+        "path": "Procedure.performer.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor.identifier",
+        "path": "Procedure.performer.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor.display",
+        "path": "Procedure.performer.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.onBehalfOf",
+        "path": "Procedure.performer.onBehalfOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.period",
+        "path": "Procedure.performer.period",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.location",
+        "path": "Procedure.location",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.id",
+        "path": "Procedure.reason.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.extension",
+        "path": "Procedure.reason.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.concept.id",
+        "path": "Procedure.reason.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.concept.extension",
+        "path": "Procedure.reason.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.concept.coding.id",
+        "path": "Procedure.reason.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.concept.coding.extension",
+        "path": "Procedure.reason.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.concept.coding.version",
+        "path": "Procedure.reason.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.concept.coding.userSelected",
+        "path": "Procedure.reason.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason.reference",
+        "path": "Procedure.reason.reference",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite.id",
+        "path": "Procedure.bodySite.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite.extension",
+        "path": "Procedure.bodySite.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite.coding",
+        "path": "Procedure.bodySite.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.bodySite.coding.id",
+        "path": "Procedure.bodySite.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite.coding.extension",
+        "path": "Procedure.bodySite.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite.coding.system",
+        "path": "Procedure.bodySite.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Procedure.bodySite.coding.version",
+        "path": "Procedure.bodySite.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite.coding.code",
+        "path": "Procedure.bodySite.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Procedure.bodySite.coding.display",
+        "path": "Procedure.bodySite.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.bodySite.coding.userSelected",
+        "path": "Procedure.bodySite.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite.text",
+        "path": "Procedure.bodySite.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.outcome",
+        "path": "Procedure.outcome",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.report",
+        "path": "Procedure.report",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.id",
+        "path": "Procedure.complication.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.extension",
+        "path": "Procedure.complication.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.concept.id",
+        "path": "Procedure.complication.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.concept.extension",
+        "path": "Procedure.complication.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.concept.coding.id",
+        "path": "Procedure.complication.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.concept.coding.extension",
+        "path": "Procedure.complication.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.concept.coding.system",
+        "path": "Procedure.complication.concept.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Procedure.complication.concept.coding.version",
+        "path": "Procedure.complication.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.concept.coding.code",
+        "path": "Procedure.complication.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Procedure.complication.concept.coding.userSelected",
+        "path": "Procedure.complication.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.reference.id",
+        "path": "Procedure.complication.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.reference.extension",
+        "path": "Procedure.complication.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.reference.reference",
+        "path": "Procedure.complication.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "Procedure.complication.reference.type",
+        "path": "Procedure.complication.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.reference.identifier",
+        "path": "Procedure.complication.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.reference.display",
+        "path": "Procedure.complication.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.followUp",
+        "path": "Procedure.followUp",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note.id",
+        "path": "Procedure.note.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note.extension",
+        "path": "Procedure.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note.author[x]",
+        "path": "Procedure.note.author[x]",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note.time",
+        "path": "Procedure.note.time",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice.extension",
+        "path": "Procedure.focalDevice.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice.modifierExtension",
+        "path": "Procedure.focalDevice.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice.action",
+        "path": "Procedure.focalDevice.action",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice.manipulated.extension",
+        "path": "Procedure.focalDevice.manipulated.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice.manipulated.reference",
+        "path": "Procedure.focalDevice.manipulated.reference",
+        "min": 1
+      },
+      {
+        "id": "Procedure.focalDevice.manipulated.type",
+        "path": "Procedure.focalDevice.manipulated.type",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice.manipulated.identifier",
+        "path": "Procedure.focalDevice.manipulated.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice.manipulated.display",
+        "path": "Procedure.focalDevice.manipulated.display",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.used",
+        "path": "Procedure.used",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo.id",
+        "path": "Procedure.supportingInfo.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo.extension",
+        "path": "Procedure.supportingInfo.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo.reference",
+        "path": "Procedure.supportingInfo.reference",
+        "min": 1
+      },
+      {
+        "id": "Procedure.supportingInfo.type",
+        "path": "Procedure.supportingInfo.type",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo.identifier",
+        "path": "Procedure.supportingInfo.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo.display",
+        "path": "Procedure.supportingInfo.display",
+        "max": "0"
+      }
+    ]
+  }
+}

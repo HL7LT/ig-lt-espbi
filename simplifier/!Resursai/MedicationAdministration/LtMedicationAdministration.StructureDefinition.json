@@ -1,0 +1,158 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-administration",
+  "name": "LtEspbiMedicationAdministration",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationAdministration",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationAdministration.id",
+        "path": "MedicationAdministration.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.status",
+        "path": "MedicationAdministration.status",
+        "short": "Medikamentinio gydymo būsena / Medication administration status",
+        "definition": "Medikamentinio gydymo būseną. \r\n\r\nFHIR R5 rekomenduojamas klasifikatorius http://hl7.org/fhir/ValueSet/medication-admin-status. Galimos reikšmės: in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown.\r\n",
+        "example": [
+          {
+            "label": "užbaigta",
+            "valueCode": "completed"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.medication",
+        "path": "MedicationAdministration.medication",
+        "short": "Naudotas vaistas / Identifies the medication that was administered. ",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.medication.reference",
+        "path": "MedicationAdministration.medication.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationAdministration.medication.reference.reference",
+        "path": "MedicationAdministration.medication.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationAdministration.subject",
+        "path": "MedicationAdministration.subject",
+        "short": "Pacientas, kuriam taikomas medikamentinis gydymas / Who received medication",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.subject.reference",
+        "path": "MedicationAdministration.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationAdministration.occurence[x]",
+        "path": "MedicationAdministration.occurence[x]",
+        "short": "Konkreti data / laikas arba laiko intervalas, per kurį buvo taikytas medikamentinis gydymas / Specific date/time or interval of time during which the administration took place (or did not take place)",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2025-01-01",
+              "end": "2025-01-30"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.reason",
+        "path": "MedicationAdministration.reason",
+        "short": "Vartojimo priežastis / Concept, condition or observation that supports why the medication was administered",
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.reason.concept",
+        "path": "MedicationAdministration.reason.concept",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.reason.concept.text",
+        "path": "MedicationAdministration.reason.concept.text",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.dosage",
+        "path": "MedicationAdministration.dosage",
+        "short": "Išsami informacija apie tai, kaip buvo taikytas medikamentinis gydymas / Details of how medication was taken",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.dosage.route",
+        "path": "MedicationAdministration.dosage.route",
+        "short": "Vaistinio preparato vartojimo būdas / Path of substance into body",
+        "definition": "FHIR R5 rekomenduojama naudoti reikšmių rinkinį http://hl7.org/fhir/ValueSet/route-codes, kuriame pateikiamos 163 galimos reikšmės.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "text": "įkvėpti"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.dosage.route.text",
+        "path": "MedicationAdministration.dosage.route.text",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.dosage.rate[x]",
+        "path": "MedicationAdministration.dosage.rate[x]",
+        "short": "Dozės kiekis per laiko vienetą / Dose quantity per unit of time",
+        "mustSupport": true
+      }
+    ]
+  }
+}

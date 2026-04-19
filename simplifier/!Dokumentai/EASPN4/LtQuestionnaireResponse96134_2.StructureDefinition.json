@@ -1,0 +1,3696 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-questionnaire-response-96134-2",
+  "name": "LtEspbiQuestionnaireResponse96134_2",
+  "status": "draft",
+  "description": "Atsakymai į ASPN-4 klausimyną",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "QuestionnaireResponse",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-questionnaire-response",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "QuestionnaireResponse.implicitRules",
+        "path": "QuestionnaireResponse.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.language",
+        "path": "QuestionnaireResponse.language",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.text",
+        "path": "QuestionnaireResponse.text",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.contained",
+        "path": "QuestionnaireResponse.contained",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.extension",
+        "path": "QuestionnaireResponse.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.modifierExtension",
+        "path": "QuestionnaireResponse.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.identifier",
+        "path": "QuestionnaireResponse.identifier",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.basedOn",
+        "path": "QuestionnaireResponse.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.partOf",
+        "path": "QuestionnaireResponse.partOf",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.questionnaire",
+        "path": "QuestionnaireResponse.questionnaire",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-questionnaire-96134-2"
+            ]
+          }
+        ],
+        "fixedCanonical": "http://esveikata.lt/fhir/Questionnaire/lt-espbi-questionnaire-96134-2"
+      },
+      {
+        "id": "QuestionnaireResponse.subject.id",
+        "path": "QuestionnaireResponse.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.subject.extension",
+        "path": "QuestionnaireResponse.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.subject.type",
+        "path": "QuestionnaireResponse.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.subject.identifier",
+        "path": "QuestionnaireResponse.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.subject.display",
+        "path": "QuestionnaireResponse.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.encounter.id",
+        "path": "QuestionnaireResponse.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.encounter.extension",
+        "path": "QuestionnaireResponse.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.encounter.type",
+        "path": "QuestionnaireResponse.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.encounter.identifier",
+        "path": "QuestionnaireResponse.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.encounter.display",
+        "path": "QuestionnaireResponse.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.author.id",
+        "path": "QuestionnaireResponse.author.id",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.author.extension",
+        "path": "QuestionnaireResponse.author.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.author.type",
+        "path": "QuestionnaireResponse.author.type",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.author.identifier",
+        "path": "QuestionnaireResponse.author.identifier",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.author.display",
+        "path": "QuestionnaireResponse.author.display",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.source",
+        "path": "QuestionnaireResponse.source",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item",
+        "path": "QuestionnaireResponse.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item.extension",
+        "path": "QuestionnaireResponse.item.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item.modifierExtension",
+        "path": "QuestionnaireResponse.item.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "group1",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "01.0301"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.text",
+        "path": "QuestionnaireResponse.item.text",
+        "fixedString": "Veikla"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item",
+        "path": "QuestionnaireResponse.item.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group1_q1",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0302"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Valgymas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.item:group1_q1_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group1_q1_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.item:group1_q1_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0302.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.item:group1_q1_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q1.answer.item:group1_q1_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group1_q2",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0303"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Asmens higiena"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.item:group1_q2_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group1_q2_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.item:group1_q2_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0303.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.item:group1_q2_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q2.answer.item:group1_q2_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group1_q3",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0304"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Maudymasis"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.item:group1_q3_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group1_q3_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.item:group1_q3_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0304.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.item:group1_q3_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q3.answer.item:group1_q3_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group1_q4",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0305"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Rengimasis (viršutinė kūno dalis)"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.item:group1_q4_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group1_q4_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.item:group1_q4_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0305.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.item:group1_q4_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q4.answer.item:group1_q4_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group1_q5",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0306"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Rengimasis (apatinė kūno dalis)"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.item:group1_q5_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group1_q5_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.item:group1_q5_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0306.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.item:group1_q5_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q5.answer.item:group1_q5_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group1_q6",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0307"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Naudojimasis tualetu"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1,
+        "fixedCode": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.item:group1_q6_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group1_q6_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.item:group1_q6_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0307.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.item:group1_q6_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group1.item:group1_q6.answer.item:group1_q6_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "group2",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "01.0308"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.text",
+        "path": "QuestionnaireResponse.item.text",
+        "fixedString": "Judėjimas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item",
+        "path": "QuestionnaireResponse.item.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q1",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0309"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Pasivertimas lovoje"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.item:group2_q1_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q1_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.item:group2_q1_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0309.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.item:group2_q1_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q1.answer.item:group2_q1_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q2",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0310"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Atsisėdimas lovoje"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.item:group2_q2_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q2_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.item:group2_q2_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0310.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.item:group2_q2_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q2.answer.item:group2_q2_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q3",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0311"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Atsistojimas iš sėdimos padėties"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.item:group2_q3_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q3_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.item:group2_q3_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0311.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.item:group2_q3_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q3.answer.item:group2_q3_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q4",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0312"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Persikėlimas nuo lovos / kėdės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.item:group2_q4_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q4_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.item:group2_q4_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0312.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.item:group2_q4_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q4.answer.item:group2_q4_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q5",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0313"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Persikėlimas tualete"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.item:group2_q5_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q5_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.item:group2_q5_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0313.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.item:group2_q5_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q5.answer.item:group2_q5_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q6",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0314"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Persikėlimas vonioje / duše"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.item:group2_q6_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q6_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.item:group2_q6_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0314.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.item:group2_q6_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q6.answer.item:group2_q6_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q7",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0315"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Ėjimas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.item:group2_q7_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q7_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.item:group2_q7_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0315.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.item:group2_q7_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q7.answer.item:group2_q7_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q8",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0316"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Važiavimas vežimėliu"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.item:group2_q8_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q8_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.item:group2_q8_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0316.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.item:group2_q8_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q8.answer.item:group2_q8_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q9",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0317"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Lipimas laiptais"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientSupportLevel",
+              "code": "2",
+              "display": "Reikalinga priežiūra ar paruošimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientSupportLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.item:group2_q9_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group2_q9_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.item:group2_q9_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0317.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.item:group2_q9_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q9.answer.item:group2_q9_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q10",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group2_q10",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q10.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0318"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q10.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Pastabos"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group2.item:group2_q10.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Pastabų tekstas"
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "group3",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "01.0319"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.text",
+        "path": "QuestionnaireResponse.item.text",
+        "fixedString": "Paciento funkcijų vertinimas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item",
+        "path": "QuestionnaireResponse.item.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q1",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0320"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Jutimai"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientDysfunctionLevel",
+              "code": "2",
+              "display": "Lengvas sutrikimas / ribotos galimybės"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientDysfunctionLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.item:group3_q1_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group3_q1_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.item:group3_q1_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0320.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.item:group3_q1_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q1.answer.item:group3_q1_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q2",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0321"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Raumenų jėga"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientDysfunctionLevel",
+              "code": "2",
+              "display": "Lengvas sutrikimas / ribotos galimybės"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientDysfunctionLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.item:group3_q2_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group3_q2_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.item:group3_q2_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0321.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.item:group3_q2_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q2.answer.item:group3_q2_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q3",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0322"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Judesių amplitudė"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientDysfunctionLevel",
+              "code": "2",
+              "display": "Lengvas sutrikimas / ribotos galimybės"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientDysfunctionLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.item:group3_q3_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group3_q3_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.item:group3_q3_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0322.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.item:group3_q3_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q3.answer.item:group3_q3_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q4",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0323"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Pažinimo funkcijos"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientDysfunctionLevel",
+              "code": "2",
+              "display": "Lengvas sutrikimas / ribotos galimybės"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientDysfunctionLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.item:group3_q4_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group3_q4_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.item:group3_q4_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0323.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.item:group3_q4_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q4.answer.item:group3_q4_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q5",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0324"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Psichologinės funkcijos"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientDysfunctionLevel",
+              "code": "2",
+              "display": "Lengvas sutrikimas / ribotos galimybės"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientDysfunctionLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.item:group3_q5_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group3_q5_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.item:group3_q5_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0324.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.item:group3_q5_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q5.answer.item:group3_q5_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q6",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0325"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Sensorinė integracija"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientDysfunctionLevel",
+              "code": "2",
+              "display": "Lengvas sutrikimas / ribotos galimybės"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientDysfunctionLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.item:group3_q6_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group3_q6_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.item:group3_q6_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0325.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.item:group3_q6_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q6.answer.item:group3_q6_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q7",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0326"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Pusiausvyra"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientDysfunctionLevel",
+              "code": "2",
+              "display": "Lengvas sutrikimas / ribotos galimybės"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientDysfunctionLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.item:group3_q7_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group3_q7_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.item:group3_q7_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0326.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.item:group3_q7_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q7.answer.item:group3_q7_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q8",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group3_q8",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q8.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0327"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q8.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Pastabos"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group3.item:group3_q8.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Pastabų tekstas"
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "group4",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "01.0328"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.text",
+        "path": "QuestionnaireResponse.item.text",
+        "fixedString": "Paciento namų aplinkos vertinimas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item",
+        "path": "QuestionnaireResponse.item.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q1",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0329"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Namų durys"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.item:group4_q1_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q1_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.item:group4_q1_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0329.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.item:group4_q1_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q1.answer.item:group4_q1_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q2",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0330"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Slenksčiai"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.item:group4_q2_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q2_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.item:group4_q2_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0330.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.item:group4_q2_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q2.answer.item:group4_q2_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q3",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0331"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Laiptai"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.item:group4_q3_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q3_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.item:group4_q3_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0331.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.item:group4_q3_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q3.answer.item:group4_q3_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q4",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0332"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Prieangis"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.item:group4_q4_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q4_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.item:group4_q4_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0332.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.item:group4_q4_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q4.answer.item:group4_q4_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q5",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0333"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Gyvenamasis kambarys (svetainė)"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.item:group4_q5_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q5_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.item:group4_q5_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0333.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.item:group4_q5_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q5.answer.item:group4_q5_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q6",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0334"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Virtuvė / valgomasis"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.item:group4_q6_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q6_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.item:group4_q6_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0334.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.item:group4_q6_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q6.answer.item:group4_q6_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q7",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0335"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Tualeto kambarys"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.item:group4_q7_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q7_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.item:group4_q7_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0335.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.item:group4_q7_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q7.answer.item:group4_q7_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q8",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0336"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Vonios kambarys"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.item:group4_q8_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q8_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.item:group4_q8_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0336.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.item:group4_q8_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q8.answer.item:group4_q8_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q9",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0337"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Miegamasis"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.item:group4_q9_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q9_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.item:group4_q9_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0337.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.item:group4_q9_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q9.answer.item:group4_q9_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q10",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0338"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Apšvietimas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel",
+              "code": "2",
+              "display": "Nesaugu / yra griuvimo rizika"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientEnvironmentComplianceLevel"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.item",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.item:group4_q10_1",
+        "path": "QuestionnaireResponse.item.item.answer.item",
+        "sliceName": "group4_q10_1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.item:group4_q10_1.linkId",
+        "path": "QuestionnaireResponse.item.item.answer.item.linkId",
+        "fixedString": "01.0338.1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.item:group4_q10_1.text",
+        "path": "QuestionnaireResponse.item.item.answer.item.text",
+        "fixedString": "Naudojamos techninės pagalbos priemonės"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q10.answer.item:group4_q10_1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.item.answer.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": false
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q11",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group4_q11",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q11.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0339"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q11.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Pastabos"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group4.item:group4_q11.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Pastabų tekstas"
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "group5",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "01.0340"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.text",
+        "path": "QuestionnaireResponse.item.text",
+        "fixedString": "Ergoterapeuto vizito dažnis"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item",
+        "path": "QuestionnaireResponse.item.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q1",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group5_q1",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q1.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0341"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q1.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Ergoterapeuto vizito dažnis: Dažnumas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 2
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q2",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group5_q2",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q2.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0342"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q2.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Ergoterapeuto vizito dažnis: Periodiškumas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q2.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/RepeatPeriod",
+              "code": "4",
+              "display": "Per savaitę"
+            }
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q2.answer.value[x].system",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/RepeatPeriod"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q2.answer.value[x].code",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q2.answer.value[x].display",
+        "path": "QuestionnaireResponse.item.item.answer.value[x].display",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q3",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group5_q3",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q3.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0343"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q3.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Ergoterapeuto vizito dažnis: Trukmė (min)"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group5.item:group5_q3.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 30
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "group6",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "01.0344"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.text",
+        "path": "QuestionnaireResponse.item.text",
+        "fixedString": "Veiklos planas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item",
+        "path": "QuestionnaireResponse.item.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q1",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group6_q1",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q1.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0345"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q1.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Ergoterapeuto išvada, veiklos plano aprašymas"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q1.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Pacientui reikalinga minimali pagalba"
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q2",
+        "path": "QuestionnaireResponse.item.item",
+        "sliceName": "group6_q2",
+        "max": "1"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q2.linkId",
+        "path": "QuestionnaireResponse.item.item.linkId",
+        "fixedString": "01.0346"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q2.text",
+        "path": "QuestionnaireResponse.item.item.text",
+        "fixedString": "Kito vertinimo data"
+      },
+      {
+        "id": "QuestionnaireResponse.item:group6.item:group6_q2.answer.value[x]",
+        "path": "QuestionnaireResponse.item.item.answer.value[x]",
+        "type": [
+          {
+            "code": "date"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDate": "2026-10-21"
+          }
+        ]
+      }
+    ]
+  }
+}

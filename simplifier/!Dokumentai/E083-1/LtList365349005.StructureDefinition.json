@@ -1,0 +1,156 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-365349005",
+  "name": "LtEspbiList365349005",
+  "status": "draft",
+  "description": "Apribojimų sąrašas / The list of driving limitations",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1
+      },
+      {
+        "id": "List.code.coding",
+        "path": "List.code.coding",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://snomed.info/sct",
+              "code": "365349005"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "365349005"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "min": 1
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "max": "0"
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "max": "0"
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "List.entry.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:allCategoriesOfGroupI",
+        "path": "List.entry",
+        "sliceName": "allCategoriesOfGroupI",
+        "short": "Apribojimas, taikomas vairuojant pirmos grupės kategorijų transporto priemones / Driving Limitation applied for all categories of GROUP-I",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:allCategoriesOfGroupI.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:allCategoriesOfGroupI.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-365349005-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:ofCcategory",
+        "path": "List.entry",
+        "sliceName": "ofCcategory",
+        "short": "Apribojimas, taikomas vairuojant C kategorijos transporto priemones / Driving Limitation of C category",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:ofCcategory.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:ofCcategory.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-365349005-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:allGroupsCategories",
+        "path": "List.entry",
+        "sliceName": "allGroupsCategories",
+        "short": "Apribojimas, taikomas visoms transporto priemonių grupių kategorijoms / Driving Limitation applied for all groups categories",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:allGroupsCategories.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:allGroupsCategories.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-365349005-3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

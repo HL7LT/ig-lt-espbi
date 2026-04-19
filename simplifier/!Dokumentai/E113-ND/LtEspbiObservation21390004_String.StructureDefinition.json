@@ -1,0 +1,142 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-21390004-string",
+  "name": "LtEspbiObservation21390004_String",
+  "status": "draft",
+  "description": "Nustatyti sklaidos trūkumai / raidos ydos / Detected developmental anomalies / malformations",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "21390004",
+                  "display": "Developmental anomaly"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "21390004"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2012-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Nustatyti sklaidos trūkumai / raidos ydos / Dissemination deficiencies/developmental defects identified",
+        "definition": "E113-ND forma. Nustatyti sklaidos trūkumai / raidos ydos\r\nTekstas.\r\n\r\nValidacinė taisyklė:\r\n• Pateikiama, jeigu Nėštumo baigtis pasirenkama \"Gimė naujagimis\"",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Laisvai įvedamas tekstas"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/NGN/PregnantBadHabits"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Šeimos anamnezė patikslinta / Family history clarified",
+        "definition": "Šeimos anamnezė patikslinta \r\nLaisvai įvedamas tekstas, prie kiekvieno \"Šeimos anamnezė\" punkto. ",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

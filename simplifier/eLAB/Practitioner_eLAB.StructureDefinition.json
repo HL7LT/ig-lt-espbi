@@ -1,0 +1,133 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-practitioner",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-practitioner",
+  "version": "0.3.28",
+  "name": "ElabPractitioner",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Sveikatos priežiūros specialistas / Practitioner",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "interface",
+      "uri": "http://hl7.org/fhir/interface",
+      "name": "Interface Pattern"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Practitioner",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Practitioner",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Practitioner.identifier",
+        "path": "Practitioner.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Practitioner.identifier.system",
+        "path": "Practitioner.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.identifier.value",
+        "path": "Practitioner.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.identifier:PersonalCode",
+        "path": "Practitioner.identifier",
+        "sliceName": "PersonalCode",
+        "short": "Asmens kodas / Personal code",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:PersonalCode.system",
+        "path": "Practitioner.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/PersonalCode"
+      },
+      {
+        "id": "Practitioner.name",
+        "path": "Practitioner.name",
+        "short": "Vardas ir pavardė / The name(s) associated with the practitioner",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.name.family",
+        "path": "Practitioner.name.family",
+        "short": "Pavardė / Lastname",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.name.given",
+        "path": "Practitioner.name.given",
+        "short": "Vardas / Firstname",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}

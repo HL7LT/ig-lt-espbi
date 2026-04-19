@@ -1,0 +1,379 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report",
+  "name": "LtEspbiDiagnosticReport",
+  "status": "draft",
+  "description": "Tyrimo rezultatų protokolas / DiagnosticReport",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DiagnosticReport",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.id",
+        "path": "DiagnosticReport.id",
+        "short": "Tyrimo rezulatų resurso id / Logical id of this artifact",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.meta",
+        "path": "DiagnosticReport.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.identifier",
+        "path": "DiagnosticReport.identifier",
+        "short": "Tyrimo rezultatų protokolo numeris / Test results protocol number",
+        "definition": "Tyrimo rezultatų protokolo numeris (naudojamas E200-ats ir E027-va dokumentuose).\r\nxml pavyzdžiuose nurodomos system reikšmės: http://esveikata.lt/Identifier/TestNumber ir http://esveikata.lt/Identifier/PathologyTestNumber",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.identifier.system",
+        "path": "DiagnosticReport.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.identifier.value",
+        "path": "DiagnosticReport.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.basedOn",
+        "path": "DiagnosticReport.basedOn",
+        "short": "Paskyrimo duomenys / Service Request data",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.basedOn.reference",
+        "path": "DiagnosticReport.basedOn.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.status",
+        "path": "DiagnosticReport.status",
+        "short": "Dokumento būsena / Status of the document status",
+        "definition": "Tyrimo atsakymo/rezultatų būsena. Nenaudojamas laukas, bet privalomas pagal specifikaciją.\r\nGalimos reikšmės:\r\n- final: Tyrimo rezultatų ataskaita yra baigta (suformuota).\r\n- entered in error: Atšauktų tyrimo rezultatų būsena.\r\nGalimos reikšmės nurodytos klasifikatoriuje diagnostic-report-status.\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/diagnostic-report-status. Galimos reikšmės:  registered | partial | preliminary | modified | final | amended | corrected | appended | cancelled | entered-in-error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "short": "Tyrimo rezultatų protokolo tipas / Type of test results protocol",
+        "definition": "Tyrimo rezultatų protokolo tipas (LOINC klasifikatorius). ",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.code.coding",
+        "path": "DiagnosticReport.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.code.coding.code",
+        "path": "DiagnosticReport.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.code.coding.display",
+        "path": "DiagnosticReport.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.subject",
+        "path": "DiagnosticReport.subject",
+        "short": "Informacija apie pacientą, kuriam atliktas tyrimas / Patient details",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.subject.reference",
+        "path": "DiagnosticReport.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.encounter",
+        "path": "DiagnosticReport.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "short": "Tyrimo atlikimo data ir laikas / Date and time of the test",
+        "definition": "Tyrimo (patologinio, laboratorinio) atlikimo data ir laikas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "short": "Tyrimo rezultatų protokolo pateikimo data ir laikas / Date and time of issuing the test results protocol",
+        "definition": "Tyrimo rezultatų protokolo pateikimo data ir laikas ",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "short": "Laboratorijos pavadinimas / Laboratory Name",
+        "definition": "Laboratorijos pavadinimas / Laboratory Name",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.performer.reference",
+        "path": "DiagnosticReport.performer.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter",
+        "path": "DiagnosticReport.resultsInterpreter",
+        "short": "Informacija apie sveikatos priežiūros specialistą, kuris atsakingas už tyrimą / Information about Health Care Specialist who is responsible for issuing the report",
+        "definition": "Informacija apie sveikatos priežiūros specialistą, kuris atsakingas ir atliko tyrimą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.reference",
+        "path": "DiagnosticReport.resultsInterpreter.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "short": "Tiriamasis ėminys arba tiriamoji medžiaga / Specimen data ",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen.reference",
+        "path": "DiagnosticReport.specimen.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "short": "Nuoroda į tyrimo aprašymo resursą / Reference to Observation resource",
+        "definition": "Nuoroda į atlikto tyrimo aprašymo resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.result.reference",
+        "path": "DiagnosticReport.result.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.note",
+        "path": "DiagnosticReport.note",
+        "short": "Pastabos / Comments about the diagnostic report",
+        "definition": "Pastabos.",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.note.author[x]",
+        "path": "DiagnosticReport.note.author[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          },
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.note.time",
+        "path": "DiagnosticReport.note.time",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.study",
+        "path": "DiagnosticReport.study",
+        "short": "Nuoroda į aprašomo tyrimo resursą / Ref to imaging study resource",
+        "definition": "Nuoroda į aprašomo tyrimo resursą (E027-va dokumente).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-imaging-study"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.study.reference",
+        "path": "DiagnosticReport.study.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.media",
+        "path": "DiagnosticReport.media",
+        "short": "Nuoroda į paveikslą / Ref to image",
+        "definition": "Nuoroda į medicininio vaizdo duomenis (E027-va dokumente).",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.media.comment",
+        "path": "DiagnosticReport.media.comment",
+        "short": "Paveikslo aprašas",
+        "definition": "Paveikslo aprašas / Image textual description "
+      },
+      {
+        "id": "DiagnosticReport.media.link",
+        "path": "DiagnosticReport.media.link",
+        "short": "Nuoroda į paveikslą",
+        "definition": "Nuoroda į paveikslą / Ref to image",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.media.link.reference",
+        "path": "DiagnosticReport.media.link.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.composition",
+        "path": "DiagnosticReport.composition",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.conclusion",
+        "path": "DiagnosticReport.conclusion",
+        "short": "Tyrimo išvada / Test result conclusion",
+        "definition": "Tyrimo išvada ",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode",
+        "path": "DiagnosticReport.conclusionCode",
+        "short": "Tyrimų rezultatų išvadų kodai / Codes for the clinical conclusion of test results",
+        "definition": "Laukas naudojamas E014-ats dokumento pagrindinei diagnozei apibrėžti skirtinguose klasifikatoriuose (ligos kodas(TLK-10-AM kodas, http://esveikata.lt/classifiers/TLK-10-AM), morfologinis kodas  (ICD-O-3, http://esveikata.lt/classifiers/ICD-O-3) ir kodas pagal SNOMED CT ()).\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am (http://esveikata.lt/classifiers/TLK-10-AM). (Pagrindinės diagnozės TLK-10-AM kodui nurodyti.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje icd-o-3 (http://esveikata.lt/classifiers/ICD-O-3). (Nurodant morfologinį diagnozės kodą (ICD-O-3 kodas).)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje work-ability-conclusion (http://esveikata.lt/classifiers/WorkAbilityConclusion). (E047 ir E048 pažymų išvados kodas.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje driving-ability-conclusion (http://esveikata.lt/classifiers/DrivingAbilityConclusion). (E083-1 pažymos išvados kodas.)",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding",
+        "path": "DiagnosticReport.conclusionCode.coding",
+        "definition": "Dokumento pagrindinė diagnozė ",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.system",
+        "path": "DiagnosticReport.conclusionCode.coding.system",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.code",
+        "path": "DiagnosticReport.conclusionCode.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.display",
+        "path": "DiagnosticReport.conclusionCode.coding.display",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm",
+        "path": "DiagnosticReport.presentedForm",
+        "short": "Nuoroda į aprašymo dokumento statinę rinkmeną (PDF) / Ref to PDF of this report",
+        "definition": "Nuoroda yra naudojama E027-va dokumente.",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.contentType",
+        "path": "DiagnosticReport.presentedForm.contentType",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.data",
+        "path": "DiagnosticReport.presentedForm.data",
+        "mustSupport": true
+      }
+    ]
+  }
+}

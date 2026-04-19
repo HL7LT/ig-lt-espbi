@@ -1,0 +1,286 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-dev-request/paperPrescriptionTags",
+  "name": "LtEspbiExtDevPaperPrescriptionTags",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension.extension:GkTag",
+        "path": "Extension.extension",
+        "sliceName": "GkTag",
+        "short": "Popieriniame recepte nurodyta GK sprendimo žyma / The GK decision mark is indicated on the paper prescription",
+        "definition": "Popieriniame recepte nurodyta GK sprendimo žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:GkTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:GkTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "GkTag"
+      },
+      {
+        "id": "Extension.extension:GkTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:SpecialTag",
+        "path": "Extension.extension",
+        "sliceName": "SpecialTag",
+        "short": "Popieriniame recepte nurodyta ypatingo skyrimo žyma / Special prescription tag indicated on paper prescription",
+        "definition": "Popieriniame recepte nurodyta ypatingo skyrimo žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:SpecialTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:SpecialTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "SpecialTag"
+      },
+      {
+        "id": "Extension.extension:SpecialTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:SpecialistDecisionTag",
+        "path": "Extension.extension",
+        "sliceName": "SpecialistDecisionTag",
+        "short": "Popieriniame recepte nurodyta Specialisto sprendimu žyma / The paper prescription is marked with the Specialist's Decision tag",
+        "definition": "Popieriniame recepte nurodyta Specialisto sprendimu žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:SpecialistDecisionTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:SpecialistDecisionTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "SpecialistDecisionTag"
+      },
+      {
+        "id": "Extension.extension:SpecialistDecisionTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:LabelingExemptionTag",
+        "path": "Extension.extension",
+        "sliceName": "LabelingExemptionTag",
+        "short": "Popieriniame recepte nurodyta ženklinimo išimtis žyma / The paper prescription is marked with a labeling exception tag",
+        "definition": "Popieriniame recepte nurodyta ženklinimo išimtis žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:LabelingExemptionTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:LabelingExemptionTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "LabelingExemptionTag"
+      },
+      {
+        "id": "Extension.extension:LabelingExemptionTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Nominal",
+        "path": "Extension.extension",
+        "sliceName": "Nominal",
+        "short": "Popieriniame recepte nurodytas vardinis vaistas žyma / Brand name medication label specified in paper prescription tag",
+        "definition": "Popieriniame recepte nurodytas vardinis vaistas žyma.",
+        "max": "1",
+        "constraint": [
+          {
+            "key": "medreq-Nom-01",
+            "requirements": "Jei plėtinio Tag reikšmė true tada plėtinis Confirm turi būti pildomas",
+            "severity": "error",
+            "human": "If extension 'Tag' is true, extension 'Confirm' must exis",
+            "expression": "extension.where(url = 'Tag').valueBoolean = true implies extension.where(url = 'Confirm').exists()"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Nominal.extension",
+        "path": "Extension.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:NominalTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "NominalTag",
+        "short": "Popieriniame recepte nurodyta Vardinio vaisto žyma / The Brand Name Drug Tag is indicated on the paper prescription",
+        "definition": "Popieriniame recepte nurodyta Vardinio vaisto žyma.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:NominalTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:NominalTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "NominalTag"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:NominalTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm",
+        "path": "Extension.extension.extension",
+        "sliceName": "Confirm",
+        "short": "Popieriniame recepte nurodytas patvirtinimas, jog yra paciento sutikimas vartoti vardinius vaistus ir yra užpildytas vardinio vaisto skyrimo pareiškimas  / The paper prescription includes confirmation that the patient has consented to use branded medications and that a branded medication prescription form has been completed",
+        "definition": "Popieriniame recepte nurodytas patvirtinimas, jog yra paciento sutikimas vartoti vardinius vaistus ir yra užpildytas vardinio vaisto skyrimo pareiškimas (privalomas, jeigu žyma yra true).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension",
+        "path": "Extension.extension.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:ConfirmTag",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "ConfirmTag",
+        "short": "Popieriniame recepte nurodyta patvirtinimo žyma / In paper prescription confirmation tag",
+        "definition": "Popieriniame recepte nurodyta patvirtinimo žyma",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:ConfirmTag.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:ConfirmTag.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "ConfirmTag"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:ConfirmTag.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:DeclarationValid",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "DeclarationValid",
+        "short": "Popieriniame recepte nurodyta pareiškimo galiojimas / The validity of the statement is indicated on the paper prescription",
+        "definition": "Popieriniame recepte nurodyta pareiškimo galiojimas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:DeclarationValid.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:DeclarationValid.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "DeclarationValid"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.extension:DeclarationValid.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "Confirm"
+      },
+      {
+        "id": "Extension.extension:Nominal.extension:Confirm.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Nominal.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Nominal"
+      },
+      {
+        "id": "Extension.extension:Nominal.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-dev-request/paperPrescriptionTags"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

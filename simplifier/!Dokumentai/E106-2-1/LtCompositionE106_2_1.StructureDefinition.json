@@ -1,0 +1,4307 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e106-2-1",
+  "name": "LtEspbiCompositionE106_2_1",
+  "status": "draft",
+  "description": "E106-2-1 Medicininis perinatalinės mirties liudijimas",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition",
+        "path": "Composition",
+        "constraint": [
+          {
+            "key": "com-baby-mother-data-req",
+            "requirements": "Turi būti nurodyti mirusiojo motinos duomenys, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Deceased Mother\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='deceasedMotherData').exists()"
+          },
+          {
+            "key": "com-baby-death-type-req",
+            "requirements": "Turi būti nurodyta „Negyvagimis / mirė pirmą gyvenimo savaitę“ reikšmė, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "A value for \"Stillborn / died in the first week of life\" must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='babyDeathType').exists()"
+          },
+          {
+            "key": "com-hypothetical-age-req",
+            "requirements": "Turi būti nurodytas mirusiojo spėjamas amžius, jei pažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Hypothetical Age\" section must be provided if the \"Deceased identity unidentified\" flag is checked.",
+            "expression": "extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) = true implies section.where(code.coding.code='documentData').section.where(code.coding.code='hypotheticalAge').exists()"
+          },
+          {
+            "key": "com-baby-birth-place-req",
+            "requirements": "Turi būti nurodyta mirusiojo gimimo vieta, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Birth Place\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='babyBirthPlace').exists()"
+          },
+          {
+            "key": "com-delivery-number-req",
+            "requirements": "Turi būti nurodyta, kelintas gimdymas (kurio metu gimė miręs naujagimis), jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Delivery Number\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='deliveryNumber').exists()"
+          },
+          {
+            "key": "com-previous-born-count-req",
+            "requirements": "Turi būti nurodytas anksčiau gimusių vaikų skaičius, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Previous Born Count\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='previousBornCount').exists()"
+          },
+          {
+            "key": "com-gestational-age-weeks-req",
+            "requirements": "Turi būti nurodyta nėštumo trukmė savaitėmis, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Gestational Age Weeks\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='gestationalAgeWeeks').exists()"
+          },
+          {
+            "key": "com-fetal-order-req",
+            "requirements": "Turi būti nurodyta mirusiojo gimimo eilė (kelintas iš kelių vaisių), jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Fetal Order\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='fetalOrder').exists()"
+          },
+          {
+            "key": "com-baby-weight-req",
+            "requirements": "Turi būti nurodytas mirusiojo svoris gimimo metu, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Newborn Weight\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='newbornWeight').exists()"
+          },
+          {
+            "key": "com-baby-height-req",
+            "requirements": "Turi būti nurodytas mirusiojo ūgis gimimo metu, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Newborn Height\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='newbornHeight').exists()"
+          },
+          {
+            "key": "com-pregnancy-completion-req",
+            "requirements": "Turi būti nurodytas išnešiojimas, jei nepažymėtas požymis „Mirusiojo tapatybė nenustatyta“.",
+            "severity": "error",
+            "human": "The \"Pregnancy Completion\" section must be provided if the \"Deceased identity unidentified\" flag is not checked.",
+            "expression": "(extension('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-deceased-unidentified').value.as(boolean) | false) != true implies section.where(code.coding.code='documentData').section.where(code.coding.code='pregnancyCompletion').exists()"
+          }
+        ]
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtDeceasedUnidentified",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtDeceasedUnidentified",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-deceased-unidentified"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtStillbirthOrNewbornNoId",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtStillbirthOrNewbornNoId",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-stillbirth-or-newborn-no-id"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtDeathTag",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtDeathTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-certificate-death/deathTag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "max": "0"
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "short": " Mirusiojo duomenys / Deceased details",
+        "definition": "Mirusijįojo asmens duomenys, apie kurį aprašo šis dokumentas."
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "Dokumento pavadinimas / Official human-readable label for the composition"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "definition": "Požymis, kad šiuo dokumentu keičiamas ankstesnis dokumentas"
+      },
+      {
+        "id": "Composition.relatesTo.type",
+        "path": "Composition.relatesTo.type",
+        "short": "Požymis, kad šiuo dokumentu keičiamas ankstesnis dokumentas / Indication that this document replaces a previous document",
+        "definition": "Požymis, kad šiuo dokumentu keičiamas ankstesnis dokumentas",
+        "fixedCode": "replaces"
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference",
+        "path": "Composition.relatesTo.resourceReference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-e106-2-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:deceasedMotherData",
+        "path": "Composition.section",
+        "sliceName": "deceasedMotherData",
+        "short": "Mirusiojo motinos duomenys / Deceased mother data",
+        "definition": "Mirusiojo motinos duomenys (nurodomi tuo atgveju, jei  miręs naujagimis ar kūdikis dar neužregistruotas LR gyventojų registre, todėl neturi asmens kodo).",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:deceasedMotherData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "444301002"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:deceasedMotherData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:deceasedMotherData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "444301002"
+      },
+      {
+        "id": "Composition.section:deceasedMotherData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:deceasedMotherData.entry",
+        "path": "Composition.section.entry",
+        "definition": "Nuoroda į mirusiojo motinos RelatedPerson resursą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person-mother-of-deceased"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:deceasedMotherData.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData",
+        "path": "Composition.section",
+        "sliceName": "documentData",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "406194006"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "406194006"
+      },
+      {
+        "id": "Composition.section:documentData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate",
+        "path": "Composition.section.section",
+        "sliceName": "finalOrTemporaryCertificate",
+        "short": "Galutinis / laikinas dokumentas / Final or Temporary  certificate",
+        "definition": "Galutinis / laikinas dokumentas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "307929000"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "307929000"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į Obsertvation resursą, kuriame nurodoma, ar dokumemntas yra laikinas, ar galutinis.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-307929000"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:finalOrTemporaryCertificate.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType",
+        "path": "Composition.section.section",
+        "sliceName": "babyDeathType",
+        "short": "Negyvagimis / mirė pirmą gyvenimo savaitę / Baby death type (Born dead or died during the first week)",
+        "definition": "Informacija, ar mirusysis yra negyvagimis, ar gimė gyvas, bet mirė pirmą gyvenimo savaitę.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "237364002"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "237364002"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-237364002-E106-2-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyDeathType.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge",
+        "path": "Composition.section.section",
+        "sliceName": "hypotheticalAge",
+        "short": "Spėjamas amžius (m., mėn., d.), kai mirusiojo tapatybė nenustatyta / hypothetical age (years, months, days)",
+        "definition": "Spėjamas amžius (m., mėn., d.), kai mirusiojo tapatybė nenustatyta.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "39016-1"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "39016-1"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-39016-1-days-only"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:hypotheticalAge.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace",
+        "path": "Composition.section.section",
+        "sliceName": "babyBirthPlace",
+        "short": "Gimimo vieta / Baby birth place",
+        "definition": "Gimimo vieta."
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "169812000"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "169812000"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-169812000-e106-2-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:babyBirthPlace.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate",
+        "path": "Composition.section.section",
+        "sliceName": "deathDate",
+        "short": "Mirties data / Death date",
+        "definition": "Mirties data.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "399753006"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "399753006"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-399753006"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathDate.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace",
+        "path": "Composition.section.section",
+        "sliceName": "deathPlace",
+        "short": "Mirties vieta / Death place",
+        "definition": "Mirties vieta.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "366044004"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "366044004"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.\r\n",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-366044004-baby"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathPlace.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber",
+        "path": "Composition.section.section",
+        "sliceName": "deliveryNumber",
+        "short": "Kelintas gimdymas / Which birth in a row it is",
+        "definition": "Kelintas gimdymas.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "73771-8"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "73771-8"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-73771-8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deliveryNumber.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount",
+        "path": "Composition.section.section",
+        "sliceName": "previousBornCount",
+        "short": "Anksčiau gimusių vaikų (gyvų ir negyvagimių) skaičius / Previous born babies number",
+        "definition": "Anksčiau gimusių vaikų (gyvų ir negyvagimių) skaičius.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69043-8"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "69043-8"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.\r\n",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-69043-8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:previousBornCount.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks",
+        "path": "Composition.section.section",
+        "sliceName": "gestationalAgeWeeks",
+        "short": "Nėštumo trukmė (sav.) / Gestational age in weeks",
+        "definition": "Nėštumo trukmė (savaitėmis).",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49051-6"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49051-6"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49051-6-e106-2-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:gestationalAgeWeeks.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder",
+        "path": "Composition.section.section",
+        "sliceName": "fetalOrder",
+        "short": "Naujagimis (negyvagimis) gimė / Which dead born in a row it is (First, first of twins, second of twins, more than two babies)",
+        "definition": "Naujagimio (negyvagimio) gimimo eilė (kelintas iš kelių vaisių).",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "73772-6"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "73772-6"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-73772-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:fetalOrder.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight",
+        "path": "Composition.section.section",
+        "sliceName": "newbornWeight",
+        "short": "Kūno masė / Baby weight",
+        "definition": "Kūno masė.\r\n\r\n",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "47340003"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "47340003"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-47340003-e106"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornWeight.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight",
+        "path": "Composition.section.section",
+        "sliceName": "newbornHeight",
+        "short": "Ūgis / Height",
+        "definition": "Ūgis",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8306-3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "8306-3"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8306-3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:newbornHeight.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyCompletion",
+        "short": "Išnešiojimas / Pregnancy completion",
+        "definition": "Išnešiojimas.\r\n",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "302080006"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-302080006"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:pregnancyCompletion.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn",
+        "path": "Composition.section.section",
+        "sliceName": "underlyingCauseNewborn",
+        "short": "Perinatalinės mirties priežastys: pagrindinė liga ar būklė, lėmusi naujagimio mirtį / Death cause (baby main disease)",
+        "definition": "Perinatalinės mirties priežastys: pagrindinė liga ar būklė, lėmusi naujagimio mirtį.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "80359-3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "80359-3"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-underlying-newborn"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section",
+        "path": "Composition.section.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn",
+        "path": "Composition.section.section.section",
+        "sliceName": "otherCauseNewborn",
+        "short": "Perinatalinės mirties priežastys: kita liga ar būklė, sąlygojusi naujagimio mirtį / Other death cause disease",
+        "definition": "Perinatalinės mirties priežastys: kita liga ar būklė, sąlygojusi naujagimio mirtį.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "68345-8"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-contributing-newborn"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseNewborn.section:otherCauseNewborn.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother",
+        "path": "Composition.section.section",
+        "sliceName": "underlyingCauseMother",
+        "short": "Perinatalinės mirties priežastys: pagrindinė motinos liga ar būklė (placentos būklė), lėmusi naujagimio mirtį / Death cause (Mother main disease)",
+        "definition": "Perinatalinės mirties priežastys: pagrindinė motinos liga ar būklė (placentos būklė), lėmusi naujagimio mirtį.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "80359-3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "76060-3"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-underlying-mother"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section",
+        "path": "Composition.section.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother",
+        "path": "Composition.section.section.section",
+        "sliceName": "otherCauseMother",
+        "short": "Perinatalinės mirties priežastys: kita motinos liga ar būklė (placentos būklė), sąlygojusi naujagimio mirtį / Other death cause Mother disease",
+        "definition": "Perinatalinės mirties priežastys: kita motinos liga ar būklė (placentos būklė), sąlygojusi naujagimio mirtį.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code",
+        "path": "Composition.section.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "68345-8"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-contributing-mother"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:underlyingCauseMother.section:otherCauseMother.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions",
+        "path": "Composition.section.section",
+        "sliceName": "contributingConditions",
+        "short": "Perinatalinės mirties priežastys: kitos būklės / Other death cause conditions",
+        "definition": "Perinatalinės mirties priežastys: kitos būklės.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "68346-6"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "68346-6"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-contributing-other"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:contributingConditions.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType",
+        "path": "Composition.section.section",
+        "sliceName": "perinatalDeathType",
+        "short": "Perinatalinės mirties rūšis / Perinatal death type",
+        "definition": "Perinatalinės mirties rūšis.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69449-7"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "69449-7"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.code.text",
+        "path": "Composition.section.section.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-69449-7-E106-2-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:perinatalDeathType.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType",
+        "path": "Composition.section.section",
+        "sliceName": "deathCertificateAuthorType",
+        "short": "Medicininį mirties liudijimą išrašė /  Death Certificate author type",
+        "definition": "Medicininį mirties liudijimą išrašė.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69437-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "69437-2"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-69437-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:deathCertificateAuthorType.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances",
+        "path": "Composition.section.section",
+        "sliceName": "otherDeathCircumstances",
+        "short": "Kitų aplinkybių paaiškinimas /  Other explanation of the death circumstances",
+        "definition": "Kitų aplinkybių paaiškinimas.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69441-4"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "69441-4"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-69441-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:otherDeathCircumstances.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate",
+        "path": "Composition.section.section",
+        "sliceName": "personRequestedThisCertificate",
+        "short": "Asmuo, kuris kreipėsi dėl pažymos išrašymo / Person requested this certificate",
+        "definition": "Asmuo, kuris kreipėsi dėl pažymos išrašymo.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "443942000"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "443942000"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-443942000"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:documentData.section:personRequestedThisCertificate.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,460 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-submitted-document",
+  "name": "LtEspbiProvenanceSubmittedDocument",
+  "status": "draft",
+  "description": "Išrašyto dokumento duomenys / The information about submitted document",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Provenance",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Provenance.implicitRules",
+        "path": "Provenance.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.language",
+        "path": "Provenance.language",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.text",
+        "path": "Provenance.text",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.contained",
+        "path": "Provenance.contained",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.extension",
+        "path": "Provenance.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.modifierExtension",
+        "path": "Provenance.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.target",
+        "path": "Provenance.target",
+        "short": "Išrašytas siuntimo dokumentas pranešimui policijai / Reference to prepared E027 document to send to police",
+        "definition": "Nuoroda į DocumentReference resursą resursą, kuriame yra nuoroda į išrašytą siuntimo dokumentą pranešimui policijai.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/1000017572"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Provenance.target.id",
+        "path": "Provenance.target.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.target.extension",
+        "path": "Provenance.target.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.target.type",
+        "path": "Provenance.target.type",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.target.identifier",
+        "path": "Provenance.target.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.target.display",
+        "path": "Provenance.target.display",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.occurred[x]",
+        "path": "Provenance.occurred[x]",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.recorded",
+        "path": "Provenance.recorded",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2025-11-08T12:16:03+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Provenance.policy",
+        "path": "Provenance.policy",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.location",
+        "path": "Provenance.location",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.authorization",
+        "path": "Provenance.authorization",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.activity",
+        "path": "Provenance.activity",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/EventType",
+                  "code": "2",
+                  "display": "Ambulatorinės gydymo paslaugos suteikimas (apsilankymas)"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Provenance.activity.id",
+        "path": "Provenance.activity.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.activity.extension",
+        "path": "Provenance.activity.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.activity.coding",
+        "path": "Provenance.activity.coding",
+        "min": 1
+      },
+      {
+        "id": "Provenance.activity.coding.id",
+        "path": "Provenance.activity.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.activity.coding.extension",
+        "path": "Provenance.activity.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.activity.coding.system",
+        "path": "Provenance.activity.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/Provenance/MedicalCertificateReason"
+      },
+      {
+        "id": "Provenance.activity.coding.version",
+        "path": "Provenance.activity.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.activity.coding.code",
+        "path": "Provenance.activity.coding.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "2"
+          }
+        ]
+      },
+      {
+        "id": "Provenance.activity.coding.display",
+        "path": "Provenance.activity.coding.display",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Ambulatorinės gydymo paslaugos suteikimas (apsilankymas)"
+          }
+        ]
+      },
+      {
+        "id": "Provenance.activity.coding.userSelected",
+        "path": "Provenance.activity.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.activity.text",
+        "path": "Provenance.activity.text",
+        "min": 1
+      },
+      {
+        "id": "Provenance.basedOn",
+        "path": "Provenance.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.patient",
+        "path": "Provenance.patient",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.encounter",
+        "path": "Provenance.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.id",
+        "path": "Provenance.agent.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.extension",
+        "path": "Provenance.agent.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.modifierExtension",
+        "path": "Provenance.agent.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.type",
+        "path": "Provenance.agent.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Provenance.agent.type.id",
+        "path": "Provenance.agent.type.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.type.extension",
+        "path": "Provenance.agent.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.type.coding.id",
+        "path": "Provenance.agent.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.type.coding.extension",
+        "path": "Provenance.agent.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.type.coding.version",
+        "path": "Provenance.agent.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.type.coding.userSelected",
+        "path": "Provenance.agent.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.role",
+        "path": "Provenance.agent.role",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "sample-security-structural-roles",
+                  "code": "regulated-health-professionals"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Provenance.agent.role.id",
+        "path": "Provenance.agent.role.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.role.extension",
+        "path": "Provenance.agent.role.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.role.coding.id",
+        "path": "Provenance.agent.role.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.role.coding.extension",
+        "path": "Provenance.agent.role.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.role.coding.version",
+        "path": "Provenance.agent.role.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.role.coding.userSelected",
+        "path": "Provenance.agent.role.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.who",
+        "path": "Provenance.agent.who",
+        "short": "Nuoroda į specialistą / Reference to the practitioner",
+        "definition": "Nuoroda į sveikatos priežiūros specialisto, atlikusio veiksmą, PractitionerRole resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Provenance.agent.who.id",
+        "path": "Provenance.agent.who.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.who.extension",
+        "path": "Provenance.agent.who.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.who.type",
+        "path": "Provenance.agent.who.type",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.who.identifier",
+        "path": "Provenance.agent.who.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.who.display",
+        "path": "Provenance.agent.who.display",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.agent.onBehalfOf",
+        "path": "Provenance.agent.onBehalfOf",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity",
+        "path": "Provenance.entity",
+        "short": "Informacija apie skyrimą, kurio pagrindu buvo sukurtas target dokumentas / Information about Order which is a source for target document",
+        "definition": "Informacija apie skyrimą, kurio pagrindu buvo sukurtas target dokumentas.",
+        "max": "1"
+      },
+      {
+        "id": "Provenance.entity.id",
+        "path": "Provenance.entity.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity.extension",
+        "path": "Provenance.entity.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity.modifierExtension",
+        "path": "Provenance.entity.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity.role",
+        "path": "Provenance.entity.role",
+        "fixedCode": "source"
+      },
+      {
+        "id": "Provenance.entity.what",
+        "path": "Provenance.entity.what",
+        "short": "Nuoroda į esybės FHIR resursą / Identity of entity",
+        "definition": "Nuoroda į esybės FHIR resursą (ServiceRequest).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Provenance.entity.what.id",
+        "path": "Provenance.entity.what.id",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity.what.extension",
+        "path": "Provenance.entity.what.extension",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity.what.type",
+        "path": "Provenance.entity.what.type",
+        "fixedUri": "ServiceRequest"
+      },
+      {
+        "id": "Provenance.entity.what.identifier",
+        "path": "Provenance.entity.what.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity.what.display",
+        "path": "Provenance.entity.what.display",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.entity.agent",
+        "path": "Provenance.entity.agent",
+        "max": "0"
+      },
+      {
+        "id": "Provenance.signature",
+        "path": "Provenance.signature",
+        "max": "0"
+      }
+    ]
+  }
+}

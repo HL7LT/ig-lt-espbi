@@ -1,0 +1,136 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-40903-00",
+  "name": "LtEspbiProcedure40903_00",
+  "status": "draft",
+  "description": "Neuroendoskopija / Neuroendoscopy",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuje achi (http://esveikata.lt/classifiers/ACHI).",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ACHI",
+                  "code": "40903-00",
+                  "display": "Neuroendoskopija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "hhttp://esveikata.lt/classifiers/ACHI"
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "fixedCode": "40903-00"
+      },
+      {
+        "id": "Procedure.subject.reference",
+        "path": "Procedure.subject.reference",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Patient/123456"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-01T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].extension",
+        "path": "Procedure.occurrence[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Atlikta intraskilvelinė neuroendoskopija"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "short": "5.2.2.2. Prenatalinės chromosomų anomalijų patikros rezultatas / Result of Prenatal Chromosomal Abnormality Screening",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "resourceType": "ValueSet",
+  "id": "lt-espbi-vs-role-type-codes",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-role-type-codes",
+  "version": "1.0.0",
+  "name": "LtEspbiVsRoleTypeCodes",
+  "status": "draft",
+  "date": "2026-01-12",
+  "description": "Vaidmenų tipų sąrašas / Role type codes. Naudojamas LtEspbiPractitionerRole.code (CodeableConcept).",
+  "compose": {
+    "include": [
+      {
+        "system": "https://ws.esveikata.lt/cxf/Classifiers/special-user-type",
+        "concept": [
+          {
+            "code": "scientist",
+            "display": "Akademikas, mokslininkas"
+          },
+          {
+            "code": "espbi_administrator",
+            "display": "ESPBI IS administratorius"
+          },
+          {
+            "code": "ESPBI_consultant",
+            "display": "ESPBI Konsultantas"
+          },
+          {
+            "code": "ESPBI_business",
+            "display": "ESPBI eSveikatos skyrius"
+          },
+          {
+            "code": "espbi_system",
+            "display": "ESPBI sistema"
+          },
+          {
+            "code": "his_system",
+            "display": "HIS sistema"
+          },
+          {
+            "code": "ipr_system_gpuser",
+            "display": "IPR sisteminis naudotojas - kaip bendrinis specialistas"
+          },
+          {
+            "code": "coordinator",
+            "display": "Koordinuojančios institucijos specialistas"
+          },
+          {
+            "code": "temp_user",
+            "display": "Laikinas naudotojas"
+          },
+          {
+            "code": "medvais_system",
+            "display": "MEDVAIS sistema"
+          },
+          {
+            "code": "auditor",
+            "display": "Medicinos auditorius"
+          },
+          {
+            "code": "ndnt_administrator",
+            "display": "NDNT administratorius"
+          },
+          {
+            "code": "ndnt_user",
+            "display": "NDNT naudotojas"
+          },
+          {
+            "code": "bus_administrator",
+            "display": "PV administratorius"
+          },
+          {
+            "code": "sodra_administrator",
+            "display": "SODRA administratorius"
+          },
+          {
+            "code": "sodra_user",
+            "display": "SODRA naudotojas-atjungiama"
+          },
+          {
+            "code": "his_administrator",
+            "display": "SPĮ administratorius"
+          },
+          {
+            "code": "vapris_system",
+            "display": "VAPRIS sistema"
+          },
+          {
+            "code": "vlk_administrator",
+            "display": "VLK administratorius"
+          },
+          {
+            "code": "vlk_user",
+            "display": "VLK naudotojas"
+          },
+          {
+            "code": "pharmacy_administrator",
+            "display": "Vaistinės administratorius"
+          },
+          {
+            "code": "pharmacy_system",
+            "display": "Vaistinės sistema"
+          }
+        ]
+      },
+      {
+        "system": "https://ws.esveikata.lt/cxf/Classifiers/role-type",
+        "concept": [
+          {
+            "code": "105",
+            "display": "Alternatyviosios medicinos specialistas"
+          },
+          {
+            "code": "7",
+            "display": "Farmacinės veiklos vadovas"
+          },
+          {
+            "code": "9",
+            "display": "Farmakotechnikas"
+          },
+          {
+            "code": "3",
+            "display": "Greitosios medicinos pagalbos specialistas"
+          },
+          {
+            "code": "25",
+            "display": "Išplėstinės praktikos vaistininkas"
+          },
+          {
+            "code": "204",
+            "display": "Kitas medicininis personalas"
+          },
+          {
+            "code": "5",
+            "display": "Klinikinio kodavimo specialistas"
+          },
+          {
+            "code": "264",
+            "display": "Licencijuotas sveikatos specialistas"
+          },
+          {
+            "code": "86",
+            "display": "Odontologijos kitas personalas"
+          },
+          {
+            "code": "104",
+            "display": "Onkologijos ligų prevencijos ir atvejo vadybos specialistai"
+          },
+          {
+            "code": "148",
+            "display": "Optikos darbuotojas"
+          },
+          {
+            "code": "10",
+            "display": "PV darbuotojas"
+          },
+          {
+            "code": "144",
+            "display": "Psichikos sveikatos slaugytojas"
+          },
+          {
+            "code": "145",
+            "display": "Psichikos sveikatos specialistas"
+          },
+          {
+            "code": "4",
+            "display": "Registratūros darbuotojas"
+          },
+          {
+            "code": "44",
+            "display": "SODRA naudotojas"
+          },
+          {
+            "code": "146",
+            "display": "Skubiosios medicinos gydytojas"
+          },
+          {
+            "code": "2",
+            "display": "Slaugos ir akušerijos specialistas"
+          },
+          {
+            "code": "147",
+            "display": "Slaugos koordinatorius"
+          },
+          {
+            "code": "1",
+            "display": "Sveikatos priežiūros specialistas"
+          },
+          {
+            "code": "84",
+            "display": "TPNC specialistas"
+          },
+          {
+            "code": "45",
+            "display": "VASPVT naudotojas"
+          },
+          {
+            "code": "24",
+            "display": "VLK,TLK darbuotojas"
+          },
+          {
+            "code": "124",
+            "display": "VRM Medicinos centro ekspertas"
+          },
+          {
+            "code": "6",
+            "display": "Vaistininkas"
+          },
+          {
+            "code": "8",
+            "display": "Vaistinės atstovas PASPĮ"
+          },
+          {
+            "code": "87",
+            "display": "Visuomenės sveikatos specialistas"
+          },
+          {
+            "code": "64",
+            "display": "Šeimos gydytojo komandos narys"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1678 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-E048-practitioner-part",
+  "name": "LtEspbiCompositionE048_PractitionerPart",
+  "status": "draft",
+  "description": "E048 Asmens medicininė knygelė (sveikatos pasas) (Gydytojo pildoma dalis)",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.meta",
+        "path": "Composition.meta",
+        "short": "Duomenų modelio versijos numeris ",
+        "definition": "Duomenų modelio versijos numeris / The metadata about the resource. "
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "definition": "Dokumento būsena / Status of the document."
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "Dokumento tipas",
+        "definition": "Dokumento tipas / CodeableConcept Kind of composition. What type of document is this - eg Discharge Summary, referral, Consultation note.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct\"",
+                  "code": "171363009"
+                }
+              ],
+              "text": "E048 Asmens medicininė knygelė (sveikatos pasas) (Gydytojo pildoma dalis)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "171363009"
+      },
+      {
+        "id": "Composition.type.text",
+        "path": "Composition.type.text",
+        "short": "Dokumento pavadinimas",
+        "definition": "Dokumento pavadinimas / Document title.",
+        "fixedString": "E048 Asmens medicininė knygelė (sveikatos pasas) (Gydytojo pildoma dalis)"
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "max": "0"
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "short": "Paciento duomenys",
+        "definition": "Paciento duomenys  / Information about the patient."
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "short": "Atvykimo duomenys",
+        "definition": "Atvykimo duomenys / Patient Reception Data.",
+        "min": 1
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "Dokumento išdavimo data",
+        "definition": "Dokumento išdavimo data/ The time this document was created."
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "short": "Gydytojo pildomą dalį ruošiančio naudotojo duomenys",
+        "definition": "Gydytojo pildomą dalį ruošiančio naudotojo duomenys / Information about Health Care Specialist.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "Dokumento pavadinimas / Official human-readable label for the composition",
+        "definition": "Dokumento pavadinimas",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "E048 Asmens medicininė knygelė (sveikatos pasas) (Gydytojo pildoma dalis)"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "short": "Įstaigos duomenys",
+        "definition": "Įstaigos duomenys / Organization who is the author of the document."
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event",
+        "path": "Composition.event",
+        "short": "Įvykis, kurio pagrindu yra kuriamas dokumentas",
+        "definition": "Įvykis, kurio pagrindu yra kuriamas dokumentas / The event being documented."
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/EventType",
+                    "code": "20",
+                    "display": "Medicininių pažymų suformavimas"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Provenance/123/_history/1"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.code",
+        "path": "Composition.event.detail.concept.coding.code",
+        "definition": "The event on which this document was created."
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:clinicalData",
+        "path": "Composition.section",
+        "sliceName": "clinicalData",
+        "short": "3. Dokumento duomenys / Clinical Data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "160922003"
+      },
+      {
+        "id": "Composition.section:clinicalData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate",
+        "path": "Composition.section.section",
+        "sliceName": "employmentDate",
+        "short": "3.4. Įdarbinimo ar darbo sąlygų keitimo data / Employment date",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "266955002"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-266955002"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:employmentDate.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace",
+        "path": "Composition.section.section",
+        "sliceName": "workplace",
+        "short": "3.5. Darbovietė / Workplace",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "394571004"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-394571004"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:workplace.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode",
+        "path": "Composition.section.section",
+        "sliceName": "occupationCode",
+        "short": "3.6. Profesijos kodas / Occupation (job) code",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "184104002"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-184104002"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:occupationCode.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork",
+        "path": "Composition.section.section",
+        "sliceName": "yearsOfWork",
+        "short": "3.8. Darbo stažas pagal šią profesiją, metais / Years of work at that position",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "224373009"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-224373009"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:yearsOfWork.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors",
+        "path": "Composition.section.section",
+        "sliceName": "harmfulFactors",
+        "short": "3.9. Kenksmingi veiksniai ir pavojingi darbai / Harmful factors at work",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "160909006"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-160909006"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:harmfulFactors.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData",
+        "path": "Composition.section.section",
+        "sliceName": "conclusionData",
+        "short": "Išvados duomenys / Conclusion data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "301707001"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-171363009"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:conclusionData.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData",
+        "path": "Composition.section",
+        "sliceName": "employerData",
+        "short": "Darbdavio atstovo dalį užpildžiusio naudotojo duomenys / Employer data.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:employerData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:employerData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "159553004"
+      },
+      {
+        "id": "Composition.section:employerData.focus",
+        "path": "Composition.section.focus",
+        "short": "Darbdavio atstovo dalį užpildžiusio naudotojo Vardas/Pavardė / Employer name and lastname",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/321123"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:employerData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization",
+        "path": "Composition.section.section",
+        "sliceName": "employerOrganization",
+        "short": "Darbdavio atstovo dalį užpildžiusio naudotojo įstaigos pavadinimas",
+        "definition": "Darbdavio atstovo dalį užpildžiusio naudotojo įstaigos pavadinimas / Employer organization name.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "224406003"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-224406003"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerOrganization.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition",
+        "path": "Composition.section.section",
+        "sliceName": "employerJobPosition",
+        "short": "4.2. Darbdavio atstovo dalį užpildžiusio naudotojo pareigos / Employer job position title ",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "224361009"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-224361009"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:employerData.section:employerJobPosition.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:deletionExplanation",
+        "path": "Composition.section",
+        "sliceName": "deletionExplanation",
+        "short": "Dokumento pateikimo/keitimo/šalinimo paaiškinimas / Document submission/update/delete description",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "58199-1"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.entry",
+        "path": "Composition.section.entry",
+        "short": "Nuoroda į detalius duomenis / Reference to detailed info",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event-text"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:deletionExplanation.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

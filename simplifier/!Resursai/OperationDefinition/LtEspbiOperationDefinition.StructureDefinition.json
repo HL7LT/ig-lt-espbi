@@ -1,0 +1,140 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-operation-definition",
+  "name": "LtEspbiOperationDefinition",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "OperationDefinition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/OperationDefinition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "OperationDefinition.id",
+        "path": "OperationDefinition.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.name",
+        "path": "OperationDefinition.name",
+        "short": "Operacijos pavadinimas / Name of this operation definition",
+        "definition": "Operacijos pavadinimas. Turi būti unikalus, be tarpų, prasideda raide, CamelCase.",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.status",
+        "path": "OperationDefinition.status",
+        "short": "Operacijos būsena / Status of the operation definition",
+        "definition": "Nurodo operacijos būseną. \r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/publication-status. Galimos reikšmės: draft | active | retired | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.kind",
+        "path": "OperationDefinition.kind",
+        "short": "Operacijos rūšis / Kind of operation",
+        "definition": "Apibrėžia, ar tai yra operacija, ar vardinė užklausa (named query).\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/operation-kind. Galimos reikšmės: operation | query.",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.code",
+        "path": "OperationDefinition.code",
+        "short": "Operacijos kodas / Operation code",
+        "definition": "Unikalus operacijos kodas, naudojamas operacijos kvietimui per FHIR API (pvz., naudojant $code formą URL adrese).",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.system",
+        "path": "OperationDefinition.system",
+        "short": "Sisteminio lygio operacija / Invoke at the system level?",
+        "definition": "Nurodo, ar operacija gali būti kviečiama bendrai visai sistemai (nesiejant su konkrečiu resursu ar įrašu).",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.type",
+        "path": "OperationDefinition.type",
+        "short": "Resurso tipo operacija / Invoke at the type level?",
+        "definition": "Nurodo, ar operacija skirta konkrečiam resursų tipui (pvz., visiems pacientams), bet ne konkrečiam įrašui.",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.instance",
+        "path": "OperationDefinition.instance",
+        "short": "Įrašo lygio operacija / Invoke on an instance?",
+        "definition": "Nurodo, ar operacija gali būti vykdoma konkrečiam resurso įrašui (pvz., generuoti ataskaitą tik vienam pasirinktam pacientui).",
+        "mustSupport": true
+      },
+      {
+        "id": "OperationDefinition.parameter",
+        "path": "OperationDefinition.parameter",
+        "short": "Operacijos/užklausos parametrai / Parameters for the operation/query",
+        "definition": "Operacijos/užklausos parametrai.",
+        "min": 1
+      },
+      {
+        "id": "OperationDefinition.parameter.extension",
+        "path": "OperationDefinition.parameter.extension",
+        "max": "1"
+      },
+      {
+        "id": "OperationDefinition.parameter.extension:ltEspbiExtParameter",
+        "path": "OperationDefinition.parameter.extension",
+        "sliceName": "ltEspbiExtParameter",
+        "short": "Užklausos parametrai / Query parameters",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-parameter"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "OperationDefinition.parameter.name",
+        "path": "OperationDefinition.parameter.name",
+        "short": "Parametro pavadinimas / Name of the parameter",
+        "definition": "Parametro identifikatorius, naudojamas perduoti duomenis į operaciją arba gauti rezultatus iš jos."
+      },
+      {
+        "id": "OperationDefinition.parameter.use",
+        "path": "OperationDefinition.parameter.use",
+        "short": "Parametro paskirtis / Use of the parameter (in/out)",
+        "definition": "Nurodo, ar parametras yra įvesties (in) – siunčiamas į serverį, ar išvesties (out) – grąžinamas kaip rezultatas.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/operation-parameter-use. Galimos reikšmės: in | out."
+      },
+      {
+        "id": "OperationDefinition.parameter.min",
+        "path": "OperationDefinition.parameter.min",
+        "short": "Minimalus kartų skaičius / Minimum Cardinality",
+        "definition": "Minimalus kartų skaičius, kiek šis parametras turi būti pateiktas užklausoje arba atsakyme."
+      },
+      {
+        "id": "OperationDefinition.parameter.max",
+        "path": "OperationDefinition.parameter.max",
+        "short": "Maksimalus kartų skaičius / Maximum Cardinality",
+        "definition": "Nurodo maksimalų parametro pateikimo kartų skaičių operacijos kvietimo metu (skaičius arba *). Reikšmė * reiškia neribotą skaičių."
+      },
+      {
+        "id": "OperationDefinition.parameter.targetProfile",
+        "path": "OperationDefinition.parameter.targetProfile",
+        "short": "Nuoroda į specifinį profilį / Profile of the resource",
+        "definition": "Jei parametras yra Reference arba visas resursas, čia nurodomas ESPBI profilio URL (pvz., nuoroda į ESPBI Paciento profilį).",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-binary"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

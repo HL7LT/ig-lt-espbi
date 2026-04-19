@@ -1,0 +1,29 @@
+{
+  "resourceType": "ValueSet",
+  "id": "lt-espbi-vs-lenses-type",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-lenses-type",
+  "version": "1.0.0",
+  "name": "LtEspbiVsLensesType",
+  "status": "active",
+  "experimental": false,
+  "date": "2026-01-22",
+  "description": "Akinių lęšių tipas / Type of eyeglass lenses. Naudojamas LtEspbiVisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:lensesType (CodeableConcept)",
+  "compose": {
+    "include": [
+      {
+        "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type",
+        "version": "1.0.0",
+        "concept": [
+          {
+            "code": "sd",
+            "display": "Sudėtingieji"
+          },
+          {
+            "code": "pp",
+            "display": "Paprastieji"
+          }
+        ]
+      }
+    ]
+  }
+}

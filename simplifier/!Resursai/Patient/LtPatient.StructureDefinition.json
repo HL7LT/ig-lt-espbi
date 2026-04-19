@@ -1,0 +1,694 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient",
+  "name": "LtEspbiPatient",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.id",
+        "path": "Patient.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.identifier",
+        "path": "Patient.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "definition": "Paciento identifikatorius skirtas identifikuoti pacientą pagal tam tikra unikalų kodą.\r\n\r\nPaciento identifikatoriais gali būti Lietuvos Piliečio Asmens kodas, unikalus paciento ESI numeris arba asmens draudžiamojo asmens identifikacinis kodas iš draudžiamųjų privalomuoju sveikatos draudimo registro.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.identifier:ESI",
+        "path": "Patient.identifier",
+        "sliceName": "ESI",
+        "short": "ESI id / Patient EHI No",
+        "definition": "Unikalus paciento ESI numeris.",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "ESI",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/Patient/ESI",
+              "value": "232233"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Patient.identifier:ESI.system",
+        "path": "Patient.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/Patient/ESI"
+      },
+      {
+        "id": "Patient.identifier:ESI.value",
+        "path": "Patient.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Patient.identifier:others",
+        "path": "Patient.identifier",
+        "sliceName": "others",
+        "short": "Kiti identifikatoriai / Other identifiers",
+        "definition": "Paciento identifikatoriai skirti identifikuoti pacientą pagal tam tikrą unikalų kodą.\r\nIdentifikuojančios sistemos pavadinimas (system):\r\n- http://esveikata.lt/Identifier/PersonalCode. Lietuvos piliečio asmens kodas. Pastaba: jei asmuo turi asmens kodą.\r\n- http://esveikata.lt/Identifier/Patient/ESPBI. ESPBI id.\r\n- http://esveikata.lt/Identifier/Patient/DIK. Asmens draudžiamojo identifikacinis kodas iš draudžiamųjų privalomuoju sveikatos draudimo registro (DIK).\r\n- http://esveikata.lt/Identifier/Patient/SveidraID. Asmens identifikatorius SVEIDRA IS.\r\n- http://esveikata.lt/Identifier/Patient/eFormNumber. Užsienio valstybės piliečio Europos sveikatos draudimo kortelės arba laikinai ją pakeičiančio ES šalies narės piliečio sertifikato ar E formos pažymos nr.\r\n- http://esveikata.lt/Identifier/Patient/ForeignPersonalCode. Užsienio valstybės piliečio asmens kodas arba kitas identifikavimo numeris.\r\n- http://esveikata.lt/Identifier/eDelivery. Asmens E. pristatymo dėžutės duomenys.\r\n- http://esveikata.lt/classifiers/IdentityDocument/SerieNumber. Užsienio valstybės piliečio asmens tapatybę patvirtinančio dokumento serija ir numeris.\r\n",
+        "example": [
+          {
+            "label": "Personal code",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/PersonalCode",
+              "value": "37512092729"
+            }
+          },
+          {
+            "label": "ESPBI",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/Patient/ESPBI",
+              "value": "454455"
+            }
+          },
+          {
+            "label": "DIK",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/Patient/DIK",
+              "value": "232233"
+            }
+          },
+          {
+            "label": "Sveidra ID",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/Patient/SveidraID",
+              "value": "1073765"
+            }
+          },
+          {
+            "label": "E form number",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/Patient/eFormNumber",
+              "value": "ABC123456"
+            }
+          },
+          {
+            "label": "Foreign personal code",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/Patient/ForeignPersonalCode",
+              "value": "987654321"
+            }
+          },
+          {
+            "label": "e-delivery",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/eDelivery",
+              "value": "vardpav123456"
+            }
+          },
+          {
+            "label": "Serie number",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/classifiers/IdentityDocument/SerieNumber",
+              "value": "ABC123456"
+            }
+          }
+        ],
+        "constraint": [
+          {
+            "key": "pat-idn-1",
+            "severity": "error",
+            "human": "When identifier.system is IdentityDocument/SerieNumber, both ltExtDocumentRegisteredBy and ltExtDocumentRegisteredDate extensions are required.",
+            "expression": "(system = 'http://esveikata.lt/classifiers/IdentityDocument/SerieNumber') implies (extension.where(url = 'http://esveikata.lt/Profile/ltnhr-patient/documentRegisteredBy').exists() and extension.where(url = 'http://esveikata.lt/Profile/ltnhr-patient/documentRegisteredDate').exists())"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.identifier:others.extension:ltExtDocumentCountry",
+        "path": "Patient.identifier.extension",
+        "sliceName": "ltExtDocumentCountry",
+        "short": "Užsienio valstybės piliečio asmens tapatybę patvirtinantį dokumentą išdavusios šalies triraidis kodas / Three-letter code of the country that issued the identity document of a foreign citizen",
+        "definition": "Užsienio valstybės piliečio asmens tapatybę patvirtinantį dokumentą išdavusios šalies triraidis kodas.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/documentCountry"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Patient.identifier:others.extension:ltExtDocumentRegisteredBy",
+        "path": "Patient.identifier.extension",
+        "sliceName": "ltExtDocumentRegisteredBy",
+        "short": "Užsienio valstybės piliečio dokumentą užregistravęs specialistas /The practitioner registered insurance document of a foreign citizen",
+        "definition": "Užsienio valstybės piliečio dokumentą užregistravęs specialistas.\r\n\r\nValidacinė taisyklė:\r\n- Privaloma pateikti, kai system = \"http://esveikata.lt/classifiers/IdentityDocument/SerieNumber\".",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/documentRegisteredBy"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Patient.identifier:others.extension:ltExtDocumentRegisteredDate",
+        "path": "Patient.identifier.extension",
+        "sliceName": "ltExtDocumentRegisteredDate",
+        "short": "Data, kada užregistruotas užsienio valstybės piliečio dokumentas / Date when the foreign citizen's document was registered",
+        "definition": "Data, kada užregistruotas užsienio valstybės piliečio dokumentas.\r\n\r\nValidacinė taisyklė:\r\n- Privaloma pateikti, kai system = \"http://esveikata.lt/classifiers/IdentityDocument/SerieNumber\".",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/documentRegisteredDate"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Patient.identifier:others.type",
+        "path": "Patient.identifier.type",
+        "short": "Užsienio valstybės piliečio asmens tapatybę patvirtinančio dokumento rūšis / Type of identity document of a foreign citizen",
+        "definition": "Užsienio valstybės piliečio asmens tapatybę patvirtinančio dokumento rūšis, pavyzdžiui, Vairuotojo pažymėjimas, Socialinio draudimo pažymėjimas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.identifier:others.type.coding",
+        "path": "Patient.identifier.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Patient.identifier:others.type.coding.system",
+        "path": "Patient.identifier.type.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/IdentityDocument/Type"
+      },
+      {
+        "id": "Patient.identifier:others.type.coding.code",
+        "path": "Patient.identifier.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Patient.identifier:others.system",
+        "path": "Patient.identifier.system",
+        "min": 1,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/lt-espbi-patient-identifier"
+        }
+      },
+      {
+        "id": "Patient.identifier:others.value",
+        "path": "Patient.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Patient.name",
+        "path": "Patient.name",
+        "short": "Paciento vardo/pavardės duomenys / Patient name data",
+        "definition": "Paciento vardas ir pavardė.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.name.family",
+        "path": "Patient.name.family",
+        "short": "Paciento pavardė / Patient surname",
+        "definition": "Paciento pavardė.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.name.given",
+        "path": "Patient.name.given",
+        "short": "Paciento vardas(-ai) / Patient name(-s)",
+        "definition": "Paciento vardas(-ai).",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.telecom",
+        "path": "Patient.telecom",
+        "short": "Paciento kontaktiniai duomenys / Patient contact details",
+        "definition": "Paciento kontaktiniai duomenys - telefono numeris, elektroninio pašto adresas.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/contact-point-system. Galimos reikšmės: phone | fax | email | pager | url | sms | other.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.telecom.system",
+        "path": "Patient.telecom.system",
+        "min": 1
+      },
+      {
+        "id": "Patient.telecom.value",
+        "path": "Patient.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "Patient.gender",
+        "path": "Patient.gender",
+        "short": "Paciento lytis / Patient gender",
+        "definition": "Paciento lytis.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/administrative-gender. Galimos reikšmės: male | female | other | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.birthDate",
+        "path": "Patient.birthDate",
+        "short": "Paciento gimimo data / Patient birthday",
+        "definition": "Paciento gimimo data.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.birthDate.extension:patBirthTime",
+        "path": "Patient.birthDate.extension",
+        "sliceName": "patBirthTime",
+        "short": "Paciento gimimo data ir laikas / Time of day of birth",
+        "definition": "Paciento gimimo data ir laikas (aktualu naujagimių ir negyvagimių atveju).",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/patient-birthTime"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Patient.birthDate.extension:patBirthTime.value[x]",
+        "path": "Patient.birthDate.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Patient.deceased[x]",
+        "path": "Patient.deceased[x]",
+        "short": "Paciento mirties data / Date of death",
+        "definition": "Paciento mirties data. Privalomas, jei pacientas mirė.",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address",
+        "path": "Patient.address",
+        "short": "Paciento deklaruotos/gyvenamosios vietos adresas / Declared/residential address of patient",
+        "definition": "Paciento deklaruotos/gyvenamosios vietos adreso duomenys.",
+        "type": [
+          {
+            "code": "Address",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-address"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier",
+        "path": "Patient.address.extension",
+        "sliceName": "ltEspbiExtResourceAddressIdentifier",
+        "definition": "Lietuvoje gyvenančio paciento deklaruotos/gyvenamosios vietos adreso duomenys. Deklaruotas gyvenamosios vietos adresas gaunamas iš LR gyventojų registro. Gyvenamosios vietos adresas įvedamas bei tikrinamas ar egzistuoja Adresų registre.\r\n\r\nNaudojama tik Lietuvos valstybės pacientams. Užsienio piliečiams šis laukas nenaudojamas (naudojamas address laukas)."
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension",
+        "path": "Patient.address.extension.extension",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:type",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "type",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:addressID",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "addressID",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:municipalityID",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "municipalityID",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:cityID",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "cityID",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:streetID",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "streetID",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:house",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "house",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:hull",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "hull",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.extension:ltEspbiExtResourceAddressIdentifier.extension:flat",
+        "path": "Patient.address.extension.extension",
+        "sliceName": "flat",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.maritalStatus",
+        "path": "Patient.maritalStatus",
+        "short": "Paciento šeimyninė padėtis / Patient marital status",
+        "definition": "Paciento šeimyninė padėtis.\r\n\r\nPagal FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/marital-status.",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.maritalStatus.coding",
+        "path": "Patient.maritalStatus.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Patient.maritalStatus.coding.system",
+        "path": "Patient.maritalStatus.coding.system",
+        "definition": "Klasifikatorius / Classifier: http://hl7.org/fhir/ValueSet/marital-status.",
+        "min": 1
+      },
+      {
+        "id": "Patient.maritalStatus.coding.code",
+        "path": "Patient.maritalStatus.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Patient.maritalStatus.coding.display",
+        "path": "Patient.maritalStatus.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.multipleBirth[x]",
+        "path": "Patient.multipleBirth[x]",
+        "short": "Daugiavaisio nėštumo indikatorius / Multiple pregnancy indicator",
+        "definition": "Daugiavaisio nėštumo indikatorius. Nurodoma ar pacientas yra iš daugiavaisio nėštumo bei jo gimimo eiliškumas.",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.photo",
+        "path": "Patient.photo",
+        "short": "Paciento veido atvaizdas / Patient photo",
+        "definition": "Paciento nuotrauka.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.photo.contentType",
+        "path": "Patient.photo.contentType",
+        "min": 1
+      },
+      {
+        "id": "Patient.photo.data",
+        "path": "Patient.photo.data",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.photo.url",
+        "path": "Patient.photo.url",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.photo.title",
+        "path": "Patient.photo.title",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.generalPractitioner",
+        "path": "Patient.generalPractitioner",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "extension('http://esveikata.lt/Profile/ltnhr-patient/careProviderActivityType').value.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Nuoroda į paciento pasirinkto sveikatos priežiūros specialisto/įstaigos resursą / Reference to family doctor/ healthcare facility resource",
+        "definition": "Nuoroda į paciento pasirinkto sveikatos priežiūros specialisto resursą (skritas Lietuvos piliečiams). Taip pat nuoroda į įstaiga, prie kurios pacientas prisirašęs.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.generalPractitioner:familyDoctor",
+        "path": "Patient.generalPractitioner",
+        "sliceName": "familyDoctor",
+        "short": "Nuoroda į paciento pasirinkto sveikatos priežiūros specialisto resursą / Reference to family doctor resource",
+        "definition": "Paciento pasirinktas sveikatos priežiūros specialistas. ",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.generalPractitioner:familyDoctor.extension",
+        "path": "Patient.generalPractitioner.extension",
+        "min": 1
+      },
+      {
+        "id": "Patient.generalPractitioner:familyDoctor.extension:ltExtCareProviderActivityType",
+        "path": "Patient.generalPractitioner.extension",
+        "sliceName": "ltExtCareProviderActivityType",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/careProviderActivityType"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Patient.generalPractitioner:familyDoctor.reference",
+        "path": "Patient.generalPractitioner.reference",
+        "min": 1
+      },
+      {
+        "id": "Patient.generalPractitioner:registeredOrganization",
+        "path": "Patient.generalPractitioner",
+        "sliceName": "registeredOrganization",
+        "short": "Asmens sveikatos priežiūros įstaiga, prie kurios pacientas yra prisirašęs / Patient's nominated care provider (organization)",
+        "definition": "Asmens sveikatos priežiūros įstaiga, prie kurios pacientas yra prisirašęs.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.generalPractitioner:registeredOrganization.extension",
+        "path": "Patient.generalPractitioner.extension",
+        "min": 2
+      },
+      {
+        "id": "Patient.generalPractitioner:registeredOrganization.extension:ltExtRegisteredPeriod",
+        "path": "Patient.generalPractitioner.extension",
+        "sliceName": "ltExtRegisteredPeriod",
+        "min": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/registeredPeriod"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Patient.generalPractitioner:registeredOrganization.extension:ltExtCareProviderActivityType",
+        "path": "Patient.generalPractitioner.extension",
+        "sliceName": "ltExtCareProviderActivityType",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/careProviderActivityType"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Patient.generalPractitioner:registeredOrganization.extension:ltExtFamilyDoctor",
+        "path": "Patient.generalPractitioner.extension",
+        "sliceName": "ltExtFamilyDoctor",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/familyDoctor"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Patient.generalPractitioner:registeredOrganization.reference",
+        "path": "Patient.generalPractitioner.reference",
+        "min": 1
+      },
+      {
+        "id": "Patient.generalPractitioner:mentalHealthCenter",
+        "path": "Patient.generalPractitioner",
+        "sliceName": "mentalHealthCenter",
+        "short": "Psichikos sveikatos centras, prie kurios pacientas yra prisirašęs / Patient's nominated care provider (organization)",
+        "definition": "Psichikos sveikatos centras, prie kurios pacientas yra prisirašęs.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.generalPractitioner:mentalHealthCenter.extension",
+        "path": "Patient.generalPractitioner.extension",
+        "min": 2
+      },
+      {
+        "id": "Patient.generalPractitioner:mentalHealthCenter.extension:ltExtRegisteredPeriod",
+        "path": "Patient.generalPractitioner.extension",
+        "sliceName": "ltExtRegisteredPeriod",
+        "min": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/registeredPeriod"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Patient.generalPractitioner:mentalHealthCenter.extension:ltExtCareProviderActivityType",
+        "path": "Patient.generalPractitioner.extension",
+        "sliceName": "ltExtCareProviderActivityType",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-patient/careProviderActivityType"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Patient.generalPractitioner:mentalHealthCenter.reference",
+        "path": "Patient.generalPractitioner.reference",
+        "min": 1
+      },
+      {
+        "id": "Patient.link",
+        "path": "Patient.link",
+        "short": "Nuorodą į tikrąjį pacientą / Reference to the identified patient",
+        "definition": "Nuoroda į kitą Patient resursą naudojama nurodyti tikrąjį pacientą. Nuorodą yra naudojama tuo atvejų, jeigu esamas Patient resursas buvo sukurtas laikinai SPĮ sistemoje, kai pagal paciento duomenis nebuvo galimybės gauti Patient resurso iš ESPBI IS (neatpažinto paciento atvejis).",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.link.other",
+        "path": "Patient.link.other",
+        "short": "Nurodą į tikrąjį pacientą, kurio duomenis turi būti naudojami vietoje šio neatpažinto paciento/ Reference to the identified patient which data should be used instead of this unknown patient",
+        "definition": "Nuoroda į tikrąjį pacientą, kurio duomenis turi būti naudojami vietoje šio neatpažinto paciento.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.link.other.reference",
+        "path": "Patient.link.other.reference",
+        "min": 1
+      },
+      {
+        "id": "Patient.link.type",
+        "path": "Patient.link.type",
+        "short": "Nurodos tipas (replace pagal nutylėjimą) / Link type (replace by default)",
+        "definition": "Nuorodos tipas.\r\n\r\nGalimos reikšmės:\r\n- **replaces** : Nurodo, kad nuorodoje nurodomo paciento duomenis turi būti naudojami vietoj esamo paciento duomenų.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/link-type. Galimos reikšmės: replaced-by | replaces | refer | seealso.\r\n\r\nReikšmė pagal nutylėjimą \"replaces\"."
+      }
+    ]
+  }
+}

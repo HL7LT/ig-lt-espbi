@@ -1,0 +1,297 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0931",
+  "name": "LtEspbiObservation02_0931",
+  "status": "draft",
+  "description": "Atlikti veiksmai / Actions taken",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.0931",
+                  "display": "Atlikti veiksmai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.0931"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:actionsTaken",
+        "path": "Observation.hasMember",
+        "sliceName": "actionsTaken",
+        "short": "Atlikti veiksmai / Actions taken",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0920"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004071"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:bleedingUterineAtony",
+        "path": "Observation.hasMember",
+        "sliceName": "bleedingUterineAtony",
+        "short": "Kraujavimas dėl gimdos atonijos (1T) / Bleeding due to uterine atony",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0922"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004075"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:bleedingBirthCanalTrauma",
+        "path": "Observation.hasMember",
+        "sliceName": "bleedingBirthCanalTrauma",
+        "short": "Kraujavimas dėl gimdymo takų traumos (2T) / Bleeding due to trauma to the birth canal (2T)",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0924"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004083"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:bleedingRetainedPlacentalTissue",
+        "path": "Observation.hasMember",
+        "sliceName": "bleedingRetainedPlacentalTissue",
+        "short": "Kraujavimas dėl placentos likučių (3T) / Bleeding due to retained placental tissueof the group",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0923"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004084"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:bleedingClottingDisorder",
+        "path": "Observation.hasMember",
+        "sliceName": "bleedingClottingDisorder",
+        "short": "Kraujavimas dėl kraujo krešumo sutrikimo (4T) / Bleeding due to a blood clotting disorder",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0925"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004087"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:heavyBleedingPersists",
+        "path": "Observation.hasMember",
+        "sliceName": "heavyBleedingPersists",
+        "short": "Išlieka gausus kraujavimas / Heavy bleeding persists",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0928"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004093"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:transportToOperatingRoom",
+        "path": "Observation.hasMember",
+        "sliceName": "transportToOperatingRoom",
+        "short": "Pacientė pervežta į operacinę / Patient transported to the operating room",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0929"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004095"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:laparotomy",
+        "path": "Observation.hasMember",
+        "sliceName": "laparotomy",
+        "short": "Laparotomija / Laparotomy",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0930"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004097"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

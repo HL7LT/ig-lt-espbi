@@ -1,0 +1,592 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-18594-2",
+  "name": "LtEspbiDocumentReference18594_2",
+  "status": "draft",
+  "description": "Nuoroda į Psichikos sveikatos duomenų priedą E030 / Reference to Mental Health Data Annex",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.implicitRules",
+        "path": "DocumentReference.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.language",
+        "path": "DocumentReference.language",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.text",
+        "path": "DocumentReference.text",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.contained",
+        "path": "DocumentReference.contained",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.extension",
+        "path": "DocumentReference.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.modifierExtension",
+        "path": "DocumentReference.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier",
+        "path": "DocumentReference.identifier",
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.identifier.extension",
+        "path": "DocumentReference.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "masterIdentifier",
+        "short": "Psichikos sveikatos duomenų priedo identifikatorius / Mental Health Data Annex identifier",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Identifier/MentalHealthDataAnnex",
+              "value": "111111111"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.id",
+        "path": "DocumentReference.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.extension",
+        "path": "DocumentReference.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.use",
+        "path": "DocumentReference.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.type",
+        "path": "DocumentReference.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.system",
+        "path": "DocumentReference.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/MentalHealthDataAnnex"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.period",
+        "path": "DocumentReference.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.assigner",
+        "path": "DocumentReference.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:docVersionIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "docVersionIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier:certificateNumberIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "certificateNumberIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.version",
+        "path": "DocumentReference.version",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.basedOn",
+        "path": "DocumentReference.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "current"
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.docStatus",
+        "path": "DocumentReference.docStatus",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.modality",
+        "path": "DocumentReference.modality",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type",
+        "path": "DocumentReference.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18594-2"
+                }
+              ],
+              "text": "Psichikos sveikatos duomenų priedas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.type.id",
+        "path": "DocumentReference.type.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.extension",
+        "path": "DocumentReference.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.id",
+        "path": "DocumentReference.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.extension",
+        "path": "DocumentReference.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.system",
+        "path": "DocumentReference.type.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "DocumentReference.type.coding.version",
+        "path": "DocumentReference.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.type.coding.code",
+        "path": "DocumentReference.type.coding.code",
+        "fixedCode": "18594-2"
+      },
+      {
+        "id": "DocumentReference.type.coding.userSelected",
+        "path": "DocumentReference.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.category",
+        "path": "DocumentReference.category",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.subject.id",
+        "path": "DocumentReference.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.extension",
+        "path": "DocumentReference.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.type",
+        "path": "DocumentReference.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.identifier",
+        "path": "DocumentReference.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject.display",
+        "path": "DocumentReference.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.context",
+        "path": "DocumentReference.context",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.event",
+        "path": "DocumentReference.event",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.bodySite",
+        "path": "DocumentReference.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.facilityType",
+        "path": "DocumentReference.facilityType",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.practiceSetting",
+        "path": "DocumentReference.practiceSetting",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.period",
+        "path": "DocumentReference.period",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2024-10-22T06:43:41+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.author",
+        "path": "DocumentReference.author",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.author.id",
+        "path": "DocumentReference.author.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.extension",
+        "path": "DocumentReference.author.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.type",
+        "path": "DocumentReference.author.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.identifier",
+        "path": "DocumentReference.author.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author.display",
+        "path": "DocumentReference.author.display",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.attester",
+        "path": "DocumentReference.attester",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.custodian",
+        "path": "DocumentReference.custodian",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/0012450100"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.custodian.id",
+        "path": "DocumentReference.custodian.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.custodian.extension",
+        "path": "DocumentReference.custodian.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.custodian.type",
+        "path": "DocumentReference.custodian.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.custodian.identifier",
+        "path": "DocumentReference.custodian.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.custodian.display",
+        "path": "DocumentReference.custodian.display",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo",
+        "path": "DocumentReference.relatesTo",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.relatesTo.id",
+        "path": "DocumentReference.relatesTo.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.extension",
+        "path": "DocumentReference.relatesTo.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.modifierExtension",
+        "path": "DocumentReference.relatesTo.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.code",
+        "path": "DocumentReference.relatesTo.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/document-relationship-type",
+                  "code": "appends",
+                  "display": "Appends"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.id",
+        "path": "DocumentReference.relatesTo.code.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.extension",
+        "path": "DocumentReference.relatesTo.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding",
+        "path": "DocumentReference.relatesTo.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding.id",
+        "path": "DocumentReference.relatesTo.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding.extension",
+        "path": "DocumentReference.relatesTo.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding.version",
+        "path": "DocumentReference.relatesTo.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding.userSelected",
+        "path": "DocumentReference.relatesTo.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.target",
+        "path": "DocumentReference.relatesTo.target",
+        "short": "Nuoroda į medicininį dokumentą E025/E003 prie kurio šis priedas yra prikabintas / Reference to med. document E025/E003 this attachment is attached to",
+        "definition": "Šis DocumentReference (DR) \"DocumentReference/12222222\" yra surandamas pagal medicininio dokumento E025/E003, prie kurios šis priedas yra prikabintas, Composition ID. Taip pat šio surasto DR  turi būti <masterIdentifier>  <system value=\"Composition\"/>, nes E025/E003 gali turėti daugiau DR, kurie rodys į kitus prie jų prisegtus dokumentus, o sieti reikia su šio tipo DR. Nors šis DR (DocumentReference/12222222) yra skirtas susieti E025/E003 su pasirašytu dokumento PDF‘u, šis DR yra sukuriamas sistemos automatiškai, kuomet į ESPBI IS yra pateikiama E025/E003 Composition resursas, todėl jis gali būti gaunamas ir dar nepasirašytam dokumentui.",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/12222222"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.relatesTo.target.id",
+        "path": "DocumentReference.relatesTo.target.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.target.extension",
+        "path": "DocumentReference.relatesTo.target.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.target.type",
+        "path": "DocumentReference.relatesTo.target.type",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.target.identifier",
+        "path": "DocumentReference.relatesTo.target.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo.target.display",
+        "path": "DocumentReference.relatesTo.target.display",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.description",
+        "path": "DocumentReference.description",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.securityLabel",
+        "path": "DocumentReference.securityLabel",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content",
+        "path": "DocumentReference.content",
+        "short": "Priedo skaitmeninis mime tipas /The mime type of the source document"
+      },
+      {
+        "id": "DocumentReference.content.id",
+        "path": "DocumentReference.content.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.extension",
+        "path": "DocumentReference.content.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.modifierExtension",
+        "path": "DocumentReference.content.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.id",
+        "path": "DocumentReference.content.attachment.id",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.extension",
+        "path": "DocumentReference.content.attachment.extension",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.contentType",
+        "path": "DocumentReference.content.attachment.contentType",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "application/fhir+xml"
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.content.attachment.language",
+        "path": "DocumentReference.content.attachment.language",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.data",
+        "path": "DocumentReference.content.attachment.data",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.title",
+        "path": "DocumentReference.content.attachment.title",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.creation",
+        "path": "DocumentReference.content.attachment.creation",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.height",
+        "path": "DocumentReference.content.attachment.height",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.width",
+        "path": "DocumentReference.content.attachment.width",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.frames",
+        "path": "DocumentReference.content.attachment.frames",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.duration",
+        "path": "DocumentReference.content.attachment.duration",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.pages",
+        "path": "DocumentReference.content.attachment.pages",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.profile",
+        "path": "DocumentReference.content.profile",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-289707002",
+  "name": "LtEspbiObservation289707002",
+  "status": "draft",
+  "description": "Reguliarūs sąrėmiai / Regular contractions",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "constraint": [
+          {
+            "key": "obs-9",
+            "severity": "error",
+            "human": "If regular contractions are present (valueBoolean = true), Observation.effectiveDateTime must be provided.",
+            "expression": "valueBoolean = true implies exists(effectiveDateTime)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "289707002",
+                  "display": "Finding of regularity of uterine contraction"
+                }
+              ],
+              "text": "Reguliarūs sąrėmiai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "289707002"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Reguliarūs sąrėmiai pradžia /  Beginning of regular labor contractions",
+        "definition": "Reguliarūs sąrėmiai pradžia (E-096-PART). Galimi, kai Reguliarūs sąrėmiai reikšmė: \"Yra\" (true).\r\n\r\nDuomenys iš E096-NT formos \"Reguliarūs sąrėmiai\".\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.\r\n- Jeigu nėra E096-NT formos \"Reguliarūs sąrėmiai\", teikiama su šiuo dokumentu.",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-09-17T14:13:54.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-eff-2",
+            "severity": "error",
+            "human": "Effective date ant time must not be later than the current date.",
+            "expression": "effectiveDateTime <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Reguliarūs sąrėmiai / Regular contractions",
+        "definition": "Galimos reikšmės / Possible values: \"Yra\" (true), \"Nėra\" (false).",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

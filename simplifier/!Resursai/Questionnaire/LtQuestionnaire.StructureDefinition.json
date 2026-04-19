@@ -1,0 +1,200 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-questionnaire",
+  "name": "LtEspbiQuestionnaire",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Questionnaire",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Questionnaire.id",
+        "path": "Questionnaire.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.meta",
+        "path": "Questionnaire.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.url",
+        "path": "Questionnaire.url",
+        "short": "Klausimyno URI identifikatorius / URI identifier for the questionnaire",
+        "definition": "Klausimyno (klausimų) globaliai unikalus URI identifikatorius, naudojamas susieti klausimyno atsakymus (QuestionnaireResponse resursą) su atitinkamo klausimyno klausimais (Questionnaire resursu).",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.version",
+        "path": "Questionnaire.version",
+        "short": "Klausimyno (klausimų) versija / Questionnaire version",
+        "definition": "Klausimyno (klausimų) versija turi būti nurodoma, susiejant klausimyno atsakymus (QuestionnaireResponse resursą) su atitinkamo klausimyno klausimais (Questionnaire resursu), tuo atveju, jei klausimynas turi kelias versijas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.name",
+        "path": "Questionnaire.name",
+        "short": "Klausimyno pavadinimas (skirtas kompiuteriui) / Name for this questionnaire (computer friendly)",
+        "definition": "Nors klausimynas unikaliai identifikuojamas \"code\" elemente, naudotojų patogumui papildomai gali būti nurodytas klausimyno pavadinimas, skirtas (pritaikytas) kompiuteriui.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.title",
+        "path": "Questionnaire.title",
+        "short": "Klausimyno pavadinimas (skirtas žmogui) / Name for this questionnaire (human friendly)",
+        "definition": "Nors klausimynas unikaliai identifikuojamas \"code\" elemente, naudotojų patogumui papildomai gali būti nurodytas klausimyno pavadinimas, skirtas (pritaikytas) žmogui.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.status",
+        "path": "Questionnaire.status",
+        "short": "Klausimyno statusas / The current state of the questionnaire",
+        "definition": "Klausimyno (klausimų) statusas.\r\nFHIR R5 atveju turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/publication-status|5.0.0. Galimos reikšmės: draft | active | retired | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.date",
+        "path": "Questionnaire.date",
+        "short": "Klausimyno paskutinio pakeitimo data / Date and time of last questionnaire update",
+        "definition": "Klausimyno (klausimų) paskutinio pakeitimo data. Tuo atveju, kai keičiamas jau publikuotas („status“=\"active\") klausimynas, tuo pačiu turi būti pakeičiama klausimyno \"version\" reikšmė.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.code",
+        "path": "Questionnaire.code",
+        "short": "Klausimyno kodas / Questionnaire code",
+        "definition": "Klausimyną (klausimus) unikaliai identifikuojantis kodas",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/classifiers/QuestionnaireCode"
+        }
+      },
+      {
+        "id": "Questionnaire.code.system",
+        "path": "Questionnaire.code.system",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.code.code",
+        "path": "Questionnaire.code.code",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.code.display",
+        "path": "Questionnaire.code.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item",
+        "path": "Questionnaire.item",
+        "short": "Klausimyno (klausimų) elementas / Questionnaire element",
+        "definition": "Klausimyno (klausimų) elementas: klausimų grupė, klausimas arba \"tik atvaizdavimo\" (type=display) elementas. Klausimynas gali turi daug aukščiausio lygio elementų (klausimų grupių, klausimų ir \"tik atvaizdavimo\" elementų), kiekvienas iš aukščiausio lygio elementų gali turėti daug \"vaikinių\" elementų ir taip toliau.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.linkId",
+        "path": "Questionnaire.item.linkId",
+        "short": "Klausimyno elemento identifikatorius / Unique id for item in questionnaire",
+        "definition": "Klausimyno ribose unikalus klausimyno (klausimų) elemento identifikatorius, kuris turės būti nurodytas QuestionnaireResponse resurse, susiejant kiekvieną atsakymą (QuestionnaireResponse elementą) su konkrečiu klausimu (Questionnaire elementu)."
+      },
+      {
+        "id": "Questionnaire.item.code",
+        "path": "Questionnaire.item.code",
+        "short": "Klausimyno elemento kodas / Questionnaire item code",
+        "definition": "Klausimyno (klausimų) elemento kodas. Nors klausimyno elemlentą unikaliai identifikuoja \"linkId\" laukas, papildomai gali būti pateiktas klausimo kodas nurodytoje kodavimo sistemoje.",
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/classifiers/QuestionnaireQuestionCode"
+        }
+      },
+      {
+        "id": "Questionnaire.item.code.system",
+        "path": "Questionnaire.item.code.system",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.item.code.code",
+        "path": "Questionnaire.item.code.code",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.item.code.display",
+        "path": "Questionnaire.item.code.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.text",
+        "path": "Questionnaire.item.text",
+        "short": "Klausimyno elemento tekstas / Text for the Questionnaire item",
+        "definition": "Klausimyno elemento tekstas: klausimų grupės pavadinimas, \"tik rodomo\" klausimyno elemento (\"type\"=\"display\") tekstas arba klausimyno klausimo tekstas.",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.item.type",
+        "path": "Questionnaire.item.type",
+        "short": "Klausimyno elemento tipas / Questionnaire item type",
+        "definition": "Klausimyno (klausimų) elemento tipas (ar tai yra tik atvaizdavimui skirtas klausimyno elementas, ar tai yra klausimų grupė, ar tai yra konkretaus atsakymo duomenų tipo reikalaujantis klausimas).\r\nPilnas FHIR R5 galimų tipų sąrašas pateiktas reikšmių sąraše http://hl7.org/fhir/ValueSet/item-type|5.0.0.  Galimos reikšmės: group | display | boolean | decimal | integer | date | dateTime +"
+      },
+      {
+        "id": "Questionnaire.item.required",
+        "path": "Questionnaire.item.required",
+        "short": "Požymis, ar atsakymas į klausimą yra privalomasm / Whether the item must be included in data results.",
+        "definition": "Požymis, ar atsakymas į klausimą (Questionnaire elementą) yra privalomas. Jei nurodyta reikšmė „true“, atsakymuose į klausimyną (QuestionnaireResponse resurse) atsakymas į šį klausimyno elementą yra privalomas, kitu atveju klausimyno elementas gali būti praleistas, į jį neatsakant.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.repeats",
+        "path": "Questionnaire.item.repeats",
+        "short": "Požymis, ar gali būti pateikti keli atsakymai į klausimą / Whether the item may repeat",
+        "definition": "Požymis, ar gali būti pateikti keli atsakymai į klausimą. Jei nurodyta reikšmė „true“, atsakymuose į klausimyną (QuestionnaireResponse resurse) gali būti pateikti keli atsakymai į šį klausimyno elementą, kitu atveju gali būti pateiktas tik vienas atsakymas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.answerConstraint",
+        "path": "Questionnaire.item.answerConstraint",
+        "short": "Požymis, ar atsakymas gali būti ne iš galimų reikšmių sąrašo / An indication of whether values ​​outside the list of possible values ​​can be specified",
+        "definition": "Požymis, ar gali būti nurodytas kitoks atsakymas nei iš papteikto galimų reikšmių sąrašo. Požymis aktualus, jei nurodyti \"item.answerValueSet\" elementai. Galimos reikšmės: optionsOnly | optionsOrType | optionsOrString, jų platesnis aprašymas pateiktas galimų reikšmių sąraše http://hl7.org/fhir/ValueSet/questionnaire-answer-constraint|5.0.0.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.answerValueSet",
+        "path": "Questionnaire.item.answerValueSet",
+        "short": "Galimų reikšmių sąrašas / ValueSet containing permitted answers",
+        "definition": "Galimų reikšmių sąrašas (ValueSet), kuris gali būti naudojamas tuo atveju, kai norima, jog atsakant į klausimą būtų pasirenkama iš galimų reikšmių sąrašo. ValueSet paprastai sukuriamas ir nurodomas answerValueSet elemente tuo atveju, kai keli klausimyno (ar kelių klausimynų) klausimai naudoja tą patį galimų atsakymų sąrašą. Klausimyno elementui (klausimui) negali būti nurodyta ir answerValueSet, ir anserOption reikšmė (reikšmės) - galima nurodyti tik vieną iš jų.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.answerOption",
+        "path": "Questionnaire.item.answerOption",
+        "short": "Galimas atsakymas į klausimą / One of the permitted answers for the question.",
+        "definition": "Galimas atsakymas į klausimą - answerOption elementai gali būti nurodomi tuo atveju, kai norima, jog atsakant į klausimą būtų pasirenkama iš galimų reikšmių sąrašo. Elementai answerOption paprastai naudojami tuo atveju, kai galimų atsakymų sąrašas yra unikalus ir skirtas tik šiam klausimui (jei keli klausimai naudoja tą patį galimų atsakymų sąrašą, paprastai kuriamas ValueSet, kuris nurodomas elemente answerValueSet). Klausimyno elementui (klausimui) negali būti nurodyta ir answerValueSet, ir anserOption reikšmė (reikšmės) - galima nurodyti tik vieną iš jų. Nurodant \"answerOption\" rekomenduojama elementui \"type\" nurodyti reikšmę \"Question\" (o ne \"vaikinius\" tipus, tokius kaip \"integer\", \"string\", \"date\" ir kt.), nes atsakymo (pasirinkimų iš sąrašo) duomenų tipas yra nurodomas \"answerOption.value[x]\" elemente.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.initial",
+        "path": "Questionnaire.item.initial",
+        "short": "Reikšmė (-ės) pagal nutylėjimą  / Initial value(s) when item is first rendered",
+        "definition": "Viena ar kelios reikšmės, kurios turėtų būti iš anksto užpildytos atsakyme, kai klausimynas pateikiamas naudotojui.",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      }
+    ]
+  }
+}

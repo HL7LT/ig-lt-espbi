@@ -1,0 +1,208 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-medication-knowledge/compensation",
+  "name": "LtEspbiExtCompensation",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationKnowledge.cost"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Vaistinio preparato kompensavimas / Medication compensation data"
+      },
+      {
+        "id": "Extension.extension:compensationCode",
+        "path": "Extension.extension",
+        "sliceName": "compensationCode",
+        "short": "Vaistinio preparato kompensavimo rūšis / Compensation type",
+        "definition": "Vaistinio preparato kompensavimo rūšies kodas bei pavadinimas.\r\nGalimos reikšmės nurodytos klasifikatoriuje compensation-type (http://esveikata.lt/classifiers/Medication/CompensationCode).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "compensationCode"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/Medication/CompensationCode"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:percentage",
+        "path": "Extension.extension",
+        "sliceName": "percentage",
+        "short": "Vaistinio preparato kompensavimo procentas / Compensation percentage",
+        "definition": "Vaistinio preparato kompensavimo procentas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:percentage.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:percentage.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "percentage"
+      },
+      {
+        "id": "Extension.extension:percentage.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "unsignedInt"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:surcharge",
+        "path": "Extension.extension",
+        "sliceName": "surcharge",
+        "short": "Vaistinio preparato priemoka  / Surcharge",
+        "definition": "Vaistinio preparato priemoka",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:surcharge.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:surcharge.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "surcharge"
+      },
+      {
+        "id": "Extension.extension:surcharge.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Money"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:surcharge.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:surcharge.value[x].currency",
+        "path": "Extension.extension.value[x].currency",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:compensationLimitPeriod",
+        "path": "Extension.extension",
+        "sliceName": "compensationLimitPeriod",
+        "short": "Vaistinio preparato ar MPP kompensavimo ribojimų periodas / Compensation limitation period",
+        "definition": "Vaistinio preparato ar MPP kompensavimo ribojimų periodas.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationLimitPeriod.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationLimitPeriod.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "compensationLimitPeriod"
+      },
+      {
+        "id": "Extension.extension:compensationLimitPeriod.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:compensationPeriod",
+        "path": "Extension.extension",
+        "sliceName": "compensationPeriod",
+        "short": "Vaistinio preparato kompensavimo periodas / Compensation period",
+        "definition": "Vaistinio preparato kompensavimo periodas (pradžios ir pabaigos datos (metai, mėnuo, diena)). ",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationPeriod.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationPeriod.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "compensationPeriod"
+      },
+      {
+        "id": "Extension.extension:compensationPeriod.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-medication-knowledge/compensation"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

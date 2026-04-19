@@ -1,0 +1,225 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-394698008",
+  "name": "LtEspbiObservation394698008",
+  "status": "draft",
+  "description": "Ankstesni gimdymai  / Previous childbirths",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "394698008",
+                  "display": "Birth history"
+                }
+              ],
+              "text": "Ankstesni gimdymai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "394698008"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Ankstesnių gimdymų skaičius / Number of previous childbirths",
+        "definition": "Ankstesni gimdymai (E010-2-1).\r\nAtvaizduojamas einamojo nėštumo E113-ND → \"Medicininiai duomenys\" → \"Nėštumo duomenys\" → \"Gimdymas\" → Reikšmė",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 1
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.hasMember:stillbirths",
+        "path": "Observation.hasMember",
+        "sliceName": "stillbirths",
+        "short": "Negyvagimiai / Stillbirths",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-57062-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004067"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:bornPreterm",
+        "path": "Observation.hasMember",
+        "sliceName": "bornPreterm",
+        "short": "Gimė neišnešiotų / Born preterm",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11637-6"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004071"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:diedWithin0-6Days",
+        "path": "Observation.hasMember",
+        "sliceName": "diedWithin0-6Days",
+        "short": "Mirė 0–6 parą / Died within 0-6 days",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-391181005"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004073"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:diedWithin7-27Days",
+        "path": "Observation.hasMember",
+        "sliceName": "diedWithin7-27Days",
+        "short": "Mirė 7–27 parą / Died within 7-27 days",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-276505002"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004077"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

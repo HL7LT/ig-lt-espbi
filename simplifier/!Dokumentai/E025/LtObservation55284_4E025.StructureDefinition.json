@@ -1,0 +1,472 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55284-4-e025",
+  "name": "LtEspbiObservation55284_4E025",
+  "status": "draft",
+  "description": "Sistolinis ir diastolinis kraujospūdis bei jų procentilės / Blood pressure systolic and diastolic with percentiles",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "constraint": [
+          {
+            "key": "obs-11",
+            "severity": "error",
+            "human": "Systolic blood pressure must be greater than or equal to diastolic blood pressure.",
+            "expression": "(component.where(code.coding.code='8480-6').exists() and component.where(code.coding.code='8462-4').exists()) implies (component.where(code.coding.code='8480-6').valueQuantity.value.first() >= component.where(code.coding.code='8462-4').valueQuantity.value.first())"
+          },
+          {
+            "key": "obs-12",
+            "severity": "error",
+            "human": "Both systolic and diastolic blood pressure values must be provided together.",
+            "expression": "component.where(code.coding.code = '8480-6').exists() = component.where(code.coding.code = '8462-4').exists() "
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros / matavimų duomenų pavadinimas.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "55284-4",
+                  "display": "Blood pressure systolic and diastolic"
+                }
+              ],
+              "text": "Sistolinis ir diastolinis kraujospūdis"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "55284-4"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "short": "Paciento duomenys / Information about the patient",
+        "definition": "Nuoroda į pacientą, kurio apžiūros / matavimių duomenys yra teikiami."
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Įvertinimo data ir laikas / Date and time for observation",
+        "definition": "Apžiūros / matavimų atlikimo data ir laikas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-10-21T14:27:45+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Sveikatos priežiūros specialisto duomenys / Information about health care specialist",
+        "definition": "Nuoroda į pacientą apžiūrėjusį ir / ar jo duomenis išmatavusį sveikatos priežiūros specialistą.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "closed"
+        },
+        "constraint": [
+          {
+            "key": "obs-com-2",
+            "severity": "error",
+            "human": "ValueQuantity.value must be an integer.",
+            "expression": "valueQuantity.value.mod(1) = 0"
+          },
+          {
+            "key": "obs-com-3",
+            "severity": "error",
+            "human": "Value must be greater than or equal to 0.",
+            "expression": "valueQuantity.value >= 0"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:systolic",
+        "path": "Observation.component",
+        "sliceName": "systolic",
+        "short": "Kraujospūdis: sistolinis / Systolic blood pressure",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:systolic.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Kraujospūdis: sistolinis"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:systolic.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:systolic.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "8480-6"
+      },
+      {
+        "id": "Observation.component:systolic.value[x]",
+        "path": "Observation.component.value[x]",
+        "short": "Sistolinio kraujospūdžio reikšmė ir matavimo vienetai / Systolic blood pressure value",
+        "definition": "Kraujospūdis sistolinis (E025).\r\n\r\nSveikasis skaičius. Kraujospūdis, nurodomas mmHg.\r\nPateikiant medicininį dokumentą taikomi duomenų tikrinimo reikalavimai:\r\n- Lauko reikšmė turi būti daugiau arba lygi 0;\r\n- Jeigu nurodomas kraujospūdis, turi būti nurodyti abu laukai - kraujospūdis sistolinis ir kraujospūdis diastolinis;\r\n- Kraujospūdis sistolinis turi būti didesnis arba lygus kraujospūdžiui diastoliniui.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 107,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:systolic.value[x].id",
+        "path": "Observation.component.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:systolic.value[x].extension",
+        "path": "Observation.component.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:systolic.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:systolic.value[x].comparator",
+        "path": "Observation.component.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:systolic.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "fixedString": "mm[Hg]"
+      },
+      {
+        "id": "Observation.component:systolic.value[x].system",
+        "path": "Observation.component.value[x].system",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Observation.component:systolic.value[x].code",
+        "path": "Observation.component.value[x].code",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:systolicPercentile",
+        "path": "Observation.component",
+        "sliceName": "systolicPercentile",
+        "short": "Sistolinio kraujospūdžio procentilė / Systolic blood pressure percentile ",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:systolicPercentile.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "72165-4",
+                  "display": "Pediatric systolic blood pressure percentile [Per age, sex and height]"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:systolicPercentile.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:systolicPercentile.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "72165-4"
+      },
+      {
+        "id": "Observation.component:systolicPercentile.value[x]",
+        "path": "Observation.component.value[x]",
+        "short": "Sistolinio kraujospūdžio procentilė / Systolic blood pressure percentile ",
+        "definition": "Sistolinio kraujospūdžio procentilė (E025).\r\n\r\nSistolinio kraujospūdžio procentilė automatiškai apskaičiuojamas laukas.\r\nLaukas turi būti matomas ir pildomas vaikui iki 18 metų.",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 55
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:diastolic",
+        "path": "Observation.component",
+        "sliceName": "diastolic",
+        "short": "Kraujospūdis: diastolinis / Diastolic blood pressure",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:diastolic.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Kraujospūdis: diastolinis"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:diastolic.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:diastolic.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "8462-4"
+      },
+      {
+        "id": "Observation.component:diastolic.value[x]",
+        "path": "Observation.component.value[x]",
+        "short": "Diastolinio kraujospūdžio reikšmė ir matavimo vienetai / Diastolic blood pressure value",
+        "definition": "Kraujospūdis diastolinis (E025).\r\n\r\nSveikasis skaičius. Kraujospūdis, nurodomas mmHg.\r\nPateikiant medicininį dokumentą taikomi duomenų tikrinimo reikalavimai:\r\n- Lauko reikšmė turi būti daugiau arba lygi 0;\r\n- Jeigu nurodomas kraujospūdis, turi būti nurodyti abu laukai - kraujospūdis sistolinis ir kraujospūdis diastolinis;",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 60,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:diastolic.value[x].id",
+        "path": "Observation.component.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:diastolic.value[x].extension",
+        "path": "Observation.component.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:diastolic.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:diastolic.value[x].comparator",
+        "path": "Observation.component.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:diastolic.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "fixedString": "mm[Hg]"
+      },
+      {
+        "id": "Observation.component:diastolic.value[x].system",
+        "path": "Observation.component.value[x].system",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Observation.component:diastolic.value[x].code",
+        "path": "Observation.component.value[x].code",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:diastolicPercentile",
+        "path": "Observation.component",
+        "sliceName": "diastolicPercentile",
+        "short": "Diastolinio kraujospūdžio procentilė / Diastolic blood pressure percentile",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:diastolicPercentile.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "72164-7",
+                  "display": "Pediatric diastolic blood pressure percentile [Per age, sex and height]"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:diastolicPercentile.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:diastolicPercentile.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "72164-7"
+      },
+      {
+        "id": "Observation.component:diastolicPercentile.value[x]",
+        "path": "Observation.component.value[x]",
+        "short": "Diastolinio kraujospūdžio procentilė / Diastolic blood pressure percentile",
+        "definition": "Diastolinio kraujospūdžio procentilė (E025).\r\n\r\nDiastolinio kraujospūdžio procentilė automatiškai apskaičiuojamas laukas.\r\nLaukas turi būti matomas ir pildomas vaikui iki 18 metų",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 50
+          }
+        ]
+      }
+    ]
+  }
+}

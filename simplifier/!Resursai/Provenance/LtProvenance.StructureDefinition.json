@@ -1,0 +1,241 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance",
+  "name": "LtEspbiProvenance",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Provenance",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Provenance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Provenance",
+        "path": "Provenance",
+        "constraint": [
+          {
+            "key": "pro-act-or-ent-req",
+            "requirements": "Bent vienas iš elementų 'activity' arba 'entity' privalo būti užpildytas.",
+            "severity": "error",
+            "human": "At least one of the elements 'activity' or 'entity' must be populated.",
+            "expression": "activity.exists() or entity.exists()"
+          }
+        ]
+      },
+      {
+        "id": "Provenance.id",
+        "path": "Provenance.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.meta",
+        "path": "Provenance.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.target",
+        "path": "Provenance.target",
+        "short": "Nuoroda į dokumento, kuris kuriamas/keičiamas/atšaukiamas, resursą / Target resource which was created/updated/deleted",
+        "definition": "Nuoroda į dokumento ir dokumento resursus, kurie kuriamas/keičiami/atšaukiami su pateikiamu dokumentu šio įvykio metu.",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.target.reference",
+        "path": "Provenance.target.reference",
+        "min": 1
+      },
+      {
+        "id": "Provenance.recorded",
+        "path": "Provenance.recorded",
+        "short": "Data ir laikas, kada atliktas veiksmas / When the action was performed",
+        "definition": "Data ir laikas, kada atliktas veiksmas.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.activity",
+        "path": "Provenance.activity",
+        "short": "Dokumento arba resurso atsiradimo, keitimo ar atšaukimo priežastis arba pažymos išdavimo būsena / A textual description of why the document or resource was created, modified, or deleted, or the status of a certificate issuance",
+        "definition": "Dokumento arba resurso atsiradimo/keitimo/atšaukimo priežasties aprašymas.\r\n\r\nJeigu Provenance resursas yra naudojamas dokumento/resurso atšaukimo priežasčiai nurodyti, tai dokumento arba resurso keitimo priežastis nurodoma text lauke. Tai taikoma:\r\n- atnaujinant arba atšaukiant anksčiau pateiktus E025 arba E003 medicininio dokumento resursus Order, Condition, AlergyIntolerance;\r\n- atšaukiant dokumentą.\r\nJeigu  Provenance resursas yra naudojamas dokumento pateikimo įvykiu arba apsilankymo dėl pažymos būsenai nurodyti, tai įvykio/būsenos kodas iš klasifikatoriaus nurodomas code lauke (text lauko pildyti nereikia).\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje event-type.\r\n(Aprašant įvykį, kurio pagrindu  ESPBI IS pateikiamas medicininis dokumentas arba medicininė pažyma.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje medical-certificate-reason.\r\n(Nurodant apsilankymo dėl pažymos priežastį   E025 arba E003 dokumentuose.)",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.activity.coding",
+        "path": "Provenance.activity.coding",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.activity.coding.system",
+        "path": "Provenance.activity.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Provenance.activity.coding.code",
+        "path": "Provenance.activity.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Provenance.activity.coding.display",
+        "path": "Provenance.activity.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.activity.text",
+        "path": "Provenance.activity.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.patient",
+        "path": "Provenance.patient",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Provenance.encounter",
+        "path": "Provenance.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Provenance.agent",
+        "path": "Provenance.agent",
+        "short": "Informacija apie veiksmą atlikusį asmenį / Actor involved",
+        "definition": "Informacija apie veiksmą atlikusį asmenį.",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent.type",
+        "path": "Provenance.agent.type",
+        "short": "Asmens, atlikusio veiksmą, funkcinė rolė (pvz., \"author\") / The Functional Role of the agent with respect to the activity",
+        "definition": "Specialisto, atlikusio veiksmą, funkcinė rolė.\r\nReikšmės iš FHIR R5 klasifikatoriaus \"http://hl7.org/fhir/ValueSet/participation-role-type\" (\"author\", \"performer\", \"attester\" ir kt.).\r\nŠiuo metu ESPBI yra naudojama vienintelė reikšmė \"order\" (ESPBI klasifikatorius \"provenance-participant-role\"), kuri yra ir FHIR R5 klasifikatoriuje \"participation-role-type\".\r\nPastaba: pereinant iš dabartinės ESPBI (FHIR v0.0.82) į FHIR R5 dabartiniai laukai agent.role ir agent.type turės būti sukeisti vietomis.",
+        "min": 1,
+        "binding": {
+          "strength": "required"
+        }
+      },
+      {
+        "id": "Provenance.agent.type.coding",
+        "path": "Provenance.agent.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Provenance.agent.type.coding.system",
+        "path": "Provenance.agent.type.coding.system",
+        "min": 1,
+        "fixedUri": "http://hl7.org/fhir/ValueSet/participation-role-type"
+      },
+      {
+        "id": "Provenance.agent.type.coding.code",
+        "path": "Provenance.agent.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Provenance.agent.type.coding.display",
+        "path": "Provenance.agent.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent.type.text",
+        "path": "Provenance.agent.type.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent.role",
+        "path": "Provenance.agent.role",
+        "short": "Asmens, atlikusio veiksmą, struktūrinis vaidmuo / The structural roles of the agent indicating the agent's competency",
+        "definition": "Asmens, atlikusio veiksmą, struktūrinis vaidmuo.\r\nReikšmės iš FHIR R5 klasifikatoriaus \"http://hl7.org/fhir/ValueSet/security-role-type\" (\"regulated-health-professionals\", \"pharmacy\", \"dentist\", \"pediatrics\", \"non-regulated-health-professionals\", \"business-manager\", \"claims-adjudicator\"  ir kt.).\r\nŠiuo metu ESPBI yra naudojamos 2 reikšmės \"practitioner\" ir \"person\" (ESPBI klasifikatorius \"provenance-participant-type\"). Tokių reikšmių nėra FHIR R5 klasifikatoriuje \"security-role-type\", todėl vietoje reikšmės \"practitioner\" siūloma naudoti reikšmę \"regulated-health-professionals\", o vietoje dabartinės reikšmės \"person\" (kuri šiuo metu nurodoma darbdavio atstovo atveju) siūloma naudoti reikšmę \"business-manager\" arba standartinio FHIR R5 klasifikatoriaus reikšmes papildyti nauja reikšme, skirta darbdavio atstovo nurodymui.\r\nPastaba: pereinant iš dabartinės ESPBI (FHIR v0.0.82) į FHIR R5 dabartiniai laukai agent.role ir agent.type turės būti sukeisti vietomis.",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required"
+        }
+      },
+      {
+        "id": "Provenance.agent.role.coding",
+        "path": "Provenance.agent.role.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Provenance.agent.role.coding.system",
+        "path": "Provenance.agent.role.coding.system",
+        "min": 1,
+        "fixedUri": "http://hl7.org/fhir/ValueSet/security-role-type"
+      },
+      {
+        "id": "Provenance.agent.role.coding.code",
+        "path": "Provenance.agent.role.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Provenance.agent.role.coding.display",
+        "path": "Provenance.agent.role.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent.role.text",
+        "path": "Provenance.agent.role.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent.who",
+        "path": "Provenance.agent.who",
+        "short": "Nuoroda į specialistą arba pacientą / Reference to the practitioner or patient",
+        "definition": "Nuoroda į specialisto arba paciento (darbdavio), inicijavusio įvykį, resursą."
+      },
+      {
+        "id": "Provenance.agent.who.reference",
+        "path": "Provenance.agent.who.reference",
+        "min": 1
+      },
+      {
+        "id": "Provenance.entity",
+        "path": "Provenance.entity",
+        "short": "Esybė, kuri buvo naudojama veiksmo metu / An entity used in this activity",
+        "definition": "Esybės, kurios buvo naudojamos veiksmo metu.",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.entity.role",
+        "path": "Provenance.entity.role",
+        "short": "Esybės, kuri buvo naudojama veiksmo metu, rolė / How the entity was used during the activity",
+        "definition": "Esybės, kuri buvo naudojama veiksmo metu, rolė.\r\nReikšmės iš FHIR R5 klasifikatoriaus \"http://hl7.org/fhir/ValueSet/provenance-entity-role\" (\"revision\", \"quotation\", \"source\", \"instantiates\", \"removal\").\r\nŠiuo metu ESPBI yra naudojama vienintelė reikšmė \"source\" (ESPBI klasifikatorius \"provenance-entity-role\"), kuri yra ir FHIR R5 klasifikatoriuje \"provenance-entity-role\"."
+      },
+      {
+        "id": "Provenance.entity.what",
+        "path": "Provenance.entity.what",
+        "definition": "Nuorodą į esybės FHIR resursą."
+      },
+      {
+        "id": "Provenance.entity.what.reference",
+        "path": "Provenance.entity.what.reference",
+        "min": 1
+      },
+      {
+        "id": "Provenance.entity.what.type",
+        "path": "Provenance.entity.what.type",
+        "short": "Resurso, į kurį pateikiama nuoroda, tipas / Type the reference refers to (e.g. \"Patient\") - must be a resource in resources",
+        "definition": "Reikšmės iš FHIR R5 klasifikatoriaus \"http://hl7.org/fhir/ValueSet/resource-types\" (\"ServiceRequest\", \"Device\" ir kt.).\nŠiuo metu ESPBI yra naudojama vienintelė reikšmė \"Order\" (ESPBI klasifikatorius \"provenance-entity-type\"). Tokios reikšmės nėra FHIR R5 klasifikatoriuje \"resource-types\" (nes FHIR R5 \"Order\" resursas yra pakeistas \"ServiceRequest\" resursu), todėl vietoje reikšmės \"Order\" siūlome naudoti reikšmę \"ServiceRequest\".\nNors lauko tipas yra \"uri\", FHIR R5 dokumentacijoje nurodyta, kad reikia nurodyti tik resurso pavadinimą, pvz., \"ServiceRequest\".",
+        "mustSupport": true
+      }
+    ]
+  }
+}

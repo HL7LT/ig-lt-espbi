@@ -1,0 +1,171 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-275674000",
+  "name": "LtEspbiDiagnosticReport275674000",
+  "status": "draft",
+  "description": "Išvados duomenys / Conclusion data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport",
+        "path": "DiagnosticReport",
+        "constraint": [
+          {
+            "key": "dire-1",
+            "severity": "error",
+            "human": "If the „Išvada“ (conclusion) is “Dirbti gali, bet ribotai” (code=2), then the conclusion field must be filled.",
+            "expression": "conclusionCode.coding.where(system='http://esveikata.lt/classifiers/WorkAbilityConclusion' and code='2').exists() implies conclusion.exists()"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.extension",
+        "path": "DiagnosticReport.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier",
+        "path": "DiagnosticReport.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn",
+        "path": "DiagnosticReport.basedOn",
+        "short": "Pažymos užduoties duomenys / Diagnostic Order data",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "ServiceRequest/12"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "275674000"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.code.coding.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.code",
+        "path": "DiagnosticReport.code.coding.code",
+        "fixedCode": "275674000"
+      },
+      {
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "short": "Kito sveikatos patikrinimo data / Date of next health check",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-185353001"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/8"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.note",
+        "path": "DiagnosticReport.note",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study",
+        "path": "DiagnosticReport.study",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media",
+        "path": "DiagnosticReport.media",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusion",
+        "path": "DiagnosticReport.conclusion",
+        "short": "Rekomendacijos darbui ir pastabos / Conclusion remarks",
+        "definition": "Rekomendacijos darbui ir pastabos (E047_PractitionerPart).\r\n\r\nLaukas privalomas, jei lauke „Išvada“ nurodyta „Dirbti gali, bet ribotai“.\r\n\r\nRealizuota kaip:\r\n- Rekomendacijos darbui ir pastabos : DiagnosticReport.conclusion",
+        "example": [
+          {
+            "label": "example",
+            "valueMarkdown": "Conclusion remarks."
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode",
+        "path": "DiagnosticReport.conclusionCode",
+        "short": "Išvada / Conclusion",
+        "definition": "Išvada (E047_PractitionerPart).\r\n\r\nNaudojamos klasifikatoriaus reikšmės:\r\n- Sistema: http://esveikata.lt/classifiers/WorkAbilityConclusion\r\n- Klasifikatoriaus rinkinio kodas: work-ability-conclusion\r\n\r\nRealizuota kaip:\r\n- Išvada : DiagnosticReport.conclusionCode.coding",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/WorkAbilityConclusion",
+                  "code": "2",
+                  "display": "Dirbti gali, bet ribotai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.system",
+        "path": "DiagnosticReport.conclusionCode.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/WorkAbilityConclusion"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm",
+        "path": "DiagnosticReport.presentedForm",
+        "max": "0"
+      }
+    ]
+  }
+}

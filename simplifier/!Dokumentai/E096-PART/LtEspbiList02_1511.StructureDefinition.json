@@ -1,0 +1,107 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-02-1511",
+  "name": "LtEspbiList02_1511",
+  "status": "draft",
+  "description": "Partogramos įrašai / Partogram entries",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ListCode",
+                  "code": "02.1511",
+                  "display": "Partogramos įrašai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ListCode"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "02.1511"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "min": 1
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "short": "Įrašo paskutinio išsaugojimo data / Last save date",
+        "definition": "Įrašo paskutinio išsaugojimo data (E096-PART).\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "lis-1",
+            "severity": "error",
+            "human": "Date cannot be in the future (must be less than or equal to the current date and time).",
+            "expression": "$this <= now()"
+          }
+        ]
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "min": 1
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "short": "Partogramos įrašas / Partogram entry",
+        "min": 1
+      },
+      {
+        "id": "List.entry.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1504"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004046"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

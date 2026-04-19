@@ -1,0 +1,273 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1410",
+  "name": "LtEspbiObservation02_1410",
+  "status": "draft",
+  "description": "Vaisiaus būklės vertinimas / Assessment of fetal condition",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. \r\nGalimos reikšmės nurodytos klasifikatoriuje observation-code.\r\n",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.1410",
+                  "display": "Vaisiaus būklės vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.1410"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Vaisiaus pavadinimas / Fetal Identifier ",
+        "definition": "Gaubiamasis tolimesnės informacijos atributas, pagal pateiktą vaisių skaičių. Vaisiaus pavadinimas, tai lotyniškos abėcėlės tvarka priskiriama raidė.\r\npvz.: pirmas vaisius, - A; antras vaisius, - B; trečias vaisius, - C ir t.t.",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "A"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:fetalHeartRate",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalHeartRate",
+        "short": "Vaisiaus širdies ritmas (VŠR) / Fetal heart rate",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55283-6-quantity"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/6666666"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetalMovements",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalMovements",
+        "short": "Vaisiaus judesiai / Fetal movements",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-56834-5"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/56"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetalPrimordial",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalPrimordial",
+        "short": "Vaisiaus pirmeiga/ Fetal primordial",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1606"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/511"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetusPosition",
+        "path": "Observation.hasMember",
+        "sliceName": "fetusPosition",
+        "short": "Vaisiaus padėtis / Fetus position",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11875-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/54"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetalPositionSide",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalPositionSide",
+        "short": "Vaisiaus pozicija / Fetal position side",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1413"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/55"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:amnioticFluid",
+        "path": "Observation.hasMember",
+        "sliceName": "amnioticFluid",
+        "short": "Vaisiaus vandenys / Amniotic fluid",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-77012006"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/8888888"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

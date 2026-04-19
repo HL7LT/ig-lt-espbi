@@ -1,0 +1,381 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization",
+  "name": "LtEspbiImmunization",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Immunization",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Immunization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Immunization.id",
+        "path": "Immunization.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.meta",
+        "path": "Immunization.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.basedOn",
+        "path": "Immunization.basedOn",
+        "short": "Nuoroda į paskyrimą, planą ar rekomendaciją, pagal kurią buvo atliktas šis skiepijimas / Authority that the immunization event is based on",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-recommendation",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-request",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.basedOn.reference",
+        "path": "Immunization.basedOn.reference",
+        "min": 1
+      },
+      {
+        "id": "Immunization.status",
+        "path": "Immunization.status",
+        "short": "Skiepijimo būsena / Indicates the current status of the immunization event",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/immunization-status, kurio reikšmės: completed | entered-in-error | not-done.",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.vaccineCode",
+        "path": "Immunization.vaccineCode",
+        "short": "Vakcinos kodas ir pavadinimas / Vaccine administered",
+        "definition": "Rekomenduojamo vaisto prekinis kodas ir pavadinimas (imunobiologinio preparato kodas ir pavadinimas). Nurodomas NPAKID-7 arba NPAKID identifikatorius (-iai) iš vakcinos pakuotes vaccineMedicationPackage.Medication.code lauko.\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/vaccine-code.",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.vaccineCode.coding",
+        "path": "Immunization.vaccineCode.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/Identifier/NPAKID-7",
+              "code": "1020497"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Immunization.vaccineCode.coding.code",
+        "path": "Immunization.vaccineCode.coding.code",
+        "definition": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).\r\nReikšmė iš sistemos"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7",
+        "path": "Immunization.vaccineCode.coding",
+        "sliceName": "NPAKID-7",
+        "short": "NPAKID-7 identifikatorius",
+        "definition": "Naudojamas klasifikatorius http://esveikata.lt/classifiers/Identifier/NPAKID-7.",
+        "max": "1"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7.system",
+        "path": "Immunization.vaccineCode.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Identifier/NPAKID-7"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7.code",
+        "path": "Immunization.vaccineCode.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID",
+        "path": "Immunization.vaccineCode.coding",
+        "sliceName": "NPAKID",
+        "short": "NPAKID identifikatorius",
+        "definition": "Naudojamas klasifikatorius http://esveikata.lt/classifiers/Identifier/NPAKID.",
+        "max": "1"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.system",
+        "path": "Immunization.vaccineCode.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Identifier/NPAKID"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.version",
+        "path": "Immunization.vaccineCode.coding.version",
+        "mustSupport": false
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.code",
+        "path": "Immunization.vaccineCode.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Immunization.vaccineCode.text",
+        "path": "Immunization.vaccineCode.text",
+        "definition": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.\r\nArba čia nuoroda į medication resursa?"
+      },
+      {
+        "id": "Immunization.administeredProduct",
+        "path": "Immunization.administeredProduct",
+        "short": "Nuoroda į vaisto pakuotę, kurioje yra duomenys apie vaistą (vakciną), kuriuo yra skiepijamas pacientas / Reference to the medicine packaging, which contains data about the medicine (vaccine) with which the patient is vaccinated",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.administeredProduct.reference",
+        "path": "Immunization.administeredProduct.reference",
+        "min": 1
+      },
+      {
+        "id": "Immunization.administeredProduct.reference.reference",
+        "path": "Immunization.administeredProduct.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "Immunization.lotNumber",
+        "path": "Immunization.lotNumber",
+        "short": "Vakcinos serijos numeris / Vaccine lot number",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.expirationDate",
+        "path": "Immunization.expirationDate",
+        "short": "Vaisto tinkamumo vartoti laikas / Date vaccine batch expires",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.patient",
+        "path": "Immunization.patient",
+        "short": "Nuoroda į paciento, kuris skiepijamas, resursą / Who was immunized",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.patient.reference",
+        "path": "Immunization.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "Immunization.occurrence[x]",
+        "path": "Immunization.occurrence[x]",
+        "short": "Nurodoma skiepo atlikimo pacientui data / Vaccine administration date",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.occurrence[x].extension",
+        "path": "Immunization.occurrence[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.route",
+        "path": "Immunization.route",
+        "short": "Vakcinos įskiepijimo būdas / Vaccination method",
+        "definition": "Nurodomas vakcinos įskiepijimo būdas - į burną, nosį, odą, paodį ar raumenis.\r\nGalimos reikšmės nurodytos klasifikatoriuje immunization-route (http://esveikata.lt/classifiers/Immunization/Route): \"1\" : į burną | \"2\" : į nosį | \"3\" : į odą | \"4\" : į paodį | \"5\" : į raumenis",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.route.coding",
+        "path": "Immunization.route.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Immunization.route.coding.system",
+        "path": "Immunization.route.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Immunization/Route"
+      },
+      {
+        "id": "Immunization.route.coding.code",
+        "path": "Immunization.route.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Immunization.route.coding.display",
+        "path": "Immunization.route.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Immunization.doseQuantity",
+        "path": "Immunization.doseQuantity",
+        "short": "Vakcinos dozė, kuri buvo įskiepyta pacientui / Amount of vaccine administered",
+        "definition": "Įskiepyta vakcinos dozė",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.doseQuantity.value",
+        "path": "Immunization.doseQuantity.value",
+        "min": 1
+      },
+      {
+        "id": "Immunization.doseQuantity.unit",
+        "path": "Immunization.doseQuantity.unit",
+        "min": 1
+      },
+      {
+        "id": "Immunization.doseQuantity.system",
+        "path": "Immunization.doseQuantity.system",
+        "min": 1
+      },
+      {
+        "id": "Immunization.performer",
+        "path": "Immunization.performer",
+        "short": "Specialistai, kurie užsakė ir atliko skiepą / Specialists who ordered and performed the vaccination",
+        "definition": "Pateikiama informacija apie specialistą, kuris atliko vakcinaciją bei specialistą, kuris siuntė.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.performer.function",
+        "path": "Immunization.performer.function",
+        "short": "Nurodoma sveikatos priežiūros specialisto funkcija / Describes the type of performance ",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/immunization-function. Galimos reikšmės: OP - Ordering Provider; AP - Administering Provider.",
+        "min": 1
+      },
+      {
+        "id": "Immunization.performer.function.coding",
+        "path": "Immunization.performer.function.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Immunization.performer.function.coding.system",
+        "path": "Immunization.performer.function.coding.system",
+        "min": 1,
+        "patternUri": "http://hl7.org/fhir/ValueSet/immunization-function"
+      },
+      {
+        "id": "Immunization.performer.function.coding.code",
+        "path": "Immunization.performer.function.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Immunization.performer.actor",
+        "path": "Immunization.performer.actor",
+        "short": "Nuoroda į sveikatos priežiūros specialisto resursą / Reference to a healthcare professional resource",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Immunization.performer.actor.reference",
+        "path": "Immunization.performer.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "Immunization.reason",
+        "path": "Immunization.reason",
+        "short": "Skiepijimo priežastis / Why immunization occurred",
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.protocolApplied",
+        "path": "Immunization.protocolApplied",
+        "short": "Informacija apie skiepą / Protocol followed by the provider",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.protocolApplied.series",
+        "path": "Immunization.protocolApplied.series",
+        "short": "Vakcinos serija / Vaccine serie",
+        "min": 1
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease",
+        "path": "Immunization.protocolApplied.targetDisease",
+        "short": "Užkrečiamųjų ligų, nuo kurių skiepijama, kodai ir pavadinimai / Contagious disease code and description",
+        "definition": "Užkrečiamosios ligos, nuo kurių buvo skiepytas pacientas. Galimos reikšmės nurodytos klasifikatoriuje infectious-disease (http://esveikata.lt/classifiers/infectious-disease)\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/immunization-target-disease.",
+        "min": 1
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding",
+        "path": "Immunization.protocolApplied.targetDisease.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding.system",
+        "path": "Immunization.protocolApplied.targetDisease.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/infectious-disease"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding.code",
+        "path": "Immunization.protocolApplied.targetDisease.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding.display",
+        "path": "Immunization.protocolApplied.targetDisease.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.protocolApplied.doseNumber",
+        "path": "Immunization.protocolApplied.doseNumber",
+        "short": "Dozės eilės numeris / Dose serial number",
+        "definition": "Nominal position in a series as intended by the practitioner administering the dose. Dosage"
+      }
+    ]
+  }
+}

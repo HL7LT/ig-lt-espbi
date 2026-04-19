@@ -1,0 +1,769 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen-e014",
+  "name": "LtEspbiSpecimenE014",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Specimen",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Specimen.implicitRules",
+        "path": "Specimen.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.language",
+        "path": "Specimen.language",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.text",
+        "path": "Specimen.text",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.contained",
+        "path": "Specimen.contained",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.extension",
+        "path": "Specimen.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.modifierExtension",
+        "path": "Specimen.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.identifier.extension",
+        "path": "Specimen.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.identifier:registrationCode",
+        "path": "Specimen.identifier",
+        "sliceName": "registrationCode",
+        "short": "Objekto (ėminio) registracijos numeris/ Specimen code",
+        "definition": "Patologtijos tyrimo užsakymo ribose unikalus objekto (ėminio) numeris."
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.id",
+        "path": "Specimen.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.extension",
+        "path": "Specimen.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.use",
+        "path": "Specimen.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.type",
+        "path": "Specimen.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.period",
+        "path": "Specimen.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.assigner",
+        "path": "Specimen.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.accessionIdentifier",
+        "path": "Specimen.accessionIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.status",
+        "path": "Specimen.status",
+        "short": "Ėminio būsena / Specimen status",
+        "definition": "Galimos reikšmės: available | unavailable | unsatisfactory | entered-in-error.\r\nĮvedant planuojamą ėminį (jei tai daro patologijos tyrimo užsakymą pildantis gydytojas), ėminio būsena nustatoma į \"unavailable\".\r\n\"De-facto\" paėmus ėminį, jo būsena nustatoma (ar pakeičiama) į \"available\".\r\nJei patologijos tyrimus atliekanti laboratorija negavo ėminio, ji pakeičia ėminio būseną į \"unavailable\" ir apie ėminio negavimą įrašo Specimen.note lauke.\r\nJei patologijos tyrimus atliekanti laboratorija nustatė, kad ėminys netinkamas tyrimui, ji pakeičia  ėminio būseną į \"unsatisfactory\" ir to priežastį įrašo Specimen.note lauke.\r\nBūsena \"entered-in-error\" nurodoma tik tuo atveju, jei ėminys buvo įvestas per klaidą.",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type",
+        "path": "Specimen.type",
+        "short": "Ėminio tipas / Specimen type",
+        "definition": "Nurodomas objekto (ėminio) tipas (kategorija) iš „specimen-category“ klasifikatoriaus.\r\nPapildomai gali būti nurodytas tiriamos medžiagos tipas iš „specimen-type“ klasifikatoriaus.\r\nLauke type.text pateikiamas objekto apibūdinimas.",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type.id",
+        "path": "Specimen.type.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.extension",
+        "path": "Specimen.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding",
+        "path": "Specimen.type.coding",
+        "short": "Ėminio tipo kodas / Specimen type code",
+        "definition": "Ėminio tipo kodas."
+      },
+      {
+        "id": "Specimen.type.coding:materialType",
+        "path": "Specimen.type.coding",
+        "sliceName": "materialType"
+      },
+      {
+        "id": "Specimen.type.coding:materialType.id",
+        "path": "Specimen.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding:materialType.extension",
+        "path": "Specimen.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding:materialType.version",
+        "path": "Specimen.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding:materialType.userSelected",
+        "path": "Specimen.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding:specimenCategory",
+        "path": "Specimen.type.coding",
+        "sliceName": "specimenCategory",
+        "short": "Ėminio kategorija / Specimen category",
+        "definition": "Patologijos tyrimui skirto objekto (ėminio) tipas (kategorija).\r\nGalimos reikšmės iš specimen-category klasifikatoriaus (naujas klasifikatorius):\r\n- Intraoperacinis tyrimas;\r\n- Histologinis tyrimas (biopsija arba operacinė medžiaga);\r\n- Citologinis tyrimas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Specimen.type.coding:specimenCategory.id",
+        "path": "Specimen.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding:specimenCategory.extension",
+        "path": "Specimen.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding:specimenCategory.system",
+        "path": "Specimen.type.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/Specimen/SpecimenCategory"
+      },
+      {
+        "id": "Specimen.type.coding:specimenCategory.version",
+        "path": "Specimen.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.coding:specimenCategory.display",
+        "path": "Specimen.type.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type.coding:specimenCategory.userSelected",
+        "path": "Specimen.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.type.text",
+        "path": "Specimen.type.text",
+        "short": "Ėminio apibūdinimas / Specimen description",
+        "definition": "Objekto (ėminio) apibūdinimas.",
+        "min": 1
+      },
+      {
+        "id": "Specimen.subject.id",
+        "path": "Specimen.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.subject.extension",
+        "path": "Specimen.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.subject.type",
+        "path": "Specimen.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.subject.identifier",
+        "path": "Specimen.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.subject.display",
+        "path": "Specimen.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.receivedTime",
+        "path": "Specimen.receivedTime",
+        "short": "Ėminio gavimo data ir laikas / The date and time when specimen is received by the testing laboratory",
+        "definition": "Ėminio gavimo data ir laikas. Pildo laboratorija gavusi ėminį.",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.parent",
+        "path": "Specimen.parent",
+        "short": "Tėvinis ėminys / Specimen from which this specimen originated",
+        "definition": "Jei aktualu - pateikiama nuoroda į pirminį (šaltinio) ėminį (tuo atveju, kai ėminys buvo gautas iš kito ėminio arba yra jo komponentas).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen-e014"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.parent.id",
+        "path": "Specimen.parent.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.parent.extension",
+        "path": "Specimen.parent.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.parent.reference",
+        "path": "Specimen.parent.reference",
+        "min": 1
+      },
+      {
+        "id": "Specimen.parent.type",
+        "path": "Specimen.parent.type",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.parent.identifier",
+        "path": "Specimen.parent.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.parent.display",
+        "path": "Specimen.parent.display",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.request",
+        "path": "Specimen.request",
+        "short": "Tyrimo užsakymas / Service request",
+        "definition": "Nuoroda į patologijos tyrimo užsakymą (at kelis užsakymus), kuriam vykdyti yra paimtas ėminys.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request-e014"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Specimen.request.id",
+        "path": "Specimen.request.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.request.extension",
+        "path": "Specimen.request.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.request.reference",
+        "path": "Specimen.request.reference",
+        "min": 1
+      },
+      {
+        "id": "Specimen.request.type",
+        "path": "Specimen.request.type",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.request.identifier",
+        "path": "Specimen.request.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.request.display",
+        "path": "Specimen.request.display",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.combined",
+        "path": "Specimen.combined",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.role",
+        "path": "Specimen.role",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.feature",
+        "path": "Specimen.feature",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection",
+        "path": "Specimen.collection",
+        "short": "Ėminio paėmimo informacija / Specimen collection information",
+        "definition": "Ėminio paėmimo informacija."
+      },
+      {
+        "id": "Specimen.collection.id",
+        "path": "Specimen.collection.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.extension",
+        "path": "Specimen.collection.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.modifierExtension",
+        "path": "Specimen.collection.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.collector",
+        "path": "Specimen.collection.collector",
+        "short": "Ėminį paėmęs gydytojas / Practitioner collected the specimen",
+        "definition": "Ėminį paėmęs gydytojas."
+      },
+      {
+        "id": "Specimen.collection.collector.id",
+        "path": "Specimen.collection.collector.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.collector.extension",
+        "path": "Specimen.collection.collector.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.collector.type",
+        "path": "Specimen.collection.collector.type",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.collector.identifier",
+        "path": "Specimen.collection.collector.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.collector.display",
+        "path": "Specimen.collection.collector.display",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.collected[x]",
+        "path": "Specimen.collection.collected[x]",
+        "short": "Ėminio paėmimo data ir laikas / Date and time when specimen was taken",
+        "definition": "Ėminio paėmimo data ir laikas."
+      },
+      {
+        "id": "Specimen.collection.duration",
+        "path": "Specimen.collection.duration",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.quantity",
+        "path": "Specimen.collection.quantity",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.method",
+        "path": "Specimen.collection.method",
+        "definition": "Metodas, kuriuo buvo paimtas ėminys (pvz., biopsija, ekscizija, punkcija, nuograndos). Privaloma nurodyti bent laisvu tekstu.",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.method.coding",
+        "path": "Specimen.collection.method.coding",
+        "short": "Ėminio paėmimo metodo kodas / Specimen collection method code",
+        "definition": "Operacijos / procedūros pobūdžio kodas."
+      },
+      {
+        "id": "Specimen.collection.method.coding.system",
+        "path": "Specimen.collection.method.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Specimen.collection.method.text",
+        "path": "Specimen.collection.method.text",
+        "short": "Ėminio paėmimo metodo aprašymas / Specimen collection method description",
+        "definition": "Ėminio paėmimo metodo aprašymas.",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.device",
+        "path": "Specimen.collection.device",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.procedure",
+        "path": "Specimen.collection.procedure",
+        "short": "Chirurginė operacija ar procedūra / Surgical operation or procedure",
+        "definition": "Nuoroda į Procedure resursą, kuriame pateikiama chirurginės operacijos ar procedūros, kurios metu buvo paimtas ėminys, informacija."
+      },
+      {
+        "id": "Specimen.collection.procedure.id",
+        "path": "Specimen.collection.procedure.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.procedure.extension",
+        "path": "Specimen.collection.procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.procedure.reference",
+        "path": "Specimen.collection.procedure.reference",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.procedure.type",
+        "path": "Specimen.collection.procedure.type",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.procedure.identifier",
+        "path": "Specimen.collection.procedure.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.procedure.display",
+        "path": "Specimen.collection.procedure.display",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite",
+        "path": "Specimen.collection.bodySite",
+        "short": "Anatominė ėminio paėmimo vieta / Anatomical collection site",
+        "definition": "Anatominė vieta, iš kurios paimtas ėminys.",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.bodySite.id",
+        "path": "Specimen.collection.bodySite.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.extension",
+        "path": "Specimen.collection.bodySite.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding",
+        "path": "Specimen.collection.bodySite.concept.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "closed"
+        }
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt",
+        "path": "Specimen.collection.bodySite.concept.coding",
+        "sliceName": "snomedCt",
+        "short": "Objekto topografijos SNOMED CT kodas / Object topography SNOMED CT code",
+        "definition": "Objekto topografijos SNOMED CT kodas",
+        "max": "1"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt.id",
+        "path": "Specimen.collection.bodySite.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt.extension",
+        "path": "Specimen.collection.bodySite.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt.system",
+        "path": "Specimen.collection.bodySite.concept.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt.version",
+        "path": "Specimen.collection.bodySite.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt.code",
+        "path": "Specimen.collection.bodySite.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt.display",
+        "path": "Specimen.collection.bodySite.concept.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:snomedCt.userSelected",
+        "path": "Specimen.collection.bodySite.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3",
+        "path": "Specimen.collection.bodySite.concept.coding",
+        "sliceName": "icdO3",
+        "short": "Objekto topografijos ICD-O-3 kodas / Object topography ICD-O-3 code",
+        "definition": "Objekto topografijos ICD-O-3 kodas",
+        "max": "1"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3.id",
+        "path": "Specimen.collection.bodySite.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3.extension",
+        "path": "Specimen.collection.bodySite.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3.system",
+        "path": "Specimen.collection.bodySite.concept.coding.system",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/icd-o-3"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3.version",
+        "path": "Specimen.collection.bodySite.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3.code",
+        "path": "Specimen.collection.bodySite.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3.display",
+        "path": "Specimen.collection.bodySite.concept.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.coding:icdO3.userSelected",
+        "path": "Specimen.collection.bodySite.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.text",
+        "path": "Specimen.collection.bodySite.concept.text",
+        "short": "Objekto lokalizacijos aprašymas / Object location description",
+        "definition": "Objekto lokalizacijos aprašymas. Laisvos formos lokalizacijos aprašymas, jei nepakanka kodo arba kodas nenurodomas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.bodySite.reference",
+        "path": "Specimen.collection.bodySite.reference",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.collection.fastingStatus[x]",
+        "path": "Specimen.collection.fastingStatus[x]",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.id",
+        "path": "Specimen.processing.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.extension",
+        "path": "Specimen.processing.extension",
+        "max": "1"
+      },
+      {
+        "id": "Specimen.processing.extension:ltEspbiExtFixatingSubstance",
+        "path": "Specimen.processing.extension",
+        "sliceName": "ltEspbiExtFixatingSubstance",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-specimen/fixatingSubstance"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Specimen.processing.modifierExtension",
+        "path": "Specimen.processing.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.description",
+        "path": "Specimen.processing.description",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.method",
+        "path": "Specimen.processing.method",
+        "short": "Ėminio apdorojimo metodas / Specimen processing method",
+        "definition": "Ėminio apdorojimo metodas"
+      },
+      {
+        "id": "Specimen.processing.method.id",
+        "path": "Specimen.processing.method.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.method.extension",
+        "path": "Specimen.processing.method.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.method.coding",
+        "path": "Specimen.processing.method.coding",
+        "short": "Ėminio apdorojimo metodo kodas / Specimen processing method code",
+        "definition": "Ėminio apdorojimo metodo kodas (kodai)."
+      },
+      {
+        "id": "Specimen.processing.method.coding.id",
+        "path": "Specimen.processing.method.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.method.coding.extension",
+        "path": "Specimen.processing.method.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.method.coding.system",
+        "path": "Specimen.processing.method.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Specimen.processing.method.coding.version",
+        "path": "Specimen.processing.method.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.method.coding.userSelected",
+        "path": "Specimen.processing.method.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.method.text",
+        "path": "Specimen.processing.method.text",
+        "short": "Ėminio apdorojimo metodo aprašymas / Specimen processing method description",
+        "definition": "Ėminio apdorojimo metodo aprašymas."
+      },
+      {
+        "id": "Specimen.processing.additive.id",
+        "path": "Specimen.processing.additive.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.additive.extension",
+        "path": "Specimen.processing.additive.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.additive.type",
+        "path": "Specimen.processing.additive.type",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.additive.identifier",
+        "path": "Specimen.processing.additive.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.additive.display",
+        "path": "Specimen.processing.additive.display",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.processing.time[x]",
+        "path": "Specimen.processing.time[x]",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.container",
+        "path": "Specimen.container",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.condition.id",
+        "path": "Specimen.condition.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.condition.extension",
+        "path": "Specimen.condition.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.condition.coding.id",
+        "path": "Specimen.condition.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.condition.coding.extension",
+        "path": "Specimen.condition.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.condition.coding.version",
+        "path": "Specimen.condition.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.condition.coding.userSelected",
+        "path": "Specimen.condition.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.note",
+        "path": "Specimen.note",
+        "short": "Ėminio pastabos / Comments",
+        "definition": "Objekto (ėminio) pastabos."
+      },
+      {
+        "id": "Specimen.note.id",
+        "path": "Specimen.note.id",
+        "max": "0"
+      },
+      {
+        "id": "Specimen.note.extension",
+        "path": "Specimen.note.extension",
+        "max": "0"
+      }
+    ]
+  }
+}

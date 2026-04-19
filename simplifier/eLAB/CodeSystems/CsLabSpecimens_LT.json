@@ -1,0 +1,8134 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-lab-specimens",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2024-08-07T16:50:01.234+00:00"
+  },
+  "language": "lt",
+  "url": "https://www.medicinosnk.lt/CodeSystem/lt-lab-specimens",
+  "version": "0.3.28",
+  "title": "LT LAB ėminiai/mėginiai",
+  "_title": {
+    "extension": [
+      {
+        "extension": [
+          {
+            "url": "lang",
+            "valueCode": "en"
+          },
+          {
+            "url": "content",
+            "valueString": "LT LAB specimens"
+          }
+        ],
+        "url": "http://hl7.org/fhir/StructureDefinition/translation"
+      }
+    ]
+  },
+  "status": "active",
+  "experimental": false,
+  "date": "2024-04-08T00:00:00Z",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "property": [
+    {
+      "code": "display",
+      "uri": "http://terminology.hl7.org/CodeSystem/designation-usage|display",
+      "description": "Display",
+      "type": "string"
+    },
+    {
+      "code": "snomed-code",
+      "description": "SNOMED kodas",
+      "type": "Coding"
+    },
+    {
+      "code": "snomed-fsn",
+      "description": "SNOMED ilgas pavadinimas",
+      "type": "string"
+    }
+  ],
+  "concept": [
+    {
+      "code": "AbdAbs",
+      "display": "Intraabdominalinio absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16211211000119102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from intra-abdominal abscess (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AbdSw",
+      "display": "Pilvo tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472904006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from abdomen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Abs",
+      "display": "Absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119371008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AbsTis",
+      "display": "Absceso audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258407001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Abscess tissue (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AdpTis",
+      "display": "Riebaliniai audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258414004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Adipose tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AdrBp",
+      "display": "Antinksčio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309142006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Adrenal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AdrTis",
+      "display": "Antinksčio audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "303247002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Adrenal tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AeCultBl",
+      "display": "Kraujas, aerobinis buteliukas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "866033003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Blood specimen in aerobic blood culture bottle (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AmnF",
+      "display": "Amniono skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119373006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Amniotic fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AnCultBl",
+      "display": "Kraujas, anaerobinis buteliukas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "866032008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Blood specimen in anaerobic blood culture bottle (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AnStamp",
+      "display": "Išangės antspaudas ant lipnios skaidrios juostelės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258664003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Scotch tape slide specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AnaBp",
+      "display": "Išangės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309265008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Anal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AnaSw",
+      "display": "Išangė (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258527002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Anal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AnkJoF",
+      "display": "Kulkšnies sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167875003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ankle joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AntNoSw",
+      "display": "Nosies priekinių landų sekretas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "697989009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Anterior nares swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AnuTis",
+      "display": "Išangės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128156008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from anus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AorTis",
+      "display": "Aortos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "725372003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from aorta (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ApxSw",
+      "display": "Kirmėlinės ataugos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472890006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from appendix (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AqHumF",
+      "display": "Akies kamerų skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258444001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Aqueous humor specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ArtBl",
+      "display": "Kraujas, arterinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122552005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Arterial blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ArtBp",
+      "display": "Arterijos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432097003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from artery obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ArtUmbBl",
+      "display": "Kraujas, iš virkštelės, arterinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703430008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Arterial cord blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AutpSw",
+      "display": "Autopsijos metu paimta tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446577002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab obtained during autopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "AxlSw",
+      "display": "Pažastis (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "445364004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of axilla (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "B9NC",
+      "display": "Kraujas su citratu"
+    },
+    {
+      "code": "BK2E/K3E",
+      "display": "Kraujas su K2/K3 EDTA",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "445295009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Whole blood specimen with edetic acid (specimen) "
+        }
+      ]
+    },
+    {
+      "code": "BLH",
+      "display": "Kraujas su ličio heparinu"
+    },
+    {
+      "code": "BS",
+      "display": "Sauso kraujo lašas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "440500007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Dried blood spot specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BalF",
+      "display": "Bronchoalveolinio lavažo skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258607008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bronchoalveolar lavage fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BartCystF",
+      "display": "Bartolinio liaukos cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446128003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from Bartholin gland cyst (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BartGlAbs",
+      "display": "Bartolinio liaukos absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16215171000119102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of Bartholin gland (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Bhirudin",
+      "display": "Kraujas su hirudinu"
+    },
+    {
+      "code": "BilTrTis",
+      "display": "Tulžies takų audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309491006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Biliary tract tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Bile",
+      "display": "Tulžis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119341000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bile specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BiteWdSw",
+      "display": "Kąstinės žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "28971000087101"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from bite wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Bl",
+      "display": "Kraujas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119297000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BlComp",
+      "display": "Kraujo komponentas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119300005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from blood product (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BlDonBl",
+      "display": "Kraujas, kraujo donoro",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122560006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Blood specimen from blood donor (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BlDonEry",
+      "display": "Eritrocitai, kraujo donoro",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122581006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Erythrocyte specimen from blood donor (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BlDonSer",
+      "display": "Serumas, kraujo donoro",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122589008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Serum specimen from blood donor (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BldBp",
+      "display": "Šlapimo pūslės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309273004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bladder biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BldStn",
+      "display": "Šlapimo pūslės akmuo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258493006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bladder stone specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BldcBp",
+      "display": "Tulžies latako bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309493009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bile duct biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BlrStn",
+      "display": "Tulžies akmuo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258490009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Biliary stone specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Bm",
+      "display": "Kaulų čiulpai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119359002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bone marrow specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BodF",
+      "display": "Kūno skystis, nepatikslintas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309051001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Body fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Bone",
+      "display": "Kaulo audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258417006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bone tissue sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BoneBp",
+      "display": "Kaulo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309105004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bone biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Bp",
+      "display": "Bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258415003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BrAbs",
+      "display": "Smegenų absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446774006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of brain (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BrBp",
+      "display": "Smegenų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432139004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from brain obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BrCystF",
+      "display": "Smegenų cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16209291000119109"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Brain cyst fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BrNeoTis",
+      "display": "Smegenų auglio audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16210891000119102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Brain neoplasm tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BrTis",
+      "display": "Smegenų audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128157004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from brain (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BresBp",
+      "display": "Krūties bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122601001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from breast obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BresCystF",
+      "display": "Krūties cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "256889002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Breast cyst fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BronAsp",
+      "display": "Bronchų sekretas (aspiratas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "441903006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen obtained by bronchial aspiration (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BronBp",
+      "display": "Bronchų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309174004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bronchial biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BronBrs",
+      "display": "Bronchų nuobrūžos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309176002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bronchial brushings specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BronTis",
+      "display": "Bronchų audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128158009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from bronchus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BrsBp",
+      "display": "Sąnario tepalinio maišelio (bursos) bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309111001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bursa biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BrsTis",
+      "display": "Sąnario tepalinio maišelio (bursos) audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309110000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bursa tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BurF",
+      "display": "Sąnario tepalinio maišelio (bursos) skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258448003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Bursa fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BurnTis",
+      "display": "Nudegimo žaizdos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258418001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Burn tissue (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "BurnWd",
+      "display": "Nudegimo žaizdos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119367005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from burn injury (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CSF",
+      "display": "Smegenų skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258450006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cerebrospinal fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CVCaTip",
+      "display": "Kateterio galas, centrinės venos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472929000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Central venous catheter tip submitted as specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CaTip",
+      "display": "Kateterio galas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119312009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Catheter tip specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CapBl",
+      "display": "Kraujas, kapiliarinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122554006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Capillary blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CatIsWdSw",
+      "display": "Kraujagyslinio kateterio įvedimo vietos žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "735950000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of vascular catheter insertion site (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CcBp",
+      "display": "Aklosios žarnos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16213491000119109"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cecum biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ChVil",
+      "display": "Choriono gaureliai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258565009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Chorionic villi sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ClnBp",
+      "display": "Gaubtinės žarnos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309225009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Colonic biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ClnTis",
+      "display": "Storosios žarnos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128159001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from colon (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Cnj",
+      "display": "Akies junginės tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119401005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from conjunctiva (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CnjScr",
+      "display": "Akies junginės nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "447337004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from conjunctiva obtained by scraping (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CnjSw",
+      "display": "Akies junginės išskyros (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258498002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Conjunctival swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CnjTis",
+      "display": "Junginės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128160006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from conjunctiva (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Crn",
+      "display": "Akies ragenos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119400006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from cornea (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrnDonTis",
+      "display": "Donoro ragenos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16212811000119105"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from donor cornea (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrnScr",
+      "display": "Akies ragenos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258485006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Corneal scraping specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrnSw",
+      "display": "Ragenos tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472894002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from cornea (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrnTis",
+      "display": "Ragenos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128161005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from cornea (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrnUlc",
+      "display": "Ragenos opos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16212851000119106"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from corneal ulcer (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrtlBp",
+      "display": "Kremzlės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309102001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cartilage biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrvBp",
+      "display": "Gimdos kaklelio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309283000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cervical biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CrvSw",
+      "display": "Gimdos kaklelio eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258524009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cervical swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CultBl",
+      "display": "Kraujas, pasėliui",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446131002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Blood specimen obtained for blood culture (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CvxTis",
+      "display": "Gimdos kaklelio audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127481002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from uterine cervix (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Cyst",
+      "display": "Cistos turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119368000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from cyst (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CystF",
+      "display": "Cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258453008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cyst fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "CystTis",
+      "display": "Cistos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258420003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cyst tissue (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DNA",
+      "display": "DNR",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258566005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Deoxyribonucleic acid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DiaF",
+      "display": "Dializatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258454002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Dialysate specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DiaphBr",
+      "display": "Diafragmos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16223771000119107"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from diaphragm obtained by brushing (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DntTis",
+      "display": "Danties audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309187005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Dental tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DpOpWd",
+      "display": "Giliosios operacinės žaizdos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16211011000119108"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from deep surgical wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DpWd",
+      "display": "Giliosios žaizdos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16211051000119109"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from deep wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DpWdSw",
+      "display": "Giliosios žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472884007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from deep wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DrF",
+      "display": "Skystis iš dreno",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258455001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Drainage fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DrIsWdSw",
+      "display": "Dreno įvedimo vietos žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258506007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of drain insertion site (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DuodBp",
+      "display": "Dvylikapirštės žarnos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309216003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Duodenal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DuodBrs",
+      "display": "Dvylikapirštės žarnos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16216091000119108"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Duodenal brushings specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "DuodUlc",
+      "display": "Dvylikapirštės žarnos opos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16213651000119102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Duodenal ulcer specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Ear",
+      "display": "Ausies tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309165001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ear specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EarBp",
+      "display": "Ausies bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432910000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from ear obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EarF",
+      "display": "Ausies eksudatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "733056005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from ear (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EarTis",
+      "display": "Ausies audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128162003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from ear (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ElbJoF",
+      "display": "Alkūnės sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167869007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Elbow joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Elu",
+      "display": "Eliuatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "40511003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Eluate (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EmbrBp",
+      "display": "Embriono bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258421004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Embryo biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EndBp",
+      "display": "Endometriumo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122704003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from endometrium obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EndcBp",
+      "display": "Endokardo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16215731000119104"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Endocardium biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EndcBrs",
+      "display": "Gimdos kaklelio nuobrūžos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "718684005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Endocervical brush specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EndcSw",
+      "display": "Endocervikso eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "444787003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of endocervix (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EndmTis",
+      "display": "Endometriumo audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128163008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from endometrium (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Epdd",
+      "display": "Sėklidės prielipo tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309140003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Epididymis specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EpddBp",
+      "display": "Sėklidės prielipo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "431205006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from epididymis obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EpddF",
+      "display": "Sėklidės prielipo skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "732975005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from epididymis (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EpgSw",
+      "display": "Antgerklio eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "28991000087102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from epiglottis (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EphBp",
+      "display": "Stemplės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309209004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Esophageal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EphBrs",
+      "display": "Stemplės nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309210009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Esophageal brushings specimen"
+        }
+      ]
+    },
+    {
+      "code": "EphSw",
+      "display": "Stemplė (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472877004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from esophagus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EphTis",
+      "display": "Stemplės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127464006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from esophagus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EpidAbs",
+      "display": "Epidurinio absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33541000087109"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of epidural space (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EthSinBp",
+      "display": "Akytkaulio sinuso bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16212731000119107"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from ethmoid sinus obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ExEarF",
+      "display": "Ausies išorinės klausomosios landos eksudatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "732976006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from external auditory canal (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ExStWdSw",
+      "display": "Išorinės stomos žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "29001000087102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from external stoma wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Eye",
+      "display": "Akies tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119399004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from eye (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EyeBp",
+      "display": "Akies bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "431232001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from eye region obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EyeDsc",
+      "display": "Akies išskyros",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16209331000119103"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Eye discharge specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EyeF",
+      "display": "Akies skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309128003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Eye fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EyeLdBp",
+      "display": "Akies voko bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16212771000119105"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from eyelid obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EyeLdSw",
+      "display": "Akies voko tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "30941000087105"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from eyelid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "EyeTis",
+      "display": "Akies audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128164002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from eye (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FFP",
+      "display": "Šviežiai šaldyta plazma",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "346447007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fresh frozen plasma (product)"
+        }
+      ]
+    },
+    {
+      "code": "FGen",
+      "display": "Moters lytinių organų tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309053003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Female genital specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FGenF",
+      "display": "Moters lytinių organų skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122578001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Female genital fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FGenSw",
+      "display": "Moters lytinių organų tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258519006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Female genital swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FNA",
+      "display": "Bioptatas, aspiracija plona adata",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122550002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen obtained by fine needle aspiration procedure (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FetBp",
+      "display": "Vaisiaus bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "431234000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from fetus obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FinJoF",
+      "display": "Rankos piršto sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167872000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Finger joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FisF",
+      "display": "Fistulės skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258458004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fistula fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FlTb",
+      "display": "Kiaušintakio tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127476006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from fallopian tube (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FlTbBp",
+      "display": "Kiaušintakio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309290005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fallopian tube biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FosSw",
+      "display": "Apyvarpės sekretas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258513007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Prepuce swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FscBp",
+      "display": "Fascijos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309118007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fascia biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "FtJoF",
+      "display": "Pėdos sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167876002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Foot joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GastBr",
+      "display": "Skrandžio nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309213006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Gastric brushings specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GastStSw",
+      "display": "Gastrostomos anga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472886009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from gastrostomy stoma (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GastUlc",
+      "display": "Skrandžio opos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309215004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Gastric ulcer specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GenSw",
+      "display": "Lytinių organų tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258508008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Genital swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GingBp",
+      "display": "Dantenų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16212691000119100"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Gingiva biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GlbldTis",
+      "display": "Tulžies pūslės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122656001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from gallbladder (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GstAnBp",
+      "display": "Skrandžio prievarčio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309212001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Gastric antral biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GstBp",
+      "display": "Skrandžio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309211008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Gastric biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GstF",
+      "display": "Skrandžio sultys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258459007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Gastric fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "GstFnBp",
+      "display": "Skrandžio dugno bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309214000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Gastric fundus biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "H2O",
+      "display": "Vanduo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119318008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Water specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Hair",
+      "display": "Plaukas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119326000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Hair specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "HajoF",
+      "display": "Rankos sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167871007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Hand joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "HdNeckBp",
+      "display": "Galvos ir kaklo struktūros bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "431885000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from head and neck structure obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Helm",
+      "display": "Helmintas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258618008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Helminth specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Hemat",
+      "display": "Hematomos turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258588005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Hematoma specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "HipJoF",
+      "display": "Klubo sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167873005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Hip joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "HrhTis",
+      "display": "Hemorojinio mazgo audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438336007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Hemorrhoid tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "HrtBp",
+      "display": "Širdies bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122623002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from heart obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "HrtVlvTis",
+      "display": "Širdies vožtuvo audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258424007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Heart valve tissue (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "IleBp",
+      "display": "Klubinės žarnos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309217007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ileal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "IndSput",
+      "display": "Skrepliai, indukuoti",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258610001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Sputum specimen obtained by sputum induction (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "IngSw",
+      "display": "Kirkšnies sritis (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "445444005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of inguinal region (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Ins",
+      "display": "Vabzdys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258614005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Insect specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "IrTis",
+      "display": "Rainelės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33911000087102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from iris (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Is",
+      "display": "Izoliatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119303007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Microbial isolate specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "JejBp",
+      "display": "Tuščiosios žarnos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309219005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Jejunal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Jo",
+      "display": "Sąnario tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309125000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Joint specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "JoBp",
+      "display": "Sąnario bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309124001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Joint biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "KidBp",
+      "display": "Inksto bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309269002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Kidney biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "KidBr",
+      "display": "Inksto nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16212371000119106"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Kidney brushings specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "KidCystF",
+      "display": "Inksto cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16220971000119101"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen of fluid from cyst of kidney (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "KidStn",
+      "display": "Inksto akmuo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258495004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Renal stone specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "KidTis",
+      "display": "Inksto audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127474009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from kidney (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "KneJoF",
+      "display": "Kelio sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167874004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Knee joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LFlTb",
+      "display": "Kairiojo kiaušintakio tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119385003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from left fallopian tube (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LV",
+      "display": "Gyvas egzempliorius",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258613004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Living specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LYM",
+      "display": "Limfocitai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119353001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lymphocyte specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LabUlc",
+      "display": "Lytinių lūpų opos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16211011000119108"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Labia ulcer specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LacF",
+      "display": "Akies ašarų maišelio skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258465007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lacrimal fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LacMucF",
+      "display": "Ašarų maišelio mukocelės skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446908003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from mucocele of lacrimal sac (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Larva",
+      "display": "Lerva",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258615006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Larva specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LarxBp",
+      "display": "Gerklų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309182004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Larynx biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LbSw",
+      "display": "Lytinių lūpų tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472887000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from labia (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Lens",
+      "display": "Akies lęšiukas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258601009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lens specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LensF",
+      "display": "Kontaktinių lešių tirpalas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258599007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Contact lens solution sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LgmBp",
+      "display": "Raiščio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309115005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ligament biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LipBp",
+      "display": "Lūpos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309483002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lip biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LipSw",
+      "display": "Lūpos tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472891005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from lip (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LivAbs",
+      "display": "Kepenų absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446674003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of liver (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LivBp",
+      "display": "Kepenų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309203003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Liver biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LivTis",
+      "display": "Kepenų audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128168004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from liver (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Ln",
+      "display": "Limfmazgis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258589002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lymph node sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LnAsp",
+      "display": "Limfinio mazgo aspiratas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "302795002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lymph node aspirate (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LnIsWdSw",
+      "display": "Kateterio įvedimo vietos žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258507003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of line insertion site (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LngTis",
+      "display": "Plaučių audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "399492000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from lung (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Loch",
+      "display": "Lochijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122579009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Genital lochia specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LphNoTis",
+      "display": "Limfmazgio audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309078004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lymph node tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LphnoBp",
+      "display": "Limfmazgio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309079007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lymph node biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LpoBp",
+      "display": "Lipomos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309073008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lipoma biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Lrx",
+      "display": "Gerklų tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "430144001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from larynx (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LrxSw",
+      "display": "Gerklų eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472888005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from larynx (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LungAbs",
+      "display": "Plaučių absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "29011000087100"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of lung (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LungBp",
+      "display": "Plaučio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122610009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from lung obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "LwResp",
+      "display": "Apatinių kvėpavimo takų tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258606004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Lower respiratory tract specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MGen",
+      "display": "Vyro lytinių organų tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309052008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Male genital specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MGenSw",
+      "display": "Vyro lytinių organų tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258509000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Male genital swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Mag",
+      "display": "Vabzdžio lerva",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258616007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Maggot specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MastBp",
+      "display": "Speninės ataugos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309181006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Mastoid biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MdEarBp",
+      "display": "Vidurinės ausies bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309167009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Middle ear biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MdEarF",
+      "display": "Vidurinės ausies skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258466008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Middle ear fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MdstBp",
+      "display": "Tarpuplaučio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "434014007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from mediastinum obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Me",
+      "display": "Mekonijus",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119340004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Meconium specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MenBp",
+      "display": "Smegenų dangalų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432145007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from meninges obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Milk",
+      "display": "Motinos pienas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446676001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Expressed breast milk specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MltJoF",
+      "display": "Keleto sąnarių sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167867009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Multiple joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MortTis",
+      "display": "Pomirtiniai audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258484005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Postmortem tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MouthBp",
+      "display": "Burnos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309188000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Mouth biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MscBp",
+      "display": "Raumens bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309507001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Muscle biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "MsntBp",
+      "display": "Žarnų pasaito bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432146008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from mesentery obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NA",
+      "display": "Nukleorūgštis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "448789008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nucleic acid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NPhBp",
+      "display": "Nosiaryklės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309180007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nasopharyngeal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NSinBp",
+      "display": "Nosies sinuso bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "433860001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from nasal sinus obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NSinFNA",
+      "display": "Ėminys iš prienosinio ančio, aspiracija plona adata",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "433861002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from nasal sinus obtained by fine needle aspiration biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NSinMuBp",
+      "display": "Nosies sinuso gleivinės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16223091000119106"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen of mucosa of nasal sinus obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Nail",
+      "display": "Nagas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119327009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nail specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NailScr",
+      "display": "Nago nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "447098004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from nail obtained by scraping (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NcrTis",
+      "display": "Nekroziniai audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "447407009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from necrotic tissue (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NewBl",
+      "display": "Kraujas, naujagimio",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122562003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Blood specimen from newborn (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NoAnaAxSw",
+      "display": "Nosies priekinių landų sekretas + išangė + pažastis (tamponai)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33641000087108"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Combined specimen from swab of anterior nares and anus and axilla (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NoAnaSw",
+      "display": "Nosies priekinių landų sekretas + išangė (tamponai)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33651000087106"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Combined specimen from swab of anterior nares and anus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NoAnaThSw",
+      "display": "Nosies priekinių landų sekretas + išangė + gerklė (tamponai)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33671000087100"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Combined specimen from swab of anterior nares and anus and throat (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NoAnaUmSw",
+      "display": "Nosies priekinių landų sekretas + išangė + virkštelė (tamponai)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33661000087109"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Combined specimen from swab of anterior nares and anus and umbilicus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NoAxIngSw",
+      "display": "Nosies priekinių landų sekretas + pažastis+ kikšnis (tamponai)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "42061000087105"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Combined specimen from swab of anterior nares and axillary fossa and inguinal region (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NoThSw",
+      "display": "Nosies priekinių landų sekretas + gerklė (tamponai)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "433881000124103"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Combined specimen from swab of anterior nares and throat (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NosBp",
+      "display": "Nosies bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309178001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nasal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Nose",
+      "display": "Nosies tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119388001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from internal nose (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NoseSw",
+      "display": "Nosies sekretas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "445297001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of internal nose (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Nph",
+      "display": "Nosiaryklės tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "430248009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from nasopharyngeal structure (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NphAsp",
+      "display": "Nosiaryklės eksudatas (aspiratas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258411007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nasopharyngeal aspirate (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NphSw",
+      "display": "Nosiaryklės eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258500001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nasopharyngeal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NphWs",
+      "display": "Nosiaryklės išplovos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258467004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nasopharyngeal washings (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "NrvBp",
+      "display": "Nervo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309130001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Nerve biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OmnBp",
+      "display": "Didžiosios taukinės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309208007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Omentum biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OmtTis",
+      "display": "Didžiosios taukinės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309495002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Omentum tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OpWdSw",
+      "display": "Operacinės žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472883001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from surgical wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OphAsp",
+      "display": "Burnaryklės aspiratas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258412000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Oropharyngeal aspirate (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OphSw",
+      "display": "Burnaryklės eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "461911000124106"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab specimen from oropharynx (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OphWs",
+      "display": "Burnaryklės išplovos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1149105007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Oropharyngeal washings (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OrTis",
+      "display": "Burnos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309186001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Oral tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OraSw",
+      "display": "Burnos tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "418932006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Oral swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Ova",
+      "display": "Kiaušidės tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128155007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from ovary (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OvaAbs",
+      "display": "Kiaušidės absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "32641000087102"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of ovary (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OvaBp",
+      "display": "Kiaušidės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122708000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from ovary obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OvaCystF",
+      "display": "Kiaušidės cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "732972008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from cyst of ovary (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OvaF",
+      "display": "Kiaušidės skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309292002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ovarian fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "OvaTis",
+      "display": "Kiaušidės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127482009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from ovary (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "P",
+      "display": "Plazma",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119361006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Plasma specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "P9NC",
+      "display": "Plazma su Na citratu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708048008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Plasma specimen with citrate (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PK2E/K3E",
+      "display": "Plazma su K2/K3 EDTA",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708049000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Plasma specimen with ethylenediamine tetraacetic acid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PPP",
+      "display": "Plazma, stokojanti trombocitų",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119362004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Platelet poor plasma specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PRP",
+      "display": "Plazma, gausi trombocitų",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119363009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Platelet rich plasma specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PancBp",
+      "display": "Kasos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309206006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pancreas biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PancCystF",
+      "display": "Kasos cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16220931000119104"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pancreas cyst fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PancStn",
+      "display": "Kasos akmuo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258494000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pancreatic stone specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PancTis",
+      "display": "Kasos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127470000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from pancreas (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Ped",
+      "display": "Ūtėlė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16214211000119104"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pediculus specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PelvAbs",
+      "display": "Dubens absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "29041000087104"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from pelvic abscess (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Pen",
+      "display": "Varpos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119397002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from penis (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PenBp",
+      "display": "Varpos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432142005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from penis obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PenDsc",
+      "display": "Varpos išskyros",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "732295009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Discharge specimen from penis (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PenSw",
+      "display": "Varpa (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258510005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Penis swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PenTis",
+      "display": "Varpos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128169007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from penis (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PenWdScr",
+      "display": "Varpos žaizdos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "733484007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from lesion of penis obtained by scraping (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PerBl",
+      "display": "Kraujas, periferinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122551003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Peripheral blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PerCaTip",
+      "display": "Kateterio galas, periferinės kraujagyslės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472923004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Peripheral vascular catheter tip submitted as specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PerenF",
+      "display": "Perirenalinio tarpo skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "733101007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from perirenal region (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PerenTis",
+      "display": "Perirenaliniai audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "608856009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from perirenal tissue (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PhrAsp",
+      "display": "Ryklės eksudatas (aspiratas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "447391001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from pharynx obtained by aspiration (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PhrBp",
+      "display": "Ryklės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309193002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pharyngeal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PhrSw",
+      "display": "Ryklės eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472881004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from pharynx (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PhrWs",
+      "display": "Ryklės išplovos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258469001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pharyngeal washings (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PilfisWdSw",
+      "display": "Pilonidinės fistulės (sinuso) eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438343001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of pilonidal sinus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Plac",
+      "display": "Placenta ar Placentos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119403008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from placenta (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PlacBp",
+      "display": "Placentos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309293007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Placenta biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PlacTis",
+      "display": "Placentos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122736005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from placenta (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PlrBp",
+      "display": "Pleuros bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309172000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pleura biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PlrF",
+      "display": "Pleuros skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "418564007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pleural fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PlrTis",
+      "display": "Pleuros audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127460002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from pleura (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PltP",
+      "display": "Trombocitų masė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "256395009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Platelet product (product)"
+        }
+      ]
+    },
+    {
+      "code": "PranaBp",
+      "display": "Perianalinės srities bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16223731000119109"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from perianal region obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PranaSw",
+      "display": "Perianalinė sritis (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258526006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Perianal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PranaWdSw",
+      "display": "Perianalinės srities žaizdos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "733485008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from lesion of perianal region obtained by scraping (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrcF",
+      "display": "Perikardo skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122571007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pericardial fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrcdBp",
+      "display": "Perikardo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "434250007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from pericardium obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PresWdSw",
+      "display": "Spaudimo sukelto sužalojimo (pragulos) eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472885008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from pressure injury (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrnSw",
+      "display": "Tarpvietė (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258525005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Perineal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ProdTis",
+      "display": "Periodonto audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "734379005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from periodontal tissue (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrsF",
+      "display": "Prostatos sekretas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258470000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Prostatic fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrsMsgF",
+      "display": "Prostatos sekretas, po prostatos masažo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258471001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Prostatic massage fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Prst",
+      "display": "Parazitas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258617003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Parasite specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrstBp",
+      "display": "Prostatos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309132009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Prostate biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrstTis",
+      "display": "Prostatos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128170008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from prostate (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrstWorm",
+      "display": "Parazitinė kirmėlė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "704663000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Parasitic worm specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrtDiaF",
+      "display": "Peritoninis dializatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "168140004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Peritoneal dialysate specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrtF",
+      "display": "Pilvaplėvės skystis (ascitas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "168139001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Peritoneal fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrtJo",
+      "display": "Dirbtino sąnario tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1003711005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from prosthetic joint (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Prth",
+      "display": "Protezas/implantas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "439961009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Implant submitted as specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrthBp",
+      "display": "Prieskydinės liaukos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309151003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Parathyroid biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrtnBp",
+      "display": "Pilvaplėvės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309207002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Peritoneal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PrtnSw",
+      "display": "Pilvaplėvės ertmė (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472868006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from peritoneal cavity structure (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Pus",
+      "display": "Pūliai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119323008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pus specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "PusSw",
+      "display": "Pūliai (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258502009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pus swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RBC",
+      "display": "Eritrocitai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119351004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Erythrocyte specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RBCP",
+      "display": "Eritrocitų masė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "126242007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Red blood cells, blood product (product)"
+        }
+      ]
+    },
+    {
+      "code": "RFlTb",
+      "display": "Dešiniojo kiaušintakio tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119384004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from right fallopian tube (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RNA",
+      "display": "RNR",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "441673008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ribonucleic acid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RctBp",
+      "display": "Tiesiosios žarnos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309262006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Rectal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RctTis",
+      "display": "Tiesiosios žarnos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309200000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Rectal tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Rec",
+      "display": "Tiesiosios žarnos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "447955000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from rectum (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RecScr",
+      "display": "Tiesiosios žarnos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258429002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Rectal scrape specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RecSw",
+      "display": "Tiesioji žarna (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258528007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Rectal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Resp",
+      "display": "Kvėpavimo takų tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258603007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from respiratory system (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RtTis",
+      "display": "Tinklainės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "399451009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from retina (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RtperiBp",
+      "display": "Retroperitoninio tarpo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "434244002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from retroperitoneum obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "RtperiTis",
+      "display": "Retroperitoninio tarpo audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438803004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from retroperitoneum (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "S",
+      "display": "Serumas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119364003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Serum specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Sal",
+      "display": "Seilės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119342007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Saliva specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SalGlBp",
+      "display": "Seilių liaukos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "433119005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from salivary gland obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SalglTis",
+      "display": "Seilių liaukos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309190004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Excised salivary gland specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SbretF",
+      "display": "Akies subretinalinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258476006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Subretinal fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ScaTis",
+      "display": "Rando audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "733103005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from scar (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SclTis",
+      "display": "Odenos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33921000087105"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from sclera (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ScrSw",
+      "display": "Kapšelio tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258518003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Scrotal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SebCystF",
+      "display": "Odos riebalinės liaukos cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438595008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from sebaceous cyst (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Sem",
+      "display": "Sperma",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119347001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Seminal fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SemVscBp",
+      "display": "Sėklinės pūslelės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "433854001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from seminal vesicle obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SftTis",
+      "display": "Minkštieji (gilieji) audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309072003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Soft tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ShoJoF",
+      "display": "Peties sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167868004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Shoulder joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SigmBr",
+      "display": "Riestinės žarnos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309261004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Sigmoid colon brushings specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SinF",
+      "display": "Prienosinio ančio skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258474009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Sinus fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SinWs",
+      "display": "Prienosinio ančio išplovos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258475005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Sinus washings (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkMscBp",
+      "display": "Skeleto raumens bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432058006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from skeletal muscle obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinBp",
+      "display": "Odos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309066003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Skin biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinCystF",
+      "display": "Odos cistos turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309075001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Skin cyst specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinFib",
+      "display": "Odos fibroblastai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258569003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Skin fibroblast specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinScr",
+      "display": "Odos nuograndos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446952006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from skin obtained by scraping (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinSw",
+      "display": "Odos tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258503004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Skin swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinUlcSw",
+      "display": "Odos opos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258505006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Skin ulcer swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinWd",
+      "display": "Odos žaizdos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309068002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Skin lesion specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SkinWdSw",
+      "display": "Odos žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472862007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from lesion of skin (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SlvStn",
+      "display": "Seilių liaukos akmuo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "732293002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Salivary calculus specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SmIntTis",
+      "display": "Plonosios žarnos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122638001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from small intestine (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SpCordBp",
+      "display": "Nugaros smegenų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "431697001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from spinal cord obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SpWd",
+      "display": "Paviršinės žaizdos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "734381007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from superficial wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SpWdSw",
+      "display": "Paviršinės žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472882006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from superficial wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SpermCelF",
+      "display": "Spermatocelės skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438545007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Fluid specimen from spermatocele (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SplBp",
+      "display": "Blužnies bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "433760005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from spleen obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SprCordBp",
+      "display": "Sėklinio latako bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "433873002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from spermatic cord obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Sput",
+      "display": "Skrepliai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119334006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Sputum specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SputSw",
+      "display": "Skrepliai, atkosėti ant tampono",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258499005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cough swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "St",
+      "display": "Išmatos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119339001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Stool specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Stem",
+      "display": "Kamieninės ląstelės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "57731000052104"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Stem cell specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "StmTis",
+      "display": "Skrandžio audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128171007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from stomach (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Stn",
+      "display": "Akmuo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119350003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Calculus specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Surg",
+      "display": "Operacinė medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "373826004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Surgical excision sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Sweat",
+      "display": "Prakaitas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122569007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Sweat specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SynBp",
+      "display": "Sąnario sinovijos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309122002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Synovium biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SynF",
+      "display": "Sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119332005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Synovial fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "SynTis",
+      "display": "Sąnario sinovijos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309121009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Synovial tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Tears",
+      "display": "Ašaros",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122594008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tears specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TestTis",
+      "display": "Sėklidės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127475005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from testis (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ThmGlBp",
+      "display": "Užkrūčio liaukos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "399633004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from thymus gland obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Thrt",
+      "display": "Gerklės tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119389009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from throat (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ThrtSw",
+      "display": "Gerklės eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258529004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Throat swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ThyrBp",
+      "display": "Skydliaukės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432984003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from thyroid obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ThyrCystF",
+      "display": "Skydliaukės cistos skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309147000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Thyroid cyst fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ThyrFNA",
+      "display": "Skydliaukės aspiratas plona adata",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309146009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Thyroid fine needle aspirate specimen (specimen) "
+        }
+      ]
+    },
+    {
+      "code": "Tick",
+      "display": "Erkė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "710069003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tick specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Tis",
+      "display": "Audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119376003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TisF",
+      "display": "Intersticinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258479004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Interstitial fluid specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TnTstBp",
+      "display": "Sėklidės dangalo bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "431413009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from tunica of testis obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TndBp",
+      "display": "Sausgyslės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309113003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tendon biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TngBp",
+      "display": "Liežuvio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309189008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tongue biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Tns",
+      "display": "Tonzilių tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "430222001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from tonsil (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TnsBp",
+      "display": "Tonzilės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309191000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tonsil biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TnsSw",
+      "display": "Tonzilių eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472867001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from tonsil (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "ToJoF",
+      "display": "Kojos piršto sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167877006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Toe joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TootAbs",
+      "display": "Danties absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "29021000087108"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of tooth (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TrKidBp",
+      "display": "Transplantuoto inksto bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438661003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from transplanted kidney obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TrLivBp",
+      "display": "Transplantuotų kepenų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438543000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from transplanted liver obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TrLungBp",
+      "display": "Transplantuoto plaučio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438454007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from transplanted lung obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TraAsp",
+      "display": "Trachėjos sekretas (aspiratas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "445447003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from trachea obtained by aspiration (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TraBp",
+      "display": "Trachėjos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309169007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tracheal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TraStWdSw",
+      "display": "Tracheostomos žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472870002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from tracheostomy wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TraTis",
+      "display": "Trachėjos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128173005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from trachea (specimen"
+        }
+      ]
+    },
+    {
+      "code": "TrunkBp",
+      "display": "Liemens srities bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "431412004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from trunk obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Tst",
+      "display": "Sėklidės tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128154006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from testis (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TstBp",
+      "display": "Sėklidės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309137003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Testes biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TstSw",
+      "display": "Sėklidės tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472861000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from testicle (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "TumTis",
+      "display": "Auglio (naviko) audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258435002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tumor tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "U",
+      "display": "Šlapimas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122575003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UBldTis",
+      "display": "Šlapimo pūslės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309272009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urinary bladder tissue specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "USed",
+      "display": "Šlapimo nuosėdos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122567009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine sediment specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Ulc",
+      "display": "Opos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119369008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from ulcer (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UlcSw",
+      "display": "Opos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472871003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from ulcer (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UmbBl",
+      "display": "Kraujas, iš virkštelės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122556008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cord blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UmbSw",
+      "display": "Virkštelė (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "445367006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab of umbilicus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UmbTis",
+      "display": "Virkštelės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258436001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Umbilical cord tissue sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UpResp",
+      "display": "Viršutinių kvėpavimo takų tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258604001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Upper respiratory specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UpRespSw",
+      "display": "Viršutinių kvėpavimo takų tiriamoji medžiaga (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309164002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Upper respiratory swab specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UrtBp",
+      "display": "Šlapimtakio bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309271002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ureter biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UrtStn",
+      "display": "Šlapimtakio akmuo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258496003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Ureteric stone specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UrtTis",
+      "display": "Šlapimtakio audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "399624001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from ureter (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Urth",
+      "display": "Šlaplės sekretas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258530009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urethral swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UrthBp",
+      "display": "Šlaplės bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309277003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urethra biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UrthTis",
+      "display": "Šlaplės audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128174004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from urethra (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Utr",
+      "display": "Gimdos ertmės eksudatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127479004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from uterus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UtrBp",
+      "display": "Gimdos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432059003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from uterus obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UtrTis",
+      "display": "Gimdos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "127480001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from uterus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "UvTis",
+      "display": "Uogenos audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "399619004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from uvea (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VCordBp",
+      "display": "Balso stygų bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309184003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vocal cord biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VenBl",
+      "display": "Kraujas, veninis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122555007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Venous blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VenUmbBl",
+      "display": "Kraujas, iš virkštelės, veninis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703431007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Venous cord blood specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VertDc",
+      "display": "Tarpslankstelinio disko tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "438960000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from intervertebral disc (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VesF",
+      "display": "Pūslelės (vezikulės) skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258482009"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vesicle fluid sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VesFSw",
+      "display": "Pūslelės (vezikulės) skystis (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472875007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from vesicle (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnBp",
+      "display": "Makšties bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309280002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vaginal biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnInSw",
+      "display": "Makšties prieangio išskyros (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "472899007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Swab from vaginal introitus (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnRecSw",
+      "display": "Makšties prieangio išskyros + tiesioji žarna (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708317005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Pooled specimen from vaginal introitus and rectal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnSec",
+      "display": "Makšties išskyros",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258577004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vaginal secretion specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnSw",
+      "display": "Makšties išskyros (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258520000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vaginal swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnTis",
+      "display": "Makšties audiniai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "128175003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Tissue specimen from vagina (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnVltBp",
+      "display": "Makšties skliauto bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "309281003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vaginal vault biopsy specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VgnWs",
+      "display": "Makšties išplovos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258481002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vaginal washout fluid specimen"
+        }
+      ]
+    },
+    {
+      "code": "VnBp",
+      "display": "Venos bioptatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "432061007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from vein obtained by biopsy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VntBrCSF",
+      "display": "Smegenų skystis, iš smegenų skilvelio",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "445372002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cerebrospinal fluid specimen from ventricle of brain (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VntShCSF",
+      "display": "Smegenų skystis, iš ventrikuloperitoninio šunto",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446861007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Vom",
+      "display": "Vėmalai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122572000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vomitus specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VtHumF",
+      "display": "Akies stiklakūnio skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258438000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vitreous humor specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VulvAbs",
+      "display": "Vulvos absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33331000087108"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from abscess of vulva (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "VulvSw",
+      "display": "Moters išorinių lytinių organų (vulvos) išskyros (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258523003"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Vulval swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "WBC",
+      "display": "Leukocitai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258591005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "White blood cell specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "Wd",
+      "display": "Žaizdos tiriamoji medžiaga",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119365002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "WdAbs",
+      "display": "Žaizdos absceso turinys",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "119366001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from wound abscess (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "WdF",
+      "display": "Žaizdos eksudatas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122568004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Exudate specimen from wound (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "WdSw",
+      "display": "Žaizdos eksudatas (tamponas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258531008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Wound swab (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "WrJoF",
+      "display": "Riešo sąnario sinovinis skystis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "167870008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Wrist joint synovial fluid (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "XXX",
+      "display": "Ėminys, nepatikslintas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "430304001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Specimen from unspecified body site (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "aspU",
+      "display": "Šlapimas, suprapubinis aspiratas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258576008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Suprapubic aspirate sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "bagU",
+      "display": "Šlapimas, iš vaikiško šlapimo surinkimo maišelio",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16221371000119107"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen obtained from pediatric urine collection bag"
+        }
+      ]
+    },
+    {
+      "code": "catU",
+      "display": "Šlapimas, per kateterį",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122565001"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urinary catheter specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "conU",
+      "display": "Šlapimas, iš dirbtinio šlapimo rezervuaro (konduito)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "447104008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen from urinary conduit (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "cvU",
+      "display": "Šlapimas, vidurinė srovė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258574006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Mid-stream urine sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "cystU",
+      "display": "Šlapimas, iš šlapimo pūslės su cistoskopu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "699285000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen obtained from bladder by cystoscopy (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "dU",
+      "display": "Šlapimas, 24 val.",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "276833005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "24 hour urine specimen (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "epiU",
+      "display": "Šlapimas, per epicistostomą",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "699287008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen obtained via suprapubic indwelling urinary catheter (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "fmU",
+      "display": "Šlapimas, rytinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258575007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Early morning urine sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "fvU",
+      "display": "Šlapimas, pirmoji srovė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "698276005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "First stream urine sample (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "icatU",
+      "display": "Šlapimas, per ilgalaikį kateterį",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446846006"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen obtained via indwelling urinary catheter (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "kidU",
+      "display": "Šlapimas, iš inksto",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "446907008"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen obtained from kidney (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "nefU",
+      "display": "Šlapimas, per nefrostomą",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "442173007"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen from nephrostomy tube (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "pBl",
+      "display": "Kraujas, paciento",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122561005"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Blood specimen from patient (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "pS",
+      "display": "Serumas, paciento",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "122590004"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Serum specimen from patient (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "scatU",
+      "display": "Šlapimas, per vienkartinį kateterį",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "16221251000119108"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen obtained via straight catheter (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "urtU",
+      "display": "Šlapimas, iš šlapimtakio",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "444937002"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen from ureter (specimen)"
+        }
+      ]
+    },
+    {
+      "code": "urtstU",
+      "display": "Šlapimas, per ureterostomą",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "33351000087104"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Urine specimen from ureterostomy"
+        }
+      ]
+    },
+    {
+      "code": "vP",
+      "display": "Plazma, veninė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703432000"
+          }
+        },
+        {
+          "code": "snomed-fsn",
+          "valueString": "Venous plasma specimen (specimen)"
+        }
+      ]
+    }
+  ]
+}

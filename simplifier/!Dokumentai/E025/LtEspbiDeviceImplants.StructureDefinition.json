@@ -1,0 +1,262 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-implants",
+  "name": "LtEspbiDeviceImplants",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Device",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Device.extension",
+        "path": "Device.extension",
+        "max": "0"
+      },
+      {
+        "id": "Device.modifierExtension",
+        "path": "Device.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Device.identifier",
+        "path": "Device.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Device.displayName",
+        "path": "Device.displayName",
+        "max": "0"
+      },
+      {
+        "id": "Device.definition",
+        "path": "Device.definition",
+        "max": "0"
+      },
+      {
+        "id": "Device.udiCarrier",
+        "path": "Device.udiCarrier",
+        "max": "0"
+      },
+      {
+        "id": "Device.status",
+        "path": "Device.status",
+        "max": "0"
+      },
+      {
+        "id": "Device.availabilityStatus",
+        "path": "Device.availabilityStatus",
+        "max": "0"
+      },
+      {
+        "id": "Device.biologicalSourceEvent",
+        "path": "Device.biologicalSourceEvent",
+        "max": "0"
+      },
+      {
+        "id": "Device.manufactureDate",
+        "path": "Device.manufactureDate",
+        "max": "0"
+      },
+      {
+        "id": "Device.expirationDate",
+        "path": "Device.expirationDate",
+        "max": "0"
+      },
+      {
+        "id": "Device.lotNumber",
+        "path": "Device.lotNumber",
+        "short": "Implanto/medicininės  priemonės ID / Implant/medical device ID",
+        "definition": "Implanto / med. priemonės ID.",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "MNT2024A1045"
+          }
+        ]
+      },
+      {
+        "id": "Device.serialNumber",
+        "path": "Device.serialNumber",
+        "max": "0"
+      },
+      {
+        "id": "Device.name",
+        "path": "Device.name",
+        "short": "Implanto/naudojamos medicininės priemonės pavadinimas / Name of the implant/medical device used",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Device.name.extension",
+        "path": "Device.name.extension",
+        "max": "0"
+      },
+      {
+        "id": "Device.name.modifierExtension",
+        "path": "Device.name.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Device.name.value",
+        "path": "Device.name.value",
+        "short": "Implanto/naudojamos medicininės priemonės pavadinimas / Name of the implant/medical device used",
+        "definition": "Implanto / naudojamos med. priemonės pavadinimas.",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Kelio sąnario endoprotezė"
+          }
+        ]
+      },
+      {
+        "id": "Device.name.display",
+        "path": "Device.name.display",
+        "max": "0"
+      },
+      {
+        "id": "Device.modelNumber",
+        "path": "Device.modelNumber",
+        "max": "0"
+      },
+      {
+        "id": "Device.partNumber",
+        "path": "Device.partNumber",
+        "max": "0"
+      },
+      {
+        "id": "Device.category",
+        "path": "Device.category",
+        "max": "0"
+      },
+      {
+        "id": "Device.type",
+        "path": "Device.type",
+        "short": "Implanto / naudojamos med. priemonės tipas / Type of implant/medical device used",
+        "definition": "Implanto / naudojamos med. priemonės tipas.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje device-type (http://esveikata.lt/classifiers/deviceType).",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/deviceType",
+                  "code": "6",
+                  "display": "Kiti prietaisai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Device.type.extension",
+        "path": "Device.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Device.type.coding.extension",
+        "path": "Device.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Device.type.coding.system",
+        "path": "Device.type.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/deviceType"
+      },
+      {
+        "id": "Device.type.coding.version",
+        "path": "Device.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Device.type.coding.userSelected",
+        "path": "Device.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Device.type.text",
+        "path": "Device.type.text",
+        "max": "0"
+      },
+      {
+        "id": "Device.version",
+        "path": "Device.version",
+        "max": "0"
+      },
+      {
+        "id": "Device.conformsTo",
+        "path": "Device.conformsTo",
+        "max": "0"
+      },
+      {
+        "id": "Device.property",
+        "path": "Device.property",
+        "max": "0"
+      },
+      {
+        "id": "Device.mode",
+        "path": "Device.mode",
+        "max": "0"
+      },
+      {
+        "id": "Device.cycle",
+        "path": "Device.cycle",
+        "max": "0"
+      },
+      {
+        "id": "Device.duration",
+        "path": "Device.duration",
+        "max": "0"
+      },
+      {
+        "id": "Device.owner",
+        "path": "Device.owner",
+        "max": "0"
+      },
+      {
+        "id": "Device.contact",
+        "path": "Device.contact",
+        "max": "0"
+      },
+      {
+        "id": "Device.location",
+        "path": "Device.location",
+        "max": "0"
+      },
+      {
+        "id": "Device.url",
+        "path": "Device.url",
+        "max": "0"
+      },
+      {
+        "id": "Device.endpoint",
+        "path": "Device.endpoint",
+        "max": "0"
+      },
+      {
+        "id": "Device.gateway",
+        "path": "Device.gateway",
+        "max": "0"
+      },
+      {
+        "id": "Device.note",
+        "path": "Device.note",
+        "max": "0"
+      },
+      {
+        "id": "Device.safety",
+        "path": "Device.safety",
+        "max": "0"
+      },
+      {
+        "id": "Device.parent",
+        "path": "Device.parent",
+        "max": "0"
+      }
+    ]
+  }
+}

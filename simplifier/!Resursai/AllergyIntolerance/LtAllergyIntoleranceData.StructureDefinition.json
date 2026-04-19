@@ -1,0 +1,679 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-allergy-intolerance-data",
+  "name": "LtEspbiAllergyIntoleranceData",
+  "status": "draft",
+  "description": "Nustatyta Alergija / Detected alergy",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "AllergyIntolerance",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-allergy-intolerance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "AllergyIntolerance.meta",
+        "path": "AllergyIntolerance.meta"
+      },
+      {
+        "id": "AllergyIntolerance.meta.id",
+        "path": "AllergyIntolerance.meta.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.meta.extension",
+        "path": "AllergyIntolerance.meta.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.meta.versionId",
+        "path": "AllergyIntolerance.meta.versionId",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.meta.source",
+        "path": "AllergyIntolerance.meta.source",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.meta.security",
+        "path": "AllergyIntolerance.meta.security",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.meta.tag",
+        "path": "AllergyIntolerance.meta.tag",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.implicitRules",
+        "path": "AllergyIntolerance.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.language",
+        "path": "AllergyIntolerance.language",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.text",
+        "path": "AllergyIntolerance.text",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.contained",
+        "path": "AllergyIntolerance.contained",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.extension",
+        "path": "AllergyIntolerance.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.modifierExtension",
+        "path": "AllergyIntolerance.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.identifier",
+        "path": "AllergyIntolerance.identifier",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus",
+        "path": "AllergyIntolerance.clinicalStatus",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                  "code": "active",
+                  "display": "Active"
+                }
+              ],
+              "text": "Aktyvi"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.id",
+        "path": "AllergyIntolerance.clinicalStatus.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.extension",
+        "path": "AllergyIntolerance.clinicalStatus.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding.id",
+        "path": "AllergyIntolerance.clinicalStatus.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding.extension",
+        "path": "AllergyIntolerance.clinicalStatus.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding.version",
+        "path": "AllergyIntolerance.clinicalStatus.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding.userSelected",
+        "path": "AllergyIntolerance.clinicalStatus.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus",
+        "path": "AllergyIntolerance.verificationStatus",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                  "code": "unconfirmed",
+                  "display": "Unconfirmed"
+                }
+              ],
+              "text": "Įtariama"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.id",
+        "path": "AllergyIntolerance.verificationStatus.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.extension",
+        "path": "AllergyIntolerance.verificationStatus.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding.id",
+        "path": "AllergyIntolerance.verificationStatus.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding.extension",
+        "path": "AllergyIntolerance.verificationStatus.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding.version",
+        "path": "AllergyIntolerance.verificationStatus.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding.userSelected",
+        "path": "AllergyIntolerance.verificationStatus.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.type",
+        "path": "AllergyIntolerance.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "609328004",
+                  "display": "Alergija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.type.id",
+        "path": "AllergyIntolerance.type.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.type.extension",
+        "path": "AllergyIntolerance.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.type.coding.id",
+        "path": "AllergyIntolerance.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.type.coding.extension",
+        "path": "AllergyIntolerance.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.type.coding.version",
+        "path": "AllergyIntolerance.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.type.coding.userSelected",
+        "path": "AllergyIntolerance.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.category",
+        "path": "AllergyIntolerance.category",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "food"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.criticality",
+        "path": "AllergyIntolerance.criticality",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "low"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.code",
+        "path": "AllergyIntolerance.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "39579001",
+                  "display": "Anaphylaxis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.code.id",
+        "path": "AllergyIntolerance.code.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.code.extension",
+        "path": "AllergyIntolerance.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.code.coding.id",
+        "path": "AllergyIntolerance.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.code.coding.extension",
+        "path": "AllergyIntolerance.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.code.coding.version",
+        "path": "AllergyIntolerance.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.code.coding.userSelected",
+        "path": "AllergyIntolerance.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.patient",
+        "path": "AllergyIntolerance.patient",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.patient.id",
+        "path": "AllergyIntolerance.patient.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.patient.extension",
+        "path": "AllergyIntolerance.patient.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.patient.type",
+        "path": "AllergyIntolerance.patient.type",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.patient.identifier",
+        "path": "AllergyIntolerance.patient.identifier",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.patient.display",
+        "path": "AllergyIntolerance.patient.display",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.encounter",
+        "path": "AllergyIntolerance.encounter",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Encounter/38765"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.encounter.id",
+        "path": "AllergyIntolerance.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.encounter.extension",
+        "path": "AllergyIntolerance.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.encounter.type",
+        "path": "AllergyIntolerance.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.encounter.identifier",
+        "path": "AllergyIntolerance.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.encounter.display",
+        "path": "AllergyIntolerance.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.onset[x]",
+        "path": "AllergyIntolerance.onset[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-01T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.recordedDate",
+        "path": "AllergyIntolerance.recordedDate",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-01T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.participant.id",
+        "path": "AllergyIntolerance.participant.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.extension",
+        "path": "AllergyIntolerance.participant.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.modifierExtension",
+        "path": "AllergyIntolerance.participant.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.function",
+        "path": "AllergyIntolerance.participant.function",
+        "short": "Dalyvavimo tipas / Type of involvement",
+        "definition": " Reikšmių aibė yra pavyzdinė todėl galima nurodyti sukurtą reikšmę kaip \"recorder\".",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.function.coding",
+        "path": "AllergyIntolerance.participant.function.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.participant.function.coding.system",
+        "path": "AllergyIntolerance.participant.function.coding.system",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.participant.function.coding.code",
+        "path": "AllergyIntolerance.participant.function.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor",
+        "path": "AllergyIntolerance.participant.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor.id",
+        "path": "AllergyIntolerance.participant.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor.extension",
+        "path": "AllergyIntolerance.participant.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor.type",
+        "path": "AllergyIntolerance.participant.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor.identifier",
+        "path": "AllergyIntolerance.participant.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor.display",
+        "path": "AllergyIntolerance.participant.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.lastOccurrence",
+        "path": "AllergyIntolerance.lastOccurrence",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-02-01T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.note",
+        "path": "AllergyIntolerance.note",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Allergy to Home Dust"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.note.id",
+        "path": "AllergyIntolerance.note.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.note.extension",
+        "path": "AllergyIntolerance.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.note.author[x]",
+        "path": "AllergyIntolerance.note.author[x]",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.note.time",
+        "path": "AllergyIntolerance.note.time",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.id",
+        "path": "AllergyIntolerance.reaction.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.extension",
+        "path": "AllergyIntolerance.reaction.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.modifierExtension",
+        "path": "AllergyIntolerance.reaction.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance",
+        "path": "AllergyIntolerance.reaction.substance",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "418920007",
+                  "display": "Klijai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.id",
+        "path": "AllergyIntolerance.reaction.substance.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.extension",
+        "path": "AllergyIntolerance.reaction.substance.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding.id",
+        "path": "AllergyIntolerance.reaction.substance.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding.extension",
+        "path": "AllergyIntolerance.reaction.substance.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding.version",
+        "path": "AllergyIntolerance.reaction.substance.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding.userSelected",
+        "path": "AllergyIntolerance.reaction.substance.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation",
+        "path": "AllergyIntolerance.reaction.manifestation",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/TLK-10-AM",
+                    "code": "Z51.60",
+                    "display": "Alergenas, nepatikslintas"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.id",
+        "path": "AllergyIntolerance.reaction.manifestation.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.extension",
+        "path": "AllergyIntolerance.reaction.manifestation.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.id",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.extension",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding.id",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding.extension",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding.version",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding.userSelected",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.text",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.text",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.reference",
+        "path": "AllergyIntolerance.reaction.manifestation.reference",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.description",
+        "path": "AllergyIntolerance.reaction.description",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.onset",
+        "path": "AllergyIntolerance.reaction.onset",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-01-01T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.reaction.severity",
+        "path": "AllergyIntolerance.reaction.severity",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "mild"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.reaction.exposureRoute",
+        "path": "AllergyIntolerance.reaction.exposureRoute",
+        "max": "0"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.note",
+        "path": "AllergyIntolerance.reaction.note",
+        "max": "0"
+      }
+    ]
+  }
+}

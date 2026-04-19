@@ -1,0 +1,144 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-e014",
+  "name": "LtEspbiProcedureE014",
+  "status": "draft",
+  "description": "Patologijos tyrimo metu atlikta procedūra",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "short": "Procedūros kodas ir pastabos / Procedure code and remarks",
+        "definition": "Procedūros kodas (iš \"achi\" klasifikatoriaus) ir pastabos.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ACHI",
+                  "code": "97052-00",
+                  "display": "Burnos audinių histopatologinis audinio tyrimas"
+                }
+              ],
+              "text": "su atlikta procedūra susijusios pastabos (jei yra)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding",
+        "path": "Procedure.code.coding",
+        "short": "Procedūros kodas / Procedure code",
+        "definition": "Procedūros kodas."
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ACHI"
+      },
+      {
+        "id": "Procedure.code.text",
+        "path": "Procedure.code.text",
+        "short": "Procedūros pastabos / Procedure remarks",
+        "definition": "Procedūros pastabos."
+      },
+      {
+        "id": "Procedure.subject.reference",
+        "path": "Procedure.subject.reference",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Patient/123456"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-01T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].extension",
+        "path": "Procedure.occurrence[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Atlikta intraskilvelinė neuroendoskopija"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "max": "0"
+      }
+    ]
+  }
+}

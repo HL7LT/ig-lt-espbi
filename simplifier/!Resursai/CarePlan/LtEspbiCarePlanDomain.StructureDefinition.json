@@ -1,0 +1,324 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-domain",
+  "name": "LtEspbiCarePlanDomain",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CarePlan",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CarePlan.meta",
+        "path": "CarePlan.meta"
+      },
+      {
+        "id": "CarePlan.meta.id",
+        "path": "CarePlan.meta.id",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.meta.extension",
+        "path": "CarePlan.meta.extension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.meta.versionId",
+        "path": "CarePlan.meta.versionId",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.meta.source",
+        "path": "CarePlan.meta.source",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.meta.security",
+        "path": "CarePlan.meta.security",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.meta.tag",
+        "path": "CarePlan.meta.tag",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.implicitRules",
+        "path": "CarePlan.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.language",
+        "path": "CarePlan.language",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.text",
+        "path": "CarePlan.text",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.contained",
+        "path": "CarePlan.contained",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.modifierExtension",
+        "path": "CarePlan.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.identifier",
+        "path": "CarePlan.identifier",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.instantiatesCanonical",
+        "path": "CarePlan.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.instantiatesUri",
+        "path": "CarePlan.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.basedOn",
+        "path": "CarePlan.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.replaces",
+        "path": "CarePlan.replaces",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.partOf",
+        "path": "CarePlan.partOf",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.category",
+        "path": "CarePlan.category",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.title",
+        "path": "CarePlan.title",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.description",
+        "path": "CarePlan.description",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.subject.id",
+        "path": "CarePlan.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.subject.extension",
+        "path": "CarePlan.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.subject.type",
+        "path": "CarePlan.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.subject.identifier",
+        "path": "CarePlan.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.subject.display",
+        "path": "CarePlan.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.encounter",
+        "path": "CarePlan.encounter",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.period",
+        "path": "CarePlan.period",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.created",
+        "path": "CarePlan.created",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.custodian",
+        "path": "CarePlan.custodian",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.contributor",
+        "path": "CarePlan.contributor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000015885"
+            }
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.contributor.id",
+        "path": "CarePlan.contributor.id",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.contributor.extension",
+        "path": "CarePlan.contributor.extension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.contributor.type",
+        "path": "CarePlan.contributor.type",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.contributor.identifier",
+        "path": "CarePlan.contributor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.contributor.display",
+        "path": "CarePlan.contributor.display",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.careTeam",
+        "path": "CarePlan.careTeam",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.addresses",
+        "path": "CarePlan.addresses",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.supportingInfo",
+        "path": "CarePlan.supportingInfo",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.goal.id",
+        "path": "CarePlan.goal.id",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.goal.extension",
+        "path": "CarePlan.goal.extension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.goal.type",
+        "path": "CarePlan.goal.type",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.goal.identifier",
+        "path": "CarePlan.goal.identifier",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.goal.display",
+        "path": "CarePlan.goal.display",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.id",
+        "path": "CarePlan.activity.id",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.extension",
+        "path": "CarePlan.activity.extension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.modifierExtension",
+        "path": "CarePlan.activity.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.performedActivity",
+        "path": "CarePlan.activity.performedActivity",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.progress",
+        "path": "CarePlan.activity.progress",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference.id",
+        "path": "CarePlan.activity.plannedActivityReference.id",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference.extension",
+        "path": "CarePlan.activity.plannedActivityReference.extension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference.type",
+        "path": "CarePlan.activity.plannedActivityReference.type",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference.identifier",
+        "path": "CarePlan.activity.plannedActivityReference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference.display",
+        "path": "CarePlan.activity.plannedActivityReference.display",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.note",
+        "path": "CarePlan.note",
+        "example": [
+          {
+            "label": "examplke",
+            "valueAnnotation": {
+              "text": "Papildoma informacija: ..."
+            }
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.note.id",
+        "path": "CarePlan.note.id",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.note.extension",
+        "path": "CarePlan.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.note.author[x]",
+        "path": "CarePlan.note.author[x]",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.note.time",
+        "path": "CarePlan.note.time",
+        "max": "0"
+      }
+    ]
+  }
+}

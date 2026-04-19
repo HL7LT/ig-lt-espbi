@@ -1,0 +1,57 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-goal",
+  "name": "LtEspbiGoal",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Goal",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Goal",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Goal.id",
+        "path": "Goal.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Goal.lifecycleStatus",
+        "path": "Goal.lifecycleStatus",
+        "short": "Slaugos tikslo statusas: / The state of the goal",
+        "definition": "Slaugos tikslo statusas. \r\nFHIR R5 atveju turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/goal-status|5.0.0. Galimos reikmės: proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected.",
+        "mustSupport": true
+      },
+      {
+        "id": "Goal.description",
+        "path": "Goal.description",
+        "short": "Slaugos tikslo aprašymas / Care goal description",
+        "definition": "Slaugos tikslo aprašymas.\r\nFHIR R5 atveju slaugos tikslo aprašymas gali būti pateiktas laisvu tekstu, taip pat, esant reikalui. gali būti nurodyta ir reikšmė iš klasifikatoriaus (jei ateityje toks klasifikatorius būtų sukurtas ir naudojamas).",
+        "mustSupport": true
+      },
+      {
+        "id": "Goal.description.text",
+        "path": "Goal.description.text",
+        "min": 1
+      },
+      {
+        "id": "Goal.subject",
+        "path": "Goal.subject",
+        "short": "Paciento duomenys / Information about the patient",
+        "definition": "Nuoroda į pacientą, kuriam nustatomas slaugos tikslas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-vision-prescription",
+  "name": "LtEspbiVisionPrescription",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "VisionPrescription",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/VisionPrescription",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "VisionPrescription.id",
+        "path": "VisionPrescription.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.meta",
+        "path": "VisionPrescription.meta",
+        "short": "Resurso meta duomenys / Resource meta data",
+        "definition": "Resurso meta duomenys ",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.meta.lastUpdated",
+        "path": "VisionPrescription.meta.lastUpdated",
+        "short": "Paskutinio resurso atnaujinimo/keitimo data ir laikas.",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.meta.profile",
+        "path": "VisionPrescription.meta.profile",
+        "short": "Resurso struktūros versiją identifikuojantis profilis / Profiles this resource claims to conform to",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "VisionPrescription.status",
+        "path": "VisionPrescription.status",
+        "short": "Regėjimo korekcijos skyrimo būsena / Status",
+        "definition": "Pagal FHIR R5 privalo būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/fm-status. \r\nGalimos reikšmės: active | cancelled | draft | entered-in-error.",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.created",
+        "path": "VisionPrescription.created",
+        "short": "Regėjimo korekcijos skyrimo resurso sukūrimo data / The date this resource was created",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.patient",
+        "path": "VisionPrescription.patient",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.patient.reference",
+        "path": "VisionPrescription.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "VisionPrescription.dateWritten",
+        "path": "VisionPrescription.dateWritten",
+        "short": "Regėjimo korekcijos skyrimo data / When prescription was authorized",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.prescriber",
+        "path": "VisionPrescription.prescriber",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/PractitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.prescriber.reference",
+        "path": "VisionPrescription.prescriber.reference",
+        "min": 1
+      },
+      {
+        "id": "VisionPrescription.lensSpecification",
+        "path": "VisionPrescription.lensSpecification",
+        "short": "Akinių / lęšių parametrai / Vision lens authorization"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses",
+        "path": "VisionPrescription.lensSpecification.extension",
+        "sliceName": "ltEspbiExtLenses",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-lenses"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product",
+        "path": "VisionPrescription.lensSpecification.product",
+        "short": "Optinis prietaisas / Product to be supplied",
+        "definition": "Optinis prietaisas (akinių lęšiai, kontaktiniai lęšiai).\r\nGalimos reikšmės:\r\n- al : Akinių lęšiai\r\n- kl : Kontaktiniai lęšiai\r\n\r\nPagal FHIR R5 rekomenduojama naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/vision-product.\r\nGalimos reikšmės: lens | contact."
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.coding",
+        "path": "VisionPrescription.lensSpecification.product.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.coding.system",
+        "path": "VisionPrescription.lensSpecification.product.coding.system",
+        "min": 1,
+        "patternUri": " http://hl7.org/fhir/ValueSet/vision-product"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.coding.code",
+        "path": "VisionPrescription.lensSpecification.product.coding.code",
+        "min": 1
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.coding.display",
+        "path": "VisionPrescription.lensSpecification.product.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.eye",
+        "path": "VisionPrescription.lensSpecification.eye",
+        "short": "Akis",
+        "definition": "Pagal FHIR R5 privalo būti anudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/vision-eye-codes. \r\n\r\nGalimos reikšmės: right | left."
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.sphere",
+        "path": "VisionPrescription.lensSpecification.sphere",
+        "short": "Sfera (SPH) / Sfera",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.cylinder",
+        "path": "VisionPrescription.lensSpecification.cylinder",
+        "short": "Cilindras (CYL) / Cilindras",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.axis",
+        "path": "VisionPrescription.lensSpecification.axis",
+        "short": "Ašis (AXIS) / Cilindro ašis",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism",
+        "path": "VisionPrescription.lensSpecification.prism",
+        "short": "Akių padėties korekcinė prizmė / Eye alignment compensation",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism.amount",
+        "path": "VisionPrescription.lensSpecification.prism.amount",
+        "short": "Prizmė (PRISM) / Prizmė"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism.base",
+        "path": "VisionPrescription.lensSpecification.prism.base",
+        "short": "Prizmės bazės (BASE) pusė"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.add",
+        "path": "VisionPrescription.lensSpecification.add",
+        "short": "Adidacija (ADD)/degresija / ADD",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.backCurve",
+        "path": "VisionPrescription.lensSpecification.backCurve",
+        "short": "Akies bazinė kreivė (BC) / OS Bazinės kreivė (BC)",
+        "definition": "Akies bazinė kreivė (BC) / OS Bazinės kreivė (BC).",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.diameter",
+        "path": "VisionPrescription.lensSpecification.diameter",
+        "short": "Akies diametras (DIA) / OS Diametras (DIA) ",
+        "definition": "Akies diametras (DIA) / OS Diametras (DIA).",
+        "mustSupport": true
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.note",
+        "path": "VisionPrescription.lensSpecification.note",
+        "short": "Pastabos",
+        "definition": "Pastabos",
+        "max": "1"
+      }
+    ]
+  }
+}

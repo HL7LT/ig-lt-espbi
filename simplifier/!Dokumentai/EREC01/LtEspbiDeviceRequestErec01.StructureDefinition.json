@@ -1,0 +1,481 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-request-erec-01",
+  "name": "LtEspbiDeviceRequestErec01",
+  "status": "draft",
+  "description": "MPP ar medicinos prietaiso skyrimo duomenys / MPP and device request data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DeviceRequest",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-request",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DeviceRequest.meta",
+        "path": "DeviceRequest.meta"
+      },
+      {
+        "id": "DeviceRequest.meta.extension:ltEspbiExtPrescriptionLock",
+        "path": "DeviceRequest.meta.extension",
+        "sliceName": "ltEspbiExtPrescriptionLock",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-lock"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "DeviceRequest.implicitRules",
+        "path": "DeviceRequest.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.language",
+        "path": "DeviceRequest.language",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.text",
+        "path": "DeviceRequest.text",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.contained",
+        "path": "DeviceRequest.contained",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtPrescriptionStatus",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtPrescriptionStatus",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/prescriptionStatus"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtAagaSgasNumber",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtAagaSgasNumber",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/aagaSgasNumber"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtRequestDispensePackage",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtRequestDispensePackage",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/dispensePackage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtExpectedDeliveryDate",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtExpectedDeliveryDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-espbi-med-request/expectedDeliveryDate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtDeviceDescription",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtDeviceDescription",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-description"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtPrescriptionTag",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtPrescriptionTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/prescriptionTag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtDevicePrescriptionTags",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtDevicePrescriptionTags",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-prescription-tags"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtRequestCompensation",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtRequestCompensation",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/compensation"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtDevAdditionalInstructions",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtDevAdditionalInstructions",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-additional-instructions"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtPrescriptionValidityPeriod",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtPrescriptionValidityPeriod",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-validity-period"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtExpectedSupplyDuration",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtExpectedSupplyDuration",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-expected-supply-duration"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.modifierExtension",
+        "path": "DeviceRequest.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.identifier",
+        "path": "DeviceRequest.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.instantiatesCanonical",
+        "path": "DeviceRequest.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.instantiatesUri",
+        "path": "DeviceRequest.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.basedOn",
+        "path": "DeviceRequest.basedOn",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-vision-prescription-erec-01"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.replaces",
+        "path": "DeviceRequest.replaces",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.groupIdentifier",
+        "path": "DeviceRequest.groupIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.status",
+        "path": "DeviceRequest.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "active"
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.intent",
+        "path": "DeviceRequest.intent",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "order"
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.doNotPerform",
+        "path": "DeviceRequest.doNotPerform",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.code",
+        "path": "DeviceRequest.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "reference": {
+                "reference": "Device/12345467"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.code.id",
+        "path": "DeviceRequest.code.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.code.extension",
+        "path": "DeviceRequest.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.code.concept",
+        "path": "DeviceRequest.code.concept",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.quantity",
+        "path": "DeviceRequest.quantity",
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 100
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.parameter",
+        "path": "DeviceRequest.parameter",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.subject.extension",
+        "path": "DeviceRequest.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.subject.type",
+        "path": "DeviceRequest.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.subject.identifier",
+        "path": "DeviceRequest.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.subject.display",
+        "path": "DeviceRequest.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.encounter.id",
+        "path": "DeviceRequest.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.encounter.extension",
+        "path": "DeviceRequest.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.encounter.type",
+        "path": "DeviceRequest.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.encounter.identifier",
+        "path": "DeviceRequest.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.encounter.display",
+        "path": "DeviceRequest.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.requester",
+        "path": "DeviceRequest.requester",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "P{ractitioner/12345467"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.requester.id",
+        "path": "DeviceRequest.requester.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.requester.extension",
+        "path": "DeviceRequest.requester.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.requester.type",
+        "path": "DeviceRequest.requester.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.requester.identifier",
+        "path": "DeviceRequest.requester.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.requester.display",
+        "path": "DeviceRequest.requester.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.performer",
+        "path": "DeviceRequest.performer",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.id",
+        "path": "DeviceRequest.reason.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.extension",
+        "path": "DeviceRequest.reason.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.concept",
+        "path": "DeviceRequest.reason.concept",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.reference.id",
+        "path": "DeviceRequest.reason.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.reference.extension",
+        "path": "DeviceRequest.reason.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.reference.type",
+        "path": "DeviceRequest.reason.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.reference.identifier",
+        "path": "DeviceRequest.reason.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.reason.reference.display",
+        "path": "DeviceRequest.reason.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.asNeeded",
+        "path": "DeviceRequest.asNeeded",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.asNeededFor",
+        "path": "DeviceRequest.asNeededFor",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.insurance",
+        "path": "DeviceRequest.insurance",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.supportingInfo",
+        "path": "DeviceRequest.supportingInfo",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.note.id",
+        "path": "DeviceRequest.note.id",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.note.extension",
+        "path": "DeviceRequest.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.note.author[x]",
+        "path": "DeviceRequest.note.author[x]",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.note.time",
+        "path": "DeviceRequest.note.time",
+        "max": "0"
+      },
+      {
+        "id": "DeviceRequest.relevantHistory",
+        "path": "DeviceRequest.relevantHistory",
+        "max": "0"
+      }
+    ]
+  }
+}

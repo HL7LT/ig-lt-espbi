@@ -1,0 +1,152 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-med-dispense/lowIncome",
+  "name": "LtEspbiExtLowIncome",
+  "status": "draft",
+  "description": "Jei pacientas yra asmuo, gaunantis mažas pajamas / If the patient is a low-income person",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationDispense"
+    },
+    {
+      "type": "element",
+      "expression": "DeviceDispense"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Jei pacientas yra asmuo, gaunantis mažas pajamas / If the patient is a low-income person",
+        "definition": "Jei pacientas yra asmuo, gaunantis mažas pajamas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated",
+        "path": "Extension.extension",
+        "sliceName": "surchargeCompensated",
+        "short": "Kompensuojamoji priemoka",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "surchargeCompensated"
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Money"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:surchargeCompensated.value[x].currency",
+        "path": "Extension.extension.value[x].currency",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:tag",
+        "path": "Extension.extension",
+        "sliceName": "tag",
+        "short": "Požymis, ar pacientas yra asmuo, gaunantis mažas pajamas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:tag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:surchargeEligible",
+        "path": "Extension.extension",
+        "sliceName": "surchargeEligible",
+        "short": "Požymis, ar sukauptas Priemokų krepšelis",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:surchargeEligible.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:surchargeEligible.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "surchargeEligible"
+      },
+      {
+        "id": "Extension.extension:surchargeEligible.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-med-dispense/lowIncome"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-45683-0",
+  "name": "LtEspbiObservation45683_0",
+  "status": "draft",
+  "description": "Tyrimas dėl ŽIV / HIV test",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "5.1.5 Tyrimas dėl ŽIV/ HIV test"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "45683-0",
+                  "display": "HIV infection [Minimum Data Set]"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "45683-0"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "ŽIV tyrimo data / HIV test date",
+        "definition": "Data Pacientės RPR tyrimo datai nustatyti.\r\nPatikros sąlygos:\r\n• Pagal nutylėjimą kortelės užvedimo data\r\n• Leidžiama keisti\r\n• Privaloma",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "10828004",
+                  "display": "Positive"
+                }
+              ],
+              "text": "Taip"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "short": "ŽIV tyrimo rezultatas / HIV test result",
+        "definition": "Naujai sukuriamas klasifikatorius Pacientės RPR nustatyti. Pradinės parinktys turėtų būti:\r\n• Ne\r\n• Taip",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "10828004",
+                  "display": "Positive"
+                }
+              ],
+              "text": "Taip"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.interpretation.coding.display",
+        "path": "Observation.interpretation.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.interpretation.text",
+        "path": "Observation.interpretation.text",
+        "min": 1
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-03582-string",
+  "name": "LtEspbiObservation02_03582String",
+  "status": "draft",
+  "description": "Tromboembolijos rizika / Risk of thromboembolism",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.03582",
+                  "display": "GVT (PE) rizikos vertinimas ir prevencija po gimdymo rizikos indikatorius"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.03582"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Tromboembolijos rizika / Risk of thromboembolism",
+        "definition": "Tromboembolijos rizika (E096-CPO). Duomenys iš kitos formos.\r\n\r\nE113-RV → \"GVT (PE) rizikos vertinimas ir prevencija po gimdymo rizikos indikatorius\" reikšmė. \r\n\r\nVeikimo logika:\r\n- Naujai kuriant formą, atsisiunčiama E113-RV → \"GVT (PE) rizikos vertinimas ir prevencija po gimdymo rizikos indikatorius\" reikšmė.\r\n\r\nValidacinė taisyklė:\r\n- Jeigu teikimo metu E113-RV → \"GVT (PE) rizikos vertinimas ir prevencija po gimdymo rizikos indikatorius\" reikšmė yra \"Nenustatyta\", tada išmetama į klaidos pranešimas: \"Nėra užpildyta rizikos veiksniai ties E113-RV → \"GVT (PE) rizikos vertinimas ir prevencija po gimdymo\" . Prašome užpildyti E113-RV ir tęsti darbą\".",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Maža"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

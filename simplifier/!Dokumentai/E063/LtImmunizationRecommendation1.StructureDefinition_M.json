@@ -1,0 +1,383 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-recommendation-1",
+  "name": "LtEspbiImmunizationRecommendation1",
+  "status": "draft",
+  "description": "Informacija apie paskirtą skiepą / Information about immunization recommendation",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ImmunizationRecommendation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-recommendation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ImmunizationRecommendation.implicitRules",
+        "path": "ImmunizationRecommendation.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.language",
+        "path": "ImmunizationRecommendation.language",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.text",
+        "path": "ImmunizationRecommendation.text",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.contained",
+        "path": "ImmunizationRecommendation.contained",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.modifierExtension",
+        "path": "ImmunizationRecommendation.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.identifier",
+        "path": "ImmunizationRecommendation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.patient",
+        "path": "ImmunizationRecommendation.patient",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/123456789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.patient.id",
+        "path": "ImmunizationRecommendation.patient.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.patient.extension",
+        "path": "ImmunizationRecommendation.patient.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.patient.type",
+        "path": "ImmunizationRecommendation.patient.type",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.patient.identifier",
+        "path": "ImmunizationRecommendation.patient.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.patient.display",
+        "path": "ImmunizationRecommendation.patient.display",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.date",
+        "path": "ImmunizationRecommendation.date",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2023-02-01T10:30:02+00:00"
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.authority",
+        "path": "ImmunizationRecommendation.authority",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.id",
+        "path": "ImmunizationRecommendation.recommendation.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.extension",
+        "path": "ImmunizationRecommendation.recommendation.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.modifierExtension",
+        "path": "ImmunizationRecommendation.recommendation.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode",
+        "definition": "Rekomenduojamo vaisto prekinis kodas ir pavadinimas (imunobiologinio preparato kodas ir pavadinimas). Nurodomas VAPRIS identifikatorius iš vakcinos produkto vaccineMedication.Medication.code lauko.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/vaccine-code. ",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "text": "Encepur adults"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.id",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.extension",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding.id",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding.extension",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding.version",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding.userSelected",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/infectious-disease",
+                  "code": "A37",
+                  "display": "Kokliušas"
+                }
+              ],
+              "text": "Difterija"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.id",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.extension",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding.id",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding.extension",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding.version",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding.userSelected",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.text",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.text",
+        "short": "Užkrečiamųjų ligų, nuo kurių skiepijama, pavadinimai laisvu tekstu / Plain text representation of the concept"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.contraindicatedVaccineCode",
+        "path": "ImmunizationRecommendation.recommendation.contraindicatedVaccineCode",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/immunization-recommendation-status",
+                  "code": "active",
+                  "display": "Aktualus"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.id",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.extension",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding.id",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding.extension",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding.version",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding.userSelected",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastReason",
+        "path": "ImmunizationRecommendation.recommendation.forecastReason",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.id",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.extension",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.modifierExtension",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code",
+        "definition": "Planuojamo skiepo datos klasifikatorius. Nurodo ar skiepas turi būti atliktas iki nurodytos datos ar po jos. Šis laukas yra privalomas pagal FHIR specifikaciją, bet ESPBI IS logikoje nenaudojamas.\r\nGalimos reikšmės nurodytos klasifikatoriuje immunization-recommendation-date-criterion (http://hl7.org/fhir/immunization-recommendation-date-criterion).\r\nReikšmė pagal nutylėjimą \"due\".\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion, kurio reikšmės pagal http://loinc.org: 30981-5 - Earliest date to give |30980-7 - Date vaccine due | 59777-3 - Latest date to give immunization | 59778-1 - Date when overdue for immunization.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/immunization-recommendation-date-criterion",
+                  "code": "due"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.id",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.extension",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.id",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.extension",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.version",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.userSelected",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.value",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.value",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2023-02-01T10:30:02+00:00"
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.description",
+        "path": "ImmunizationRecommendation.recommendation.description",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueMarkdown": "Papildomos pastabos planuojamam skiepui"
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.series",
+        "path": "ImmunizationRecommendation.recommendation.series",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.doseNumber",
+        "path": "ImmunizationRecommendation.recommendation.doseNumber",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2"
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.seriesDoses",
+        "path": "ImmunizationRecommendation.recommendation.seriesDoses",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.supportingImmunization",
+        "path": "ImmunizationRecommendation.recommendation.supportingImmunization",
+        "max": "0"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.supportingPatientInformation",
+        "path": "ImmunizationRecommendation.recommendation.supportingPatientInformation",
+        "max": "0"
+      }
+    ]
+  }
+}

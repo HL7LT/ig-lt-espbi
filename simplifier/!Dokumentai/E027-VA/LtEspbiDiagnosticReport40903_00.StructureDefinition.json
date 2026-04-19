@@ -1,0 +1,110 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-40903-00",
+  "name": "LtEspbiDiagnosticReport40903_00",
+  "status": "draft",
+  "description": "Diagnostinio tyrimo aprašymas / Description of diagnostic test",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.extension",
+        "path": "DiagnosticReport.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.system",
+        "path": "DiagnosticReport.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/TestNumber"
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ACHI",
+                  "code": "40903-00"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.code.coding.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ACHI"
+      },
+      {
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2023-03-12T02:45:00+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "short": "Tyrimo atsakymo data / Test result date",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2023-03-12T08:28:00.704+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study",
+        "path": "DiagnosticReport.study",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-imaging-study-description"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.conclusion",
+        "path": "DiagnosticReport.conclusion",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueMarkdown": "Išvada"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode",
+        "path": "DiagnosticReport.conclusionCode",
+        "max": "0"
+      }
+    ]
+  }
+}

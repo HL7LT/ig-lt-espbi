@@ -1,0 +1,446 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-episode-of-care",
+  "name": "LtEspbiEpisodeOfCare",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "EpisodeOfCare",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "EpisodeOfCare.id",
+        "path": "EpisodeOfCare.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.implicitRules",
+        "path": "EpisodeOfCare.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.language",
+        "path": "EpisodeOfCare.language",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.text",
+        "path": "EpisodeOfCare.text",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.contained",
+        "path": "EpisodeOfCare.contained",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.extension",
+        "path": "EpisodeOfCare.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.modifierExtension",
+        "path": "EpisodeOfCare.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.identifier",
+        "path": "EpisodeOfCare.identifier",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.status",
+        "path": "EpisodeOfCare.status",
+        "short": "Gydymo epizodo būsena / Status of episode of care",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/episode-of-care-status. Galimos reikšmės: planned | waitlist | active | onhold | finished | cancelled | entered-in-error. ",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "active"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.statusHistory",
+        "path": "EpisodeOfCare.statusHistory",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.type",
+        "path": "EpisodeOfCare.type",
+        "short": "Gydymo epizodo tipas / A classification of the type of episode of care",
+        "definition": "FHIR R5 siūlomas naudoti reikšmių sąrašas http://hl7.org/fhir/ValueSet/episodeofcare-type.\r\nGalimos reikšmės: Home and Community Care (Priežiūra namuose ir bendruomenėje), Post Acute Care (Priežiūra po ūmios būklės), Post coordinated diabetes program (Po koordinuotos diabeto programos), Drug and alcohol rehabilitation (Priklausomybės nuo narkotikų ir alkoholio reabilitacija), Community-based aged care (Bendruomeninė pagyvenusių asmenų priežiūra).",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.type.id",
+        "path": "EpisodeOfCare.type.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.type.extension",
+        "path": "EpisodeOfCare.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.type.coding.id",
+        "path": "EpisodeOfCare.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.type.coding.extension",
+        "path": "EpisodeOfCare.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.type.coding.version",
+        "path": "EpisodeOfCare.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.type.coding.userSelected",
+        "path": "EpisodeOfCare.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.reason",
+        "path": "EpisodeOfCare.reason",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis",
+        "path": "EpisodeOfCare.diagnosis",
+        "short": "Diagnozės, dėl kurių registruojamas gydymo epizodas / The list of medical conditions that were addressed during the episode of care",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.id",
+        "path": "EpisodeOfCare.diagnosis.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.extension",
+        "path": "EpisodeOfCare.diagnosis.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.modifierExtension",
+        "path": "EpisodeOfCare.diagnosis.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition",
+        "path": "EpisodeOfCare.diagnosis.condition",
+        "min": 1
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.id",
+        "path": "EpisodeOfCare.diagnosis.condition.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.extension",
+        "path": "EpisodeOfCare.diagnosis.condition.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.concept",
+        "path": "EpisodeOfCare.diagnosis.condition.concept",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.reference",
+        "path": "EpisodeOfCare.diagnosis.condition.reference",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.reference.id",
+        "path": "EpisodeOfCare.diagnosis.condition.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.reference.extension",
+        "path": "EpisodeOfCare.diagnosis.condition.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.reference.reference",
+        "path": "EpisodeOfCare.diagnosis.condition.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.reference.type",
+        "path": "EpisodeOfCare.diagnosis.condition.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.reference.identifier",
+        "path": "EpisodeOfCare.diagnosis.condition.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.condition.reference.display",
+        "path": "EpisodeOfCare.diagnosis.condition.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.diagnosis.use",
+        "path": "EpisodeOfCare.diagnosis.use",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.patient",
+        "path": "EpisodeOfCare.patient",
+        "short": "Pacientas, kuriam registruojamas gydymo epizodas /The patient who is the focus of this episode of care",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/123456"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.patient.id",
+        "path": "EpisodeOfCare.patient.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.patient.extension",
+        "path": "EpisodeOfCare.patient.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.patient.reference",
+        "path": "EpisodeOfCare.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "EpisodeOfCare.patient.type",
+        "path": "EpisodeOfCare.patient.type",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.patient.identifier",
+        "path": "EpisodeOfCare.patient.identifier",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.patient.display",
+        "path": "EpisodeOfCare.patient.display",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.managingOrganization",
+        "path": "EpisodeOfCare.managingOrganization",
+        "short": "Organizacija, atsakinga už gydymo epizodo vykdymą / Organization that assumes responsibility for care coordination",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/1000015882"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.managingOrganization.id",
+        "path": "EpisodeOfCare.managingOrganization.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.managingOrganization.extension",
+        "path": "EpisodeOfCare.managingOrganization.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.managingOrganization.reference",
+        "path": "EpisodeOfCare.managingOrganization.reference",
+        "min": 1
+      },
+      {
+        "id": "EpisodeOfCare.managingOrganization.type",
+        "path": "EpisodeOfCare.managingOrganization.type",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.managingOrganization.identifier",
+        "path": "EpisodeOfCare.managingOrganization.identifier",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.managingOrganization.display",
+        "path": "EpisodeOfCare.managingOrganization.display",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.period",
+        "path": "EpisodeOfCare.period",
+        "short": "Laikotarpis, kurio metu gydymo epizodas yra ar buvo teikiamas / Interval during responsibility is assumed",
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2025-03-12T09:00:00+00:00"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.period.id",
+        "path": "EpisodeOfCare.period.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.period.extension",
+        "path": "EpisodeOfCare.period.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.period.start",
+        "path": "EpisodeOfCare.period.start",
+        "min": 1
+      },
+      {
+        "id": "EpisodeOfCare.period.end",
+        "path": "EpisodeOfCare.period.end",
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.referralRequest",
+        "path": "EpisodeOfCare.referralRequest",
+        "short": "Skyrimo (siuntimo), nuo kurio pradedamas gydymo epizodas, duomenys / Originating Referral Request(s)",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.referralRequest.id",
+        "path": "EpisodeOfCare.referralRequest.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.referralRequest.extension",
+        "path": "EpisodeOfCare.referralRequest.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.referralRequest.reference",
+        "path": "EpisodeOfCare.referralRequest.reference",
+        "min": 1
+      },
+      {
+        "id": "EpisodeOfCare.referralRequest.type",
+        "path": "EpisodeOfCare.referralRequest.type",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.referralRequest.identifier",
+        "path": "EpisodeOfCare.referralRequest.identifier",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.referralRequest.display",
+        "path": "EpisodeOfCare.referralRequest.display",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.careManager",
+        "path": "EpisodeOfCare.careManager",
+        "short": "Paciento gydymo epizodo koordinatorius / Care coordinator for the patient",
+        "definition": "Nurodomas už paciento gydymo epizodą atsakingas sveikatos priežiūros specialistas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "EpisodeOfCare.careManager.id",
+        "path": "EpisodeOfCare.careManager.id",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.careManager.extension",
+        "path": "EpisodeOfCare.careManager.extension",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.careManager.reference",
+        "path": "EpisodeOfCare.careManager.reference",
+        "min": 1
+      },
+      {
+        "id": "EpisodeOfCare.careManager.type",
+        "path": "EpisodeOfCare.careManager.type",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.careManager.identifier",
+        "path": "EpisodeOfCare.careManager.identifier",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.careManager.display",
+        "path": "EpisodeOfCare.careManager.display",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.careTeam",
+        "path": "EpisodeOfCare.careTeam",
+        "max": "0"
+      },
+      {
+        "id": "EpisodeOfCare.account",
+        "path": "EpisodeOfCare.account",
+        "max": "0"
+      }
+    ]
+  }
+}

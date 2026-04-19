@@ -1,0 +1,467 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e027-1-I",
+  "name": "LtEspbiCompositionE027_1_I",
+  "status": "draft",
+  "description": "E027-1 Mokinio sveikatos pažymėjimas: I. Sveikatos būklės įvertinimas",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition",
+        "path": "Composition",
+        "constraint": [
+          {
+            "key": "com-1",
+            "severity": "error",
+            "human": "When Composition.status is \"entered-in-error\", section \"deletionExplanation\" must be present.",
+            "expression": "(status = 'entered-in-error') implies section.exists(code.coding.where(system = 'http://loinc.org' and code = '58199-1').exists())"
+          }
+        ]
+      },
+      {
+        "id": "Composition.meta",
+        "path": "Composition.meta",
+        "min": 1
+      },
+      {
+        "id": "Composition.meta.profile",
+        "path": "Composition.meta.profile",
+        "example": [
+          {
+            "label": "example",
+            "valueCanonical": "http://esveikata.lt/Profile/E027-1-I/v29"
+          }
+        ]
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "171387006"
+                }
+              ],
+              "text": "E027-1 Mokinio sveikatos pažymėjimas: I. Sveikatos būklės įvertinimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "171387006"
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "max": "0"
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "Dokumento išdavimo data/ The time this document was created"
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "short": "Dokumentą ruošiančio naudotojo duomenys / Information about Health Care Specialist",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "E027-1 Mokinio sveikatos pažymėjimas: I. Sveikatos būklės įvertinimas"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "short": "Įstaigos duomenys / Organization who is the author of the document",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/EventType",
+                    "code": "20",
+                    "display": "Medicininių pažymų suformavimas"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Provenance/1112230001"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            },
+            {
+              "type": "value",
+              "path": "code.coding.system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData",
+        "path": "Composition.section",
+        "sliceName": "clinicalData",
+        "short": "Medicininiai duomenys / Clinical Data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "55752-0"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "55752-0"
+      },
+      {
+        "id": "Composition.section:clinicalData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-171387006"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DiagnosticReport/3"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:generalRecommendations",
+        "path": "Composition.section",
+        "sliceName": "generalRecommendations",
+        "short": "Bendros rekomendacijos / General recommendations",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:generalRecommendations.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "39221-7"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:generalRecommendations.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:generalRecommendations.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "39221-7"
+      },
+      {
+        "id": "Composition.section:generalRecommendations.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:generalRecommendations.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-39221-7"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/31"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:generalRecommendations.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:specialRecommendations",
+        "path": "Composition.section",
+        "sliceName": "specialRecommendations",
+        "short": "Specialios rekomendacijos / Special recommendations",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:specialRecommendations.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "364700005"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:specialRecommendations.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:specialRecommendations.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "364700005"
+      },
+      {
+        "id": "Composition.section:specialRecommendations.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:specialRecommendations.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-364700005"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/315"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:specialRecommendations.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:deletionExplanation",
+        "path": "Composition.section",
+        "sliceName": "deletionExplanation",
+        "short": "Dokumento šalinimo paaiškinimas / Document deletion explanation",
+        "definition": "Privalomas, jei dokumentas atšaukiamas. Pateikiamas tik atšaukiant dokumentą (kuriant naują dokumentą resursas neteikiamas).",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "58199-1"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:deletionExplanation.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "58199-1"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:deletionExplanation.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event-text"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Provenance/30"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:deletionExplanation.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

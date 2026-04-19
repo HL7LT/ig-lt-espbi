@@ -1,0 +1,391 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-allergy-intolerance",
+  "name": "LtEspbiAllergyIntolerance",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "AllergyIntolerance",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "AllergyIntolerance.id",
+        "path": "AllergyIntolerance.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.meta",
+        "path": "AllergyIntolerance.meta",
+        "short": "Duomenų modelio versijos numeris / The metadata about the resource",
+        "definition": "Resurso versijos informacija.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.meta.lastUpdated",
+        "path": "AllergyIntolerance.meta.lastUpdated",
+        "short": "Paskutinio resurso atnaujinimo / keitimo data ir laikas / Date and time of last update/change of resource",
+        "definition": "Paskutinio resurso atnaujinimo/keitimo data ir laikas.",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.meta.profile",
+        "path": "AllergyIntolerance.meta.profile",
+        "short": "AllergyIntolerance resurso struktūros versiją identifikuojantis profilis / Profile identifying the AllergyIntolerance resource structure version",
+        "definition": "AllergyIntolerance resurso struktūros versiją identifikuojantis profilis.\r\nReikšmė pagal nutylėjimą \"http://esveikata.lt/Profile/AllergyIntolerance/v29\".",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus",
+        "path": "AllergyIntolerance.clinicalStatus",
+        "short": "Būsena / Clinical Status",
+        "definition": "Būsena. \r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/allergyintolerance-clinical. Galimos reikšmės: active | inactive | resolved.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding",
+        "path": "AllergyIntolerance.clinicalStatus.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding.system",
+        "path": "AllergyIntolerance.clinicalStatus.coding.system",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding.code",
+        "path": "AllergyIntolerance.clinicalStatus.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.coding.display",
+        "path": "AllergyIntolerance.clinicalStatus.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus.text",
+        "path": "AllergyIntolerance.clinicalStatus.text",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus",
+        "path": "AllergyIntolerance.verificationStatus",
+        "short": "Tikrumas / Verification Status",
+        "definition": "Tikrumas.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/allergyintolerance-verification. Galimos reikšmės: unconfirmed | presumed | confirmed | refuted | entered-in-error.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding",
+        "path": "AllergyIntolerance.verificationStatus.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding.system",
+        "path": "AllergyIntolerance.verificationStatus.coding.system",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding.code",
+        "path": "AllergyIntolerance.verificationStatus.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.coding.display",
+        "path": "AllergyIntolerance.verificationStatus.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.verificationStatus.text",
+        "path": "AllergyIntolerance.verificationStatus.text",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.type",
+        "path": "AllergyIntolerance.type",
+        "short": "Nurodo kokiam tipui priklauso rizika / Indicated the allergy type",
+        "definition": "Nurodo kokiam tipui priklauso rizika. \r\nNaudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/allergy-intolerance-type. Galimos reikšmės: allergy | intolerance.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.type.coding",
+        "path": "AllergyIntolerance.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.type.coding.system",
+        "path": "AllergyIntolerance.type.coding.system",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.type.coding.code",
+        "path": "AllergyIntolerance.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.type.coding.display",
+        "path": "AllergyIntolerance.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.type.text",
+        "path": "AllergyIntolerance.type.text",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.category",
+        "path": "AllergyIntolerance.category",
+        "short": "Nurodo kokiai kategorijai priklauso rizika / Indicates which category the risk belongs to",
+        "definition": "Nurodo kokiai kategorijai priklauso rizika.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/allergy-intolerance-category. Galimos reikšmės: food | medication | environment | biologic.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.criticality",
+        "path": "AllergyIntolerance.criticality",
+        "short": "Kritiškumas / Criticality Status",
+        "definition": "Kritiškumas. \r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality. Galimos reikšmės: low | high | unable-to-assess.",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.code",
+        "path": "AllergyIntolerance.code",
+        "short": "Alerginė reakcija / Allergy reaction",
+        "definition": "Alerginės reakcijos pavadinimas iš klasifikatoriaus. Alergijos pavadinimas nurodomas CodeableConcept.text lauke.\r\nGalimos reikšmės nurodytos klasifikatoriuje http://hl7.org/fhir/ValueSet/allergyintolerance-code.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.code.coding",
+        "path": "AllergyIntolerance.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.code.coding.system",
+        "path": "AllergyIntolerance.code.coding.system",
+        "min": 1,
+        "patternUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "AllergyIntolerance.code.coding.code",
+        "path": "AllergyIntolerance.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.code.coding.display",
+        "path": "AllergyIntolerance.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.code.text",
+        "path": "AllergyIntolerance.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.patient",
+        "path": "AllergyIntolerance.patient",
+        "short": "Pacientas, kuriam buvo nustatyta alergija / A patient diagnosed with an allergy",
+        "definition": "Pacientas, kuriam buvo nustatyta alergija.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.patient.reference",
+        "path": "AllergyIntolerance.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.encounter",
+        "path": "AllergyIntolerance.encounter",
+        "short": "Atvykimo ID / Encounter identifier",
+        "definition": "Atvykimo ID.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.encounter.reference",
+        "path": "AllergyIntolerance.encounter.reference",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.onset[x]",
+        "path": "AllergyIntolerance.onset[x]",
+        "short": "Apytikslė nustatymo data / Estimated date",
+        "definition": "Apytikslė nustatymo data.",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.recordedDate",
+        "path": "AllergyIntolerance.recordedDate",
+        "short": "Registracijos data / Registration date",
+        "definition": "Registracijos data.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.participant",
+        "path": "AllergyIntolerance.participant",
+        "short": "Alergiją nustatęs specialistas / Practitioner that diagnosed allergy",
+        "definition": "Alergiją nustatęs specialistas.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor",
+        "path": "AllergyIntolerance.participant.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.participant.actor.reference",
+        "path": "AllergyIntolerance.participant.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.lastOccurrence",
+        "path": "AllergyIntolerance.lastOccurrence",
+        "short": "Data, kada buvo nustatyta alergijos paskutinio pasireiškimo data / The date when the last allergy occurrence was determined",
+        "definition": "Data, kada buvo nustatyta alergijos paskutinio pasireiškimo data.",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.note",
+        "path": "AllergyIntolerance.note",
+        "short": "Alergijos aprašymas / Allergy textual description",
+        "definition": "Alergijos aprašymas.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.reaction",
+        "path": "AllergyIntolerance.reaction",
+        "short": "Alerginės reakcijos duomenys / Allergic reaction data",
+        "definition": "Alerginės reakcijos duomenys.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance",
+        "path": "AllergyIntolerance.reaction.substance",
+        "short": "Alergenas / Allergen",
+        "definition": "Alergenas.\r\nGalimos reikšmės nurodytos klasifikatoriuje atc-code.\r\nGalimos reikšmės nurodytos klasifikatoriuje allergen.",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding",
+        "path": "AllergyIntolerance.reaction.substance.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding.system",
+        "path": "AllergyIntolerance.reaction.substance.coding.system",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding.code",
+        "path": "AllergyIntolerance.reaction.substance.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.coding.display",
+        "path": "AllergyIntolerance.reaction.substance.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.reaction.substance.text",
+        "path": "AllergyIntolerance.reaction.substance.text",
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation",
+        "path": "AllergyIntolerance.reaction.manifestation",
+        "short": "Alerginės diagnozės pagal TLK-10-AM kodas ir pavadinimas / TKL-10-AM code and name of allergic diagnosis",
+        "definition": "Alerginės diagnozės pagal TLK-10-AM kodas ir pavadinimas.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.",
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept",
+        "path": "AllergyIntolerance.reaction.manifestation.concept",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding.system",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding.code",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.reaction.manifestation.concept.coding.display",
+        "path": "AllergyIntolerance.reaction.manifestation.concept.coding.display",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.reaction.onset",
+        "path": "AllergyIntolerance.reaction.onset",
+        "short": "Pradžios data / Allergy set date",
+        "definition": "Pradžios data.",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.reaction.severity",
+        "path": "AllergyIntolerance.reaction.severity",
+        "short": "Sunkumas / Severity",
+        "definition": "Problemos sunkumas. \r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/reaction-event-severity. Galimos reikšmės: mild | moderate | severe.",
+        "mustSupport": true
+      }
+    ]
+  }
+}

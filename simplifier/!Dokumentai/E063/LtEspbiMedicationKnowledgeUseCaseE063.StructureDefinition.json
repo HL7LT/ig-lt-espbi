@@ -1,0 +1,244 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-knowledge-e063",
+  "name": "LtEspbiMedicationKnowledgeE063",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationKnowledge",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-knowledge",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationKnowledge.meta",
+        "path": "MedicationKnowledge.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationKnowledge.implicitRules",
+        "path": "MedicationKnowledge.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.language",
+        "path": "MedicationKnowledge.language",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.text",
+        "path": "MedicationKnowledge.text",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.contained",
+        "path": "MedicationKnowledge.contained",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.extension",
+        "path": "MedicationKnowledge.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.modifierExtension",
+        "path": "MedicationKnowledge.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.identifier",
+        "path": "MedicationKnowledge.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.code",
+        "path": "MedicationKnowledge.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Identifier/NPAKID-7",
+                  "code": "1020497"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationKnowledge.code.id",
+        "path": "MedicationKnowledge.code.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.code.extension",
+        "path": "MedicationKnowledge.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.code.coding.id",
+        "path": "MedicationKnowledge.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.code.coding.extension",
+        "path": "MedicationKnowledge.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.code.coding.version",
+        "path": "MedicationKnowledge.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.code.coding.userSelected",
+        "path": "MedicationKnowledge.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.status",
+        "path": "MedicationKnowledge.status",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.author",
+        "path": "MedicationKnowledge.author",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.intendedJurisdiction",
+        "path": "MedicationKnowledge.intendedJurisdiction",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.name",
+        "path": "MedicationKnowledge.name",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Duosol K 4"
+          }
+        ]
+      },
+      {
+        "id": "MedicationKnowledge.relatedMedicationKnowledge",
+        "path": "MedicationKnowledge.relatedMedicationKnowledge",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.associatedMedication",
+        "path": "MedicationKnowledge.associatedMedication",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.productType",
+        "path": "MedicationKnowledge.productType",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.monograph",
+        "path": "MedicationKnowledge.monograph",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.preparationInstruction",
+        "path": "MedicationKnowledge.preparationInstruction",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.monitoringProgram",
+        "path": "MedicationKnowledge.monitoringProgram",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.indicationGuideline",
+        "path": "MedicationKnowledge.indicationGuideline",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.medicineClassification",
+        "path": "MedicationKnowledge.medicineClassification",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging",
+        "path": "MedicationKnowledge.packaging",
+        "min": 1
+      },
+      {
+        "id": "MedicationKnowledge.packaging.id",
+        "path": "MedicationKnowledge.packaging.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.extension",
+        "path": "MedicationKnowledge.packaging.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.modifierExtension",
+        "path": "MedicationKnowledge.packaging.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.cost",
+        "path": "MedicationKnowledge.packaging.cost",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.packagedProduct",
+        "path": "MedicationKnowledge.packaging.packagedProduct",
+        "min": 1
+      },
+      {
+        "id": "MedicationKnowledge.packaging.packagedProduct.id",
+        "path": "MedicationKnowledge.packaging.packagedProduct.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.packagedProduct.extension",
+        "path": "MedicationKnowledge.packaging.packagedProduct.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.packagedProduct.type",
+        "path": "MedicationKnowledge.packaging.packagedProduct.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.packagedProduct.identifier",
+        "path": "MedicationKnowledge.packaging.packagedProduct.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.packaging.packagedProduct.display",
+        "path": "MedicationKnowledge.packaging.packagedProduct.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.clinicalUseIssue",
+        "path": "MedicationKnowledge.clinicalUseIssue",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.storageGuideline",
+        "path": "MedicationKnowledge.storageGuideline",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.regulatory",
+        "path": "MedicationKnowledge.regulatory",
+        "max": "0"
+      },
+      {
+        "id": "MedicationKnowledge.definitional",
+        "path": "MedicationKnowledge.definitional",
+        "max": "0"
+      }
+    ]
+  }
+}

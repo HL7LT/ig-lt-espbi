@@ -1,0 +1,896 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request-e014",
+  "name": "LtEspbiServiceRequestOrderE014",
+  "status": "draft",
+  "description": "Patologijos tyrimo užsakymo duomenys / Pathology test order data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ServiceRequest",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ServiceRequest.implicitRules",
+        "path": "ServiceRequest.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.language",
+        "path": "ServiceRequest.language",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.text",
+        "path": "ServiceRequest.text",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.contained",
+        "path": "ServiceRequest.contained",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.extension",
+        "path": "ServiceRequest.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.modifierExtension",
+        "path": "ServiceRequest.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.identifier",
+        "path": "ServiceRequest.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.instantiatesCanonical",
+        "path": "ServiceRequest.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.instantiatesUri",
+        "path": "ServiceRequest.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.basedOn",
+        "path": "ServiceRequest.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.replaces",
+        "path": "ServiceRequest.replaces",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requisition",
+        "path": "ServiceRequest.requisition",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.status",
+        "path": "ServiceRequest.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.intent",
+        "path": "ServiceRequest.intent",
+        "fixedCode": "order",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "order"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.category",
+        "path": "ServiceRequest.category",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/OrderType",
+                  "code": "3",
+                  "display": "Patologijos tyrimo užsakymo (siuntimo) skyrimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.category.id",
+        "path": "ServiceRequest.category.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.extension",
+        "path": "ServiceRequest.category.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.id",
+        "path": "ServiceRequest.category.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.extension",
+        "path": "ServiceRequest.category.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.version",
+        "path": "ServiceRequest.category.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.code",
+        "path": "ServiceRequest.category.coding.code",
+        "fixedCode": "3"
+      },
+      {
+        "id": "ServiceRequest.category.coding.userSelected",
+        "path": "ServiceRequest.category.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.priority",
+        "path": "ServiceRequest.priority",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.doNotPerform",
+        "path": "ServiceRequest.doNotPerform",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code",
+        "path": "ServiceRequest.code",
+        "short": "Pageidaujami patologijos tyrimai / Requested pathology examination",
+        "definition": "Pageidaujami patologijos tyrimai.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "text": "Prašomo atlikti specialiojo patologijos tyrimo įvardinimas"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.code.id",
+        "path": "ServiceRequest.code.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.extension",
+        "path": "ServiceRequest.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept",
+        "path": "ServiceRequest.code.concept",
+        "short": "Pageidaujamo patologijos tyrimo kodas arba aprašymas / Code or description for desired pathology examination",
+        "definition": "Pageidaujamo patologijos tyrimo kodas arba aprašymas.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "text": "Reikalingi šie papildomi tyrimai: ..."
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.code.concept.id",
+        "path": "ServiceRequest.code.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.extension",
+        "path": "ServiceRequest.code.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding",
+        "path": "ServiceRequest.code.concept.coding",
+        "short": "Pageidaujamo patologijos tyrimo kodas / Code for desired pathology examination",
+        "definition": "Pageidaujamo patologijos tyrimo kodas."
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.id",
+        "path": "ServiceRequest.code.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.extension",
+        "path": "ServiceRequest.code.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.version",
+        "path": "ServiceRequest.code.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.userSelected",
+        "path": "ServiceRequest.code.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.text",
+        "path": "ServiceRequest.code.concept.text",
+        "short": "Pageidaujamo patologijos tyrimo aprašymas / Description for desired pathology examination",
+        "definition": "Pageidaujamo patologijos tyrimo (tame tarpe - pageidaujamų specialiųjų tyrimų) aprašymas laisvu tekstu."
+      },
+      {
+        "id": "ServiceRequest.code.reference",
+        "path": "ServiceRequest.code.reference",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.orderDetail",
+        "path": "ServiceRequest.orderDetail",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.quantity[x]",
+        "path": "ServiceRequest.quantity[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject",
+        "path": "ServiceRequest.subject",
+        "short": "Pacientas / Patient",
+        "definition": "Nuoroda į paciento, kuriam užsakomas patologijos tyrimas, resursą.",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/32856257683256"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.subject.id",
+        "path": "ServiceRequest.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.extension",
+        "path": "ServiceRequest.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.type",
+        "path": "ServiceRequest.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.identifier",
+        "path": "ServiceRequest.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.display",
+        "path": "ServiceRequest.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.focus",
+        "path": "ServiceRequest.focus",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter",
+        "path": "ServiceRequest.encounter",
+        "short": "Atvykimo duomenys / Encounter",
+        "definition": "Atvykimo, kurio pagrindu užsakomas patologijos tyrimas, duomenys.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Encounter/1000017570"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.encounter.id",
+        "path": "ServiceRequest.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.extension",
+        "path": "ServiceRequest.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.type",
+        "path": "ServiceRequest.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.identifier",
+        "path": "ServiceRequest.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter.display",
+        "path": "ServiceRequest.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.occurrence[x]",
+        "path": "ServiceRequest.occurrence[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.asNeeded[x]",
+        "path": "ServiceRequest.asNeeded[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.authoredOn",
+        "path": "ServiceRequest.authoredOn",
+        "short": "Užsakymo data ir laikas / When the request transitioned to being actionable",
+        "definition": "Užsakymo data ir laikas.",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-20T22:03:04+00:00"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.requester",
+        "path": "ServiceRequest.requester",
+        "short": "Užsakymą sukūręs specialistas / Ordering practitioner",
+        "definition": "Nuoroda į sveikatos priežiūros specialisto, sukūrusio patologijos tyrimo užsakymą, resursą.\r\n",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/987654321"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.requester.id",
+        "path": "ServiceRequest.requester.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.extension",
+        "path": "ServiceRequest.requester.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.type",
+        "path": "ServiceRequest.requester.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.identifier",
+        "path": "ServiceRequest.requester.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requester.display",
+        "path": "ServiceRequest.requester.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType",
+        "path": "ServiceRequest.performerType",
+        "max": "0",
+        "example": [
+          {
+            "label": "example, when performer is practitioner",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/QualificationCode",
+                  "code": "221227",
+                  "display": "Gydytojas neurologas"
+                }
+              ]
+            }
+          },
+          {
+            "label": "example, when performer is department",
+            "valueCodeableConcept": {
+              "text": "Skubiosios pagalbos skyrius"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.performerType.id",
+        "path": "ServiceRequest.performerType.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.extension",
+        "path": "ServiceRequest.performerType.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.id",
+        "path": "ServiceRequest.performerType.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.extension",
+        "path": "ServiceRequest.performerType.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.version",
+        "path": "ServiceRequest.performerType.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.display",
+        "path": "ServiceRequest.performerType.coding.display",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.userSelected",
+        "path": "ServiceRequest.performerType.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer",
+        "path": "ServiceRequest.performer",
+        "short": "Įstaiga, kuriai siunčiamas užsakymas / Fulfilling organization",
+        "definition": "Nuoroda į sveikatos priežiūros įstaigą, kuriai siunčiamas patologijos tyrimo užsakymas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.performer.id",
+        "path": "ServiceRequest.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.extension",
+        "path": "ServiceRequest.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.type",
+        "path": "ServiceRequest.performer.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.identifier",
+        "path": "ServiceRequest.performer.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer.display",
+        "path": "ServiceRequest.performer.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.location",
+        "path": "ServiceRequest.location",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason",
+        "path": "ServiceRequest.reason",
+        "short": "Klinikinės ar įtariamos diagnozės / Clinical or suspected diagnoses",
+        "definition": "Klinikinės ar įtariamos diagnozės, dėl kurių buvo pateiktas patologijos tyrimo užsakymas.",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-diagnosis"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.reason.id",
+        "path": "ServiceRequest.reason.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.extension",
+        "path": "ServiceRequest.reason.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept",
+        "path": "ServiceRequest.reason.concept",
+        "short": "Klinikinės ar įtariamos diagnozės duomenys / Clinical or suspected diagnosis data",
+        "definition": "Klinikinės ar įtariamos diagnozės duomenys.",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.reason.concept.id",
+        "path": "ServiceRequest.reason.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.extension",
+        "path": "ServiceRequest.reason.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding",
+        "path": "ServiceRequest.reason.concept.coding",
+        "short": "Diagnozės kodas / Diagnosis code",
+        "definition": "Klinikinės ar įtariamos diagnozės kodas."
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding.id",
+        "path": "ServiceRequest.reason.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding.extension",
+        "path": "ServiceRequest.reason.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding.version",
+        "path": "ServiceRequest.reason.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding.userSelected",
+        "path": "ServiceRequest.reason.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.text",
+        "path": "ServiceRequest.reason.concept.text",
+        "short": "Diagnozės aprašymas / Diagnosis description",
+        "definition": "Klinikinės ar įtariamos diagnozės aprašymas.",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.reason.reference",
+        "path": "ServiceRequest.reason.reference",
+        "short": "Nuoroda į Condition resursą / Reference to the Condition resource",
+        "definition": "Nuoroda į Condition resursą, jei atitinkama diagnozė (Condition resursas) jau yra įvesta į paciento ESI."
+      },
+      {
+        "id": "ServiceRequest.reason.reference.id",
+        "path": "ServiceRequest.reason.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.extension",
+        "path": "ServiceRequest.reason.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.type",
+        "path": "ServiceRequest.reason.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.identifier",
+        "path": "ServiceRequest.reason.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.reference.display",
+        "path": "ServiceRequest.reason.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.insurance",
+        "path": "ServiceRequest.insurance",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo",
+        "path": "ServiceRequest.supportingInfo",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "concept.coding.system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Papildoma informacija / Supportng info",
+        "definition": "Papildoma su užsakomu patologijos tyrimu susijusi informacija",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-e014"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.extension",
+        "path": "ServiceRequest.supportingInfo.extension",
+        "max": "1"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:priorPathologyStudies",
+        "path": "ServiceRequest.supportingInfo",
+        "sliceName": "priorPathologyStudies",
+        "short": "Ankstesni patologijos tyrimai / Prior pathology studies",
+        "definition": "Ankstesnių patologijos tyrimų aprašymas ir / ar nuoroda į atitinkamą DiagnosticReport resursą.",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-e014"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:priorPathologyStudies.concept",
+        "path": "ServiceRequest.supportingInfo.concept",
+        "short": "Ankstesnio patologijos tyrimo informacija / Information on prior pathology testing",
+        "definition": "Ankstesnio patologijos tyrimo informacija.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/OrderType",
+                  "code": "3",
+                  "display": "Patologijos tyrimo užsakymo (siuntimo) skyrimas"
+                }
+              ],
+              "text": "Anksčiau atliktų patologijos tyrimų aprašymas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:priorPathologyStudies.concept.coding",
+        "path": "ServiceRequest.supportingInfo.concept.coding",
+        "short": "Ankstesnio patologijos tyrimo kodas / Prior pathology testing code",
+        "definition": "Ankstesnio patologijos tyrimo kodas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:priorPathologyStudies.concept.coding.system",
+        "path": "ServiceRequest.supportingInfo.concept.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/OrderType",
+        "mustSupport": false
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:priorPathologyStudies.concept.coding.code",
+        "path": "ServiceRequest.supportingInfo.concept.coding.code",
+        "fixedCode": "3",
+        "mustSupport": false
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:priorPathologyStudies.concept.text",
+        "path": "ServiceRequest.supportingInfo.concept.text",
+        "short": "Ankstesnio patologijos tyrimo aprašymas / Description of prior pathology studies",
+        "definition": "Ankstesnio patologijos tyrimo aprašymas.",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:priorPathologyStudies.reference",
+        "path": "ServiceRequest.supportingInfo.reference",
+        "short": "Nuoroda į ankstesnio patologijos tyrimo DiagnosticReport resursą / Reference to the DiagnosticReport resource of prior pathology studies",
+        "definition": "Nuoroda į ankstesnio patologijos tyrimo DiagnosticReport resursą."
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:preventionProgram",
+        "path": "ServiceRequest.supportingInfo",
+        "sliceName": "preventionProgram",
+        "short": "Prevencinė programa / Prevention program",
+        "definition": "Prevencinė programa, pagal kurią yra užsakomas patologijos tyrimas.",
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/PreventionProgramm",
+                    "code": "GKVPP",
+                    "display": "Gimdos kaklelio vėžio prevencinė programa"
+                  }
+                ],
+                "text": "Papildoma su nurodyta prevencine programa susijusi informacija (jei reikia)"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:preventionProgram.concept",
+        "path": "ServiceRequest.supportingInfo.concept",
+        "short": "Prevencinės programos duomenys / Prevention program data",
+        "definition": "Prevencinės programos duomenys.",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:preventionProgram.concept.coding",
+        "path": "ServiceRequest.supportingInfo.concept.coding",
+        "short": "Prevencinės programos kodas / Prevention program code",
+        "definition": "Prevencinės programos kodas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:preventionProgram.concept.coding.system",
+        "path": "ServiceRequest.supportingInfo.concept.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/PreventionProgram"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:preventionProgram.concept.text",
+        "path": "ServiceRequest.supportingInfo.concept.text",
+        "short": "Papildoma su prevencine programa susijusi informacija / Additional information regarding the prevention program",
+        "definition": "Papildoma su prevencine programa susijusi informacija."
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:preventionProgram.reference",
+        "path": "ServiceRequest.supportingInfo.reference",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:treatingPractitioner",
+        "path": "ServiceRequest.supportingInfo",
+        "sliceName": "treatingPractitioner",
+        "short": "Gydantis gydytojas / Treating practitioner",
+        "definition": "Pacientą gydantis sveikatos priežiūros specialistas, turintis klinikinę informaciją apie paciento ligą, dėl kurios atliekamas tyrimas, ir gydymo eigą.",
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:treatingPractitioner.concept",
+        "path": "ServiceRequest.supportingInfo.concept",
+        "short": "Specialisto vaidmens informacija / Practitioner role information",
+        "definition": "Informacija, identifikuojanti, kad šis įrašas yra skirtas gydančiam gydytojui.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code": "ATND",
+                  "display": "Gydantis gydytojas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:treatingPractitioner.concept.coding",
+        "path": "ServiceRequest.supportingInfo.concept.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:treatingPractitioner.concept.coding.system",
+        "path": "ServiceRequest.supportingInfo.concept.coding.system",
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:treatingPractitioner.concept.coding.code",
+        "path": "ServiceRequest.supportingInfo.concept.coding.code",
+        "fixedCode": "ATND"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:treatingPractitioner.reference",
+        "path": "ServiceRequest.supportingInfo.reference",
+        "short": "Nuoroda į gydantį gydytoją / Reference to the treating practitioner",
+        "definition": "Nuoroda į gydančio gydytojo PractitionerRole resursą.",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:treatingPractitioner.reference.reference",
+        "path": "ServiceRequest.supportingInfo.reference.reference",
+        "mustSupport": false
+      },
+      {
+        "id": "ServiceRequest.specimen",
+        "path": "ServiceRequest.specimen",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.bodySite",
+        "path": "ServiceRequest.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.bodyStructure",
+        "path": "ServiceRequest.bodyStructure",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.note",
+        "path": "ServiceRequest.note",
+        "short": "Svarbiausi klinikiniai duomenys / Key clinical data",
+        "definition": "Laisvu tekstu surašomi klinikiniai duomenys, kurie galėtų pagelbėti nustatant diagnozę, pvz., „2 mėn. viduriuoja“ ar pan.",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Papildomo aprašymo specialistui tekstas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.note.id",
+        "path": "ServiceRequest.note.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.note.extension",
+        "path": "ServiceRequest.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.patientInstruction",
+        "path": "ServiceRequest.patientInstruction",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.relevantHistory",
+        "path": "ServiceRequest.relevantHistory",
+        "max": "0"
+      }
+    ]
+  }
+}

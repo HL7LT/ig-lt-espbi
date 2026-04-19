@@ -1,0 +1,142 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-92173-00",
+  "name": "LtEspbiProcedure92173_00",
+  "status": "draft",
+  "description": "Anti-D imunoglobulinas / Anti-D immunoglobulins also known as Rh immunoglobulins or RhIg",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.status",
+        "path": "Procedure.status",
+        "short": "Sušvirkštas Anti-D imunoglobulinas",
+        "definition": "Parinktis Pacientės antikūnų titrui nustatyti. Pradinės parinktys turėtų būti:\r\n• Ne\r\n• Taip"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuje achi (http://esveikata.lt/classifiers/ACHI).",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ACHI",
+                  "code": "92173-00"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ACHI"
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "fixedCode": "92173-00"
+      },
+      {
+        "id": "Procedure.subject.reference",
+        "path": "Procedure.subject.reference",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Patient/123456"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "short": "5.2.1.1. Anti-D imunoglobulino procedūros data ir laikas / Procedure date",
+        "definition": "Naujai sukuriamas klasifikatorius Pacientės Anti-D imunoglobulino procedūros datai ir laikui nustatyti.\r\nPatikros sąlygos:\r\n• Pagal nutylėjimą kortelės užvedimo data ir laikas\r\n• Leidžiama keisti\r\n• Privaloma",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T06:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "max": "0"
+      }
+    ]
+  }
+}

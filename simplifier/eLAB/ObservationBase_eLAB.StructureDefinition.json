@@ -1,0 +1,229 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-observation-base",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-observation-base",
+  "version": "0.3.28",
+  "name": "ElabObservationBase",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Bazinis profilis skirtas tiek panelėms tiek analitėms / Base profile for observations and panels",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "sct-concept",
+      "uri": "http://snomed.info/conceptdomain",
+      "name": "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "sct-attr",
+      "uri": "http://snomed.org/attributebinding",
+      "name": "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension:resultsInterpreter",
+        "path": "Observation.extension",
+        "sliceName": "resultsInterpreter",
+        "short": "Rezultatą patvirtinęs specialistas / Specialist who confirmed the result",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-observation-resultsInterpreter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "short": "Galimos reikšmės: / Valid values: registered | final | amended | entered-in-error | cancelled",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/observation-statuses"
+        }
+      },
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "short": "Tyrimo grupė / Category",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "short": "Analitės/panelės tipas / Observation or panel type",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding",
+        "path": "Observation.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.code.coding:LMB",
+        "path": "Observation.code.coding",
+        "sliceName": "LMB",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:LMB.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "patternUri": "https://www.medicinosnk.lt/lt-lab-klt-nomenclature"
+      },
+      {
+        "id": "Observation.code.coding:LMB.code",
+        "path": "Observation.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Rezultatų nustatymo laikas / Clinically relevant time/time-period for observation",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "short": "Rezultatų patvirtinimo laikas / Result confirmation time",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Tyrimą atlikęs specialistas / Specialist who is responsible for the observation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Pastabos / Comments about the observation",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "short": "Naudotas tyrimo metodas / How it was done",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.method.coding",
+        "path": "Observation.method.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.method.coding:LMB",
+        "path": "Observation.method.coding",
+        "sliceName": "LMB",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.method.coding:LMB.system",
+        "path": "Observation.method.coding.system",
+        "min": 1,
+        "patternUri": "https://www.medicinosnk.lt/lt-lab-methods"
+      },
+      {
+        "id": "Observation.method.coding:LMB.code",
+        "path": "Observation.method.coding.code",
+        "min": 1
+      }
+    ]
+  }
+}

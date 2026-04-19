@@ -1,0 +1,3306 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e096-ge",
+  "name": "LtEspbiCompositionE096_GE",
+  "status": "draft",
+  "description": "E096-GE Gimdymo eiga",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "57074-7",
+                  "display": "Labor and delivery process"
+                }
+              ],
+              "text": "Gimdymo eiga"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding",
+        "path": "Composition.type.coding",
+        "short": "Dokumento tipas E096-AN  dokumentui / Document type by loinc for E096-AN document"
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "57074-7"
+      },
+      {
+        "id": "Composition.type.text",
+        "path": "Composition.type.text",
+        "short": "Dokumento pavadinimas  E096-AN dokumentui / Document title for E096-AN document."
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "definition": "Dokumento parengimo asmens sveikatos priežiūros įstaigoje data ir laikas.\r\n\r\nNegali būti ateities laikas. Laikas <= dabartinis laikas"
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "E096-GE Gimdymo eiga"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/EventType",
+                    "code": "7",
+                    "display": "Atvykimas į SPĮ gauti stacionarinių paslaugų"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Provenance/1112230001"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader",
+        "path": "Composition.section",
+        "sliceName": "NGNheader",
+        "short": "NGN antraštė / NGN header",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0100",
+                  "display": "NGN antraštė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0100"
+      },
+      {
+        "id": "Composition.section:NGNheader.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            },
+            {
+              "type": "value",
+              "path": "code.coding.system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyCardID",
+        "short": "Nėštumo kortelės unikalus ID / Pregnancy card unique ID",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0131",
+                  "display": "Nėštumo kortelės unikalus ID"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0131"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/31"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyFirstDay",
+        "short": "Nėštumo pirmoji diena / First day of pregnancy",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0132",
+                  "display": "Nėštumo pirmoji diena"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0132"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0132"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/32"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyWeek",
+        "short": "Nėštumo savaitė / Pregnancy week",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49051-6",
+                  "display": "Gestational age in weeks"
+                }
+              ],
+              "text": "Nėštumo savaitė"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49051-6"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49051-6"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/33"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyDay",
+        "short": "Nėštumo diena / Pregnancy day",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49052-4",
+                  "display": "Gestational age in days"
+                }
+              ],
+              "text": "Nėštumo diena"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49052-4"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49052-4"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/34"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData",
+        "path": "Composition.section",
+        "sliceName": "clinicalData",
+        "short": "Medicininiai duomenys / Clinical data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1301",
+                  "display": "Medicininiai duomenys"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.1301"
+      },
+      {
+        "id": "Composition.section:clinicalData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod",
+        "path": "Composition.section.section",
+        "sliceName": "laborInitiationMethod",
+        "short": "Gimdymo pradžios būdas / Method of initiation of labor",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1302",
+                  "display": "Gimdymo pradžios būdas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1302"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1303"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/51"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:laborInitiationMethod.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery",
+        "path": "Composition.section.section",
+        "sliceName": "modeOfDelivery",
+        "short": "Pagimdė / Mode of delivery",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1305",
+                  "display": "Pagimdė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1305"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1305"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021305096"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:modeOfDelivery.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup",
+        "path": "Composition.section.section",
+        "sliceName": "RobsonGroup",
+        "short": "Robsono grupė / Robson Group",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1308",
+                  "display": "Robsono grupė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1308"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1308"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/53"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:RobsonGroup.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth",
+        "path": "Composition.section.section",
+        "sliceName": "placentalBirth",
+        "short": "Placentos užgimimo laikas / Time of placental birth",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1329",
+                  "display": "Placentos užgimimo laikas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1329"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1329"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/54096"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placentalBirth.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain",
+        "path": "Composition.section.section",
+        "sliceName": "medicationForPain",
+        "short": "Gimdymo skausmo malšinimas medikamentinis / Medication for pain relief during childbirth",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1330",
+                  "display": "Gimdymo skausmo malšinimas medikamentinis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1330"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-02-1330"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/55"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:medicationForPain.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief",
+        "path": "Composition.section.section",
+        "sliceName": "nonMedicationPainRelief",
+        "short": "Gimdymo skausmo malšinimas medikamentinis / Non-medication pain relief during childbirth",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1331",
+                  "display": "Gimdymo skausmo malšinimas nemedikamentinis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1331"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1331"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021331096"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:nonMedicationPainRelief.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics",
+        "path": "Composition.section.section",
+        "sliceName": "prescribedAntibiotics",
+        "short": "Skirti antibiotikai / Prescribed antibiotics",
+        "definition": "Papildomas atributas reikalingas dėl galimybės apibrėžti E113-ND 5.5.1.1. Nėštumo baigties data.",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1310",
+                  "display": "Skirti antibiotikai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1310"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-71471-7"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Procedure/573"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:prescribedAntibiotics.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta",
+        "path": "Composition.section.section",
+        "sliceName": "placenta",
+        "short": "Placenta / Placenta",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1314",
+                  "display": "Placentos atributai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1314"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1314"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/58"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:placenta.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost",
+        "path": "Composition.section.section",
+        "sliceName": "bloodLost",
+        "short": "Netekto kraujo kiekis / Amount of blood lost",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1325",
+                  "display": "Netekto kraujo kiekis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1325"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1316"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/59"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:bloodLost.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions",
+        "path": "Composition.section.section",
+        "sliceName": "interventions",
+        "short": "Intervencijos / Interventions",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1326",
+                  "display": "Intervencijos"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1326"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-02-1326"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/51001"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:interventions.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy",
+        "path": "Composition.section.section",
+        "sliceName": "episiotomy",
+        "short": "Epiziotomija / Episiotomy",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1327",
+                  "display": "Epiziotomija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1327"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1327"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/0511"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:episiotomy.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal",
+        "path": "Composition.section.section",
+        "sliceName": "birthCanal",
+        "short": "Gimdymo takai  / Birth canal",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1328",
+                  "display": "Gimdymo takai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1328"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1320"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/0512"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:birthCanal.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea",
+        "path": "Composition.section.section",
+        "sliceName": "ruptureArea",
+        "short": "Gimdymo takų plyšimų  / Rupture Area",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1321",
+                  "display": "Plyšimai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1321"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1321"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/0513"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:ruptureArea.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

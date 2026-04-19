@@ -1,0 +1,134 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-62347-0-e113-tp",
+  "name": "LtEspbiProcedure62347_0_E113_TP",
+  "status": "draft",
+  "description": "Prenatalinė chromosomų anomalijų patikra / Prenatal Chromosomal Abnormality Screening",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuje http://loinc.org.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "62347-0",
+                  "display": "Chromosome analysis.prenatal panel by FISH"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "fixedCode": "62347-0"
+      },
+      {
+        "id": "Procedure.subject.reference",
+        "path": "Procedure.subject.reference",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Patient/123456"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "short": "5.2.2.2. Prenatalinės chromosomų anomalijų patikros rezultatas / Result of Prenatal Chromosomal Abnormality Screening",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-62347-0"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

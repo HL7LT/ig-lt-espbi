@@ -1,0 +1,203 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-documentReference",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-documentReference",
+  "version": "0.3.28",
+  "name": "ElabDocumentReference",
+  "status": "active",
+  "date": "2025-01-07",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Dokumento nuoroda / Document reference",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "xds",
+      "uri": "http://ihe.net/xds",
+      "name": "XDS metadata equivalent"
+    },
+    {
+      "identity": "composition",
+      "uri": "http://hl7.org/fhir/composition",
+      "name": "FHIR Composition"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DocumentReference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.identifier",
+        "path": "DocumentReference.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.identifier:DocumentNumber",
+        "path": "DocumentReference.identifier",
+        "sliceName": "DocumentNumber",
+        "short": "Dokumento numeris / Document number",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.identifier:DocumentNumber.system",
+        "path": "DocumentReference.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/DocumentNumber"
+      },
+      {
+        "id": "DocumentReference.identifier:DocumentNumber.value",
+        "path": "DocumentReference.identifier.value",
+        "short": "LYY-XXXXXXXXX formatas, kur YY - dokumento sukūrimo metų paskutiniai 2 skaitmenys, XXXXXXXXX - 9 skaitmenų dokumento eilės numeris, dokumento sukūrimo metais / LYY-XXXXXXXXX format: YY - last 2 digits of the calendar year when the document was created, XXXXXXXXX - 9 digit document serial number in the year document was created",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.version",
+        "path": "DocumentReference.version",
+        "short": "Versijos numeris / Version number",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "short": "current - Dabartinė dokumento nuoroda / This is the current reference for this document. entered-in-error - Dokumento nuoroda buvo sukurta per klaidą / This reference was created in error.",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/documentReference-statuses"
+        }
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "short": "Resursas, kuriam yra priskirtas dokumentas / Who/what is the subject of the document",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-composition-e200"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "short": "Dokumento nuorodos sukūrimo laikas / When this document reference was created",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.author",
+        "path": "DocumentReference.author",
+        "short": "Dokumento autorius / Who authored the document",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content",
+        "path": "DocumentReference.content",
+        "short": "Dokumento turinys / Document content",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment",
+        "path": "DocumentReference.content.attachment",
+        "short": "Kur rasti dokumentą / Where to access the document",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.contentType",
+        "path": "DocumentReference.content.attachment.contentType",
+        "short": "Dokumento failo Mime tipas / Mime type of the content, with charset",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.data",
+        "path": "DocumentReference.content.attachment.data",
+        "short": "Dokumento duomenys / Data",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.title",
+        "path": "DocumentReference.content.attachment.title",
+        "short": "Documento failo pavadinimas / Document file name",
+        "mustSupport": true
+      }
+    ]
+  }
+}

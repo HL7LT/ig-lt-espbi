@@ -1,0 +1,2378 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e096-ptkl",
+  "name": "LtEspbiCompositionE096_PTKL",
+  "status": "draft",
+  "description": "E096-PTKL Pagalbos teikimo kontrolinis lapas",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifier/DocCode",
+                  "code": "01.0001",
+                  "display": "Pagalbos teikimo kontrolinis lapas"
+                }
+              ],
+              "text": "Pagalbos teikimo kontrolinis lapas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding",
+        "path": "Composition.type.coding",
+        "short": "Dokumento tipas E096-AN  dokumentui / Document type by loinc for E096-AN document"
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://esveikata.lt/classifier/DocCode"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "01.0001"
+      },
+      {
+        "id": "Composition.type.text",
+        "path": "Composition.type.text",
+        "short": "Dokumento pavadinimas  E096-AN dokumentui / Document title for E096-AN document."
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "definition": "Dokumento parengimo asmens sveikatos priežiūros įstaigoje data ir laikas.\r\n\r\nNegali būti ateities laikas. Laikas <= dabartinis laikas"
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "E096-PTKL Pagalbos teikimo kontrolinis lapas"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/EventType",
+                    "code": "7",
+                    "display": "Atvykimas į SPĮ gauti stacionarinių paslaugų"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Provenance/1112230001"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader",
+        "path": "Composition.section",
+        "sliceName": "NGNheader",
+        "short": "NGN antraštė / NGN header",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0100",
+                  "display": "NGN antraštė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0100"
+      },
+      {
+        "id": "Composition.section:NGNheader.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            },
+            {
+              "type": "value",
+              "path": "code.coding.system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyCardID",
+        "short": "Nėštumo kortelės unikalus ID / Pregnancy card unique ID",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0131",
+                  "display": "Nėštumo kortelės unikalus ID"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0131"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/31"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyFirstDay",
+        "short": "Nėštumo pirmoji diena / First day of pregnancy",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0132",
+                  "display": "Nėštumo pirmoji diena"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0132"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0132"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/32"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyFirstDay.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyWeek",
+        "short": "Nėštumo savaitė / Pregnancy week",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49051-6",
+                  "display": "Gestational age in weeks"
+                }
+              ],
+              "text": "Nėštumo savaitė"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49051-6"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49051-6"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/33"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyWeek.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyDay",
+        "short": "Nėštumo diena / Pregnancy day",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49052-4",
+                  "display": "Gestational age in days"
+                }
+              ],
+              "text": "Nėštumo diena"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49052-4"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49052-4"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/34"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyDay.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum",
+        "path": "Composition.section",
+        "sliceName": "usingPliersAndVacuum",
+        "short": "Replių ir vakuuminio ekstraktoriaus naudojimas / The use of pliers and vacuum extractor",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0902",
+                  "display": "Replių ir vakuuminio ekstraktoriaus naudojimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0902"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps",
+        "path": "Composition.section.section",
+        "sliceName": "useOfForceps",
+        "short": "Akušerinių replių panaudojimas /  Use of obstetric forceps",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0903",
+                  "display": "Akušerinių replių panaudojimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0903"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-02-0903"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Procedure/0012450001"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:useOfForceps.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction",
+        "path": "Composition.section.section",
+        "sliceName": "vacuumExtraction",
+        "short": "Vakuuminės ekstrakcijos (VE) panaudojimas /  Use of vacuum extraction",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0905",
+                  "display": "Vakuuminės ekstrakcijos panaudojimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0905"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-02-0905"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Procedure/0012450003"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:usingPliersAndVacuum.section:vacuumExtraction.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding",
+        "path": "Composition.section",
+        "sliceName": "postpartumBleeding",
+        "short": "Pagalbos teikimas pogimdyminio kraujavimo atveju / The provision of assistance in case of postpartum bleeding",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0912",
+                  "display": "Pagalbos teikimas pogimdyminio kraujavimo atveju"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0912"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding",
+        "path": "Composition.section.section",
+        "sliceName": "observedPostpartumBleeding",
+        "short": "Pastebėtas pogimdyminis kraujavimas / Observed postpartum bleeding",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0913",
+                  "display": "Pastebėtas pogimdyminis kraujavimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0913"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0913"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004047"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:observedPostpartumBleeding.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman",
+        "path": "Composition.section.section",
+        "sliceName": "conditionOfTheWoman",
+        "short": "Moters būklė / The condition of the woman",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0914",
+                  "display": "Moters būklė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0914"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0914"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004053"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:conditionOfTheWoman.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken",
+        "path": "Composition.section.section",
+        "sliceName": "actionsTaken",
+        "short": "Atlikti veiksmai / Actions taken",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0931",
+                  "display": "Atlikti veiksmai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0931"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0931"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004069"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:actionsTaken.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo",
+        "path": "Composition.section.section",
+        "sliceName": "assistanceEndInfo",
+        "short": "Bendra informacija pagalbos teikimo pabaigoje / General information at the end of assistance",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0933",
+                  "display": "Bendra informacija pagalbos teikimo pabaigoje"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0933"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0933"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004099"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:assistanceEndInfo.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance",
+        "path": "Composition.section.section",
+        "sliceName": "endOfAssistance",
+        "short": "Pagalbos teikimo pabaiga / End of assistance",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0939",
+                  "display": "Pagalbos teikimo pabaiga"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0939"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0939"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004123"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:postpartumBleeding.section:endOfAssistance.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:shoulderDystocia",
+        "path": "Composition.section",
+        "sliceName": "shoulderDystocia",
+        "short": "Vaisiaus pečių užstrigimas / Shoulder dystocia",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:shoulderDystocia.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0950",
+                  "display": "Vaisiaus pečių užstrigimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:shoulderDystocia.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:shoulderDystocia.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0950"
+      },
+      {
+        "id": "Composition.section:shoulderDystocia.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:shoulderDystocia.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0950"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004131"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:shoulderDystocia.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

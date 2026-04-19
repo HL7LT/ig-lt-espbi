@@ -1,0 +1,334 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-serviceRequest",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-serviceRequest",
+  "version": "0.3.28",
+  "name": "ElabServiceRequest",
+  "status": "active",
+  "date": "2023-10-06",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Užsakytas laboratorinis tyrimas / A record of a request for service to be performed",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "quick",
+      "uri": "http://siframework.org/cqf",
+      "name": "Quality Improvement and Clinical Knowledge (QUICK)"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "ServiceRequest",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ServiceRequest.extension",
+        "path": "ServiceRequest.extension",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.extension:notifyWhenCompleted",
+        "path": "ServiceRequest.extension",
+        "sliceName": "notifyWhenCompleted",
+        "short": "Požymis, nurodantis ar atlikus tyrimą gydytojas turi būti apie tai informuojamas / Notify interested parties when request is completed.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-serviceRequest-notifyWhenCompleted"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.extension:specimenType",
+        "path": "ServiceRequest.extension",
+        "sliceName": "specimenType",
+        "short": "Mėginio tipas / Required specimen type to perform the request.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-serviceRequest-specimenType"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.extension:isScientific",
+        "path": "ServiceRequest.extension",
+        "sliceName": "isScientific",
+        "short": "Požymis, nurodantis ar tyrimas atliekamas moksliniais tikslais / Indicates if request goal is purely scientific.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-serviceRequest-isScientific"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.extension:sensitive",
+        "path": "ServiceRequest.extension",
+        "sliceName": "sensitive",
+        "short": "Požymis, nurodantis, kad tyrimo rezultatai gali būti jautrūs pacientui / Indicates if request can potentially result in sensitive test results.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-serviceRequest-sensitive"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.requisition",
+        "path": "ServiceRequest.requisition",
+        "short": "Grupinio užsakymo ID / Composite Request ID",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.requisition.system",
+        "path": "ServiceRequest.requisition.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/ServiceRequest/Identifier#Requisition"
+      },
+      {
+        "id": "ServiceRequest.requisition.value",
+        "path": "ServiceRequest.requisition.value",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.status",
+        "path": "ServiceRequest.status",
+        "short": "Galimos reikšmės: / Valid values: draft | active | completed | entered-in-error",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/serviceRequest-statuses"
+        }
+      },
+      {
+        "id": "ServiceRequest.intent",
+        "path": "ServiceRequest.intent",
+        "fixedCode": "order"
+      },
+      {
+        "id": "ServiceRequest.code",
+        "path": "ServiceRequest.code",
+        "short": "Užsakomas tyrimas / What is being requested/ordered",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding",
+        "path": "ServiceRequest.code.concept.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding:LMB",
+        "path": "ServiceRequest.code.concept.coding",
+        "sliceName": "LMB",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding:LMB.system",
+        "path": "ServiceRequest.code.concept.coding.system",
+        "min": 1,
+        "patternUri": "https://www.medicinosnk.lt/lt-lab-klt-nomenclature"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding:LMB.code",
+        "path": "ServiceRequest.code.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.subject",
+        "path": "ServiceRequest.subject",
+        "short": "Pacientas, kuriam atliekamas tyrimas / Individual the service is ordered for",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.encounter",
+        "path": "ServiceRequest.encounter",
+        "short": "Apsilankymas, kurio metu suformuotas užsakymas / Encounter in which the request was created",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.encounter.identifier.system",
+        "path": "ServiceRequest.encounter.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/Encounter/ESPBI"
+      },
+      {
+        "id": "ServiceRequest.authoredOn",
+        "path": "ServiceRequest.authoredOn",
+        "short": "Užsakymo pateikimo laikas / Date request submitted",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.requester",
+        "path": "ServiceRequest.requester",
+        "short": "Tyrimą užsakęs specialistas / Who is requesting service",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.performer",
+        "path": "ServiceRequest.performer",
+        "short": "Įstaiga, kuriai skirtas užsakymas (ėminio paėmimo vieta arba tyrimo atlikimo vieta). ServiceRequest'ai su tuo pačiu RequisitionID yra apjungiami į vieną DiagnosticReport / Requested performer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo",
+        "path": "ServiceRequest.supportingInfo",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            },
+            {
+              "type": "value",
+              "path": "concept"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:condition",
+        "path": "ServiceRequest.supportingInfo",
+        "sliceName": "condition",
+        "short": "Diagnozė / Identification of the condition",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:condition.concept",
+        "path": "ServiceRequest.supportingInfo.concept",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://esveikata.lt/classifiers/TLK-10-AM"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:condition.concept.coding.system",
+        "path": "ServiceRequest.supportingInfo.concept.coding.system",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.supportingInfo:condition.concept.coding.code",
+        "path": "ServiceRequest.supportingInfo.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.note",
+        "path": "ServiceRequest.note",
+        "short": "Pastabos / Comments",
+        "mustSupport": true
+      }
+    ]
+  }
+}

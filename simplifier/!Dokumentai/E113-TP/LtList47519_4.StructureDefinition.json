@@ -1,0 +1,223 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-47519-4",
+  "name": "LtEspbiList47519_4",
+  "status": "draft",
+  "description": "Procedūros / History of Procedures Document",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuje http://loinc.org.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "47519-4",
+                  "display": "History of Procedures Document"
+                }
+              ],
+              "text": "Procedūros"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "47519-4"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "max": "0"
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "max": "0"
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "max": "0"
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "List.entry:anti-Dimmunoglobulins",
+        "path": "List.entry",
+        "sliceName": "anti-Dimmunoglobulins",
+        "short": "5.2.1. Anti-D imunoglobulinas/ Anti-D immunoglobulins also known as Rh immunoglobulins or RhIg",
+        "min": 1
+      },
+      {
+        "id": "List.entry:anti-Dimmunoglobulins.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:anti-Dimmunoglobulins.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-92173-00"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:prenatalChromosomalAbnormalitiesScreening",
+        "path": "List.entry",
+        "sliceName": "prenatalChromosomalAbnormalitiesScreening",
+        "short": "5.2.2. Prenatalinė chromosomų anomalijų patikra / Prenatal chromosomal abnormalities screening"
+      },
+      {
+        "id": "List.entry:prenatalChromosomalAbnormalitiesScreening.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:prenatalChromosomalAbnormalitiesScreening.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-62347-0-e113-tp"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:prenatalDiagnostics",
+        "path": "List.entry",
+        "sliceName": "prenatalDiagnostics",
+        "short": "5.2.3.  Prenatalinė diagnostika/  Prenatal diagnostics"
+      },
+      {
+        "id": "List.entry:prenatalDiagnostics.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:prenatalDiagnostics.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-18114009"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:fetalSurgicalProcedures",
+        "path": "List.entry",
+        "sliceName": "fetalSurgicalProcedures",
+        "short": "5.2.4. Vaisiaus chirurginės procedūros / Fetal surgical procedures"
+      },
+      {
+        "id": "List.entry:fetalSurgicalProcedures.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:fetalSurgicalProcedures.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-fetal-surgical-procedures"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:fetalLungMaturation",
+        "path": "List.entry",
+        "sliceName": "fetalLungMaturation",
+        "short": "5.2.5. Vaisiaus plaučių brandinimas / Fetal lung maturation-->",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:fetalLungMaturation.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:fetalLungMaturation.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-10-0002"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:tocolysisDuringPregnancy",
+        "path": "List.entry",
+        "sliceName": "tocolysisDuringPregnancy",
+        "short": "5.2.6. Tokolizė nėštumo metu / Tocolysis during pregnancy",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:tocolysisDuringPregnancy.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:tocolysisDuringPregnancy.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-10-0003"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

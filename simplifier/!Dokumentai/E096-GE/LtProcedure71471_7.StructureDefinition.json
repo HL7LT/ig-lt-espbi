@@ -1,0 +1,169 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-71471-7",
+  "name": "LtEspbiProcedure71471_7",
+  "status": "draft",
+  "description": "Antibiotikų skyrimas / Prescription of antibiotics",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "71471-7",
+                  "display": "Antibiotic administered Medication"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "fixedCode": "71471-7"
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "short": "Procedūros atlikimo data / Procedure date",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-01T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Procedure.supportingInfo:activeSubstance",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "activeSubstance",
+        "short": "Veiklioji medžiaga / Active substance",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-statement-data"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "MedicationStatement/57311"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:antibiotics",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "antibiotics",
+        "short": "Antibiotikai / Prescription record for antibiotics",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1311"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/57"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

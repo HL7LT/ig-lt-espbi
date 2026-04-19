@@ -1,0 +1,325 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-specimen",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-specimen",
+  "version": "0.3.28",
+  "name": "ElabSpecimen",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Ėminys / Specimen",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Specimen",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Specimen",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Specimen.extension",
+        "path": "Specimen.extension",
+        "min": 1
+      },
+      {
+        "id": "Specimen.extension:performer",
+        "path": "Specimen.extension",
+        "sliceName": "performer",
+        "short": "Įstaiga, kuri tirs paimtą ėminį / Organization which has to perform the procedures on the specimen. Turi būti pateikiamas LtOrganization resurso \"id\" reikšmė. LtOrganization resursas turi turėti \"extension\":[{\"url\":\"http://esveikata.lt/fhir/StructureDefinition/organization-isImportedLaboratory\",\"valueBoolean\":true}] plėtinį",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-specimen-performer"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.identifier",
+        "path": "Specimen.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Specimen.identifier.value",
+        "path": "Specimen.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Specimen.identifier:RegistrationCode",
+        "path": "Specimen.identifier",
+        "sliceName": "RegistrationCode",
+        "short": "Ėminio regisracijos kodas / Specimen registration code",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.identifier:RegistrationCode.system",
+        "path": "Specimen.identifier.system",
+        "patternUri": "http://esveikata.lt/classifiers/Specimen/RegistrationCode"
+      },
+      {
+        "id": "Specimen.status",
+        "path": "Specimen.status",
+        "short": "Galimos reikšmės: / Valid values: available | unavailable | unsatisfactory | entered-in-error",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/specimen-statuses"
+        }
+      },
+      {
+        "id": "Specimen.type",
+        "path": "Specimen.type",
+        "short": "Ėminio tipas / Kind of material that forms the specimen",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.type.coding",
+        "path": "Specimen.type.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Specimen.type.coding:LMB",
+        "path": "Specimen.type.coding",
+        "sliceName": "LMB",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.type.coding:LMB.system",
+        "path": "Specimen.type.coding.system",
+        "min": 1,
+        "patternUri": "https://www.medicinosnk.lt/processed-specimen"
+      },
+      {
+        "id": "Specimen.type.coding:LMB.code",
+        "path": "Specimen.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.subject",
+        "path": "Specimen.subject",
+        "short": "Pacientas, iš kurio paimtas ėminys / Patient from which the specimen came from",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.receivedTime",
+        "path": "Specimen.receivedTime",
+        "short": "Ėminio gavimo laboratorijoje laikas / The time when specimen is received by the testing laboratory",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.request",
+        "path": "Specimen.request",
+        "short": "Tyrimai, dėl kurių buvo paimtas ėminys / Why the specimen was collected",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-serviceRequest"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection",
+        "path": "Specimen.collection",
+        "short": "Paimto ėminio informacija / Collection details",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.extension",
+        "path": "Specimen.collection.extension",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.extension:bodyPosition",
+        "path": "Specimen.collection.extension",
+        "sliceName": "bodyPosition",
+        "short": "Kūno padėtis ėminio ėmimo metu / Body position during the extraction",
+        "min": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/observation-bodyPosition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.extension:bodyPosition.value[x]",
+        "path": "Specimen.collection.extension.value[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Specimen.collection.extension:bodyPosition.value[x]:valueCodeableConcept",
+        "path": "Specimen.collection.extension.value[x]",
+        "sliceName": "valueCodeableConcept"
+      },
+      {
+        "id": "Specimen.collection.extension:bodyPosition.value[x]:valueCodeableConcept.coding.system",
+        "path": "Specimen.collection.extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": "https://www.medicinosnk.lt/processed-specimen"
+      },
+      {
+        "id": "Specimen.collection.extension:bodyPosition.value[x]:valueCodeableConcept.coding.code",
+        "path": "Specimen.collection.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.extension:receivedBy",
+        "path": "Specimen.collection.extension",
+        "sliceName": "receivedBy",
+        "short": "Ėminį priėmęs specialistas / Whoever has received the specimen",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-specimen-receivedBy"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.collector",
+        "path": "Specimen.collection.collector",
+        "short": "Ėminį paėmęs specialistas / Who collected the specimen",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.collected[x]",
+        "path": "Specimen.collection.collected[x]",
+        "short": "Ėminio paėmimo laikas / Collection time",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.quantity",
+        "path": "Specimen.collection.quantity",
+        "short": "Ėminio kiekis / The quantity of specimen collected",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.bodySite.concept.text",
+        "path": "Specimen.collection.bodySite.concept.text",
+        "short": "Ėminio kilmės anatominė vieta / Body site from which the specimen collection was collected",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.note",
+        "path": "Specimen.note",
+        "short": "Pastabos / Comments",
+        "mustSupport": true
+      }
+    ]
+  }
+}

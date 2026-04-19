@@ -1,0 +1,310 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-diagnosticReport",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-diagnosticReport",
+  "version": "0.3.28",
+  "name": "ElabDiagnosticReport",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "E200/a laboratorinio tyrimo atsakymo protokolas / E200/a diagnostic report",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DiagnosticReport",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.extension:sensitive",
+        "path": "DiagnosticReport.extension",
+        "sliceName": "sensitive",
+        "short": "Požymis, nurodantis ar protokole yra jautri informacija paciento atžvilgiu / Indicates if results contain sensitive information for the patient",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-diagnosticReport-sensitive"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.extension:showToPatient",
+        "path": "DiagnosticReport.extension",
+        "sliceName": "showToPatient",
+        "short": "Požymis, leidžiantis rodyti šį protokolą pacientui protokole esant jautriai informacijai / Allow the results to be shown to the patient",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-diagnosticReport-showToPatient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.extension:performedExternally",
+        "path": "DiagnosticReport.extension",
+        "sliceName": "performedExternally",
+        "short": "Požymis, nurodantis ar protokolo tyrimai buvo atliekami išorinėje laboratorijoje / Indicates if results were produced in another laboratory",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-diagnosticReport-performedExternally"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.extension:requestedBy",
+        "path": "DiagnosticReport.extension",
+        "sliceName": "requestedBy",
+        "short": "Reikšmė, nurodanti tyrimą užsakiusį specialistą ir organizaciją / Indicates the requesting specialist and organization",
+        "max": "2",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-ext-diagnosticReport-requestedBy"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.basedOn",
+        "path": "DiagnosticReport.basedOn",
+        "short": "Užsakyti tyrimai, dėl kurių atsirado šis protokolas / What was requested",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-serviceRequest"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.status",
+        "path": "DiagnosticReport.status",
+        "short": "Galimos reikšmės: / Valid values: preliminary | final | amended | entered-in-error ",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/diagnosticReport-statuses"
+        }
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "short": "Protokolo tipas / Name/Code for this diagnostic report",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.code.coding",
+        "path": "DiagnosticReport.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.code.coding:Loinc",
+        "path": "DiagnosticReport.code.coding",
+        "sliceName": "Loinc",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.code.coding:Loinc.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "min": 1,
+        "patternUri": "http://loinc.org"
+      },
+      {
+        "id": "DiagnosticReport.code.coding:Loinc.code",
+        "path": "DiagnosticReport.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.subject",
+        "path": "DiagnosticReport.subject",
+        "short": "Pacientas, kuriam buvo atliekami protokole esantys tyrimai / The subject of the report - the patient",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.encounter",
+        "path": "DiagnosticReport.encounter",
+        "short": "Apsilankymo kontekstas / Encounter context",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.encounter.identifier.system",
+        "path": "DiagnosticReport.encounter.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/Encounter/ESPBI"
+      },
+      {
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "short": "Protokolo pateikimo laikas / Clinically relevant time/time-period for report",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "short": "Protokolo patvirtinimo laikas / Time this version was made",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "short": "Protokolą parengęs specialistas / Specialists who submitted the report",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter",
+        "path": "DiagnosticReport.resultsInterpreter",
+        "short": "Protokolą patvirtinęs specialistas / Who confirmed the results",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "short": "Ėminiai, kuriais remiantis buvo gauti atsakymo rezultatai / Specimens this report is based on",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-specimen"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "short": "Protokolą sudarančios atliktų tyrimų panelės ir analitės / Panels and/or observations",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-observation",
+              "http://esveikata.lt/fhir/StructureDefinition/elab-observation-panel"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.note",
+        "path": "DiagnosticReport.note",
+        "short": "Pastabos / Comments about the diagnostic report",
+        "mustSupport": true
+      }
+    ]
+  }
+}

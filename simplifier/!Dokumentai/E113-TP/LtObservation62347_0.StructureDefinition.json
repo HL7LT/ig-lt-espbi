@@ -1,0 +1,207 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-62347-0",
+  "name": "LtEspbiObservation62347_0",
+  "status": "draft",
+  "description": "Prenatalinės chromosomų anomalijų patikros rezultatas / Result of Prenatal Chromosomal Abnormality Screening",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "5.2.2.2. Prenatalinės chromosomų anomalijų patikros rezultatas./ Result of Prenatal Chromosomal Abnormality Screening"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "62347-0",
+                  "display": "Chromosome analysis.prenatal panel by FISH"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "62347-0"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "5.2.2.1. Prenatalinės chromosomų anomalijų patikros rezultato data / Test Results date",
+        "definition": "Data\nPatikros sąlygos:\n• Pagal nutylėjimą kortelės užvedimo data",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2023-03-11T02:45:00+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "short": "Tyrimo atsakymo data / Test result date",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2023-03-11T08:28:00.704+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Informacija apie sveikatos priežiūros specialistą, kuris atsakingas už tyrimą / Information about Health Care Specialist who is responsible for issuing the report. Need to know whom to contact if there are queries about the results",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "5.2.2.2. Prenatalinė chromosomų anomalijų patikros rezultatas / Test Result",
+        "definition": "Laisvai įvedamas tekstas.\nValidacinė taisyklė:\n• Būtina pateikti, kai CRB parenkama parinktis \"positive\"",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].id",
+        "path": "Observation.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding",
+        "path": "Observation.value[x].coding",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/NGN/PrenatalScreeningResultForChromosomalAbnormalities",
+              "code": "1",
+              "display": "Kombinuotasis testas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].coding.id",
+        "path": "Observation.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.extension",
+        "path": "Observation.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.system",
+        "path": "Observation.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/NGN/PrenatalScreeningResultForChromosomalAbnormalities"
+      },
+      {
+        "id": "Observation.value[x].coding.version",
+        "path": "Observation.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.code",
+        "path": "Observation.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.display",
+        "path": "Observation.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.userSelected",
+        "path": "Observation.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-89497-2",
+  "name": "LtEspbiList89497_2",
+  "status": "draft",
+  "description": "Tyrimai / Mother's Prenatal tests",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "89497-2",
+                  "display": "Mother's Prenatal tests"
+                }
+              ],
+              "text": "Tyrimai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "11535-2"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "max": "0"
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "max": "0"
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "max": "0"
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "List.entry:bloodGroup",
+        "path": "List.entry",
+        "sliceName": "bloodGroup",
+        "short": "5.1.1 Kraujo grupė / Blood group",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:bloodGroup.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:bloodGroup.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-365636006-e113-tp"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:antibodyTest",
+        "path": "List.entry",
+        "sliceName": "antibodyTest",
+        "short": "5.1.2 Antikūnų tyrimas/ Antibody test"
+      },
+      {
+        "id": "List.entry:antibodyTest.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:antibodyTest.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-11512"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:bloodTests",
+        "path": "List.entry",
+        "sliceName": "bloodTests",
+        "short": "5.1.3 Kraujo tyrimai/ Blood tests"
+      },
+      {
+        "id": "List.entry:bloodTests.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:bloodTests.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-11513"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:syphilisTest",
+        "path": "List.entry",
+        "sliceName": "syphilisTest",
+        "short": "5.1.4 Tyrimas dėl sifilio (RPR)/ Syphilis test (RPR)"
+      },
+      {
+        "id": "List.entry:syphilisTest.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:syphilisTest.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-20507-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:HIVtest",
+        "path": "List.entry",
+        "sliceName": "HIVtest",
+        "short": "5.1.5 Tyrimas dėl ŽIV/ HIV test"
+      },
+      {
+        "id": "List.entry:HIVtest.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:HIVtest.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-45683-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:bloodPlasmaGlucoseTest",
+        "path": "List.entry",
+        "sliceName": "bloodPlasmaGlucoseTest",
+        "short": "5.1.6 Gliukozės kraujo plazmoje tyrimas/ Blood plasma glucose test"
+      },
+      {
+        "id": "List.entry:bloodPlasmaGlucoseTest.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:bloodPlasmaGlucoseTest.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-77135-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:hepatitisBtest",
+        "path": "List.entry",
+        "sliceName": "hepatitisBtest",
+        "short": "5.1.7 Tyrimas dėl hepatito B / Hepatitis B test"
+      },
+      {
+        "id": "List.entry:hepatitisBtest.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:hepatitisBtest.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-65633-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:UrineCulturTestForAsymptomaticBacteria",
+        "path": "List.entry",
+        "sliceName": "UrineCulturTestForAsymptomaticBacteria",
+        "short": "5.1.8 Šlapimo pasėlio tyrimas dėl besimptomės bakterijos / Urine culture test for asymptomatic bacteria"
+      },
+      {
+        "id": "List.entry:UrineCulturTestForAsymptomaticBacteria.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:UrineCulturTestForAsymptomaticBacteria.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-11518"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:glucoseToleranceTest",
+        "path": "List.entry",
+        "sliceName": "glucoseToleranceTest",
+        "short": "5.1.9 Gliukozės toleravimo mėginys (GTM) / Glucose tolerance test (GTT)"
+      },
+      {
+        "id": "List.entry:glucoseToleranceTest.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:glucoseToleranceTest.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-11519"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:GBS",
+        "path": "List.entry",
+        "sliceName": "GBS",
+        "short": "5.1.10. Pasėlio tyrimas dėl naujagimių B grupės streptokoko (BGS) infekcijos rizikos / Culture test for the risk of newborn group B streptococcus (GBS) infection"
+      },
+      {
+        "id": "List.entry:GBS.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:GBS.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-586-8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry:urineTest",
+        "path": "List.entry",
+        "sliceName": "urineTest",
+        "short": "5.1.11. Šlapimo tyrimas/ Urine test"
+      },
+      {
+        "id": "List.entry:urineTest.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:urineTest.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-18729-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

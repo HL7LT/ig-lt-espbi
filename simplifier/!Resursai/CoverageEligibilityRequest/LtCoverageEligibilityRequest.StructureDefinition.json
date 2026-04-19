@@ -1,0 +1,108 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-request",
+  "name": "LtEspbiCoverageEligibilityRequest",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CoverageEligibilityRequest",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CoverageEligibilityRequest.id",
+        "path": "CoverageEligibilityRequest.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityRequest.status",
+        "path": "CoverageEligibilityRequest.status",
+        "short": "Užklausos draudikui būsena / Insurer request status",
+        "definition": "Nurodo užklausos draudikui būseną.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/fm-status. Galimos reikšmės: active | cancelled | draft | entered-in-error.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityRequest.purpose",
+        "path": "CoverageEligibilityRequest.purpose",
+        "short": "Užklausos tikslas / Purpose of the request",
+        "definition": "Nurodo, kokiu tikslu buvo pateikta užklausa.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose. Galimos reikšmės: auth-requirements | benefits | discovery | validation.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityRequest.patient",
+        "path": "CoverageEligibilityRequest.patient",
+        "short": "Pacientas, kuriam tikrintas draustumas / Patient whose coverage is being verified",
+        "definition": "Nuoroda į paciento, kuriam tikrintas draustumas, resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityRequest.patient.reference",
+        "path": "CoverageEligibilityRequest.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "CoverageEligibilityRequest.created",
+        "path": "CoverageEligibilityRequest.created",
+        "short": "Užklausos sukūrimo data ir laikas / Request creation date and time",
+        "definition": "Data ir laikas, kada ši užklausa buvo sukurta.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityRequest.insurer",
+        "path": "CoverageEligibilityRequest.insurer",
+        "short": "Draudikas / Coverage issuer",
+        "definition": "Draudikas, kuriam buvo adresuota ši užklausa ir kuris ją apdoros.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityRequest.insurer.reference",
+        "path": "CoverageEligibilityRequest.insurer.reference",
+        "min": 1
+      },
+      {
+        "id": "CoverageEligibilityRequest.insurance",
+        "path": "CoverageEligibilityRequest.insurance",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityRequest.insurance.coverage",
+        "path": "CoverageEligibilityRequest.insurance.coverage",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CoverageEligibilityRequest.insurance.coverage.reference",
+        "path": "CoverageEligibilityRequest.insurance.coverage.reference",
+        "min": 1
+      }
+    ]
+  }
+}

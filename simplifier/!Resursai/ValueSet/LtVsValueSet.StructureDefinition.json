@@ -1,0 +1,108 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-value-set",
+  "name": "LtEspbiVsValueSet",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ValueSet",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ValueSet",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ValueSet.id",
+        "path": "ValueSet.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.url",
+        "path": "ValueSet.url",
+        "short": "Reikšmių rinkinio kanoninis identifikatorius / Canonical identifier for the value set",
+        "definition": "Globaliai unikalus reikšmių rinkinio (ValueSet) kanoninis identifikatorius, pateikiamas kaip URI. Reikšmių rinkinio url reikšmė yra nurodoma, pateikiant nuorodą į reikšmių rinkinį specifikacijoje, modelyje, projekte ar resurso egzemplioriuje.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueUri": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-patient-support-level"
+          }
+        ]
+      },
+      {
+        "id": "ValueSet.version",
+        "path": "ValueSet.version",
+        "short": "Reikšmių rinkinio versija / Version of the value set",
+        "definition": "Identifikatorius, naudojamas reikšmių rinkinio versijai nurodyti. Jei reikšmių rinkinys turi nurodytą versiją, pateikiant nuorodą į reikšmių rinkinį specifikacijoje, modelyje, projekte ar resurso egzemplioriuje, versijos reikšmė ji turi būti pridėta prie reikšmių rinkinio url reikšmės, atskiraint vertikaliu brūkšniu, pvz., \"http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-patient-support-level|1.0\".",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1.0"
+          }
+        ]
+      },
+      {
+        "id": "ValueSet.name",
+        "path": "ValueSet.name",
+        "short": "Reikšmių rinkinio pavadinimas (skirtas kompiuteriui) / Name for this value set (computer friendly)",
+        "definition": "Reikšmių rinkinio pavadinimas, skirtas (pritaikytas) kompiuteriui."
+      },
+      {
+        "id": "ValueSet.title",
+        "path": "ValueSet.title",
+        "short": "Reikšmių rinkinio pavadinimas (skirtas žmogui) / Name for this value set (human friendly)",
+        "definition": "Reikšmių rinkinio pavadinimas, skirtas (pritaikytas) žmogui."
+      },
+      {
+        "id": "ValueSet.status",
+        "path": "ValueSet.status",
+        "short": "Reikšmių rinkinio statusas / Status of the value set",
+        "definition": "Reikšmių rinkinio statusas.\r\nFHIR R5 atveju turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/publication-status|5.0.0. Galimos reikšmės: draft | active | retired | unknown."
+      },
+      {
+        "id": "ValueSet.compose",
+        "path": "ValueSet.compose",
+        "short": "Reikšmių rinkinio turinys / Content of the value set",
+        "definition": "Apibrėžtas reikšmių rinkinio turinys, įtraukiant arba neįtraukiant tam tikrus kodus iš nurodytos (-ų) kodų sistemos (-ų)."
+      },
+      {
+        "id": "ValueSet.compose.include",
+        "path": "ValueSet.compose.include",
+        "short": "Į reikšmių rinkinį įtraukiamos reikšmės / Values ​​included in the value set",
+        "definition": "Į reikšmių rinkinį iš nurodytos kodų sistemos įtraukiamos reikšmės."
+      },
+      {
+        "id": "ValueSet.compose.include.system",
+        "path": "ValueSet.compose.include.system",
+        "short": "Kodų sistema / Code system",
+        "definition": "Kodų sistemos, iš kurios į reikšmių rinkinį įtraukiamos reikšmės, URI. Tam pačiam Include elementui negali būti nurodyta ir \"system\", ir \"valueSet\" elementas."
+      },
+      {
+        "id": "ValueSet.compose.include.concept",
+        "path": "ValueSet.compose.include.concept",
+        "short": "Į reikšmių rinkinį įtraukiama reikšmė / The value ​​included in the value set",
+        "definition": "Į reikšmių rinkinį iš nurodytos kodų sistemos (klasifikatoriaus) įtraukiama reikšmė. Tuo atveju kai į reikšmių rinkinį turi būti įtraukti visos nurodytos kodų sistemos reikšmės (o kodų sistema yra viešinama per CodeSystem resursą), \"include.concept\" elementai gali būti nenurodyti.\r\nJei nurodytas nors vienas \"include.concept\" elementas, privalo būti nurodytas arba \"include.system\" elementas, arba \"include.valueSet\" elementas."
+      },
+      {
+        "id": "ValueSet.compose.include.concept.code",
+        "path": "ValueSet.compose.include.concept.code",
+        "short": "Įtraukiamos reikšmės kodas / Code of the included value",
+        "definition": "Į reikšmių rinkinį įtraukiamos reikšmės kodas."
+      },
+      {
+        "id": "ValueSet.compose.include.concept.display",
+        "path": "ValueSet.compose.include.concept.display",
+        "short": "Įtraukiamos reikšmės rodomas tekstas / Display of the included value",
+        "definition": "Tekstas, kuris bus rodomas naudotojui pasirenkant / naudojant šią reikšmę. Jei reikšmės rodomas tekstas nenurodytas, reikšmę naudojančios sistemos turėtų naudotojui rodyti reikšmės kodą."
+      },
+      {
+        "id": "ValueSet.compose.include.valueSet",
+        "path": "ValueSet.compose.include.valueSet",
+        "short": "Reikšmių rinkinys / Value set",
+        "definition": "Kito reikšmių rinkinio, iš kurio į šį reikšmių rinkinį įtraukiamos reikšmės, URI. Tam pačiam Include elementui negali būti nurodyta ir \"system\", ir \"valueSet\" elementas."
+      }
+    ]
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-composition-e200",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-composition-e200",
+  "version": "0.3.28",
+  "name": "ElabCompositionE200",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "E200/a kompozicija / E200/a composition",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "fhirdocumentreference",
+      "uri": "http://hl7.org/fhir/documentreference",
+      "name": "FHIR DocumentReference"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Composition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.version",
+        "path": "Composition.version",
+        "short": "Kompozicijos turinio loginės versijos identifikatorius / An explicitly assigned identifier of a variation of the content in the Composition",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "short": "Galimos reikšmės: / Valid values: preliminary | final | amended | entered-in-error",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/composition-statuses"
+        }
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "Kompozicijos tipas / Kind of composition (LOINC if possible)",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11502-2"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "short": "Pacientas, su kuriuo yra susiję kompozicijoje atlikti tyrimai ir jų rezultatai / Who the composition is about",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "short": "Apsilankymo konktekstas / Context of the Composition",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.encounter.identifier.system",
+        "path": "Composition.encounter.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/Encounter/ESPBI"
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "Paskutinio kompozicijos pakeitimo laikas / Composition editing time",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "short": "Kompozicijos autorius / Who authored the composition",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "short": "Kompoziciją patvirtinęs specialistas / Attests to accuracy of composition",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester.party",
+        "path": "Composition.attester.party",
+        "short": "Kompoziciją patvirtinęs specialistas / Who attested the composition",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "short": "Kompoziciją pateikusi įstaiga / Organization which submits the composition. Kartu privalomas \"identifier\" elementas su http://esveikata.lt/Identifier/ESPBI \"system\" reikšme",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "closed"
+        },
+        "short": "E200-U, E200-R, E200-Ats skyriai / E200-U, E200-R, E200-Ats, Modification-reason sections",
+        "min": 3,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "patternUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section.author",
+        "path": "Composition.section.author",
+        "short": "Kompozicijos skyriaus autorius / Who authored the section",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-practitionerRole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:E200-U",
+        "path": "Composition.section",
+        "sliceName": "E200-U",
+        "short": "Užsakymo skyrius / Order section",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:E200-U.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "patternCode": "57139-8"
+      },
+      {
+        "id": "Composition.section:E200-U.entry",
+        "path": "Composition.section.entry",
+        "short": "Užsakyti tyrimai / Service requests",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-serviceRequest"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:E200-R",
+        "path": "Composition.section",
+        "sliceName": "E200-R",
+        "short": "Ėminių registravimo skyrius / Specimen registration section",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:E200-R.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "patternCode": "59773-2"
+      },
+      {
+        "id": "Composition.section:E200-R.entry",
+        "path": "Composition.section.entry",
+        "short": "Paimti ėminiai / Specimens taken",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-specimen"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:E200-Ats",
+        "path": "Composition.section",
+        "sliceName": "E200-Ats",
+        "short": "Atsakymo protokolo skyrius / Diagnostic report section",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:E200-Ats.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "patternCode": "30954-2"
+      },
+      {
+        "id": "Composition.section:E200-Ats.entry",
+        "path": "Composition.section.entry",
+        "short": "Atsakymo protokolas / Diagnostic report",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-diagnosticReport"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:Modification-reason",
+        "path": "Composition.section",
+        "sliceName": "Modification-reason",
+        "short": "Modifikavimo priežasčių skyrius / Reasons for modification section",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Modification-reason.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "patternCode": "58199-1"
+      },
+      {
+        "id": "Composition.section:Modification-reason.entry",
+        "path": "Composition.section.entry",
+        "short": "Provenance resursas / Provenance resource",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-provenance"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

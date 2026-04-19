@@ -1,0 +1,1189 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter-e003a",
+  "name": "LtEspbiEncounterE003a",
+  "status": "draft",
+  "description": "Atvykimo duomenys / Patient Reception Data (E003/a)",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter.implicitRules",
+        "path": "Encounter.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.language",
+        "path": "Encounter.language",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.text",
+        "path": "Encounter.text",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.contained",
+        "path": "Encounter.contained",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.extension:ltExtEmiNumber",
+        "path": "Encounter.extension",
+        "sliceName": "ltExtEmiNumber"
+      },
+      {
+        "id": "Encounter.extension:ltExtEmiNumber.id",
+        "path": "Encounter.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.extension:ltExtEmiNumber.value[x]",
+        "path": "Encounter.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "RS000003"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.extension:ltExtClosedBySystem",
+        "path": "Encounter.extension",
+        "sliceName": "ltExtClosedBySystem"
+      },
+      {
+        "id": "Encounter.extension:ltExtClosedBySystem.value[x]",
+        "path": "Encounter.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "Encounter.extension:ltExtPatientAgreementDocument",
+        "path": "Encounter.extension",
+        "sliceName": "ltExtPatientAgreementDocument",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.modifierExtension",
+        "path": "Encounter.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.identifier.id",
+        "path": "Encounter.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.identifier.extension",
+        "path": "Encounter.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.identifier.use",
+        "path": "Encounter.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.identifier.type",
+        "path": "Encounter.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.identifier.period",
+        "path": "Encounter.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.identifier.assigner",
+        "path": "Encounter.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.status",
+        "path": "Encounter.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "in-progress"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                  "code": "IMP",
+                  "display": "inpatient encounter"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.class.id",
+        "path": "Encounter.class.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.class.extension",
+        "path": "Encounter.class.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.class.coding.id",
+        "path": "Encounter.class.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.class.coding.extension",
+        "path": "Encounter.class.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.class.coding.version",
+        "path": "Encounter.class.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.class.coding.userSelected",
+        "path": "Encounter.class.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.priority",
+        "path": "Encounter.priority",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.type",
+        "path": "Encounter.type",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Encounter/Type",
+                  "code": "by_order"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.type.id",
+        "path": "Encounter.type.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.type.extension",
+        "path": "Encounter.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.type.coding.id",
+        "path": "Encounter.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.type.coding.extension",
+        "path": "Encounter.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.type.coding.version",
+        "path": "Encounter.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.type.coding.userSelected",
+        "path": "Encounter.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType",
+        "path": "Encounter.serviceType",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/Encounter/ServiceType",
+                    "code": "other",
+                    "display": "Kita"
+                  }
+                ],
+                "text": "Kito hospitalizavimo tipo įvardinimas"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.serviceType.id",
+        "path": "Encounter.serviceType.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.extension",
+        "path": "Encounter.serviceType.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.concept.id",
+        "path": "Encounter.serviceType.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.concept.extension",
+        "path": "Encounter.serviceType.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding.id",
+        "path": "Encounter.serviceType.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding.extension",
+        "path": "Encounter.serviceType.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding.version",
+        "path": "Encounter.serviceType.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding.userSelected",
+        "path": "Encounter.serviceType.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceType.reference",
+        "path": "Encounter.serviceType.reference",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.subject",
+        "path": "Encounter.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.subject.id",
+        "path": "Encounter.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.subject.extension",
+        "path": "Encounter.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.subject.type",
+        "path": "Encounter.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.subject.identifier",
+        "path": "Encounter.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.subject.display",
+        "path": "Encounter.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.subjectStatus",
+        "path": "Encounter.subjectStatus",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.episodeOfCare",
+        "path": "Encounter.episodeOfCare",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "EpisodeOfCare/123"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.episodeOfCare.id",
+        "path": "Encounter.episodeOfCare.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.episodeOfCare.extension",
+        "path": "Encounter.episodeOfCare.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.episodeOfCare.type",
+        "path": "Encounter.episodeOfCare.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.episodeOfCare.identifier",
+        "path": "Encounter.episodeOfCare.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.episodeOfCare.display",
+        "path": "Encounter.episodeOfCare.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.basedOn",
+        "path": "Encounter.basedOn",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "ServiceRequest/0000789501"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.basedOn.id",
+        "path": "Encounter.basedOn.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.basedOn.extension",
+        "path": "Encounter.basedOn.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.basedOn.type",
+        "path": "Encounter.basedOn.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.basedOn.identifier",
+        "path": "Encounter.basedOn.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.basedOn.display",
+        "path": "Encounter.basedOn.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.careTeam",
+        "path": "Encounter.careTeam",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.partOf",
+        "path": "Encounter.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceProvider",
+        "path": "Encounter.serviceProvider",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/1000015882"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.serviceProvider.id",
+        "path": "Encounter.serviceProvider.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceProvider.extension",
+        "path": "Encounter.serviceProvider.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceProvider.type",
+        "path": "Encounter.serviceProvider.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceProvider.identifier",
+        "path": "Encounter.serviceProvider.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.serviceProvider.display",
+        "path": "Encounter.serviceProvider.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant.extension",
+        "path": "Encounter.participant.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant.modifierExtension",
+        "path": "Encounter.participant.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant",
+        "path": "Encounter.participant",
+        "sliceName": "admitterParticipant"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.id",
+        "path": "Encounter.participant.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.extension",
+        "path": "Encounter.participant.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.modifierExtension",
+        "path": "Encounter.participant.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type",
+        "path": "Encounter.participant.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code": "ADM"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.id",
+        "path": "Encounter.participant.type.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.extension",
+        "path": "Encounter.participant.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding.id",
+        "path": "Encounter.participant.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding.extension",
+        "path": "Encounter.participant.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding.version",
+        "path": "Encounter.participant.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding.userSelected",
+        "path": "Encounter.participant.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.period",
+        "path": "Encounter.participant.period",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor",
+        "path": "Encounter.participant.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000017313"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor.id",
+        "path": "Encounter.participant.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor.extension",
+        "path": "Encounter.participant.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor.type",
+        "path": "Encounter.participant.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor.identifier",
+        "path": "Encounter.participant.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor.display",
+        "path": "Encounter.participant.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant",
+        "path": "Encounter.participant",
+        "sliceName": "attenderParticipant",
+        "min": 1
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.id",
+        "path": "Encounter.participant.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.extension",
+        "path": "Encounter.participant.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.modifierExtension",
+        "path": "Encounter.participant.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type",
+        "path": "Encounter.participant.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code": "ATND"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.id",
+        "path": "Encounter.participant.type.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.extension",
+        "path": "Encounter.participant.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding.id",
+        "path": "Encounter.participant.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding.extension",
+        "path": "Encounter.participant.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding.version",
+        "path": "Encounter.participant.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding.userSelected",
+        "path": "Encounter.participant.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.text",
+        "path": "Encounter.participant.type.text",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.period",
+        "path": "Encounter.participant.period",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor",
+        "path": "Encounter.participant.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000015885"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor.id",
+        "path": "Encounter.participant.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor.extension",
+        "path": "Encounter.participant.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor.type",
+        "path": "Encounter.participant.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor.identifier",
+        "path": "Encounter.participant.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor.display",
+        "path": "Encounter.participant.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.appointment",
+        "path": "Encounter.appointment",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.virtualService",
+        "path": "Encounter.virtualService",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.actualPeriod",
+        "path": "Encounter.actualPeriod",
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2024-10-30T07:12:40.031+00:00",
+              "end": "2024-10-31T07:12:40.031+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.actualPeriod.id",
+        "path": "Encounter.actualPeriod.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.actualPeriod.extension",
+        "path": "Encounter.actualPeriod.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.plannedStartDate",
+        "path": "Encounter.plannedStartDate",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.plannedEndDate",
+        "path": "Encounter.plannedEndDate",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.length",
+        "path": "Encounter.length",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.reason",
+        "path": "Encounter.reason",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.id",
+        "path": "Encounter.diagnosis.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.extension",
+        "path": "Encounter.diagnosis.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.modifierExtension",
+        "path": "Encounter.diagnosis.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition",
+        "path": "Encounter.diagnosis.condition",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "reference": {
+                "reference": "Condition/1112230200"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.diagnosis.condition.id",
+        "path": "Encounter.diagnosis.condition.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition.extension",
+        "path": "Encounter.diagnosis.condition.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition.concept",
+        "path": "Encounter.diagnosis.condition.concept",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition.reference.id",
+        "path": "Encounter.diagnosis.condition.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition.reference.extension",
+        "path": "Encounter.diagnosis.condition.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition.reference.type",
+        "path": "Encounter.diagnosis.condition.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition.reference.identifier",
+        "path": "Encounter.diagnosis.condition.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.condition.reference.display",
+        "path": "Encounter.diagnosis.condition.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.diagnosis.use",
+        "path": "Encounter.diagnosis.use",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.account",
+        "path": "Encounter.account",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.dietPreference",
+        "path": "Encounter.dietPreference",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.specialArrangement",
+        "path": "Encounter.specialArrangement",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.specialCourtesy",
+        "path": "Encounter.specialCourtesy",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.id",
+        "path": "Encounter.admission.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis",
+        "path": "Encounter.admission.extension",
+        "sliceName": "ltExtAdmissionDischargeDiagnosis"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.id",
+        "path": "Encounter.admission.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.value[x]",
+        "path": "Encounter.admission.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11535-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004065"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.value[x].id",
+        "path": "Encounter.admission.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.value[x].extension",
+        "path": "Encounter.admission.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.value[x].reference",
+        "path": "Encounter.admission.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.value[x].type",
+        "path": "Encounter.admission.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.value[x].identifier",
+        "path": "Encounter.admission.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis.value[x].display",
+        "path": "Encounter.admission.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDepartmentCode",
+        "path": "Encounter.admission.extension",
+        "sliceName": "ltExtAdmissionDepartmentCode"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDepartmentCode.id",
+        "path": "Encounter.admission.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDepartmentCode.value[x]",
+        "path": "Encounter.admission.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "some_department_code"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionLocationBedDays",
+        "path": "Encounter.admission.extension",
+        "sliceName": "ltExtAdmissionLocationBedDays"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionLocationBedDays.id",
+        "path": "Encounter.admission.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionLocationBedDays.value[x]",
+        "path": "Encounter.admission.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "id": "Encounter.admission.modifierExtension",
+        "path": "Encounter.admission.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.preAdmissionIdentifier",
+        "path": "Encounter.admission.preAdmissionIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.origin",
+        "path": "Encounter.admission.origin",
+        "definition": "Informacija apie GMP įstaigą (GMP įstaigos pavadinimas ir GMP įstaigos SVEIDRA ID).",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/1000015891"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.admission.origin.id",
+        "path": "Encounter.admission.origin.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.origin.extension",
+        "path": "Encounter.admission.origin.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.origin.type",
+        "path": "Encounter.admission.origin.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.origin.identifier",
+        "path": "Encounter.admission.origin.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.origin.display",
+        "path": "Encounter.admission.origin.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.admitSource",
+        "path": "Encounter.admission.admitSource",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.reAdmission",
+        "path": "Encounter.admission.reAdmission",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.destination",
+        "path": "Encounter.admission.destination",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/2000017505"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.admission.destination.id",
+        "path": "Encounter.admission.destination.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.destination.extension",
+        "path": "Encounter.admission.destination.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.destination.type",
+        "path": "Encounter.admission.destination.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.destination.identifier",
+        "path": "Encounter.admission.destination.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.destination.display",
+        "path": "Encounter.admission.destination.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition",
+        "path": "Encounter.admission.dischargeDisposition",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/f025alk-discharge-type",
+                  "code": "1",
+                  "display": "Perkėlimas į kitą ligoninę dėl aktyviojo stacionarinio gydymo"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.id",
+        "path": "Encounter.admission.dischargeDisposition.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.extension",
+        "path": "Encounter.admission.dischargeDisposition.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding.id",
+        "path": "Encounter.admission.dischargeDisposition.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding.extension",
+        "path": "Encounter.admission.dischargeDisposition.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding.version",
+        "path": "Encounter.admission.dischargeDisposition.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding.userSelected",
+        "path": "Encounter.admission.dischargeDisposition.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.text",
+        "path": "Encounter.admission.dischargeDisposition.text",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.id",
+        "path": "Encounter.location.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.extension:ltExtAdmissionLocationBedDays",
+        "path": "Encounter.location.extension",
+        "sliceName": "ltExtAdmissionLocationBedDays"
+      },
+      {
+        "id": "Encounter.location.extension:ltExtAdmissionLocationBedDays.id",
+        "path": "Encounter.location.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.extension:ltExtAdmissionLocationBedDays.value[x]",
+        "path": "Encounter.location.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "id": "Encounter.location.modifierExtension",
+        "path": "Encounter.location.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.location",
+        "path": "Encounter.location.location",
+        "example": [
+          {
+            "label": "Example",
+            "valueReference": {
+              "reference": "Location/114850"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.location.location.id",
+        "path": "Encounter.location.location.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.location.extension",
+        "path": "Encounter.location.location.extension",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.location.type",
+        "path": "Encounter.location.location.type",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.location.identifier",
+        "path": "Encounter.location.location.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.location.display",
+        "path": "Encounter.location.location.display",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.status",
+        "path": "Encounter.location.status",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.form",
+        "path": "Encounter.location.form",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.period",
+        "path": "Encounter.location.period",
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2024-10-30T07:12:40.031+00:00",
+              "end": "2024-10-31T07:12:40.031+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Encounter.location.period.id",
+        "path": "Encounter.location.period.id",
+        "max": "0"
+      },
+      {
+        "id": "Encounter.location.period.extension",
+        "path": "Encounter.location.period.extension",
+        "max": "0"
+      }
+    ]
+  }
+}

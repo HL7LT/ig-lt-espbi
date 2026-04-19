@@ -1,0 +1,226 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-status-change-information",
+  "name": "LtEspbiExtStatusChangeInformation",
+  "status": "draft",
+  "description": "MPP ar medicinos prietaisų išdavimo būsenos keitimo informacija /  MPP or medical device issuance status change information",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceDispense"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "MPP ar medicinos prietaisų išdavimo būsenos keitimo informacija /  MPP or medical device issuance status change information",
+        "definition": "MPP ar medicinos prietaisų išdavimo būsenos keitimo informacija",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:statusWho",
+        "path": "Extension.extension",
+        "sliceName": "statusWho",
+        "short": "Būseną pakeitęs asmuo",
+        "definition": "Būseną pakeitęs asmuo",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusWho.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWho.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusWho"
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWhen",
+        "path": "Extension.extension",
+        "sliceName": "statusWhen",
+        "short": "Būsenos keitimo data ir laikas",
+        "definition": "Būsenos keitimo data ir laikas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusWhen.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWhen.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusWhen"
+      },
+      {
+        "id": "Extension.extension:statusWhen.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy",
+        "path": "Extension.extension",
+        "sliceName": "statusConfirmedBy",
+        "short": "Išdavimą patvirtinęs asmuo",
+        "definition": "Išdavimą patvirtinęs asmuo",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusConfirmedBy"
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusConfirmedBy.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusConfirmationDate",
+        "path": "Extension.extension",
+        "sliceName": "statusConfirmationDate",
+        "short": "Išdavimo patvirtinimo data ir laikas",
+        "definition": "Išdavimo patvirtinimo data ir laikas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusConfirmationDate.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusConfirmationDate.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusConfirmationDate"
+      },
+      {
+        "id": "Extension.extension:statusConfirmationDate.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-status-change-information"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

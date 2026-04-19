@@ -1,0 +1,441 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-20564-1-right-leg",
+  "name": "LtEspbiObservation20564_1_right_leg",
+  "status": "draft",
+  "description": "ĮKŠY SpO2(%) Rezultatas (dešine koja) / SpO2(%) right leg",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.implicitRules",
+        "path": "Observation.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Observation.language",
+        "path": "Observation.language",
+        "max": "0"
+      },
+      {
+        "id": "Observation.text",
+        "path": "Observation.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.contained",
+        "path": "Observation.contained",
+        "max": "0"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.modifierExtension",
+        "path": "Observation.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.instantiates[x]",
+        "path": "Observation.instantiates[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.basedOn",
+        "path": "Observation.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "Observation.triggeredBy",
+        "path": "Observation.triggeredBy",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "final"
+          }
+        ]
+      },
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "20564-1",
+                  "display": "Oxygen saturation in Blood"
+                }
+              ],
+              "text": "SpO2(%)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.id",
+        "path": "Observation.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code.extension",
+        "path": "Observation.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code.coding.id",
+        "path": "Observation.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code.coding.extension",
+        "path": "Observation.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.version",
+        "path": "Observation.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "20564-1"
+      },
+      {
+        "id": "Observation.code.coding.userSelected",
+        "path": "Observation.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/32856257683256"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.subject.id",
+        "path": "Observation.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.subject.extension",
+        "path": "Observation.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.subject.type",
+        "path": "Observation.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Observation.subject.identifier",
+        "path": "Observation.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.subject.display",
+        "path": "Observation.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "Observation.focus",
+        "path": "Observation.focus",
+        "max": "0"
+      },
+      {
+        "id": "Observation.encounter",
+        "path": "Observation.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "definition": "Nuoroda į Naujagimio tikrinimą atlikusi gydytoją kataloge D2. Sveikatinimo specialistų katalogas.\r\nPateikiant medicininį dokumentą taikomi duomenų tikrinimo reikalavimai:\r\n• DTT.6. Įrašas egzistuoja ESPBI IS.",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.performer.id",
+        "path": "Observation.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer.extension",
+        "path": "Observation.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer.type",
+        "path": "Observation.performer.type",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer.identifier",
+        "path": "Observation.performer.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer.display",
+        "path": "Observation.performer.display",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Rezultatas / Actual result",
+        "definition": "Pasirinkimas iš šių reikšmių pagal klasifikatorių D.4.117.127. ĮKŠY SpO2(%) tyrimo rezultatai:\r\n<90 %\r\n90-94 % arba skirtumas >3%\r\n≥ 95 % ir skirtumas ≤ 3%",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].id",
+        "path": "Observation.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding",
+        "path": "Observation.value[x].coding",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/NGN/Spo2Range",
+              "code": "1",
+              "display": "<90 %"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].coding.id",
+        "path": "Observation.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.extension",
+        "path": "Observation.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.system",
+        "path": "Observation.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/NGN/Spo2Range"
+      },
+      {
+        "id": "Observation.value[x].coding.version",
+        "path": "Observation.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.code",
+        "path": "Observation.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.display",
+        "path": "Observation.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.userSelected",
+        "path": "Observation.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].text",
+        "path": "Observation.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.dataAbsentReason",
+        "path": "Observation.dataAbsentReason",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodySite",
+        "path": "Observation.bodySite",
+        "short": "Tyrimo vieta / Observed body part",
+        "min": 1
+      },
+      {
+        "id": "Observation.bodySite.id",
+        "path": "Observation.bodySite.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodySite.extension",
+        "path": "Observation.bodySite.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodySite.coding",
+        "path": "Observation.bodySite.coding",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://snomed.info/sct",
+              "code": "32696007",
+              "display": "Dešinė koja"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.bodySite.coding.id",
+        "path": "Observation.bodySite.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodySite.coding.extension",
+        "path": "Observation.bodySite.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodySite.coding.system",
+        "path": "Observation.bodySite.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.bodySite.coding.version",
+        "path": "Observation.bodySite.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodySite.coding.code",
+        "path": "Observation.bodySite.coding.code",
+        "min": 1,
+        "fixedCode": "32696007"
+      },
+      {
+        "id": "Observation.bodySite.coding.userSelected",
+        "path": "Observation.bodySite.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodyStructure",
+        "path": "Observation.bodyStructure",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.specimen",
+        "path": "Observation.specimen",
+        "max": "0"
+      },
+      {
+        "id": "Observation.device",
+        "path": "Observation.device",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.derivedFrom",
+        "path": "Observation.derivedFrom",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

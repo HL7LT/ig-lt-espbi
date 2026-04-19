@@ -1,0 +1,125 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-184822001",
+  "name": "LtEspbiDiagnosticReport184822001",
+  "status": "draft",
+  "description": "Medicininiai duomenys / Clinical Data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.extension",
+        "path": "DiagnosticReport.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier",
+        "path": "DiagnosticReport.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn",
+        "path": "DiagnosticReport.basedOn",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "ServiceRequest/0000789501"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "184822001"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.code.coding.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.code",
+        "path": "DiagnosticReport.code.coding.code",
+        "fixedCode": "184822001"
+      },
+      {
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "short": "Galutinės išvados pateikimo data / Date of submission of the final conclusion",
+        "definition": "Galutinės išvados pateikimo data (E049).\r\n\r\nRealizuota kaip:\r\n- Galutinė išvada : DiagnosticReport.issued"
+      },
+      {
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.note",
+        "path": "DiagnosticReport.note",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study",
+        "path": "DiagnosticReport.study",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media",
+        "path": "DiagnosticReport.media",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusion",
+        "path": "DiagnosticReport.conclusion",
+        "short": "Galutinė išvada / Final conclusion",
+        "definition": "Galutinė išvada (E049).\r\n\r\nRealizuota kaip:\r\n- Galutinė išvada : DiagnosticReport.conclusion",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueMarkdown": "Conclusion remarks."
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode",
+        "path": "DiagnosticReport.conclusionCode",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm",
+        "path": "DiagnosticReport.presentedForm",
+        "max": "0"
+      }
+    ]
+  }
+}

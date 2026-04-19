@@ -1,0 +1,641 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-e063",
+  "name": "LtEspbiImmunizationE063",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Immunization",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Immunization.implicitRules",
+        "path": "Immunization.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.language",
+        "path": "Immunization.language",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.text",
+        "path": "Immunization.text",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.contained",
+        "path": "Immunization.contained",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.extension",
+        "path": "Immunization.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.modifierExtension",
+        "path": "Immunization.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.identifier",
+        "path": "Immunization.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.basedOn.id",
+        "path": "Immunization.basedOn.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.basedOn.extension",
+        "path": "Immunization.basedOn.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.basedOn.type",
+        "path": "Immunization.basedOn.type",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.basedOn.identifier",
+        "path": "Immunization.basedOn.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.basedOn.display",
+        "path": "Immunization.basedOn.display",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.status",
+        "path": "Immunization.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "Immunization.statusReason",
+        "path": "Immunization.statusReason",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode",
+        "path": "Immunization.vaccineCode",
+        "example": [
+          {
+            "label": "example, when NPAKID-7 ",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Identifier/NPAKID-7\"",
+                  "code": "1020497"
+                }
+              ]
+            }
+          },
+          {
+            "label": "example, when NPAKID",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Identifier/NPAKID",
+                  "code": "20497"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Immunization.vaccineCode.id",
+        "path": "Immunization.vaccineCode.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.extension",
+        "path": "Immunization.vaccineCode.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding.extension",
+        "path": "Immunization.vaccineCode.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7",
+        "path": "Immunization.vaccineCode.coding",
+        "sliceName": "NPAKID-7"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7.id",
+        "path": "Immunization.vaccineCode.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7.extension",
+        "path": "Immunization.vaccineCode.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7.version",
+        "path": "Immunization.vaccineCode.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7.display",
+        "path": "Immunization.vaccineCode.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID-7.userSelected",
+        "path": "Immunization.vaccineCode.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID",
+        "path": "Immunization.vaccineCode.coding",
+        "sliceName": "NPAKID"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.id",
+        "path": "Immunization.vaccineCode.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.extension",
+        "path": "Immunization.vaccineCode.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.version",
+        "path": "Immunization.vaccineCode.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.display",
+        "path": "Immunization.vaccineCode.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:NPAKID.userSelected",
+        "path": "Immunization.vaccineCode.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct",
+        "path": "Immunization.administeredProduct",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-e063"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Immunization.administeredProduct.id",
+        "path": "Immunization.administeredProduct.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct.extension",
+        "path": "Immunization.administeredProduct.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct.concept",
+        "path": "Immunization.administeredProduct.concept",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct.reference.id",
+        "path": "Immunization.administeredProduct.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct.reference.extension",
+        "path": "Immunization.administeredProduct.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct.reference.type",
+        "path": "Immunization.administeredProduct.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct.reference.identifier",
+        "path": "Immunization.administeredProduct.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.administeredProduct.reference.display",
+        "path": "Immunization.administeredProduct.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.manufacturer",
+        "path": "Immunization.manufacturer",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.lotNumber",
+        "path": "Immunization.lotNumber",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2222222222"
+          }
+        ]
+      },
+      {
+        "id": "Immunization.expirationDate",
+        "path": "Immunization.expirationDate",
+        "example": [
+          {
+            "label": "example",
+            "valueDate": "2025-10-15"
+          }
+        ]
+      },
+      {
+        "id": "Immunization.patient",
+        "path": "Immunization.patient",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/32856257683256"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Immunization.patient.id",
+        "path": "Immunization.patient.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.patient.extension",
+        "path": "Immunization.patient.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.patient.type",
+        "path": "Immunization.patient.type",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.patient.identifier",
+        "path": "Immunization.patient.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.patient.display",
+        "path": "Immunization.patient.display",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.encounter",
+        "path": "Immunization.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.supportingInformation",
+        "path": "Immunization.supportingInformation",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.occurrence[x]",
+        "path": "Immunization.occurrence[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-25T07:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Immunization.primarySource",
+        "path": "Immunization.primarySource",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.informationSource",
+        "path": "Immunization.informationSource",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.location",
+        "path": "Immunization.location",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.site",
+        "path": "Immunization.site",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.route",
+        "path": "Immunization.route",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Immunization/Route",
+                  "code": "3",
+                  "display": "Į odą"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Immunization.route.id",
+        "path": "Immunization.route.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.route.extension",
+        "path": "Immunization.route.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.route.coding.id",
+        "path": "Immunization.route.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.route.coding.extension",
+        "path": "Immunization.route.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.route.coding.version",
+        "path": "Immunization.route.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.route.coding.userSelected",
+        "path": "Immunization.route.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.doseQuantity",
+        "path": "Immunization.doseQuantity",
+        "min": 1
+      },
+      {
+        "id": "Immunization.doseQuantity.id",
+        "path": "Immunization.doseQuantity.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.doseQuantity.extension",
+        "path": "Immunization.doseQuantity.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.id",
+        "path": "Immunization.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.extension",
+        "path": "Immunization.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.modifierExtension",
+        "path": "Immunization.performer.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.function",
+        "path": "Immunization.performer.function",
+        "short": "Nurodoma sveikatos priežiūros specialisto funkcija / Describes the type of performance ",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/immunization-function",
+                  "code": "AP"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Immunization.performer.function.id",
+        "path": "Immunization.performer.function.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.function.extension",
+        "path": "Immunization.performer.function.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.function.coding.id",
+        "path": "Immunization.performer.function.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.function.coding.extension",
+        "path": "Immunization.performer.function.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.function.coding.version",
+        "path": "Immunization.performer.function.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.function.coding.userSelected",
+        "path": "Immunization.performer.function.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.actor",
+        "path": "Immunization.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/321654"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Immunization.performer.actor.id",
+        "path": "Immunization.performer.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.actor.extension",
+        "path": "Immunization.performer.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.actor.type",
+        "path": "Immunization.performer.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.actor.identifier",
+        "path": "Immunization.performer.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.performer.actor.display",
+        "path": "Immunization.performer.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.note",
+        "path": "Immunization.note",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.reason",
+        "path": "Immunization.reason",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.isSubpotent",
+        "path": "Immunization.isSubpotent",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.subpotentReason",
+        "path": "Immunization.subpotentReason",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.programEligibility",
+        "path": "Immunization.programEligibility",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.fundingSource",
+        "path": "Immunization.fundingSource",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.reaction",
+        "path": "Immunization.reaction",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.id",
+        "path": "Immunization.protocolApplied.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.extension",
+        "path": "Immunization.protocolApplied.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.modifierExtension",
+        "path": "Immunization.protocolApplied.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.series",
+        "path": "Immunization.protocolApplied.series",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Serie description as text"
+          }
+        ]
+      },
+      {
+        "id": "Immunization.protocolApplied.authority",
+        "path": "Immunization.protocolApplied.authority",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease",
+        "path": "Immunization.protocolApplied.targetDisease",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/infectious-disease",
+                  "code": "A36",
+                  "display": "Difterija"
+                }
+              ],
+              "text": "Difterija"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.id",
+        "path": "Immunization.protocolApplied.targetDisease.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.extension",
+        "path": "Immunization.protocolApplied.targetDisease.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding.id",
+        "path": "Immunization.protocolApplied.targetDisease.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding.extension",
+        "path": "Immunization.protocolApplied.targetDisease.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding.version",
+        "path": "Immunization.protocolApplied.targetDisease.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease.coding.userSelected",
+        "path": "Immunization.protocolApplied.targetDisease.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Immunization.protocolApplied.doseNumber",
+        "path": "Immunization.protocolApplied.doseNumber",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1"
+          }
+        ]
+      },
+      {
+        "id": "Immunization.protocolApplied.seriesDoses",
+        "path": "Immunization.protocolApplied.seriesDoses",
+        "max": "0"
+      }
+    ]
+  }
+}

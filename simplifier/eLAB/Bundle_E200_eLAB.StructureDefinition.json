@@ -1,0 +1,165 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-bundle-e200",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-bundle-e200",
+  "version": "0.3.28",
+  "name": "ElabBundleE200",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "E200/a resursų rinkiniui skirtas profilis / E200/a resource bundle",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Bundle",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Bundle",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Bundle",
+        "path": "Bundle",
+        "constraint": [
+          {
+            "key": "e200-bundle-9",
+            "severity": "error",
+            "human": "Can't find DiagnosticReport results in bundle.",
+            "expression": "Bundle.type = 'transaction' or Bundle.entry.resource.ofType(DiagnosticReport).select(result.resolve().count() = result.count()).allTrue()"
+          },
+          {
+            "key": "e200-bundle-provenance-missing",
+            "severity": "error",
+            "human": "Transaction must include a single Provenance.",
+            "expression": "Bundle.type != 'transaction' or Bundle.entry.resource.where($this is Provenance).count() = 1"
+          },
+          {
+            "key": "e200-bundle-provenance-external-refs",
+            "severity": "error",
+            "human": "Provenance cannot reference resources outside this transaction.",
+            "expression": "Bundle.type != 'transaction' or Bundle.entry.resource.where($this is Provenance).target.all($this.resolve())"
+          },
+          {
+            "key": "e200-bundle-provenance-missing-refs",
+            "severity": "error",
+            "human": "Provenance must reference all transaction resources.",
+            "expression": "Bundle.type != 'transaction' or Bundle.entry.resource.where($this is Provenance).target.where($this.resolve()).count() = Bundle.entry.resource.where(($this is List).not()).count() + Bundle.entry.request.where(method = 'DELETE').count() - 1 "
+          }
+        ]
+      },
+      {
+        "id": "Bundle.type",
+        "path": "Bundle.type",
+        "constraint": [
+          {
+            "key": "e200-bundle-1",
+            "severity": "error",
+            "human": "Bundle must be a document or a transaction.",
+            "expression": "$this in ('document' | 'transaction')"
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry.resource",
+        "path": "Bundle.entry.resource",
+        "constraint": [
+          {
+            "key": "e200-bundle-2",
+            "severity": "error",
+            "human": "ServiceRequest must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-serviceRequest' profile.",
+            "expression": "$this is ServiceRequest implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-serviceRequest')"
+          },
+          {
+            "key": "e200-bundle-3",
+            "severity": "error",
+            "human": "Specimen must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-specimen' profile.",
+            "expression": "$this is Specimen implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-specimen')"
+          },
+          {
+            "key": "e200-bundle-4",
+            "severity": "error",
+            "human": "DiagnosticReport must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-diagnosticReport' profile.",
+            "expression": "$this is DiagnosticReport implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-diagnosticReport')"
+          },
+          {
+            "key": "e200-bundle-5",
+            "severity": "error",
+            "human": "Observation must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-observation' or 'http://esveikata.lt/fhir/StructureDefinition/elab-observation-panel' profile.",
+            "expression": "$this is Observation implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-observation' or $this = 'http://esveikata.lt/fhir/StructureDefinition/elab-observation-panel')"
+          },
+          {
+            "key": "e200-bundle-6",
+            "severity": "error",
+            "human": "Practitioner must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-practitioner' profile.",
+            "expression": "$this is Practitioner implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-practitioner')"
+          },
+          {
+            "key": "e200-bundle-7",
+            "severity": "error",
+            "human": "Organization must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-organization' profile.",
+            "expression": "$this is Organization implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-organization')"
+          },
+          {
+            "key": "e200-bundle-8",
+            "severity": "error",
+            "human": "Composition must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-composition-e200' profile.",
+            "expression": "$this is Composition implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-composition-e200')"
+          },
+          {
+            "key": "e200-invalid-provenance-profile",
+            "severity": "error",
+            "human": "Provenance must conform to the 'http://esveikata.lt/fhir/StructureDefinition/elab-provenance' profile.",
+            "expression": "$this is Provenance implies $this.meta.profile.exists($this = 'http://esveikata.lt/fhir/StructureDefinition/elab-provenance')"
+          }
+        ]
+      }
+    ]
+  }
+}

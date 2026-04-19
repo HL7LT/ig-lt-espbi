@@ -1,0 +1,329 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-ext-healthcareService-labTestExtradata",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-bind"
+    }
+  ],
+  "url": "http://termx.snomed.lt/fhir/StructureDefinition/elab-ext-healthcareService-labTestExtradata",
+  "version": "0.3.28",
+  "name": "ElabHealthcareServiceLabTestExtradata",
+  "status": "active",
+  "date": "2023-06-16",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Papildomi duomenys apie tyrimus iš MNKV IS.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "HealthcareService"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Papildomi duomenys apie tyrimus iš MNKV IS.",
+        "definition": "Papildomi duomenys apie tyrimus iš MNKV IS."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 4
+      },
+      {
+        "id": "Extension.extension:startDate",
+        "path": "Extension.extension",
+        "sliceName": "startDate",
+        "short": "Tyrimo galiojimo pradžios data",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:startDate.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:startDate.url",
+        "path": "Extension.extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "startDate"
+      },
+      {
+        "id": "Extension.extension:startDate.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:endDate",
+        "path": "Extension.extension",
+        "sliceName": "endDate",
+        "short": "Tyrimo galiojimo pabaigos data",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:endDate.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:endDate.url",
+        "path": "Extension.extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "endDate"
+      },
+      {
+        "id": "Extension.extension:endDate.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:specimenCollectionOnly",
+        "path": "Extension.extension",
+        "sliceName": "specimenCollectionOnly",
+        "short": "Požymis, kad padalinyje tik paimamas tyrimo ėminys",
+        "definition": "Požymis, kad padalinyje tik paimamas tyrimo ėminys. Šio požymio neturi konsoliduoti juridinio asmens atliekamų tyrimų sąrašai, nes tas pats juridinis asmuo (įstaiga) vienuose padaliniuose gali tik imti ėminį, o kituose padaliniuose – ir atlikti tyrimą vietoje.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:specimenCollectionOnly.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:specimenCollectionOnly.url",
+        "path": "Extension.extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "specimenCollectionOnly"
+      },
+      {
+        "id": "Extension.extension:specimenCollectionOnly.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:performedByOrganization",
+        "path": "Extension.extension",
+        "sliceName": "performedByOrganization",
+        "short": "Požymis, kad tyrimą atlieka juridinis asmuo, kuriam priklauso padalinys",
+        "definition": "Požymis, kad tyrimą atlieka juridinis asmuo, kuriam priklauso padalinys. Šio požymio neturi konsoliduoti juridinio asmens atliekamų tyrimų sąrašai.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:performedByOrganization.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:performedByOrganization.url",
+        "path": "Extension.extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "performedByOrganization"
+      },
+      {
+        "id": "Extension.extension:performedByOrganization.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:performedBySubcontractor",
+        "path": "Extension.extension",
+        "sliceName": "performedBySubcontractor",
+        "short": "Požymis, kad tyrimą atlieka kiti juridiniai asmenys",
+        "definition": "Požymis, kad tyrimą atlieka kiti juridiniai asmenys, su kuriais sudaryta sutartis dėl tyrimų atlikimo. Tą patį tyrimą juridinis asmuo gali ir atlikti pats, ir atiduoti subrangovams.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:performedBySubcontractor.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:performedBySubcontractor.url",
+        "path": "Extension.extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "performedBySubcontractor"
+      },
+      {
+        "id": "Extension.extension:performedBySubcontractor.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:performedByForeignSubcontractor",
+        "path": "Extension.extension",
+        "sliceName": "performedByForeignSubcontractor",
+        "short": "Požymis, kad tyrimą atlieka užsienyje veikiantys juridiniai asmenys",
+        "definition": "Požymis, kad tyrimą atlieka užsienyje veikiantys juridiniai asmenys, su kuriais sudaryta sutartis dėl tyrimų atlikimo.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:performedByForeignSubcontractor.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:performedByForeignSubcontractor.url",
+        "path": "Extension.extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "performedByForeignSubcontractor"
+      },
+      {
+        "id": "Extension.extension:performedByForeignSubcontractor.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:subcontractor",
+        "path": "Extension.extension",
+        "sliceName": "subcontractor",
+        "short": "Nuoroda į kitas įstaigas",
+        "definition": "Nuoroda į kitas įstaigas (juridinius asmenis), kurios pagal sutartį su paslaugos tiekėju gali atlikti tyrimo analizę."
+      },
+      {
+        "id": "Extension.extension:subcontractor.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:subcontractor.url",
+        "path": "Extension.extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "subcontractor"
+      },
+      {
+        "id": "Extension.extension:subcontractor.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://termx.snomed.lt/fhir/StructureDefinition/elab-ext-healthcareService-labTestExtradata"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "boolean"
+          },
+          {
+            "code": "dateTime"
+          },
+          {
+            "code": "Reference"
+          }
+        ]
+      }
+    ]
+  }
+}

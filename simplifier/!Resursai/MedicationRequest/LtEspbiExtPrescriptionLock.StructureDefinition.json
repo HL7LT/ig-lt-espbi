@@ -1,0 +1,202 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-lock",
+  "name": "LtEspbiExtPrescriptionLock",
+  "status": "draft",
+  "description": "Resurso užrakinimas (uždraudžia koregavimą) / Locking a resource (prevents editing)",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceRequest.meta"
+    },
+    {
+      "type": "element",
+      "expression": "MedicationRequest.meta"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Resurso užrakinimas (uždraudžia koregavimą) / Locking a resource (prevents editing)",
+        "definition": "Resurso užrakinimas (uždraudžia koregavimą)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 3
+      },
+      {
+        "id": "Extension.extension:who",
+        "path": "Extension.extension",
+        "sliceName": "who",
+        "short": "Resursą užrakinęs asmuo",
+        "definition": "Resursą užrakinęs asmuo.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:who.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:who.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "who"
+      },
+      {
+        "id": "Extension.extension:who.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:who.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:who.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:who.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:who.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:who.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:who.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:when",
+        "path": "Extension.extension",
+        "sliceName": "when",
+        "short": "Užrakinimo data ir laikas",
+        "definition": "Užrakinimo data ir laikas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:when.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:when.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "when"
+      },
+      {
+        "id": "Extension.extension:when.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:department",
+        "path": "Extension.extension",
+        "sliceName": "department",
+        "short": "Receptą užrakinusi įstaiga (padalinys)",
+        "definition": "Receptą užrakinusi įstaiga (padalinys)",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:department.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:department.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "department"
+      },
+      {
+        "id": "Extension.extension:department.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:department.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:department.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:department.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:department.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:department.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:department.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-lock"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

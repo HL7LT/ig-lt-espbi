@@ -1,0 +1,216 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-73789-0-e097-gd",
+  "name": "LtEspbiObservation73789_0_E097_GD",
+  "status": "draft",
+  "description": "Bendra būklė / General condition of the newborn",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "73789-0",
+                  "display": "General physical condition [NSRAS]"
+                }
+              ],
+              "text": "Bendra būklė"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "73789-0"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Apžiūros data / Inspection date",
+        "definition": "Atlikimo data (E097-GD).\r\nData ir laikas\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T06:12:40.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-eff-2",
+            "severity": "error",
+            "human": "Effective date ant time must not be later than the current date.",
+            "expression": "effectiveDateTime <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.effective[x].extension",
+        "path": "Observation.effective[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Apžiūrą atliko / Inspection performed by",
+        "definition": "Apžiūrą atliko (E097-GD).\r\nNuoroda į Naujagimį apžiūrėjusį   gydytoją kataloge D2. Sveikatinimo specialistų katalogas.\r\n\r\nPateikiant medicininį dokumentą taikomi duomenų tikrinimo reikalavimai:\r\n- DTT.6. Įrašas egzistuoja ESPBI IS.",
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Bendra būklė / General condition of the newbor",
+        "definition": "Naudojamos D.4.117.108. Apžiūros rezultatas klasifikatoriaus reikšmės.\r\n- Klasifikatoriaus rinkinio kodas: ngn-inspect-results\r\n- Sistema: http://esveikata.lt/classifiers/NGN/InspectResults",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/NGN/InspectResults",
+                  "code": "1",
+                  "display": "Norma"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].id",
+        "path": "Observation.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding",
+        "path": "Observation.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x].coding.id",
+        "path": "Observation.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.extension",
+        "path": "Observation.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.system",
+        "path": "Observation.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/NGN/InspectResults"
+      },
+      {
+        "id": "Observation.value[x].coding.version",
+        "path": "Observation.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.code",
+        "path": "Observation.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.userSelected",
+        "path": "Observation.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Bendra būklė komentaras / General condition comment",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Bendra būklė komentaras"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

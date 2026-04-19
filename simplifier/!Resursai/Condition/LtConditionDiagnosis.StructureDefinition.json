@@ -1,0 +1,634 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-diagnosis",
+  "name": "LtEspbiConditionDiagnosis",
+  "status": "draft",
+  "description": "Diagnozė / Diagnosis",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.meta",
+        "path": "Condition.meta"
+      },
+      {
+        "id": "Condition.meta.id",
+        "path": "Condition.meta.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.meta.extension",
+        "path": "Condition.meta.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.meta.versionId",
+        "path": "Condition.meta.versionId",
+        "max": "0"
+      },
+      {
+        "id": "Condition.meta.source",
+        "path": "Condition.meta.source",
+        "max": "0"
+      },
+      {
+        "id": "Condition.meta.security",
+        "path": "Condition.meta.security",
+        "max": "0"
+      },
+      {
+        "id": "Condition.meta.tag",
+        "path": "Condition.meta.tag",
+        "max": "0"
+      },
+      {
+        "id": "Condition.implicitRules",
+        "path": "Condition.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Condition.language",
+        "path": "Condition.language",
+        "max": "0"
+      },
+      {
+        "id": "Condition.text",
+        "path": "Condition.text",
+        "max": "0"
+      },
+      {
+        "id": "Condition.contained",
+        "path": "Condition.contained",
+        "max": "0"
+      },
+      {
+        "id": "Condition.extension",
+        "path": "Condition.extension",
+        "min": 1
+      },
+      {
+        "id": "Condition.extension:conditionAssertedDate",
+        "path": "Condition.extension",
+        "sliceName": "conditionAssertedDate",
+        "min": 1
+      },
+      {
+        "id": "Condition.extension:conditionAssertedDate.id",
+        "path": "Condition.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.extension:conditionAssertedDate.value[x]",
+        "path": "Condition.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-04-02T06:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Condition.modifierExtension",
+        "path": "Condition.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.identifier",
+        "path": "Condition.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Condition.clinicalStatus",
+        "path": "Condition.clinicalStatus",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                  "code": "active",
+                  "display": "Active"
+                }
+              ],
+              "text": "Aktyvi"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.clinicalStatus.id",
+        "path": "Condition.clinicalStatus.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.clinicalStatus.extension",
+        "path": "Condition.clinicalStatus.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.clinicalStatus.coding.id",
+        "path": "Condition.clinicalStatus.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.clinicalStatus.coding.extension",
+        "path": "Condition.clinicalStatus.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.clinicalStatus.coding.version",
+        "path": "Condition.clinicalStatus.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Condition.clinicalStatus.coding.userSelected",
+        "path": "Condition.clinicalStatus.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Condition.verificationStatus",
+        "path": "Condition.verificationStatus",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                  "code": "confirmed",
+                  "display": "Confirmed"
+                }
+              ],
+              "text": "Patvirtinta"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.verificationStatus.id",
+        "path": "Condition.verificationStatus.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.verificationStatus.extension",
+        "path": "Condition.verificationStatus.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.verificationStatus.coding.id",
+        "path": "Condition.verificationStatus.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.verificationStatus.coding.extension",
+        "path": "Condition.verificationStatus.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.verificationStatus.coding.version",
+        "path": "Condition.verificationStatus.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Condition.verificationStatus.coding.userSelected",
+        "path": "Condition.verificationStatus.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "definition": "Nurodo kokiai kategorijai priklauso problema, pagal tai ji yra traukiama į paciento suvestinę arba netraukiama. Pasirenkama reikšmė iš \"Problemos kategorijos\" klasifikatoriaus.  Privalomas laukas naujom diagnozėm su meta lauku.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje problem-category. ",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Condition/Category",
+                  "code": "1",
+                  "display": "ESI kontekstas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.category.id",
+        "path": "Condition.category.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.category.extension",
+        "path": "Condition.category.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.category.coding.id",
+        "path": "Condition.category.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.category.coding.extension",
+        "path": "Condition.category.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.category.coding.system",
+        "path": "Condition.category.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/Condition/Category"
+      },
+      {
+        "id": "Condition.category.coding.version",
+        "path": "Condition.category.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Condition.category.coding.userSelected",
+        "path": "Condition.category.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Condition.category.text",
+        "path": "Condition.category.text",
+        "max": "0"
+      },
+      {
+        "id": "Condition.severity",
+        "path": "Condition.severity",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "255604002",
+                  "display": "Lengvas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.severity.id",
+        "path": "Condition.severity.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.severity.extension",
+        "path": "Condition.severity.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.severity.coding.id",
+        "path": "Condition.severity.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.severity.coding.extension",
+        "path": "Condition.severity.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.severity.coding.version",
+        "path": "Condition.severity.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Condition.severity.coding.userSelected",
+        "path": "Condition.severity.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "definition": "Diagnozės/retos ligos kodas ir pavadinimas.\r\nDiagnozės kodas TLK-10-AM ir diagnozės pavadinimas atitinka tą patį įrašą klasifikatoriuje.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.\r\nGalimos reikšmės nurodytos klasifikatoriuje rare-diseases.\r\n"
+      },
+      {
+        "id": "Condition.code.id",
+        "path": "Condition.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.extension",
+        "path": "Condition.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM",
+        "path": "Condition.code.coding",
+        "sliceName": "TLK-10-AM",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/TLK-10-AM",
+              "code": "T21.0",
+              "display": "Nepatikslinto odos storio liemens nudegimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.id",
+        "path": "Condition.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.extension",
+        "path": "Condition.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.version",
+        "path": "Condition.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.userSelected",
+        "path": "Condition.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:ORPHA",
+        "path": "Condition.code.coding",
+        "sliceName": "ORPHA",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "https://www.orpha.net",
+              "code": "84",
+              "display": "Fanconi anemia"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.id",
+        "path": "Condition.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.extension",
+        "path": "Condition.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.version",
+        "path": "Condition.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.userSelected",
+        "path": "Condition.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Condition.bodySite",
+        "path": "Condition.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/123456789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.subject.id",
+        "path": "Condition.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.subject.extension",
+        "path": "Condition.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.subject.type",
+        "path": "Condition.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Condition.subject.identifier",
+        "path": "Condition.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Condition.subject.display",
+        "path": "Condition.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "Condition.encounter",
+        "path": "Condition.encounter",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Encounter/1234"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.encounter.id",
+        "path": "Condition.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.encounter.extension",
+        "path": "Condition.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.encounter.type",
+        "path": "Condition.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "Condition.encounter.identifier",
+        "path": "Condition.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Condition.encounter.display",
+        "path": "Condition.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "Condition.onset[x]",
+        "path": "Condition.onset[x]",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2024-10-22T06:12:40.031+00:00",
+              "end": "2025-10-22T06:12:40.031+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.onset[x].id",
+        "path": "Condition.onset[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.onset[x].extension",
+        "path": "Condition.onset[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.onset[x].start",
+        "path": "Condition.onset[x].start",
+        "short": "Problemos pradžia / Start date of problem",
+        "definition": "Periodo pradžios data. Patenka į periodą imtinai.",
+        "min": 1
+      },
+      {
+        "id": "Condition.onset[x].end",
+        "path": "Condition.onset[x].end",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.abatement[x]",
+        "path": "Condition.abatement[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Condition.recordedDate",
+        "path": "Condition.recordedDate",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T06:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Condition.participant.id",
+        "path": "Condition.participant.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.extension",
+        "path": "Condition.participant.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.modifierExtension",
+        "path": "Condition.participant.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.function",
+        "path": "Condition.participant.function",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.actor",
+        "path": "Condition.participant.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.participant.actor.id",
+        "path": "Condition.participant.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.actor.extension",
+        "path": "Condition.participant.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.actor.type",
+        "path": "Condition.participant.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.actor.identifier",
+        "path": "Condition.participant.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Condition.participant.actor.display",
+        "path": "Condition.participant.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "Condition.stage",
+        "path": "Condition.stage",
+        "max": "0"
+      },
+      {
+        "id": "Condition.evidence",
+        "path": "Condition.evidence",
+        "max": "0"
+      },
+      {
+        "id": "Condition.note",
+        "path": "Condition.note",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Condition details or description"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.note.id",
+        "path": "Condition.note.id",
+        "max": "0"
+      },
+      {
+        "id": "Condition.note.extension",
+        "path": "Condition.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "Condition.note.author[x]",
+        "path": "Condition.note.author[x]",
+        "max": "0"
+      },
+      {
+        "id": "Condition.note.time",
+        "path": "Condition.note.time",
+        "max": "0"
+      }
+    ]
+  }
+}

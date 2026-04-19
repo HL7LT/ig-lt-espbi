@@ -1,0 +1,24 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-espbi-cs-prescription-form",
+  "url": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-prescription-form",
+  "version": "1.0.0",
+  "name": "LtEspbiCsPrecriptionForm",
+  "status": "active",
+  "date": "2026-01-16",
+  "description": "Recepto forma, nurodanti, ar receptas yra elektroninis, ar popierinis / Prescription form, indicating whether the prescription is electronic or paper",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "el",
+      "display": "Elektroninis receptas",
+      "definition": "Receptas, išrašytas ir tvarkomas elektroniniu būdu."
+    },
+    {
+      "code": "pp",
+      "display": "Popierinis receptas",
+      "definition": "Receptas, išrašytas popierine forma."
+    }
+  ]
+}

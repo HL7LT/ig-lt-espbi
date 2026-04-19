@@ -1,0 +1,332 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8716-3-e025",
+  "name": "LtEspbiObservation8716_3E025",
+  "status": "draft",
+  "description": "Būklės įvertinimas (objektyviai) / Objective condition",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "Būklės įvertinimas (objektyviai) / Objective condition"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8716-3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "8716-3"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "short": "Pacientas, kurio būklė vertinama / Patient who observation is being made"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Būklės įvertinimo data ir laikas / Objective condition date and time",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Specialistas, kuris atliko įvertinimą / Specialist who made observation",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:bloodPressure",
+        "path": "Observation.hasMember",
+        "sliceName": "bloodPressure",
+        "short": "Sistolinis ir diastolinis kraujospūdis / Blood pressure systolic and diastolic observations",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55284-4-e025"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021005010"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:pulseData",
+        "path": "Observation.hasMember",
+        "sliceName": "pulseData",
+        "short": "Pulso duomenys / Pulse data",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8886-4"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021005012"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:height",
+        "path": "Observation.hasMember",
+        "sliceName": "height",
+        "short": "Ūgio duomenys / Height data",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-3137-7-e025"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021005014"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:weight",
+        "path": "Observation.hasMember",
+        "sliceName": "weight",
+        "short": "Kūno svoris / Weight",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-3141-9-e025"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021005016"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:heightWeightPercentile",
+        "path": "Observation.hasMember",
+        "sliceName": "heightWeightPercentile",
+        "short": "Svorio ir ūgio procentilė / Weight and height percentile",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-77606-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:BMIPercentile",
+        "path": "Observation.hasMember",
+        "sliceName": "BMIPercentile",
+        "short": "Kūno masės indekso procentilė / Body mass index percentilethat includes the target as a member of the group",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-59575-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:headCircumference",
+        "path": "Observation.hasMember",
+        "sliceName": "headCircumference",
+        "short": "Galvos apimtis ir jos procentilė / Head circumference and its percentile",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-9843-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:breastFeeding",
+        "path": "Observation.hasMember",
+        "sliceName": "breastFeeding",
+        "short": "Maitinimas krūtimi / Breast feeding",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-63895-7"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:visualAcuity",
+        "path": "Observation.hasMember",
+        "sliceName": "visualAcuity",
+        "short": "Regėjimo aštrumas / Visual acuity",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-98497-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:otherObjectiveCondition",
+        "path": "Observation.hasMember",
+        "sliceName": "otherObjectiveCondition",
+        "short": "Kita būklės įvertinimo informacija / Other objective condition observations",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-12132-7"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/0210050118"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-adverse-event",
+  "name": "LtEspbiAdverseEvent",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "AdverseEvent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/AdverseEvent",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "AdverseEvent.id",
+        "path": "AdverseEvent.id",
+        "short": "Resurso identifikatorius / Logical id of this artifact",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.meta",
+        "path": "AdverseEvent.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.extension:ltExtMessageType",
+        "path": "AdverseEvent.extension",
+        "sliceName": "ltExtMessageType",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-adverseevent/messageType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.extension:ltExtMessageAbout",
+        "path": "AdverseEvent.extension",
+        "sliceName": "ltExtMessageAbout",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-adverseevent/messageAbout"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.extension:ltExtNotifiedSpecialist",
+        "path": "AdverseEvent.extension",
+        "sliceName": "ltExtNotifiedSpecialist",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-adverseevent/notifiedSpecialist"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.status",
+        "path": "AdverseEvent.status",
+        "short": "Šalutinės reakcijos būsena / The current state of the adverse event ",
+        "definition": "FHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-status. Galimos reikšmės: in-progress | completed | entered-in-error | unknown. ",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.actuality",
+        "path": "AdverseEvent.actuality",
+        "short": "Reakcijos nebuvimo indikatorius / Actuality indicator",
+        "definition": "Jeigu reikšmė true - reakcija nenustatyta. Reikšmė false nurodo, kad reakcija buvo užfiksuota. Laukas nenaudojamas, bet privalomas.\r\nReikšmė pagal nutylėjimą \"false\".\r\n\r\nFHIR R5 rekomenduojamas naudoti reikšmių sąrašas http://hl7.org/fhir/ValueSet/adverse-event-actuality. Galimos reikšmės: actual | potential. Reikšmių atitikmuo \"false\"=\"actual\".",
+        "fixedCode": "actual",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.category",
+        "path": "AdverseEvent.category",
+        "short": "ĮNR pasireiškimo priežastis / Suspected cause category of adverse reaction",
+        "definition": "ĮNR pasireiškimo priežastis rekomenduojama nurodyti struktūruotai, t. y. naudojantis duomenų elemento category CodableConcept duomenų tipu, kai būtų nurodoma ĮNR kategorija / priežastis.\r\n\r\nFHIR R5 rekomenduojama naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-category. Galimos reikšmės: wrong-patient | procedure-mishap | medication-mishap | device | unsafe-physical-environment | hospital-aquired-infection | wrong-body-site.",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.code",
+        "path": "AdverseEvent.code",
+        "short": "ĮNR aprašymas / Event or incident that occurred or was averted",
+        "definition": "Reakcijos kodas (coding laukas) ir bendros reakcijos į skiepijimą pastabos (text lauke).\nGalimos reikšmės nurodytos klasifikatoriuje response-to-vaccination.\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-type.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.code.coding",
+        "path": "AdverseEvent.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AdverseEvent.code.coding.system",
+        "path": "AdverseEvent.code.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/response-to-vaccination"
+      },
+      {
+        "id": "AdverseEvent.code.coding.code",
+        "path": "AdverseEvent.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AdverseEvent.code.coding.display",
+        "path": "AdverseEvent.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.code.text",
+        "path": "AdverseEvent.code.text",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Skausmas injekcijos vietoje"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.subject",
+        "path": "AdverseEvent.subject",
+        "short": "Nuoroda į pacientą, kuriam pasireiškė įtariama nepageidaujama reakcija / Patient impacted by event",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.subject.reference",
+        "path": "AdverseEvent.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "AdverseEvent.occurrence[x]",
+        "path": "AdverseEvent.occurrence[x]",
+        "short": "ĮNR pasireiškimo laikotarpis / When the event occurred",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.recordedDate",
+        "path": "AdverseEvent.recordedDate",
+        "short": "Pranešimo data / Date of notification",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.resultingEffect",
+        "path": "AdverseEvent.resultingEffect",
+        "short": "Reakcijos simptomai / Effect on the subject due to this event",
+        "definition": "Informacija apie būklę, atsiradusią dėl nepageidaujamo įvykio.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.seriousness",
+        "path": "AdverseEvent.seriousness",
+        "short": "Įvykio sunkumas / Seriousness or gravity of the event",
+        "definition": "FHIR R5 rekomenduojama naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-seriousness. Galimos reikšmės:  non-serious | serious..",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.seriousness.coding",
+        "path": "AdverseEvent.seriousness.coding",
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://terminology.hl7.org/CodeSystem/adverse-event-seriousness",
+              "code": "serious",
+              "display": "sunkus"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.seriousness.coding.system",
+        "path": "AdverseEvent.seriousness.coding.system",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"
+      },
+      {
+        "id": "AdverseEvent.seriousness.coding.code",
+        "path": "AdverseEvent.seriousness.coding.code",
+        "min": 1
+      },
+      {
+        "id": "AdverseEvent.seriousness.text",
+        "path": "AdverseEvent.seriousness.text",
+        "short": "ĮNR sukelto padarinio aprašymas",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Ilgalaikis ar reikšmingas neįgalumas"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.outcome",
+        "path": "AdverseEvent.outcome",
+        "short": "ĮNR baigtis / ĮNR patyrusio asmens būklė šiuo metu / Type of outcome from the adverse event",
+        "definition": "FHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-outcome, kuriame pateikiamos nepageidaujamos reakcijos pasekmė paciento sveikatai, pvz.: Trumpalaikis nukrypimas su visišku pasveikimu, Nepageidaujama reakcija, sukėlusi mirtį.\r\n\r\nIšsami informacija apie ĮNR baigtį aprašoma text dalyje.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.outcome.text",
+        "path": "AdverseEvent.outcome.text",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "ĮNR pasibaigė, nebėra jokių simptomų"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.recorder",
+        "path": "AdverseEvent.recorder",
+        "short": "Pranešusio asmens informacija / Information on who recorded the adverse event",
+        "definition": "Nuoroda į sveikatos priežiūros specialisto arba paciento resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.recorder.reference",
+        "path": "AdverseEvent.recorder.reference",
+        "min": 1
+      },
+      {
+        "id": "AdverseEvent.suspectEntity",
+        "path": "AdverseEvent.suspectEntity",
+        "short": "Įtariamos nepageidaujamos reakcijos priežastis / The suspected agent causing the adverse event",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x]",
+        "path": "AdverseEvent.suspectEntity.instance[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          },
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-substance",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-administration",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-statement"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.causality.entityRelatedness",
+        "path": "AdverseEvent.suspectEntity.causality.entityRelatedness",
+        "short": "Priežastinis ryšys tarp ĮNR ir vaistinio preparato vartojimo / Result of the assessment regarding the relatedness of the suspected entity to the event",
+        "definition": "FHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-causality-assess. Galimos reikšmės: certain | probably-likely | possible | unlikely | conditional-classified | unassessable-unclassifiable."
+      },
+      {
+        "id": "AdverseEvent.contributingFactor",
+        "path": "AdverseEvent.contributingFactor",
+        "short": "Įtariami veiksniai, padidinę nepageidaujamo reiškinio tikimybę arba sunkumą / Contributing factors suspected to have increased the probability or severity of the adverse event",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.mitigatingAction",
+        "path": "AdverseEvent.mitigatingAction",
+        "short": "Taikytinas gydymas dėl pasireiškusios ĮNR / Ameliorating actions taken after the adverse event occured in order to reduce the extent of harm",
+        "definition": "FHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-mitigating-action, kuriame pateikiami http://snomed.info/sct kodai, nurodantys gydymui taikytas procedūras, naudotus vaistus ir t. t.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "AdverseEvent.mitigatingAction.item[x]",
+        "path": "AdverseEvent.mitigatingAction.item[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.mitigatingAction.item[x].text",
+        "path": "AdverseEvent.mitigatingAction.item[x].text",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Taikytas gydymas"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.note",
+        "path": "AdverseEvent.note",
+        "short": "Kita reikšminga informacija / Comment on adverse event",
+        "max": "1",
+        "mustHaveValue": true,
+        "mustSupport": true
+      }
+    ]
+  }
+}

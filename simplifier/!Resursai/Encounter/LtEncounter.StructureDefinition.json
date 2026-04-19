@@ -1,0 +1,723 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter",
+  "name": "LtEspbiEncounter",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter.id",
+        "path": "Encounter.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.meta",
+        "path": "Encounter.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.extension",
+        "path": "Encounter.extension",
+        "min": 2,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.extension:ltExtEmiNumber",
+        "path": "Encounter.extension",
+        "sliceName": "ltExtEmiNumber",
+        "definition": "Ligos istorijos nr. (stacionare) arba asmens sveikatos istorijos nr. (poliklinikoje). SPĮ pacientui suteiktas EMI numeris, kuris yra unikalus SPĮ ribose.",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-encounter/emiNumber"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.extension:ltExtClosedBySystem",
+        "path": "Encounter.extension",
+        "sliceName": "ltExtClosedBySystem",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-encounter/closedBySystem"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.extension:ltExtPatientAgreementDocument",
+        "path": "Encounter.extension",
+        "sliceName": "ltExtPatientAgreementDocument",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-encounter/patientAgreementDocument"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.extension:ltEspbiExtCoverageEligibilityResponsePsdf",
+        "path": "Encounter.extension",
+        "sliceName": "ltEspbiExtCoverageEligibilityResponsePsdf",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-encounter-coverage-eligibility-response-psdf"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.extension:ltEspbiExtCoverage",
+        "path": "Encounter.extension",
+        "sliceName": "ltEspbiExtCoverage",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-encounter-coverage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.identifier",
+        "path": "Encounter.identifier",
+        "definition": "Dokumento antraštės identifikatorius kompozicijoje.",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.identifier.system",
+        "path": "Encounter.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "Encounter.identifier.value",
+        "path": "Encounter.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Encounter.status",
+        "path": "Encounter.status",
+        "short": "Registruoto atvykimo būsena / Current state of the encounter",
+        "definition": "Registruojamo apsilankymo/atvykimo būsena.\r\nBūsena „cancelled“ neleidžiama, jeigu ESPBI IS yra bent vienas neatšauktas elektroninis dokumentas, kuris yra susietas su šiuo atvykimu.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/encounter-status. Galimos reikšmės: planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "short": "Atvykimo įvykis / Classification of the encounter",
+        "definition": "Atvykimo įvykis. Priklauso nuo įstaigos, kurioje apsilankė pacientas, tipo.\r\n\r\nRedaguojant atvykimo duomenis įvykį leidžiama keisti tik tuo atveju, jeigu nėra pateikta su apsilankymu susietų E025 arba E003 medicininių dokumentų.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://terminology.hl7.org/ValueSet/encounter-class. Galimos reikšmės: inpatient encounter | ambulatory | observation encounter | emergency | virtual | home health.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible"
+        }
+      },
+      {
+        "id": "Encounter.class.coding",
+        "path": "Encounter.class.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.class.coding.system",
+        "path": "Encounter.class.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Encounter.class.coding.code",
+        "path": "Encounter.class.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Encounter.type",
+        "path": "Encounter.type",
+        "short": "Atvykimo tipas / Specific type of encounter",
+        "definition": "Apsilankymo/atvykimo tipas.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje encounter-type.",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.type.coding",
+        "path": "Encounter.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.type.coding.system",
+        "path": "Encounter.type.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Encounter/Type"
+      },
+      {
+        "id": "Encounter.type.coding.code",
+        "path": "Encounter.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Encounter.type.coding.display",
+        "path": "Encounter.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.serviceType",
+        "path": "Encounter.serviceType",
+        "short": "Hospitalizavimo/Pagalbos tipas / Service Type",
+        "definition": "Suteiktos pagalbos tipas (būtinoji, planinė ar kita pagalba).\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje encounter-service-type.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.serviceType.concept",
+        "path": "Encounter.serviceType.concept",
+        "min": 1
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding",
+        "path": "Encounter.serviceType.concept.coding",
+        "definition": "Nuorodą į pagalbos tipo kodo struktūrą (klasifikatoriaus pavadinimas ir kodas).",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding.system",
+        "path": "Encounter.serviceType.concept.coding.system",
+        "definition": "Unikalus klasifikatoriaus pavadinimas (URI).",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Encounter/ServiceType"
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding.code",
+        "path": "Encounter.serviceType.concept.coding.code",
+        "definition": "Reikšmė iš klasifikatoriaus.\r\n\r\nValues: \"emergency_assistance\" : Būtinoji pagalba | \"planned\" : Planinė pagalba | \"other\" : Kita.",
+        "min": 1
+      },
+      {
+        "id": "Encounter.serviceType.concept.coding.display",
+        "path": "Encounter.serviceType.concept.coding.display",
+        "definition": "Tekstinė klasifikatoriaus reikšmės reprezentacija. Skirta žmogui lengviau perskaityti ir suprasti klasifikatoriaus reikšmę.",
+        "min": 1
+      },
+      {
+        "id": "Encounter.subject",
+        "path": "Encounter.subject",
+        "short": "Paciento, kuriam registruotas atvykimas, duomenys / The patient present at the encounter",
+        "definition": "Pacientas, kuriam registruotas atvykimas/apsilankymas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.subject.reference",
+        "path": "Encounter.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.episodeOfCare",
+        "path": "Encounter.episodeOfCare",
+        "short": "Gydymo epizodas",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-episode-of-care"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.episodeOfCare.reference",
+        "path": "Encounter.episodeOfCare.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.basedOn",
+        "path": "Encounter.basedOn",
+        "short": "Nuoroda į siuntimą / Reference to ServiceRequest",
+        "definition": "Nuoroda į skyrimo duomenis (ServiceRequest resursas) jei apsilankymas/atvykimas registruojamas pagal siuntimą.\r\n\r\nSiuntimas yra privalomas jeigu atvykimo įvykyje nurodyta įvykis 24: \"Paslaugų suteikimas pacientui neatvykus į SPĮ\".\r\n\r\nJeigu pasirinktas įvykis 24: \"Paslaugų suteikimas pacientui neatvykus į SPĮ\", privaloma nurodyti vieną iš šių siuntimų dokumentų: E200, E014, ir aktyvios E027-1 pažymos kūrimo užduotys. Jeigu pasirinktas kitas įvykis, galima nurodyti vieną E027 siuntimo dokumentą.\r\n\r\nLeidžiami naudoti šie siuntimų resursai:\r\n- kurių pagrindu sukurti ir yra aktyvūs (būsena Pasirašytas) E027, E200, E014 medicininiai dokumentai;\r\n- kurių pagrindu sukurta aktyvi E027-1 pažymos kūrimo užduotis.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.basedOn.reference",
+        "path": "Encounter.basedOn.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.serviceProvider",
+        "path": "Encounter.serviceProvider",
+        "short": "Informacija apie atvykimą registruojančią sveikatos priežiūros įstaigą / Health care organization registered the encounter",
+        "definition": "Informacija apie atvykimą registruojančią sveikatos priežiūros įstaigą (SPĮ).",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.serviceProvider.reference",
+        "path": "Encounter.serviceProvider.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.participant",
+        "path": "Encounter.participant",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type.coding"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Informacija apie specialistą, kuris registruoja atvykimą ir specialistą, pas kurį nukreiptas (registruotas) pacientas / Encounter author (Practitioner) and the practitioner responsible for providing the service",
+        "definition": "Informacija apie specialistą, kuris registruoja atvykimą ir specialistą, pas kurį nukreiptas (registruotas) pacientas.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant",
+        "path": "Encounter.participant",
+        "sliceName": "admitterParticipant",
+        "short": "Informaciją apie specialistą, kuris registruoja atvykimą / Encounter author (Practitioner)",
+        "definition": "Informacija apie specialistą, kuris registruoja atvykimą.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type",
+        "path": "Encounter.participant.type",
+        "definition": "Specialisto rolė registruotame atvykime.\r\n\r\nReikšmė pagal nutylėjimą \"ADM\".",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding",
+        "path": "Encounter.participant.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding.system",
+        "path": "Encounter.participant.type.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding.code",
+        "path": "Encounter.participant.type.coding.code",
+        "min": 1,
+        "fixedCode": "ADM"
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.type.coding.display",
+        "path": "Encounter.participant.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor",
+        "path": "Encounter.participant.actor",
+        "definition": "Nuoroda į specialisto duomenis.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant:admitterParticipant.actor.reference",
+        "path": "Encounter.participant.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant",
+        "path": "Encounter.participant",
+        "sliceName": "attenderParticipant",
+        "short": "Informacija apie specialistą, pas kurį nukreiptas (registruotas) pacientas / The practitioner responsible for providing the service",
+        "definition": "Informacija apie specialistą pas kurį nukreiptas (registruotas) pacientas.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type",
+        "path": "Encounter.participant.type",
+        "definition": "Specialisto rolė registruotame atvykime.\r\n\r\nReikšmė pagal nutylėjimą \"ATND\".",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding",
+        "path": "Encounter.participant.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding.system",
+        "path": "Encounter.participant.type.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding.code",
+        "path": "Encounter.participant.type.coding.code",
+        "min": 1,
+        "fixedCode": "ATND"
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.type.coding.display",
+        "path": "Encounter.participant.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor",
+        "path": "Encounter.participant.actor",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant:attenderParticipant.actor.reference",
+        "path": "Encounter.participant.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.actualPeriod",
+        "path": "Encounter.actualPeriod",
+        "short": "Atvykimo/Hospitalizavimo data ir laikas / Date and Time of Service of Hospitalization/arrival/visit",
+        "definition": "Atvykimo / Hospitalizavimo periodas.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.actualPeriod.start",
+        "path": "Encounter.actualPeriod.start",
+        "short": "Atvykimo į SPĮ data ir laikas / Visit Date and Time",
+        "definition": "Periodo pradžios data. Patenka į periodą imtinai.",
+        "min": 1
+      },
+      {
+        "id": "Encounter.actualPeriod.end",
+        "path": "Encounter.actualPeriod.end",
+        "short": "Išrašymo data / End Date of Service (Discharge date)",
+        "definition": "Periodo pabaigos data. Jeigu datos nėra yra laikoma, kad periodas tęsiasi (nėra pasibaigęs).",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reason",
+        "path": "Encounter.reason",
+        "short": "Atvykimo aptarnavimo būdas / Encounter service mode",
+        "definition": "Atvykimo aptarnavimo būdas. Turi būti pildomas, jeigu pagal nurodytą atvykimo tipą yra galimų atvykimo aptarnavimo būdo klasifikatoriaus reikšmių.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje encounter-reason.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reason.use",
+        "path": "Encounter.reason.use",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.reason.use.coding",
+        "path": "Encounter.reason.use.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.reason.use.coding.system",
+        "path": "Encounter.reason.use.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Encounter/ReasonCode"
+      },
+      {
+        "id": "Encounter.reason.use.coding.code",
+        "path": "Encounter.reason.use.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Encounter.reason.use.coding.display",
+        "path": "Encounter.reason.use.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis",
+        "path": "Encounter.diagnosis",
+        "short": "Informacija apie GMP nurodytą(-as) diagnozę(-es) / EMS brigade diagnosis",
+        "definition": "Informacija apie GMP nurodytą diagnozę (diagnozės TLK-10-AM kodas ir pavadinimas).",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.condition",
+        "path": "Encounter.diagnosis.condition",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.diagnosis.condition.reference",
+        "path": "Encounter.diagnosis.condition.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.diagnosis.condition.reference.reference",
+        "path": "Encounter.diagnosis.condition.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.admission",
+        "path": "Encounter.admission",
+        "definition": "Paciento hospitalizavimo informacija.\r\nDuomenys apie paciento hospitalizavimą stacionare.",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.admission.extension",
+        "path": "Encounter.admission.extension",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDischargeDiagnosis",
+        "path": "Encounter.admission.extension",
+        "sliceName": "ltExtAdmissionDischargeDiagnosis",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-encounter/admission.dischargeDiagnosis"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionDepartmentCode",
+        "path": "Encounter.admission.extension",
+        "sliceName": "ltExtAdmissionDepartmentCode",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-encounter/admission.departmentCode"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Encounter.admission.extension:ltExtAdmissionLocationBedDays",
+        "path": "Encounter.admission.extension",
+        "sliceName": "ltExtAdmissionLocationBedDays",
+        "short": "Lovadienių skaičius / Number of bed-days",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-encounter/admission-location.bedDays"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "Encounter.admission.origin",
+        "path": "Encounter.admission.origin",
+        "short": "Informacija apie GMP įstaigą / EMS brigade Organization",
+        "definition": "Informacija apie GMP įstaigą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.admission.origin.reference",
+        "path": "Encounter.admission.origin.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.admission.destination",
+        "path": "Encounter.admission.destination",
+        "short": "Organizacijos pavadinimas, jeigu perkelimas į kitą ligoninę dėl aktyviojo stacionarinio gydymo / organization name in case dischardeDisposition is another Health care provider",
+        "definition": "Nuoroda į organizaciją (SPĮ), jeigu pacientas išvyko į kitą stacionarą.\r\n\r\nPrivalomas, jei nurodyta, kad Perkėlimas į kitą ligoninę dėl aktyviojo stacionarinio gydymo (laukas \"dischargeDisposition\").\r\n\r\n",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.admission.destination.reference",
+        "path": "Encounter.admission.destination.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition",
+        "path": "Encounter.admission.dischargeDisposition",
+        "short": "Paciento išvykimo informacija / Patient departure information",
+        "definition": "Paciento išvykimo informacija. Kur pacientas išvyko po gydymo (į namus, kitą stacionarą ar mirė).\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje f025alk-discharge-type.",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding",
+        "path": "Encounter.admission.dischargeDisposition.coding",
+        "definition": "Nuorodą į kodo struktūrą (klasifikatoriaus pavadinimas ir kodas).",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding.system",
+        "path": "Encounter.admission.dischargeDisposition.coding.system",
+        "definition": " Unikalus klasifikatoriaus pavadinimas (URI).",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/f025alk-discharge-type"
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding.code",
+        "path": "Encounter.admission.dischargeDisposition.coding.code",
+        "definition": "Reikšmė iš klasifikatoriaus.\r\n\r\nKodas, nurodantis, kur pacientas išvyko po gydymo (į namus, kitą stacionarą ar mirė).",
+        "min": 1
+      },
+      {
+        "id": "Encounter.admission.dischargeDisposition.coding.display",
+        "path": "Encounter.admission.dischargeDisposition.coding.display",
+        "definition": "Tekstinė klasifikatoriaus reikšmės reprezentacija. Skirta žmogui lengviau perskaityti ir suprasti klasifikatoriaus reikšmę.",
+        "min": 1
+      },
+      {
+        "id": "Encounter.location",
+        "path": "Encounter.location",
+        "short": "Gydytas skyriuose / Treated in Departments",
+        "definition": "Skyrių, kuriuose gydytas pacientas, informacija (skyriaus pavadinimas, lovadienių skaičius skyriuje, gydymo stacionare periodas). Informacija nurodoma ir pateikiama E003 dokumente.",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.extension",
+        "path": "Encounter.location.extension",
+        "min": 1,
+        "mustSupport": false
+      },
+      {
+        "id": "Encounter.location.extension:ltExtAdmissionLocationBedDays",
+        "path": "Encounter.location.extension",
+        "sliceName": "ltExtAdmissionLocationBedDays",
+        "short": "Lovadieniai skyriuje / Bed days during accommodation in specific department",
+        "definition": "Lovadienių skaičius skyriuje.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-encounter/admission-location.bedDays"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Encounter.location.location",
+        "path": "Encounter.location.location",
+        "short": "Skyrius, kuriame gydytas pacientas / Department where the patient was treated",
+        "definition": "Skyrius, kuriame gydytas pacientas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-location"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.location.location.reference",
+        "path": "Encounter.location.location.reference",
+        "min": 1
+      },
+      {
+        "id": "Encounter.location.period",
+        "path": "Encounter.location.period",
+        "short": "Gydymo stacionare datos (lovadieniai) / Inpatient treatment dates (bed days)",
+        "definition": "Gydymo stacionare periodas (pradžios ir pabaigos data bei laikas).",
+        "min": 1
+      },
+      {
+        "id": "Encounter.location.period.start",
+        "path": "Encounter.location.period.start",
+        "short": "Gydymo skyriuje pradžios data / Accommodation in department start date",
+        "definition": "Gydymo stacionare periodo pradžios data. Patenka į periodą imtinai.",
+        "min": 1
+      },
+      {
+        "id": "Encounter.location.period.end",
+        "path": "Encounter.location.period.end",
+        "short": "Gydymo skyriuje pabaigos data / End Date of accommodation in department",
+        "definition": "Gydymo stacionare periodo pabaigos data. Patenka į periodą imtinai.",
+        "min": 1
+      }
+    ]
+  }
+}

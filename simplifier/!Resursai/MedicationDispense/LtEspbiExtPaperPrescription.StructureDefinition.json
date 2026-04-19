@@ -1,0 +1,2122 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-med-dispense/paperPrescription",
+  "name": "LtEspbiExtPaperPrescription",
+  "status": "draft",
+  "description": "Popierinio recepto duomenys / Paper prescription details",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationDispense.authorizingPrescription"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Popierinio recepto duomenys",
+        "definition": "Popierinio recepto duomenys. Būtinas jei recepto forma yra pp (popierinis)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "short": "Popierinio recepto skyrimo tipas",
+        "min": 7
+      },
+      {
+        "id": "Extension.extension:type",
+        "path": "Extension.extension",
+        "sliceName": "type",
+        "short": "Popierinio recepto skyrimo tipas",
+        "definition": "Popierinio recepto skyrimo tipas.\r\nGalimos reikšmės nurodytos klasifikatoriuje medication-prescription-type (http://esveikata.lt/classifiers/MedicationPrescriptionType).",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "type"
+      },
+      {
+        "id": "Extension.extension:type.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:type.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/MedicationPrescriptionType"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form",
+        "path": "Extension.extension",
+        "sliceName": "form",
+        "short": "Popierinio recepto forma",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuje http://esveikata.lt/classifiers/PaperPrescriptionForm.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "form"
+      },
+      {
+        "id": "Extension.extension:form.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:form.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PaperPrescriptionForm"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:date",
+        "path": "Extension.extension",
+        "sliceName": "date",
+        "short": "Popierinio recepto išrašymo data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:date.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:date.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "date"
+      },
+      {
+        "id": "Extension.extension:date.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:validityPeriod",
+        "path": "Extension.extension",
+        "sliceName": "validityPeriod",
+        "short": "Popierinio recepto galiojimo laikotarpis",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "validityPeriod"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].start",
+        "path": "Extension.extension.value[x].start",
+        "short": "SPopierinio recepto galiojimo pradžios data",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].end",
+        "path": "Extension.extension.value[x].end",
+        "short": "Popierinio recepto galiojimo pabaigos data",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:series",
+        "path": "Extension.extension",
+        "sliceName": "series",
+        "short": "Popierinio recepto serija",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:series.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:series.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "series"
+      },
+      {
+        "id": "Extension.extension:series.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:number",
+        "path": "Extension.extension",
+        "sliceName": "number",
+        "short": "Popierinio recepto numeris",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:number.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:number.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "number"
+      },
+      {
+        "id": "Extension.extension:number.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:form2",
+        "path": "Extension.extension",
+        "sliceName": "form2",
+        "short": "Popierinio recepto 2 formos duomenys, jei pateiktas kartu su 3 arba 3 išimties forma",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form2.extension",
+        "path": "Extension.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:form2.extension:tag",
+        "path": "Extension.extension.extension",
+        "sliceName": "tag",
+        "short": "Popierinio recepto žyma, kad kartu su 3 arba 3 išimties forma yra pateikta ir 2 forma",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form2.extension:tag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form2.extension:tag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:form2.extension:tag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:form2.extension:series",
+        "path": "Extension.extension.extension",
+        "sliceName": "series",
+        "short": "Popierinio recepto 2 Formos serija",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form2.extension:series.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form2.extension:series.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "series"
+      },
+      {
+        "id": "Extension.extension:form2.extension:series.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:form2.extension:number",
+        "path": "Extension.extension.extension",
+        "sliceName": "number",
+        "short": "Popierinio recepto 2 Formos numeris",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form2.extension:number.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form2.extension:number.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "number"
+      },
+      {
+        "id": "Extension.extension:form2.extension:number.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:form2.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "form2"
+      },
+      {
+        "id": "Extension.extension:form2.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode",
+        "path": "Extension.extension",
+        "sliceName": "conditionCode",
+        "short": "Popieriniame recepte nurodyta diagnozė, dėl kurios skririamas vaistas (TLK10)",
+        "definition": "Popieriniame recepte nurodyta diagnozė, dėl kurios skririamas vaistas (TLK10). \r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:conditionCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "conditionCode"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode",
+        "path": "Extension.extension",
+        "sliceName": "compensationCode",
+        "short": "Popieriniame recepte nurodytas kompensacijos kodas (privalomas, jeigu kompensuojamas)",
+        "definition": "Popieriniame recepte nurodytas kompensacijos kodas (privalomas, jeigu kompensuojamas).\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "compensationCode"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/Medication/CompensationCode"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber",
+        "path": "Extension.extension",
+        "sliceName": "aagaSgasNumber",
+        "short": "Popieriniame recepte nurodytas AAGA/SGAS numeris",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "aagaSgasNumber"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber",
+        "path": "Extension.extension",
+        "sliceName": "authorLabelNumber",
+        "short": "Popieriniame recepte nurodytas gydytojo lipduko numeris",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "authorLabelNumber"
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:author",
+        "path": "Extension.extension",
+        "sliceName": "author",
+        "short": "Sveikatos priežiūros specialistas, kuris išrašė popierinį receptą",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:author.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "author"
+      },
+      {
+        "id": "Extension.extension:author.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:author.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:author.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment",
+        "path": "Extension.extension",
+        "sliceName": "authorDepartment",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "authorDepartment"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:dispenserNote",
+        "path": "Extension.extension",
+        "sliceName": "dispenserNote",
+        "short": "Popieriniame recepte nurodyta pastaba farmacijos specialistui",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:dispenserNote.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:dispenserNote.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "dispenserNote"
+      },
+      {
+        "id": "Extension.extension:dispenserNote.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:quantity",
+        "path": "Extension.extension",
+        "sliceName": "quantity",
+        "short": "Popieriniame recepte nurodytas dozuočių arba MPP vienetų skaičius",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:quantity.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "quantity"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].comparator",
+        "path": "Extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].unit",
+        "path": "Extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].system",
+        "path": "Extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].code",
+        "path": "Extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:tags",
+        "path": "Extension.extension",
+        "sliceName": "tags",
+        "short": "Popierinio recepto papildomos žymos",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "tagsGkTag",
+        "short": "Popieriniame recepte nurodyta GK sprendimo žyma",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "tagsGkTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "specialTag",
+        "short": "Popieriniame recepte nurodyta ypatingo skyrimo žyma",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "specialTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "specialistDecisionTag",
+        "short": "Popieriniame recepte nurodyta specialisto sprendimu žyma ",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "specialistDecisionTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "labelingExemptionTag",
+        "short": "Popieriniame recepte nurodyta ženklinimo išimtis žyma",
+        "definition": "Popieriniame recepte nurodyta ženklinimo išimtis žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "labelingExemptionTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal",
+        "path": "Extension.extension.extension",
+        "sliceName": "nominal",
+        "short": "Popieriniame recepte nurodytas vardinis vaistas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension",
+        "path": "Extension.extension.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:tag",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "tag",
+        "short": "Popieriniame recepte nurodyta Vardinio vaisto žyma",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:tag.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:tag.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:tag.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "confirm",
+        "short": "Popieriniame recepte nurodytas patvirtinimas, jog yra paciento sutikimas vartoti vardinius vaistus ir yra užpildytas vardinio vaisto skyrimo pareiškimas (privalomas, jeigu žyma yra true)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:tag",
+        "path": "Extension.extension.extension.extension.extension",
+        "sliceName": "tag",
+        "short": "Popieriniame recepte nurodyta patvirtinimo žyma",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:tag.extension",
+        "path": "Extension.extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:tag.url",
+        "path": "Extension.extension.extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:tag.value[x]",
+        "path": "Extension.extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:declarationValid",
+        "path": "Extension.extension.extension.extension.extension",
+        "sliceName": "declarationValid",
+        "short": "Popieriniame recepte nurodyta pareiškimo galiojimas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:declarationValid.extension",
+        "path": "Extension.extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:declarationValid.url",
+        "path": "Extension.extension.extension.extension.extension.url",
+        "fixedUri": "declarationValid"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:declarationValid.value[x]",
+        "path": "Extension.extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:declarationValid.value[x].id",
+        "path": "Extension.extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:declarationValid.value[x].extension",
+        "path": "Extension.extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.extension:declarationValid.value[x].end",
+        "path": "Extension.extension.extension.extension.extension.value[x].end",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "confirm"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.extension:confirm.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "nominal"
+      },
+      {
+        "id": "Extension.extension:tags.extension:nominal.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "tags"
+      },
+      {
+        "id": "Extension.extension:tags.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationReference",
+        "path": "Extension.extension",
+        "sliceName": "medicationReference",
+        "short": "Popieriniame recepte skiriamo vaisto resurso nuoroda",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicationReference.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationReference.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "medicationReference"
+      },
+      {
+        "id": "Extension.extension:medicationReference.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicationReference.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationReference.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationReference.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationReference.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationReference.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationReference.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication",
+        "path": "Extension.extension",
+        "sliceName": "medication",
+        "short": "Popieriniame recepte skiriamo vaisto duomenys",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension",
+        "path": "Extension.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medication.extension:substances",
+        "path": "Extension.extension.extension",
+        "sliceName": "substances",
+        "short": "Popieriniame recepte nurodytas bendrinis pavadinimas (veikliosios medžiagos)",
+        "definition": "Popieriniame recepte nurodytas bendrinis pavadinimas (veikliosios medžiagos)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:substances.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:substances.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "substances"
+      },
+      {
+        "id": "Extension.extension:medication.extension:substances.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medication.extension:name",
+        "path": "Extension.extension.extension",
+        "sliceName": "name",
+        "short": "Popieriniame recepte nurodytas vaisto konkretus pavadinimas",
+        "definition": "Popieriniame recepte nurodytas vaisto konkretus pavadinimas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:name.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:name.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "name"
+      },
+      {
+        "id": "Extension.extension:medication.extension:name.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medication.extension:strength",
+        "path": "Extension.extension.extension",
+        "sliceName": "strength",
+        "short": "Popieriniame recepte nurodytas vaisto stiprumas",
+        "definition": "Popieriniame recepte nurodytas vaisto stiprumas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:strength.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:strength.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "strength"
+      },
+      {
+        "id": "Extension.extension:medication.extension:strength.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medication.extension:form",
+        "path": "Extension.extension.extension",
+        "sliceName": "form",
+        "short": "Popieriniame recepte nurodyta vaisto farmacinė forma ",
+        "definition": "Popieriniame recepte nurodyta vaisto farmacinė forma.\r\nGalimos reikšmės nurodytos klasifikatoriuje pharmaceutical-form.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "form"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding",
+        "path": "Extension.extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding.id",
+        "path": "Extension.extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding.extension",
+        "path": "Extension.extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding.system",
+        "path": "Extension.extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PharmaceuticalForm"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding.version",
+        "path": "Extension.extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding.code",
+        "path": "Extension.extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding.display",
+        "path": "Extension.extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].coding.userSelected",
+        "path": "Extension.extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:form.value[x].text",
+        "path": "Extension.extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package",
+        "path": "Extension.extension.extension",
+        "sliceName": "package",
+        "short": "Popieriniame recepte nurodyta vaisto pakuotė",
+        "definition": "Popieriniame recepte nurodyta vaisto pakuotė",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:name",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "name",
+        "short": "Popieriniame recepte nurodytas pakuotės pavadinimas",
+        "definition": "Popieriniame recepte nurodytas pakuotės pavadinimas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:name.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:name.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "name"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:name.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "size",
+        "short": "Popieriniame recepte nurodytas pakuotės dydis",
+        "definition": "Popieriniame recepte nurodytas pakuotės dydis",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "size"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.extension:size.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "package"
+      },
+      {
+        "id": "Extension.extension:medication.extension:package.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medication.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "medication"
+      },
+      {
+        "id": "Extension.extension:medication.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:extemporaneous",
+        "path": "Extension.extension",
+        "sliceName": "extemporaneous",
+        "short": "Popieriniame recepte nurodyto ekstemporalaus vaisto duomenys",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:description",
+        "path": "Extension.extension.extension",
+        "sliceName": "description",
+        "short": "Popieriniame recepte nurodytas gaminamo vaisto aprašymas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:description.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:description.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "description"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:description.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:urgencyTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "urgencyTag",
+        "short": "Popieriniame recepte nurodyta skubumo žyma",
+        "definition": "Dokumento xml pavyzdyje nurodyta, kad naudojamas code duomenų tipas, tačiau nenurodytas reikšmių sąrašas. Siūloma naudoti  FHIR R5 reikšmių sąrašą http://hl7.org/fhir/ValueSet/request-priority. Galimos reikšmės  routine | urgent | asap | stat.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:urgencyTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:urgencyTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "urgencyTag"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:urgencyTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:extemporaneous.extension:urgencyTag.value[x].coding.system",
+        "path": "Extension.extension.extension.value[x].coding.system",
+        "patternUri": "http://hl7.org/fhir/request-priority"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "extemporaneous"
+      },
+      {
+        "id": "Extension.extension:extemporaneous.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction",
+        "path": "Extension.extension",
+        "sliceName": "medicationInstruction",
+        "short": "Popierinio recepto vaisto vartojimo instrukcijos",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "medicationInstruction"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Dosage"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].modifierExtension",
+        "path": "Extension.extension.value[x].modifierExtension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].sequence",
+        "path": "Extension.extension.value[x].sequence",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "short": "Popieriniame recepte nurodyta dozė per dieną. Popieriniame recepte nurodytas nestruktūrizuotas aprašymas (privalomas, jeigu neužpildytas struktūrizuotas aprašymas)"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].additionalInstruction",
+        "path": "Extension.extension.value[x].additionalInstruction",
+        "short": "Popieriniame recepte nurodytas vartojimo metodas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].additionalInstruction.id",
+        "path": "Extension.extension.value[x].additionalInstruction.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].additionalInstruction.extension",
+        "path": "Extension.extension.value[x].additionalInstruction.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].additionalInstruction.coding",
+        "path": "Extension.extension.value[x].additionalInstruction.coding",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].additionalInstruction.text",
+        "path": "Extension.extension.value[x].additionalInstruction.text",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].patientInstruction",
+        "path": "Extension.extension.value[x].patientInstruction",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.id",
+        "path": "Extension.extension.value[x].timing.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.extension",
+        "path": "Extension.extension.value[x].timing.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.modifierExtension",
+        "path": "Extension.extension.value[x].timing.modifierExtension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.event",
+        "path": "Extension.extension.value[x].timing.event",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat",
+        "path": "Extension.extension.value[x].timing.repeat",
+        "short": "Popieriniame recepte nurodytas vartojimo dažnumas"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.id",
+        "path": "Extension.extension.value[x].timing.repeat.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.extension",
+        "path": "Extension.extension.value[x].timing.repeat.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.bounds[x]",
+        "path": "Extension.extension.value[x].timing.repeat.bounds[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.count",
+        "path": "Extension.extension.value[x].timing.repeat.count",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.countMax",
+        "path": "Extension.extension.value[x].timing.repeat.countMax",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.duration",
+        "path": "Extension.extension.value[x].timing.repeat.duration",
+        "short": "Laiko kiekis, kuriam matuojamas dažnumas (privaloma nurodyti 1)",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.durationMax",
+        "path": "Extension.extension.value[x].timing.repeat.durationMax",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.durationUnit",
+        "path": "Extension.extension.value[x].timing.repeat.durationUnit",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.frequency",
+        "path": "Extension.extension.value[x].timing.repeat.frequency",
+        "short": "Vartojimo dažnumas (per 1 dieną/savaitę/mėnesį)",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.frequencyMax",
+        "path": "Extension.extension.value[x].timing.repeat.frequencyMax",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.period",
+        "path": "Extension.extension.value[x].timing.repeat.period",
+        "short": "Popieriniame recepte nurodyta kas kiek valandų vartoti vaistą "
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.periodMax",
+        "path": "Extension.extension.value[x].timing.repeat.periodMax",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.periodUnit",
+        "path": "Extension.extension.value[x].timing.repeat.periodUnit",
+        "short": "Vartojimo laiko matavimo vienetas d | wk | mo "
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.dayOfWeek",
+        "path": "Extension.extension.value[x].timing.repeat.dayOfWeek",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.timeOfDay",
+        "path": "Extension.extension.value[x].timing.repeat.timeOfDay",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.when",
+        "path": "Extension.extension.value[x].timing.repeat.when",
+        "short": "Popieriniame recepte nurodytos vaisto vartojimo žymos"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.repeat.offset",
+        "path": "Extension.extension.value[x].timing.repeat.offset",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].timing.code",
+        "path": "Extension.extension.value[x].timing.code",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].asNeeded",
+        "path": "Extension.extension.value[x].asNeeded",
+        "short": "Vartoti pagal poreikį"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].asNeededFor",
+        "path": "Extension.extension.value[x].asNeededFor",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].site",
+        "path": "Extension.extension.value[x].site",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route",
+        "path": "Extension.extension.value[x].route",
+        "short": "Popieriniame recepte nurodytas vaisto vartojimo būdas",
+        "definition": "Popieriniame recepte nurodytas vaisto vartojimo būdas.\r\nGalimos reikšmės nurodytos klasifikatoriuje route."
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.id",
+        "path": "Extension.extension.value[x].route.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.extension",
+        "path": "Extension.extension.value[x].route.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding",
+        "path": "Extension.extension.value[x].route.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding.id",
+        "path": "Extension.extension.value[x].route.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding.extension",
+        "path": "Extension.extension.value[x].route.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding.system",
+        "path": "Extension.extension.value[x].route.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/Route"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding.version",
+        "path": "Extension.extension.value[x].route.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding.code",
+        "path": "Extension.extension.value[x].route.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding.display",
+        "path": "Extension.extension.value[x].route.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].route.coding.userSelected",
+        "path": "Extension.extension.value[x].route.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].method",
+        "path": "Extension.extension.value[x].method",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].doseAndRate",
+        "path": "Extension.extension.value[x].doseAndRate",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod",
+        "path": "Extension.extension.value[x].maxDosePerPeriod",
+        "short": "Popieriniame recepte nurodyta dozė per dieną",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.id",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.extension",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator",
+        "short": "Dozės kiekis / Numerator value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator.id",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator.extension",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator.value",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator.value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator.comparator",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator.comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator.unit",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator.unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator.system",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator.system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.numerator.code",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.numerator.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.denominator",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.denominator",
+        "short": "Laikotarpio matas / Denominator value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.denominator.id",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.denominator.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.denominator.extension",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.denominator.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.denominator.value",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.denominator.value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.denominator.unit",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.denominator.unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.denominator.system",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.denominator.system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerPeriod.denominator.code",
+        "path": "Extension.extension.value[x].maxDosePerPeriod.denominator.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerAdministration",
+        "path": "Extension.extension.value[x].maxDosePerAdministration",
+        "short": "Popieriniame recepte nurodyta vienkartinė dozė"
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerAdministration.value",
+        "path": "Extension.extension.value[x].maxDosePerAdministration.value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerAdministration.unit",
+        "path": "Extension.extension.value[x].maxDosePerAdministration.unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerAdministration.system",
+        "path": "Extension.extension.value[x].maxDosePerAdministration.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit\""
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerAdministration.code",
+        "path": "Extension.extension.value[x].maxDosePerAdministration.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:medicationInstruction.value[x].maxDosePerLifetime",
+        "path": "Extension.extension.value[x].maxDosePerLifetime",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids",
+        "path": "Extension.extension",
+        "sliceName": "medicalAids",
+        "short": "Popierinio recepto skiramos Medicinos pagalbos priemonės (MPP) duomenys ",
+        "definition": "Popierinio recepto skiramos Medicinos pagalbos priemonės (MPP) duomenys ",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode",
+        "path": "Extension.extension.extension",
+        "sliceName": "groupCode",
+        "short": "Popieriniame recepte nurodytas MPP grupės kodas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "groupCode"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName",
+        "path": "Extension.extension.extension",
+        "sliceName": "groupName",
+        "short": "Popieriniame recepte nurodytas MPP grupės pavadinimas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "groupName"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name",
+        "path": "Extension.extension.extension",
+        "sliceName": "name",
+        "short": "Popieriniame recepte nurodytas MPP konkretus pavadinimas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "name"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicalAids.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "medicalAids"
+      },
+      {
+        "id": "Extension.extension:medicalAids.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-med-dispense/paperPrescription"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

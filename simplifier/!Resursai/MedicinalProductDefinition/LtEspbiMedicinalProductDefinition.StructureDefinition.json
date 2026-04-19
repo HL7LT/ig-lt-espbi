@@ -1,0 +1,58 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medicinal-product-definition",
+  "name": "LtEspbiMedicinalProductDefinition",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicinalProductDefinition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicinalProductDefinition.id",
+        "path": "MedicinalProductDefinition.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicinalProductDefinition.code",
+        "path": "MedicinalProductDefinition.code",
+        "short": "Vaisto identifikatorius suteiktas VAPRIS, NPAKID-7 arba NPAKID / Code that identifies this medication",
+        "definition": "Naudojami klasifikatoriai:\r\nVAPRIS - http://esveikata.lt/classifiers/Identifier/VaprisID\r\n\r\nVaistinio preparato nacionalinis pakuotės identifikatorius (NPAKID) - http://esveikata.lt/classifiers/Identifier/NPAKID\r\n\r\nVaistinio preparato nacionalinis pakuotės identifikatorius (NPAKID-7) - http://esveikata.lt/classifiers/Identifier/NPAKID-7",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicinalProductDefinition.code.system",
+        "path": "MedicinalProductDefinition.code.system",
+        "min": 1
+      },
+      {
+        "id": "MedicinalProductDefinition.code.code",
+        "path": "MedicinalProductDefinition.code.code",
+        "min": 1
+      },
+      {
+        "id": "MedicinalProductDefinition.code.display",
+        "path": "MedicinalProductDefinition.code.display",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicinalProductDefinition.name",
+        "path": "MedicinalProductDefinition.name",
+        "short": "Vaisto prekinis pavadinimas / Medication market name",
+        "definition": "Vaistinio preparato sugalvotas (prekinis) pavadinimas.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicinalProductDefinition.name.productName",
+        "path": "MedicinalProductDefinition.name.productName",
+        "short": "Vaisto prekinis pavadinimas / Medication market name"
+      }
+    ]
+  }
+}

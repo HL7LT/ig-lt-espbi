@@ -1,0 +1,434 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference",
+  "name": "LtEspbiDocumentReference",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DocumentReference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.id",
+        "path": "DocumentReference.id",
+        "short": "Nuorodos į dokumentą resurso id /Logical id of this artifact",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.meta",
+        "path": "DocumentReference.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.identifier",
+        "path": "DocumentReference.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Dokumento antraštės identifikatorius kompozicijoje / Business identifiers for the document",
+        "definition": "Dokumento antraštės identifikatorius kompozicijoje.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "masterIdentifier",
+        "short": "Dokumento antraštės identifikatorius \"Composition\" integraciniame taške / Doc identifier in \"Composition\" endpoint",
+        "definition": "Dokumento antraštės identifikatorius \"Composition\" integraciniame taške (be versijos identifikatoriaus).",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.system",
+        "path": "DocumentReference.identifier.system",
+        "min": 1,
+        "patternUri": "Composition"
+      },
+      {
+        "id": "DocumentReference.identifier:masterIdentifier.value",
+        "path": "DocumentReference.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.identifier:docVersionIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "docVersionIdentifier",
+        "short": "Dokumento antraštės identifikatorius \"Composition\" (su versija) integraciniame taške / version specific Doc identifier in \"Composition\" endpoint",
+        "definition": "Dokumento antraštės identifikatorius \"Composition\" integraciniame taške (su versijos identifikatoriumi).",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.identifier:docVersionIdentifier.system",
+        "path": "DocumentReference.identifier.system",
+        "min": 1,
+        "patternUri": "Composition/_history"
+      },
+      {
+        "id": "DocumentReference.identifier:docVersionIdentifier.value",
+        "path": "DocumentReference.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.identifier:certificateNumberIdentifier",
+        "path": "DocumentReference.identifier",
+        "sliceName": "certificateNumberIdentifier",
+        "short": "Pažymos numeris (sugeneruojamas automatiškai ESBPI pusėje) / Certificate number (generated on ESPBI site)",
+        "definition": "Medicininės pažymos numeris (sugeneruojamas automatiškai ESBPI pusėje).",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.identifier:certificateNumberIdentifier.system",
+        "path": "DocumentReference.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/DocumentNumber"
+      },
+      {
+        "id": "DocumentReference.identifier:certificateNumberIdentifier.value",
+        "path": "DocumentReference.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "short": "Nuorodos būsena / The status of this document reference",
+        "definition": "Nuorodos į dokumentą būsena.\r\n\r\nGalimos reikšmės:\r\n- current : Nuorodos aktyvi būsena.\r\nDokumento nuoroda yra teisinga ir gali būti naudojama.\r\n- entered in error : Atšauktos nuorodos būsena.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/document-reference-status. Galimos reikšmės: current | superseded | entered-in-error.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.docStatus",
+        "path": "DocumentReference.docStatus",
+        "short": "Medicininio dokumento būsena iš kompozicijos būsenų / Medical document state derived from Composition states",
+        "definition": "Dokumento būsena. Pateikiant medicininį dokumentą arba pažymą būsena yra nukopijuojama iš to dokumento Composition.status būsenos.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/composition-status. Galimos reikšmės: registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.type",
+        "path": "DocumentReference.type",
+        "short": "Dokumento tipas / Document type it references to",
+        "definition": "Nurodo dokumento tipą. Tai gali būti tipas tiek iš medicininių dokumentų tipų klasifikatoriaus, tiek kitos paskirties dokumento tipas (pavyzdžiui draudimo dokumentas arba nedarbingumo pažymėjimas).\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-code.\r\n(Kai yra aprašoma medicininio dokumento informacija.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje document-type.\r\n(Kai nurodomas nedarbingumo pažymėjimas arba medicininė pažyma.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje identity-document-type.\r\n(Kai naudojamas informacijai apie asmens tapatybės dokumentą aprašyti.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje patient-agreement-type.\r\n(Kai aprašoma paciento sutikimo informacija.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje attached-file-description.\r\n(Kai aprašomas skaitmeninių duomenų resursas.)\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje unsorted-document-type.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.type.coding",
+        "path": "DocumentReference.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.type.coding.system",
+        "path": "DocumentReference.type.coding.system",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.type.coding.code",
+        "path": "DocumentReference.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.type.coding.display",
+        "path": "DocumentReference.type.coding.display",
+        "mustSupport": false
+      },
+      {
+        "id": "DocumentReference.type.text",
+        "path": "DocumentReference.type.text",
+        "short": "Dokumento pavadinimas / Document title",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "short": "Nuoroda į paciento, kuriam skirtas dokumentas, resursą / Patient of document",
+        "definition": "Nuoroda į paciento, kuriam skirtas dokumentas, resursą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.subject.reference",
+        "path": "DocumentReference.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.context",
+        "path": "DocumentReference.context",
+        "definition": "Papildoma informacija apie dokumento kontekstą.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.context.reference",
+        "path": "DocumentReference.context.reference",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.event",
+        "path": "DocumentReference.event",
+        "definition": "Nurodo paciento sutikimo, pageidavimo ar nurodymo kontekstą. Tai gali būti reikšmė iš paciento sutikimų kontekstų klasifikatoriaus.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje patient-agreement-context.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.event.concept",
+        "path": "DocumentReference.event.concept",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.event.concept.coding",
+        "path": "DocumentReference.event.concept.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.event.concept.coding.system",
+        "path": "DocumentReference.event.concept.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/PatientAgreementContext",
+        "mustHaveValue": true
+      },
+      {
+        "id": "DocumentReference.event.concept.coding.code",
+        "path": "DocumentReference.event.concept.coding.code",
+        "min": 1,
+        "mustHaveValue": true
+      },
+      {
+        "id": "DocumentReference.event.concept.coding.display",
+        "path": "DocumentReference.event.concept.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.period",
+        "path": "DocumentReference.period",
+        "short": "Dokumento galiojimo periodas / Document validity period",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.period.start",
+        "path": "DocumentReference.period.start",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "short": "Nuorodos į dokumentą sukūrimo data ir laikas / When this document reference was created",
+        "definition": "Nuorodos į dokumentą sukūrimo arba dokumento sukūrimo ar išdavimo data ir laikas.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.author",
+        "path": "DocumentReference.author",
+        "short": "Informacija apie dokumentą sukūrusį specialistą / Info about specialist who has created this document",
+        "definition": "Dokumentą sukūręs ar pateikęs specialistas (dokumento autorius). Išskirtiniais atvejais, kai dokumentą pateikia paciento darbdavio atstovas (E047 ir E048 pažymų darbdavio pildoma dalis), dokumento autorius bus  darbdavio atstovas - Patient resursas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.author.reference",
+        "path": "DocumentReference.author.reference",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.custodian",
+        "path": "DocumentReference.custodian",
+        "short": "Informacija apie dokumentą pateikusią SPĮ / Info about HIS who has created this document",
+        "definition": "Organizacija atsakinga už dokumento sukūrimą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.custodian.reference",
+        "path": "DocumentReference.custodian.reference",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.relatesTo",
+        "path": "DocumentReference.relatesTo",
+        "short": "Nuoroda į medicininį dokumentą prie kurio šis priedas yra prikabintas / Refernce to med. documents this attachment is attached to",
+        "definition": "Duomenys apie susietumą su kitu medicininiu dokumentu.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.relatesTo.code",
+        "path": "DocumentReference.relatesTo.code",
+        "short": "Nurodo, kad priedas yra prikabinamas prie dokumento / specifies the fact of attachment",
+        "definition": "Dokumentų susietumo tipas.\r\n\r\nGalimos reikšmės:\r\n- appends : Nurodo, kad šis dokumentas papildo dokumentą, kuris yra nurodytas target lauke DocumentReference.RelatesTo struktūroje.\r\n\r\nPagal FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/document-relationship-type. Galimos reikšmės:  replaces | transforms | signs | appends | incorporates | summarizes."
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding.system",
+        "path": "DocumentReference.relatesTo.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding.code",
+        "path": "DocumentReference.relatesTo.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.relatesTo.code.coding.display",
+        "path": "DocumentReference.relatesTo.code.coding.display",
+        "mustHaveValue": true
+      },
+      {
+        "id": "DocumentReference.relatesTo.target",
+        "path": "DocumentReference.relatesTo.target",
+        "short": "Nuoroda į medicininį dokumentą prie kurio šis priedas yra prikabintas / Reference to med. document this attachment is attached to",
+        "definition": "Nuoroda į susiejamą dokumentą. Prikabinamo priedo atveju, tai dokumentas prie kurio yra prikabinamas priedas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.relatesTo.target.reference",
+        "path": "DocumentReference.relatesTo.target.reference",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.description",
+        "path": "DocumentReference.description",
+        "short": "Dokumento aprašymas / Document description",
+        "definition": "Dokumento tekstinis aprašymas.",
+        "mustHaveValue": true,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.securityLabel",
+        "path": "DocumentReference.securityLabel",
+        "short": "Dokumentui taikomas konfidencialumo lygis ar saugojimo laikotarpis ",
+        "definition": "Nurodo dokumento konfidencialumo lygį. Pacientui matomas dokumentas /pacientui nematomas dokumentas.\r\nGalimos reikšmės nurodytos klasifikatoriuje document-security-level.\r\n\r\nNurodo dokumento saugojimo laikotarpį. Nustatomas, jei dokumentas turi būti trinamas po dokumento saugojimo laikotarpio.\r\nGalimos reikšmės nurodytos klasifikatoriuje document-security-level.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.securityLabel.coding",
+        "path": "DocumentReference.securityLabel.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.securityLabel.coding.system",
+        "path": "DocumentReference.securityLabel.coding.system",
+        "min": 1,
+        "patternUri": "http://hl7.org/fhir/v3/ActCode"
+      },
+      {
+        "id": "DocumentReference.securityLabel.coding.code",
+        "path": "DocumentReference.securityLabel.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.securityLabel.coding.display",
+        "path": "DocumentReference.securityLabel.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content",
+        "path": "DocumentReference.content",
+        "short": "Dokumento turinys / Document referenced",
+        "definition": "Informacija apie dokumento turinį ir / ar dokumento turinys",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment",
+        "path": "DocumentReference.content.attachment",
+        "short": "Dokumentas arba dokumento URL ir svarbūs dokumento turinio metaduomenys / The document or URL of the document along with critical document content metadata",
+        "definition": "Dokumentas arba dokumento URL ir svarbūs dokumento turinio metaduomenys."
+      },
+      {
+        "id": "DocumentReference.content.attachment.contentType",
+        "path": "DocumentReference.content.attachment.contentType",
+        "short": "Dokumento tipas (mime formatu) / Mime type of the content",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/mimetypes (reikšmių rinkinyje yra visi galimi BCP-13 kodai (žr. http://tools.ietf.org/html/bcp13)).",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.content.attachment.url",
+        "path": "DocumentReference.content.attachment.url",
+        "short": "Nuoroda į skaitmeninį dokumentą. Medicininiams dokumentams tai nuoroda į PDF dokumentą Binary integraciniame taškę.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.size",
+        "path": "DocumentReference.content.attachment.size",
+        "short": "Documento turinio baitų skaičius / Number of bytes of content",
+        "definition": "Documento turinio baitų skaičius (prieš base64 kodavimą).",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.hash",
+        "path": "DocumentReference.content.attachment.hash",
+        "short": "Dokumento turinio hash reikšmė / Hash of the data (sha-1, base64ed)",
+        "definition": "Documento turinio hash reikšmė.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.height",
+        "path": "DocumentReference.content.attachment.height",
+        "short": "Nuotraukos / video aukštis (pikseliais) /Height of the image in pixels (photo/video)",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.width",
+        "path": "DocumentReference.content.attachment.width",
+        "short": "Nuotraukos / video plotis (pikseliais) / Width of the image in pixels (photo/video)",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.profile",
+        "path": "DocumentReference.content.profile",
+        "short": "Priedo failo pavadinimas ir plėtinys URI formatu / Attachment file name and extension in URI format",
+        "definition": "Priedo failo pavadinimas ir plėtinys URI formatu (be pilno 'kelio' (path) iki failo).",
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

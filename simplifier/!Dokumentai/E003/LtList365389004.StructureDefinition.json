@@ -1,0 +1,175 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-365389004",
+  "name": "LtEspbiList365389004",
+  "status": "draft",
+  "description": "Išduoti nedarbingumo pažymėjimai / Certificates of Incapacity for Work",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "365389004"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "365389004"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "max": "0"
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "max": "0"
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "max": "0"
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "List.entry:incapacityForWork",
+        "path": "List.entry",
+        "sliceName": "incapacityForWork",
+        "short": "Išduotas nedarbingumo pažymėjimas / Certificate of Incapacity for Work",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:incapacityForWork.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:incapacityForWork.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-440337002"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/0025780031"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.entry:maternityLeave",
+        "path": "List.entry",
+        "sliceName": "maternityLeave",
+        "short": "Išduotas nėštumo ir gimdymo atostogų pažymėjimas / Certificate of Maternity leave",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:maternityLeave.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:maternityLeave.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-224457004"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/0025780033"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.entry:medicalCertificate",
+        "path": "List.entry",
+        "sliceName": "medicalCertificate",
+        "short": "Išduota medicininė pažyma / Medical certificate",
+        "max": "1"
+      },
+      {
+        "id": "List.entry:medicalCertificate.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry:medicalCertificate.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-103695000"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/0025780035"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

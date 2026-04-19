@@ -1,0 +1,105 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-dev-request/issue",
+  "name": "LtEspbiExtDevRequestIssue",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:Code",
+        "path": "Extension.extension",
+        "sliceName": "Code",
+        "short": "Įspejimo kodas / Issue code",
+        "definition": "Įspejimo kodas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Code.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Code.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Code"
+      },
+      {
+        "id": "Extension.extension:Code.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Code.value[x].code",
+        "path": "Extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:Code.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:IgnoreReason",
+        "path": "Extension.extension",
+        "sliceName": "IgnoreReason",
+        "short": "Apėjimo priežastis / Ignore reason",
+        "definition": "Apėjimo priežastis",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:IgnoreReason.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:IgnoreReason.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "IgnoreReason"
+      },
+      {
+        "id": "Extension.extension:IgnoreReason.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-dev-request/issue"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-98497-1",
+  "name": "LtEspbiObservation98497_1",
+  "status": "draft",
+  "description": "Regėjimo aštrumas / Visual acuity",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "98497-1",
+                  "display": "Visual acuity panel"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "98497-1"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "definition": "Komentaras (E025).\r\n\r\nLaisvas tekstas skirtas komentarui apie regėjimą įrašyti, pvz., su akiniais/lęšiais, be akinių/lęšių."
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "definition": "Laukų \"Dešinės akies regėjimo aštrumas\" ir \"Kairės akies regėjimo aštrumas\" taisyklė:\r\n- Skaičius nuo 0,1 iki 1,0.",
+        "constraint": [
+          {
+            "key": "obs-com-4",
+            "severity": "error",
+            "human": "The value must be between 0.1 and 1.0.",
+            "expression": "value.ofType(Quantity).value >= 0.1 and value.ofType(Quantity).value <= 1.0"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:rightEye",
+        "path": "Observation.component",
+        "sliceName": "rightEye",
+        "short": "Dešinės akies regėjimo aštrumas / Visual acuity of the right eye",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:rightEye.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "98499-7",
+                  "display": "Visual acuity uncorrected Right eye"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:rightEye.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:rightEye.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "98499-7"
+      },
+      {
+        "id": "Observation.component:rightEye.value[x]",
+        "path": "Observation.component.value[x]",
+        "short": "Dešinės akies regėjimo aštrumas / Visual acuity of the right eye",
+        "definition": "Dešinės akies regėjimo aštrumas (E025).\r\n\r\nĮvedamas skaičius nuo 0,1 iki 1,0.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:rightEye.value[x].id",
+        "path": "Observation.component.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:rightEye.value[x].extension",
+        "path": "Observation.component.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:rightEye.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rightEye.value[x].comparator",
+        "path": "Observation.component.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:rightEye.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:rightEye.value[x].system",
+        "path": "Observation.component.value[x].system",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:rightEye.value[x].code",
+        "path": "Observation.component.value[x].code",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:leftEye",
+        "path": "Observation.component",
+        "sliceName": "leftEye",
+        "short": "Kairės akies regėjimo aštrumas / Visual acuity of the left eye",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:leftEye.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "98498-9",
+                  "display": "Visual acuity uncorrected Left eye"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:leftEye.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:leftEye.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "98498-9"
+      },
+      {
+        "id": "Observation.component:leftEye.value[x]",
+        "path": "Observation.component.value[x]",
+        "short": "Kairės akies regėjimo aštrumas / Visual acuity of the left eye",
+        "definition": "Kairės akies regėjimo aštrumas (E025).\r\n\r\nĮvedamas skaičius nuo 0,1 iki 1,0.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:leftEye.value[x].id",
+        "path": "Observation.component.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:leftEye.value[x].extension",
+        "path": "Observation.component.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:leftEye.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:leftEye.value[x].comparator",
+        "path": "Observation.component.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:leftEye.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:leftEye.value[x].system",
+        "path": "Observation.component.value[x].system",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:leftEye.value[x].code",
+        "path": "Observation.component.value[x].code",
+        "max": "0"
+      }
+    ]
+  }
+}

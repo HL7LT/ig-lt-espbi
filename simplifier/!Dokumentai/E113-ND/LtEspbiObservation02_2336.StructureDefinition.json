@@ -1,0 +1,273 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2336",
+  "name": "LtEspbiObservation02_2336",
+  "status": "draft",
+  "description": "Informacija iš Paciento ESI / Information from patient ESI",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": true,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.2336",
+                  "display": "Informacija iš Paciento ESI"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.2336"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2012-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "ESI neregistruotos alergijos / Allergies not registered in the ESI",
+        "definition": "E113-ND forma. ESI neregistruotos alergijos \r\nLaisvai įvedamas tekstas\r\n\r\nValidacinė taisyklė:\r\nPateikiant paciento ESI neregistruotų alergijų suvestinę taikomi duomenų tikrinimo reikalavimai:\r\n• Pateikiamo teksto ilgis ribojamas atsižvelgiant į duomenų saugojimo formatą: oracle VARCHAR2 duomenų tipas.\r\n• leidžiama pateikti tekstinius simbolius",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/NGN/PregnantBadHabits"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.hasMember:dateOfPregnancyOutcome",
+        "path": "Observation.hasMember",
+        "sliceName": "dateOfPregnancyOutcome",
+        "short": "Nėštumo baigties data / Date of pregnancy outcome",
+        "definition": "E113-ND forma. Nėštumo baigties data.\r\nVeikimo logika:\r\n• jeigu yra pateikta/patvirtinta pasirinkto nėštumo E096-GE forma, tada išvedamas rezultatas: \r\n    o  E096-GE→ \"Medicininiai duomenys\" → \"Placentos užgimimo laikas\" → Reikšmė \r\n• jeigu nėra, patikrinama ar egzistuoja prie šio nėštumo E113-NNA  patvirtinta forma, jeigu yra išvedamas rezultatas:  \r\n    o  E113-NNA → \"Patvirtinimo data\"\r\n• jeigu nėra patvirtintos E096-GE ir E113-NNA išvedamas rezultatas: \r\n    o  E096-N → \"Medicininiai duomenys\" → \"Naujagimio įrašas\" (paskutinio vaisiaus) → \"Gimimo data ir laikas\" → Reikšmė\r\n• jeigu nėra nei vienos iš šių formų (E096-GE, E113-NNA, E096-N) rodomas tuščias laukelis\r\n• Informacija yra bendra visiems vaisiams ir atvaizduojama įrašo kairėje pusėje.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1329",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0518",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1004"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:numberOfFetuses",
+        "path": "Observation.hasMember",
+        "sliceName": "numberOfFetuses",
+        "short": "Vaisių skaičius / Number of fetuses",
+        "definition": "Vaisiaus skaičius nurodo kiek eilučių bus nėštumo įraše, arba kiek ciklų bus atliekamas duomenų traukimas (5.5.1.2.1 - 5.5.1.2.12.) iš nėštumo.\r\nVeikimo logika:\r\n Paimamas naujausia einamojo nėštumo E113-UG → \"Medicininiai duomenys\" → Vaisių skaičius  \r\n Jeigu nėra E113-UG formos, imamas iš paskutinės E113-AP → \"Medicininiai duomenys\" → Vaisių skaičius\r\n Jeigu nėra E113-AP formos, imamas iš paskutinės E096-N → \"Medicininiai duomenys\" → Vaisių skaičius\r\n Jeigu nėra E096-N, tai reikšmė arba būsimų eilučių skaičius yra lygus 1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55281-0",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1405"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:pregnancyOutcome",
+        "path": "Observation.hasMember",
+        "sliceName": "pregnancyOutcome",
+        "short": "Nėštumo baigtis / Pregnancy outcome",
+        "definition": "Veikimo logika:\r\n• patikrinama ar vaisius turi įrašą E096-N arba E113-NNA pagal identifikatorių \"Vaisiaus raidė\".\r\n• jeigu yra pateikta/patvirtinta pasirinkto nėštumo E096-N → \"Medicininiai duomenys\" → \"Naujagimio įrašas\" (paskutinio vaisiaus) → \"Gimė\" ->Reikšmė. Išvedamas Reikšmės tekstas.\r\n• jeigu nėra, patikrinama ar egzistuoja prie šio nėštumo šiam vaisiui E113-NNA  patvirtinta forma, jeigu yra išvedamas tekstas: \r\n    o  E113-NNA → \"Medicininiai duomenys\" → \"Bendroji informacija apie nėštumo nutraukimo aprašą\" → \"Nėštumo nutraukimo priežastis\" -> Reikšmė. Išvedamas Reikšmės tekstas.\r\nValidacinė taisyklė:\r\n• Jeigu yra patvirtinta E113-NNA, E113-NNA → \"Medicininiai duomenys\" → Vaisius → Reikšmė = Vaisius\r\n• Jeigu yra patvirtinta E096-N, E096-N → \"Medicininiai duomenys\" → Vaisius → Reikšmė = Vaisius\r\n• jeigu nėra nei vienos iš šių formų (E096-N, E113-NNA) rodomas tuščias laukelis",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1006",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-310506006"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:reasonForTerminationOfPregnancy",
+        "path": "Observation.hasMember",
+        "sliceName": "reasonForTerminationOfPregnancy",
+        "short": "Nėštumo nutraukimo priežastis / Reason for termination of pregnancy",
+        "definition": "Atvaizduojama  E113-NNA → \"Medicininiai duomenys\" → \"Bendroji informacija apie nėštumo nutraukimo aprašą\" →   \"Nėštumo nutraukimas dėl medicininių indikacijų teisės aktų nustatyta tvarka\" → Reikšmė , jeigu ši reikšmė yra lygi \"Kita\", tada atvaizduojama reikšmė E113-NNA → \"Medicininiai duomenys\" → \"Bendroji informacija apie nėštumo nutraukimo aprašą\" →   \"Kita nėštumo nutraukimo priežastis\" → Reikšmė\r\nValidacinė taisyklė:\r\n• E113-NNA → \"Medicininiai duomenys\" → Vaisius → Reikšmė = Vaisius\r\n• jeigu \"Nėštumo baigtis\"→ Reikšmė = \"Nutrauktas nėštumas\"\r\n• jeigu nerandama duomenų, atvaizduojamas tuščias laukelis, be laukelio pavadinimo.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-310506006"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:weeksOfPregnancy",
+        "path": "Observation.hasMember",
+        "sliceName": "weeksOfPregnancy",
+        "short": "Nėštumo savaitės / Weeks of pregnancy",
+        "definition": "Veikimo logika:\r\n• Jeigu yra patvirtinta E113-NNA, E113-NNA → \"NGN antraštė\" → \"Nėštumo savaitė\" → Reikšmė\r\n• Jeigu yra patvirtinta E096-N, apskaičiuojamas skirtumas tarp E096-N → \"Medicininiai duomenys\" → \"Gimimo data ir laikas\"→ Reikšmė (data) ir E096-N → \"NGN antraštė\" → \"Pirmoji nėštumo diena\" → Reikšmė (data). Išskaičiuojamas skirtumas pilnomis savaitėmis.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49051-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:methodOfDelivery",
+        "path": "Observation.hasMember",
+        "sliceName": "methodOfDelivery",
+        "short": "Gimdymo būdas / Method of delivery",
+        "definition": "E096-GE Gimdymo eiga → \"Medicininiai duomenys\" → \"Pagimdė\" → \"Reikšmė\"\r\nValidacinė taisyklė:\r\n• Rodomas tuščias reikšmės ir pavadinimo laukelis, jeigu yra patvirtinta E113-NNA, E113-NNA → \"Medicininiai duomenys\" → Vaisius → Reikšmė = Vaisius;\r\n• Jeigu nerandama duomenų, rodoma tuščias laukelis ir laukelio pavadinimas.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1305"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:auxiliaryMeasures",
+        "path": "Observation.hasMember",
+        "sliceName": "auxiliaryMeasures",
+        "short": "Pagalbines priemonės / Auxiliary measures",
+        "definition": "E096-GE Gimdymo eiga → \"Medicininiai duomenys\" → \"Pagimdė\" → \"Pagalbos būdas\" -> \"Reikšmė\"\r\nValidacinė taisyklė:\r\n• Rodomas tuščias reikšmės ir pavadinimo laukelis, jeigu yra patvirtinta E113-NNA, E113-NNA → \"Medicininiai duomenys\" → Vaisius → Reikšmė = Vaisius;\r\n• Vykdoma patikra, jeigu E096-GE Gimdymo eiga → \"Medicininiai duomenys\" → \"Pagimdė\" → \"Reikšmė\" = \"Natūraliais takais, taikant pagalbines priemones\".\r\n• Jeigu nerandama duomenų, rodoma tuščias laukelis ir laukelio pavadinimas.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1307"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:newbornStillbornInformation",
+        "path": "Observation.hasMember",
+        "sliceName": "newbornStillbornInformation",
+        "short": "Naujagimio/Negyvagimio informacija / Newborn/Stillborn information",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2337"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

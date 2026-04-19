@@ -1,0 +1,164 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person",
+  "name": "LtEspbiRelatedPerson",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "RelatedPerson",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/RelatedPerson",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "RelatedPerson.id",
+        "path": "RelatedPerson.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.meta",
+        "path": "RelatedPerson.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.extension",
+        "path": "RelatedPerson.extension",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson",
+        "path": "RelatedPerson.extension",
+        "sliceName": "ltExtRelatedPerson",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-related-person/relatedPerson.reference"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.identifier",
+        "path": "RelatedPerson.identifier",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.identifier.system",
+        "path": "RelatedPerson.identifier.system",
+        "min": 1,
+        "mustSupport": false
+      },
+      {
+        "id": "RelatedPerson.identifier.value",
+        "path": "RelatedPerson.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.patient",
+        "path": "RelatedPerson.patient",
+        "short": "Pacientas, su kuriuo yra susijęs šis asmuo / Patient to whom this person is related",
+        "definition": "Nuoroda į pacientą, su kuriuo yra susijęs šis asmuo.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.patient.reference",
+        "path": "RelatedPerson.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.relationship",
+        "path": "RelatedPerson.relationship",
+        "short": "Paciento giminystės arba kito ryšio tipas (pvz., sutuoktinis, tėvas, mama) / Type of related person",
+        "definition": "Ryšio tipas tarp paciento ir jo kontaktinio asmens.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje related-person-type.",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.relationship.coding",
+        "path": "RelatedPerson.relationship.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "RelatedPerson.relationship.coding.system",
+        "path": "RelatedPerson.relationship.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/RelatedPerson/Type"
+      },
+      {
+        "id": "RelatedPerson.relationship.coding.code",
+        "path": "RelatedPerson.relationship.coding.code",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.relationship.coding.display",
+        "path": "RelatedPerson.relationship.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.relationship.text",
+        "path": "RelatedPerson.relationship.text",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.name",
+        "path": "RelatedPerson.name",
+        "short": "Susijusio asmens vardas, pavardė / Related person name, surname",
+        "definition": "Kontaktinio asmens vardas ir pavardė.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.name.family",
+        "path": "RelatedPerson.name.family",
+        "short": "Susijusio asmens pavardė / Related person surname",
+        "definition": "Kontaktinio asmens pavardė.",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.name.given",
+        "path": "RelatedPerson.name.given",
+        "short": "Susijusio asmens vardas(-ai) / Related person name(-s)",
+        "definition": "Kontaktinio asmens vardas (-ai).",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.telecom",
+        "path": "RelatedPerson.telecom",
+        "short": "Susijusio asmens kontaktiniai duomenys / Related person contact details, e.g. a telephone number or an email address",
+        "definition": "Paciento kontaktinio asmens kontaktiniai duomenys.",
+        "mustSupport": true
+      },
+      {
+        "id": "RelatedPerson.telecom.system",
+        "path": "RelatedPerson.telecom.system",
+        "definition": "Kontakto tipas.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/contact-point-system. Galimos reikšmės: phone | fax | email | pager | url | sms | other.",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.telecom.value",
+        "path": "RelatedPerson.telecom.value",
+        "definition": "Kontaktiniai duomenys (telefono numeris, el. pašto adresas).",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.telecom.use",
+        "path": "RelatedPerson.telecom.use",
+        "definition": "Kontakto naudojimo tipas.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/contact-point-use. Galimos reikšmės: home | work | temp | old | mobile.\r\n\r\n",
+        "mustSupport": true
+      }
+    ]
+  }
+}

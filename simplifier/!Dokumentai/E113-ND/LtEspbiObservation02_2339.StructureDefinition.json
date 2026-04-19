@@ -1,0 +1,290 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2339",
+  "name": "LtEspbiObservation02_2339",
+  "status": "draft",
+  "description": "Pacientės pateikta informacija / Patient provided information",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.2339",
+                  "display": "Pacientės pateikta informacija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.2339"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2012-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "ESI neregistruotos alergijos / Allergies not registered in the ESI",
+        "definition": "E113-ND forma. ESI neregistruotos alergijos \r\nLaisvai įvedamas tekstas\r\n\r\nValidacinė taisyklė:\r\nPateikiant paciento ESI neregistruotų alergijų suvestinę taikomi duomenų tikrinimo reikalavimai:\r\n• Pateikiamo teksto ilgis ribojamas atsižvelgiant į duomenų saugojimo formatą: oracle VARCHAR2 duomenų tipas.\r\n• leidžiama pateikti tekstinius simbolius",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/NGN/PregnantBadHabits",
+                  "code": "1",
+                  "display": "Taip"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/NGN/PregnantBadHabits"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:pregnancyLastDay",
+        "path": "Observation.hasMember",
+        "sliceName": "pregnancyLastDay",
+        "short": "Nėštumo baigties data / Pregnancy last day",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2340"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:numberOfFetuses",
+        "path": "Observation.hasMember",
+        "sliceName": "numberOfFetuses",
+        "short": "Vaisių skaičius / Number of fetuses",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55281-0-by-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:weeksOfPregnancy",
+        "path": "Observation.hasMember",
+        "sliceName": "weeksOfPregnancy",
+        "short": "Nėštumo savaitės / Weeks of pregnancy",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2341"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:pregnancyOutcome",
+        "path": "Observation.hasMember",
+        "sliceName": "pregnancyOutcome",
+        "short": "Nėštumo baigtis / Pregnancy outcome",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2342"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:legalMedicalReasonForPregnancyTermination",
+        "path": "Observation.hasMember",
+        "sliceName": "legalMedicalReasonForPregnancyTermination",
+        "short": "Nėštumo nutraukimas dėl medicininių indikacijų teisės aktų nustatyta tvarka / Termination of pregnancy due to medical indications in accordance with the procedure established by legal acts",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2346"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:anotherReasonForTerminationOfPregnancy",
+        "path": "Observation.hasMember",
+        "sliceName": "anotherReasonForTerminationOfPregnancy",
+        "short": "Kita nėštumo nutraukimo priežastis / Another reason for termination of pregnancy ",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2347"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:methodOfBabyDelivery",
+        "path": "Observation.hasMember",
+        "sliceName": "methodOfBabyDelivery",
+        "short": "Gimdymo būdas / Method of baby delivery",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2343"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:auxiliaryMeasures",
+        "path": "Observation.hasMember",
+        "sliceName": "auxiliaryMeasures",
+        "short": "Pagalbines priemonės / Auxiliary measures",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2344"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:newbornStillbornInformation",
+        "path": "Observation.hasMember",
+        "sliceName": "newbornStillbornInformation",
+        "short": "Naujagimio/Negyvagimio informacija / Newborn/Stillborn information ",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2345"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

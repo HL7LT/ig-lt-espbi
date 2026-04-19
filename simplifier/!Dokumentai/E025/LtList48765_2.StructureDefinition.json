@@ -1,0 +1,114 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-48765-2",
+  "name": "LtEspbiList48765_2",
+  "status": "draft",
+  "description": "Naujai nustatytos alergijos / Detected allergies",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "48765-2"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "short": "Pacientas, kuriam nustatyta alergija / Reference to the patient who has allergy",
+        "min": 1
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T06:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "short": "Alergija nustatęs specialistas / Reference to the specialist which identify allergy",
+        "min": 1
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "short": "Nustatytos alergijos duomenys / Detected allergy data"
+      },
+      {
+        "id": "List.entry.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-allergy-intolerance-data"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.entry.item.reference",
+        "path": "List.entry.item.reference",
+        "short": "Detalūs dokumentų duomenys / Docs data "
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/list-empty-reason",
+                  "code": "nilknown",
+                  "display": "Nil Known"
+                }
+              ],
+              "text": "The patient has asserted that he is not aware of any allergies"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

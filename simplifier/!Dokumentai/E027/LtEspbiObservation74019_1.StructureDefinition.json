@@ -1,0 +1,266 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-74019-1",
+  "name": "LtEspbiObservation74019_1",
+  "status": "draft",
+  "description": "Klinikinės obstrukcinės vainikinių arterijų ligos tikimybės įvertinimas / Estimation of the probability of clinical obstructive coronary artery disease",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "constraint": [
+          {
+            "key": "0bs-25",
+            "severity": "error",
+            "human": "One of characteristicsOfChestPain or characteristicsOfShortnessOfBreath shall be present in hasMember.",
+            "expression": "(hasMember.where(resolve().conformsTo('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-58259-3')).exists()orhasMember.where(resolve().conformsTo('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-54564-0')).exists())andnot(hasMember.where(resolve().conformsTo('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-58259-3')).exists()andhasMember.where(resolve().conformsTo('http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-54564-0')).exists())"
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "74019-1"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "74019-1"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfChestPain",
+        "path": "Observation.hasMember",
+        "sliceName": "characteristicsOfChestPain",
+        "short": "Krūtinės skausmo charakteristika / Characteristics of chest pain",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-58259-3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfChestPain.id",
+        "path": "Observation.hasMember.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfChestPain.extension",
+        "path": "Observation.hasMember.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfChestPain.reference",
+        "path": "Observation.hasMember.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfChestPain.type",
+        "path": "Observation.hasMember.type",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfChestPain.identifier",
+        "path": "Observation.hasMember.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfChestPain.display",
+        "path": "Observation.hasMember.display",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfShortnessOfBreath",
+        "path": "Observation.hasMember",
+        "sliceName": "characteristicsOfShortnessOfBreath",
+        "short": "Dusulio charakteristika / Characteristics of shortness of breath",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-54564-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfShortnessOfBreath.id",
+        "path": "Observation.hasMember.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfShortnessOfBreath.extension",
+        "path": "Observation.hasMember.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfShortnessOfBreath.reference",
+        "path": "Observation.hasMember.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfShortnessOfBreath.type",
+        "path": "Observation.hasMember.type",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfShortnessOfBreath.identifier",
+        "path": "Observation.hasMember.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:characteristicsOfShortnessOfBreath.display",
+        "path": "Observation.hasMember.display",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:riskFactorsForCardiovascularDisease",
+        "path": "Observation.hasMember",
+        "sliceName": "riskFactorsForCardiovascularDisease",
+        "short": "Širdies ir kraujagyslių ligų rizikos veiksniai / Risk factors for cardiovascular disease",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-78940-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:riskFactorsForCardiovascularDisease.id",
+        "path": "Observation.hasMember.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:riskFactorsForCardiovascularDisease.extension",
+        "path": "Observation.hasMember.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:riskFactorsForCardiovascularDisease.reference",
+        "path": "Observation.hasMember.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:riskFactorsForCardiovascularDisease.type",
+        "path": "Observation.hasMember.type",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:riskFactorsForCardiovascularDisease.identifier",
+        "path": "Observation.hasMember.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember:riskFactorsForCardiovascularDisease.display",
+        "path": "Observation.hasMember.display",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

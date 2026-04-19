@@ -1,0 +1,516 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "lt-espbi-vision-prescription-erec-01",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-vision-prescription-erec-01",
+  "name": "LtEspbiVisionPrescriptionErec01",
+  "status": "draft",
+  "description": "Lęšių / Akinių skyrimo duomenys / Vision prescription data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "VisionPrescription",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-vision-prescription",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "VisionPrescription.id",
+        "path": "VisionPrescription.id",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.implicitRules",
+        "path": "VisionPrescription.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.language",
+        "path": "VisionPrescription.language",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.text",
+        "path": "VisionPrescription.text",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.contained",
+        "path": "VisionPrescription.contained",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.extension",
+        "path": "VisionPrescription.extension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.modifierExtension",
+        "path": "VisionPrescription.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.identifier",
+        "path": "VisionPrescription.identifier",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.status",
+        "path": "VisionPrescription.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "active"
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.created",
+        "path": "VisionPrescription.created",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-11-11"
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.patient",
+        "path": "VisionPrescription.patient",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.patient.id",
+        "path": "VisionPrescription.patient.id",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.patient.extension",
+        "path": "VisionPrescription.patient.extension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.patient.type",
+        "path": "VisionPrescription.patient.type",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.patient.identifier",
+        "path": "VisionPrescription.patient.identifier",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.patient.display",
+        "path": "VisionPrescription.patient.display",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.encounter",
+        "path": "VisionPrescription.encounter",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.dateWritten",
+        "path": "VisionPrescription.dateWritten",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-03-06T12:00:56.037+00:00"
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.prescriber",
+        "path": "VisionPrescription.prescriber",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/12345678"
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.prescriber.id",
+        "path": "VisionPrescription.prescriber.id",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.prescriber.extension",
+        "path": "VisionPrescription.prescriber.extension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.prescriber.type",
+        "path": "VisionPrescription.prescriber.type",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.prescriber.identifier",
+        "path": "VisionPrescription.prescriber.identifier",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.prescriber.display",
+        "path": "VisionPrescription.prescriber.display",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses",
+        "path": "VisionPrescription.lensSpecification.extension",
+        "sliceName": "ltEspbiExtLenses"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:lensesType",
+        "path": "VisionPrescription.lensSpecification.extension.extension",
+        "sliceName": "lensesType"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:lensesType.value[x]",
+        "path": "VisionPrescription.lensSpecification.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type",
+                  "code": "sd"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:prismAxis",
+        "path": "VisionPrescription.lensSpecification.extension.extension",
+        "sliceName": "prismAxis"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:prismAxis.value[x]",
+        "path": "VisionPrescription.lensSpecification.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 80,
+              "unit": "Degrees",
+              "system": "http://unitsofmeasure.org",
+              "code": "deg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:nearPD",
+        "path": "VisionPrescription.lensSpecification.extension.extension",
+        "sliceName": "nearPD"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:nearPD.value[x]",
+        "path": "VisionPrescription.lensSpecification.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:distancePD",
+        "path": "VisionPrescription.lensSpecification.extension.extension",
+        "sliceName": "distancePD"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:distancePD.value[x]",
+        "path": "VisionPrescription.lensSpecification.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 2,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:distanceBetweenPupils",
+        "path": "VisionPrescription.lensSpecification.extension.extension",
+        "sliceName": "distanceBetweenPupils"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:distanceBetweenPupils.value[x]",
+        "path": "VisionPrescription.lensSpecification.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 30,
+              "unit": "Milimetrai",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:purpose",
+        "path": "VisionPrescription.lensSpecification.extension.extension",
+        "sliceName": "purpose"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:purpose.value[x]",
+        "path": "VisionPrescription.lensSpecification.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-purpose",
+                  "code": "ar",
+                  "display": "Artumui"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:purposeDescription",
+        "path": "VisionPrescription.lensSpecification.extension.extension",
+        "sliceName": "purposeDescription"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.extension:ltEspbiExtLenses.extension:purposeDescription.value[x]",
+        "path": "VisionPrescription.lensSpecification.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Artumui."
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.modifierExtension",
+        "path": "VisionPrescription.lensSpecification.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product",
+        "path": "VisionPrescription.lensSpecification.product",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": " http://hl7.org/fhir/ValueSet/vision-product",
+                  "code": "al"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.extension",
+        "path": "VisionPrescription.lensSpecification.product.extension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.coding.extension",
+        "path": "VisionPrescription.lensSpecification.product.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.coding.version",
+        "path": "VisionPrescription.lensSpecification.product.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.product.coding.userSelected",
+        "path": "VisionPrescription.lensSpecification.product.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.eye",
+        "path": "VisionPrescription.lensSpecification.eye",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "left"
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.sphere",
+        "path": "VisionPrescription.lensSpecification.sphere",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 2
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.cylinder",
+        "path": "VisionPrescription.lensSpecification.cylinder",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 2
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.axis",
+        "path": "VisionPrescription.lensSpecification.axis",
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 12
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism",
+        "path": "VisionPrescription.lensSpecification.prism",
+        "max": "1"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism.id",
+        "path": "VisionPrescription.lensSpecification.prism.id",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism.extension",
+        "path": "VisionPrescription.lensSpecification.prism.extension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism.modifierExtension",
+        "path": "VisionPrescription.lensSpecification.prism.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism.amount",
+        "path": "VisionPrescription.lensSpecification.prism.amount",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 12
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.prism.base",
+        "path": "VisionPrescription.lensSpecification.prism.base",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "up"
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.add",
+        "path": "VisionPrescription.lensSpecification.add",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 2
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.power",
+        "path": "VisionPrescription.lensSpecification.power",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.backCurve",
+        "path": "VisionPrescription.lensSpecification.backCurve",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 2
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.diameter",
+        "path": "VisionPrescription.lensSpecification.diameter",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 20
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.duration",
+        "path": "VisionPrescription.lensSpecification.duration",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.color",
+        "path": "VisionPrescription.lensSpecification.color",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.brand",
+        "path": "VisionPrescription.lensSpecification.brand",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.note",
+        "path": "VisionPrescription.lensSpecification.note",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Gražiai išpjauti stiklus."
+            }
+          }
+        ]
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.note.id",
+        "path": "VisionPrescription.lensSpecification.note.id",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.note.extension",
+        "path": "VisionPrescription.lensSpecification.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.note.author[x]",
+        "path": "VisionPrescription.lensSpecification.note.author[x]",
+        "max": "0"
+      },
+      {
+        "id": "VisionPrescription.lensSpecification.note.time",
+        "path": "VisionPrescription.lensSpecification.note.time",
+        "max": "0"
+      }
+    ]
+  }
+}

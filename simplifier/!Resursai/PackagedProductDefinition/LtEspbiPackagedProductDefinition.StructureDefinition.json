@@ -1,0 +1,159 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-packaged-product-definition",
+  "name": "LtEspbiPackagedProductDefinition",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "PackagedProductDefinition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "PackagedProductDefinition.id",
+        "path": "PackagedProductDefinition.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.meta",
+        "path": "PackagedProductDefinition.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.description",
+        "path": "PackagedProductDefinition.description",
+        "short": "Vaistinio preparato pakuotės aprašymas / Textual description",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus",
+        "path": "PackagedProductDefinition.marketingStatus",
+        "short": "Vaisto tiekimo būsena / Medication package Supply status",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus.status",
+        "path": "PackagedProductDefinition.marketingStatus.status",
+        "short": "Tiekimo sutrikimo tipas / Supply status type ",
+        "definition": "Tiekimo sutrikimo tipas.\r\nGalimos reikšmės nurodytos klasifikatoriuje medication-supply-status (http://esveikata.lt/Profile/ltnhr-medication#supplyStatus.code)."
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus.status.coding",
+        "path": "PackagedProductDefinition.marketingStatus.status.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus.status.coding.system",
+        "path": "PackagedProductDefinition.marketingStatus.status.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Medication/supplyStatus"
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus.status.coding.code",
+        "path": "PackagedProductDefinition.marketingStatus.status.coding.code",
+        "min": 1
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus.dateRange",
+        "path": "PackagedProductDefinition.marketingStatus.dateRange",
+        "short": "Tiekimo sutrikimo būsenos data nuo / iki / Supply status valid from date / to date ",
+        "definition": "Tiekimo sutrikimo būsenos data nuo/iki",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus.dateRange.start",
+        "path": "PackagedProductDefinition.marketingStatus.dateRange.start",
+        "short": "Tiekimo sutrikimo būsenos data nuo / Supply status valid from date",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.marketingStatus.dateRange.end",
+        "path": "PackagedProductDefinition.marketingStatus.dateRange.end",
+        "short": "Tiekimo sutrikimo būsenos data iki / Supply status valid to date",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.packaging",
+        "path": "PackagedProductDefinition.packaging",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type",
+        "path": "PackagedProductDefinition.packaging.type",
+        "short": "Pakuotės tipas / Package type",
+        "definition": "Vaistinio preparato pakuotės tipas lietuvių bei anglų kalbomis (pvz. dėžutė, buteliukas, vaistų plokštelė ir pan.).\r\nGalimos reikšmės nurodytos klasifikatoriuje medication-package-type (http://esveikata.lt/classifiers/Medication/PackageType).",
+        "mustSupport": true
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding",
+        "path": "PackagedProductDefinition.packaging.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.system",
+        "path": "PackagedProductDefinition.packaging.type.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Medication/PackageType"
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.code",
+        "path": "PackagedProductDefinition.packaging.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.display",
+        "path": "PackagedProductDefinition.packaging.type.coding.display",
+        "short": "Pavadinimas lietuvių kalba",
+        "min": 1
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.display.extension:translation",
+        "path": "PackagedProductDefinition.packaging.type.coding.display.extension",
+        "sliceName": "translation",
+        "short": "Pavadinimas anglų kalba / Name in english",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/translation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.display.extension:translation.extension:lang",
+        "path": "PackagedProductDefinition.packaging.type.coding.display.extension.extension",
+        "sliceName": "lang",
+        "short": "Kalbos kodas / Code for Language"
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.display.extension:translation.extension:lang.value[x]",
+        "path": "PackagedProductDefinition.packaging.type.coding.display.extension.extension.value[x]",
+        "fixedCode": "en"
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.display.extension:translation.extension:content",
+        "path": "PackagedProductDefinition.packaging.type.coding.display.extension.extension",
+        "sliceName": "content",
+        "short": "Pavadinimas anglų kalba / Name in english"
+      },
+      {
+        "id": "PackagedProductDefinition.packaging.type.coding.display.extension:translation.extension:content.value[x]",
+        "path": "PackagedProductDefinition.packaging.type.coding.display.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

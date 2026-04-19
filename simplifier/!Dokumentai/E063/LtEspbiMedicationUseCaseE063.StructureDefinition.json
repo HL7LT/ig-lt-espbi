@@ -1,0 +1,368 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-e063",
+  "name": "LtEspbiMedicationE063",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Medication",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Medication.implicitRules",
+        "path": "Medication.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Medication.language",
+        "path": "Medication.language",
+        "max": "0"
+      },
+      {
+        "id": "Medication.text",
+        "path": "Medication.text",
+        "max": "0"
+      },
+      {
+        "id": "Medication.contained",
+        "path": "Medication.contained",
+        "max": "0"
+      },
+      {
+        "id": "Medication.extension",
+        "path": "Medication.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.modifierExtension",
+        "path": "Medication.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.identifier",
+        "path": "Medication.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Medication.code",
+        "path": "Medication.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Identifier/NPAKID-7",
+                  "code": "1020497"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Medication.code.id",
+        "path": "Medication.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.code.extension",
+        "path": "Medication.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.code.coding.id",
+        "path": "Medication.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.code.coding.extension",
+        "path": "Medication.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.code.coding.version",
+        "path": "Medication.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Medication.code.coding.userSelected",
+        "path": "Medication.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Medication.status",
+        "path": "Medication.status",
+        "max": "0"
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder",
+        "path": "Medication.marketingAuthorizationHolder",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/12354687"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder.id",
+        "path": "Medication.marketingAuthorizationHolder.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder.extension",
+        "path": "Medication.marketingAuthorizationHolder.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder.type",
+        "path": "Medication.marketingAuthorizationHolder.type",
+        "max": "0"
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder.identifier",
+        "path": "Medication.marketingAuthorizationHolder.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder.display",
+        "path": "Medication.marketingAuthorizationHolder.display",
+        "max": "0"
+      },
+      {
+        "id": "Medication.doseForm",
+        "path": "Medication.doseForm",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/PharmaceuticalForm",
+                  "code": "1",
+                  "display": "hemofiltracijos tirpalas",
+                  "_display": {
+                    "extension": [
+                      {
+                        "extension": [
+                          {
+                            "url": "lang",
+                            "valueCode": "en"
+                          },
+                          {
+                            "url": "content",
+                            "valueString": "haemofiltration solution"
+                          }
+                        ],
+                        "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "text": "hem. tirpalas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Medication.doseForm.id",
+        "path": "Medication.doseForm.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.doseForm.extension",
+        "path": "Medication.doseForm.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.doseForm.coding.id",
+        "path": "Medication.doseForm.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.doseForm.coding.extension",
+        "path": "Medication.doseForm.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.doseForm.coding.version",
+        "path": "Medication.doseForm.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation",
+        "path": "Medication.doseForm.coding.display.extension",
+        "sliceName": "translation"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.id",
+        "path": "Medication.doseForm.coding.display.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:lang",
+        "path": "Medication.doseForm.coding.display.extension.extension",
+        "sliceName": "lang"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:lang.value[x]",
+        "path": "Medication.doseForm.coding.display.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "en"
+          }
+        ]
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:content",
+        "path": "Medication.doseForm.coding.display.extension.extension",
+        "sliceName": "content"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:content.value[x]",
+        "path": "Medication.doseForm.coding.display.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "haemofiltration solution"
+          }
+        ]
+      },
+      {
+        "id": "Medication.doseForm.coding.userSelected",
+        "path": "Medication.doseForm.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Medication.totalVolume",
+        "path": "Medication.totalVolume",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient",
+        "path": "Medication.ingredient",
+        "min": 1
+      },
+      {
+        "id": "Medication.ingredient.id",
+        "path": "Medication.ingredient.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.extension",
+        "path": "Medication.ingredient.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.modifierExtension",
+        "path": "Medication.ingredient.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.id",
+        "path": "Medication.ingredient.item.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.extension",
+        "path": "Medication.ingredient.item.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.concept",
+        "path": "Medication.ingredient.item.concept",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.reference.id",
+        "path": "Medication.ingredient.item.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.reference.extension",
+        "path": "Medication.ingredient.item.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.reference.type",
+        "path": "Medication.ingredient.item.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.reference.identifier",
+        "path": "Medication.ingredient.item.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.item.reference.display",
+        "path": "Medication.ingredient.item.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.isActive",
+        "path": "Medication.ingredient.isActive",
+        "max": "0"
+      },
+      {
+        "id": "Medication.ingredient.strength[x]",
+        "path": "Medication.ingredient.strength[x]",
+        "definition": "Vaisto stiprumas\r\n\r\nRatio - Struktūrizuotas komponento kiekis, kuriame aprašomas medžiagų stiprumas.\r\n\r\nQuantity - Veikliųjų medžiagų stiprumų, atskirtu „/“ simboliu, sąrašas. Jei VP sudaro keli komponentai, tai jų stiprumai atskiriami \"+\" simboliu.",
+        "min": 1
+      },
+      {
+        "id": "Medication.batch",
+        "path": "Medication.batch",
+        "max": "0"
+      },
+      {
+        "id": "Medication.definition",
+        "path": "Medication.definition",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-knowledge-e063"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Medication.definition.id",
+        "path": "Medication.definition.id",
+        "max": "0"
+      },
+      {
+        "id": "Medication.definition.extension",
+        "path": "Medication.definition.extension",
+        "max": "0"
+      },
+      {
+        "id": "Medication.definition.type",
+        "path": "Medication.definition.type",
+        "max": "0"
+      },
+      {
+        "id": "Medication.definition.identifier",
+        "path": "Medication.definition.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Medication.definition.display",
+        "path": "Medication.definition.display",
+        "max": "0"
+      }
+    ]
+  }
+}

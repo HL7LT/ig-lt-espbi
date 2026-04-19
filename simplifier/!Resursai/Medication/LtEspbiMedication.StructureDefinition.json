@@ -1,0 +1,263 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication",
+  "name": "LtEspbiMedication",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Medication",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Medication",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Medication.id",
+        "path": "Medication.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.meta",
+        "path": "Medication.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.code",
+        "path": "Medication.code",
+        "short": "Vaisto identifikatorius suteiktas VAPRIS, NPAKID-7 arba NPAKID / Codes that identify this medication",
+        "definition": "Naudojami klasifikatoriai:\r\nVAPRIS - http://esveikata.lt/classifiers/Identifier/VaprisID\r\n\r\nVaistinio preparato nacionalinis pakuotės identifikatorius (NPAKID) - http://esveikata.lt/classifiers/Identifier/NPAKID\r\n\r\nVaistinio preparato nacionalinis pakuotės identifikatorius (NPAKID-7) - http://esveikata.lt/classifiers/Identifier/NPAKID-7",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.code.coding",
+        "path": "Medication.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Medication.code.coding.system",
+        "path": "Medication.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Medication.code.coding.code",
+        "path": "Medication.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Medication.code.coding.display",
+        "path": "Medication.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder",
+        "path": "Medication.marketingAuthorizationHolder",
+        "short": "Rinkodaros teisės turėtojo pavadinimas / Organization that has authorization to market medication",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.marketingAuthorizationHolder.reference",
+        "path": "Medication.marketingAuthorizationHolder.reference",
+        "min": 1
+      },
+      {
+        "id": "Medication.doseForm",
+        "path": "Medication.doseForm",
+        "short": "Vaistinio preparato forma / Pharmaceutical form ",
+        "definition": "Vaisto farmacinės formos pavadinimas lietuvių kalba - pilnas bei trumpas pavadinimai.\r\nGalimos reikšmės nurodytos klasifikatoriuje pharmaceutical-form (http://esveikata.lt/classifiers/PharmaceuticalForm).\r\n\r\nFHIR R5 siūlo naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/medication-form-codes, kuriame įtraukti kodai iš http://snomed.info/sct, kur sąvoka yra 736542009 (Farmacinė dozės forma).",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.doseForm.coding",
+        "path": "Medication.doseForm.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Medication.doseForm.coding.system",
+        "path": "Medication.doseForm.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/PharmaceuticalForm"
+      },
+      {
+        "id": "Medication.doseForm.coding.code",
+        "path": "Medication.doseForm.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Medication.doseForm.coding.display",
+        "path": "Medication.doseForm.coding.display",
+        "short": "Pilnas pavadinimas lietuvių kalba / Full name in Lithuanian",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation",
+        "path": "Medication.doseForm.coding.display.extension",
+        "sliceName": "translation",
+        "short": "Vaistinio preparato farmacinė forma anglų kalba / Pharmaceutical form in english",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/translation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:lang",
+        "path": "Medication.doseForm.coding.display.extension.extension",
+        "sliceName": "lang",
+        "short": "Kalbos kodas / Code for Language"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:lang.value[x]",
+        "path": "Medication.doseForm.coding.display.extension.extension.value[x]",
+        "fixedCode": "en"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:content",
+        "path": "Medication.doseForm.coding.display.extension.extension",
+        "sliceName": "content",
+        "short": "Pavadinimas anglų kalba / Name in english"
+      },
+      {
+        "id": "Medication.doseForm.coding.display.extension:translation.extension:content.value[x]",
+        "path": "Medication.doseForm.coding.display.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Medication.doseForm.text",
+        "path": "Medication.doseForm.text",
+        "short": "Trumpas pavadinimas lietuvių kalba / Short name in Lithuanian",
+        "definition": "Trumpas farmacinės formos pavadinimas lietuvių kalba. Angliškas vertimas pateikiamas per translation extension.",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.doseForm.text.extension:translation",
+        "path": "Medication.doseForm.text.extension",
+        "sliceName": "translation",
+        "short": "Trumpas pavadinimas anglų kalba / Short name in English",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/translation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Medication.doseForm.text.extension:translation.extension:lang",
+        "path": "Medication.doseForm.text.extension.extension",
+        "sliceName": "lang",
+        "short": "Kalbos kodas / Language code"
+      },
+      {
+        "id": "Medication.doseForm.text.extension:translation.extension:lang.value[x]",
+        "path": "Medication.doseForm.text.extension.extension.value[x]",
+        "fixedCode": "en"
+      },
+      {
+        "id": "Medication.doseForm.text.extension:translation.extension:content",
+        "path": "Medication.doseForm.text.extension.extension",
+        "sliceName": "content",
+        "short": "Trumpas pavadinimas anglų kalba / Short name in English"
+      },
+      {
+        "id": "Medication.doseForm.text.extension:translation.extension:content.value[x]",
+        "path": "Medication.doseForm.text.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Medication.ingredient",
+        "path": "Medication.ingredient",
+        "short": "Vaisto komponento sudėties informacija / Active or inactive ingredient",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.ingredient.item",
+        "path": "Medication.ingredient.item",
+        "short": "Nuoroda į vaisto komponento duomenų resursą / The ingredient (substance or medication) that the ingredient.strength relates to",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-substance"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Medication.ingredient.item.reference",
+        "path": "Medication.ingredient.item.reference",
+        "min": 1
+      },
+      {
+        "id": "Medication.ingredient.item.reference.reference",
+        "path": "Medication.ingredient.item.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "Medication.ingredient.isActive",
+        "path": "Medication.ingredient.isActive",
+        "short": "Medžiagos vaidmuo vaisto sudėtyje / Active ingredient indicator",
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.ingredient.strength[x]",
+        "path": "Medication.ingredient.strength[x]",
+        "short": "Medžiagos kiekis vaisto vienete / Quantity of ingredient present",
+        "definition": "Ratio - Struktūrizuotas komponento kiekis, kuriame aprašomas medžiagų stiprumas.\r\n\r\nQuantity - Veikliųjų medžiagų stiprumų, atskirtu „/“ simboliu, sąrašas. Jei VP sudaro keli komponentai, tai jų stiprumai atskiriami \"+\" simboliu.",
+        "type": [
+          {
+            "code": "Ratio"
+          },
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.definition",
+        "path": "Medication.definition",
+        "short": "Nuoroda į MedicationKnowledge resursą, kuriame išsamiai aprašomas vaistinis preparatas / Knowledge about this medication",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-knowledge"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Medication.definition.reference",
+        "path": "Medication.definition.reference",
+        "min": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,544 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation",
+  "name": "LtEspbiObservation",
+  "status": "draft",
+  "description": "Apžiūros duomenų profilis / Observation profile.",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.id",
+        "path": "Observation.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.meta",
+        "path": "Observation.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "short": "Papildomas apžiūros duomenų identifikatorius",
+        "definition": "Naudojamas neįgalumo pažymėjimo numeriui saugoti, kai Observation resursas aprašo neįgalumo duomenis.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.identifier.system",
+        "path": "Observation.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "Observation.identifier.value",
+        "path": "Observation.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "short": "Nuoroda į kitas klinikines veiklas ar procesus / Reference to other clinical activities or processes",
+        "definition": "Nuoroda į kitas klinikines veiklas ar procesus / A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-administration",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-dispence",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-statement",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-imaging-study"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.partOf.reference",
+        "path": "Observation.partOf.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "short": "Apžiūros būsena / Observation status",
+        "definition": "Apžiūros būsena / Observation status\r\nGalimos reikšmės:\r\n- final : Apžiūros būsena sukurtai apžiūrai.\r\n- entered in error : Būsena atšauktai apžiūrai.\r\nGalimos reikšmės nurodytos klasifikatoriuje observation-status.\r\n\r\nFHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/observation-status. Galimos reikšmės: registered | preliminary | final | amended | corrected | corrected | entered in error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "short": "Apžiūros duomenų pavadinimas / Name of observation",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.\r\nGalimos reikšmės nurodytos klasifikatoriuje observation-code.\r\nGalimos reikšmės nurodytos klasifikatoriuje vehicle-category-group (Kategorijų grupei nurodyti E083-1 pažymoje).",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding",
+        "path": "Observation.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.code.coding.display",
+        "path": "Observation.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.text",
+        "path": "Observation.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "short": "Pacientas, kurio duomenys yra aprašomi / Patient who observation is being made",
+        "definition": "Pacientas, kurio duomenys yra aprašomi, kuriam atliekamas tyrimas, dėl kurio būklės yra konsultuojamasi ar kuriam nurodomos rekomendacijos.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.subject.reference",
+        "path": "Observation.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Įvertinimo data ir laikas / clinically relevant time/time-period for observation",
+        "definition": "Apžiūros duomenų įvertinimo ar tyrimo atlikimo data ir laikas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "short": "Apžiūros duomenų įvedimo į sistemą laikas / The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Apžiūrą atlikęs specialistas / Who was responsible for asserting the observed value as \"true",
+        "definition": "Privalomas laukas naudojant Observation resursą medicininiuose dokumentuose. Išimtis yra dokumentai, kurios pildo ne sveikatos priežiūros specialistas (pvz., darbdavys E047 pažymoje).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.performer.reference",
+        "path": "Observation.performer.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "short": "Apžiūros duomenų įvertinimas / Interpretations of observations",
+        "definition": "Apžiūros duomenų įvertinimas.\r\nGalimos reikšmės nurodytos klasifikatoriuje bmi-assessment.\r\nGalimos reikšmės nurodytos klasifikatoriuje death-date-interpretation (Mirties datos interpretavimo kodas E106 ir E106-2-1 pažymose).\r\n\r\nFHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/observation-interpretation.",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.interpretation.coding",
+        "path": "Observation.interpretation.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Observation.interpretation.coding.code",
+        "path": "Observation.interpretation.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.interpretation.coding.display",
+        "path": "Observation.interpretation.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.interpretation.text",
+        "path": "Observation.interpretation.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Apžiūros duomenų pastabos / Comments about the observation or the results",
+        "definition": "Apžiūros duomenų pastabos.",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.bodySite",
+        "path": "Observation.bodySite",
+        "short": "Kūno apžiūros vieta / Observed body part",
+        "definition": "Nurodo vietą paciento kūne, kurioje buvo atliktas stebėjima / apžiūra.\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/body-site.",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.bodySite.coding",
+        "path": "Observation.bodySite.coding",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "short": "Taikytas apžiūros metodas / Indicates the mechanism used to perform the observation",
+        "definition": "Taikytas apžiūros metodas laisvu tekstu (text lauke).",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.method.coding",
+        "path": "Observation.method.coding",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.method.coding.system",
+        "path": "Observation.method.coding.system",
+        "min": 1,
+        "mustSupport": false
+      },
+      {
+        "id": "Observation.method.coding.code",
+        "path": "Observation.method.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.method.coding.display",
+        "path": "Observation.method.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.method.text",
+        "path": "Observation.method.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.specimen",
+        "path": "Observation.specimen",
+        "short": "Ėminys, kurio tyrimo informacija yra pateikiama / Specimen used for this observation",
+        "definition": "Ėminys, kurio tyrimo informacija yra pateikiama Observation resurse (nuoroda į Specimen resursą).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.device",
+        "path": "Observation.device",
+        "short": "Įrenginys, kuriuo atlikti matavimai, ar tyrimui naudotas testas (gaminys) / A reference to the device that generates the measurements",
+        "definition": "Įrenginys, kuriuo atlikti matavimai, ar tyrimui naudotas testas (gaminys) (nuoroda į Device resursą).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.device.reference",
+        "path": "Observation.device.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "short": "Referentinis dydis / Normal reference range",
+        "definition": "Tirtos analitės referentinis dydis.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.low",
+        "path": "Observation.referenceRange.low",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.low.value",
+        "path": "Observation.referenceRange.low.value",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.low.unit",
+        "path": "Observation.referenceRange.low.unit",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.low.system",
+        "path": "Observation.referenceRange.low.system",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.low.code",
+        "path": "Observation.referenceRange.low.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.high",
+        "path": "Observation.referenceRange.high",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.high.value",
+        "path": "Observation.referenceRange.high.value",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.high.unit",
+        "path": "Observation.referenceRange.high.unit",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.high.system",
+        "path": "Observation.referenceRange.high.system",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.high.code",
+        "path": "Observation.referenceRange.high.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.normalValue",
+        "path": "Observation.referenceRange.normalValue",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.normalValue.coding",
+        "path": "Observation.referenceRange.normalValue.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.referenceRange.normalValue.coding.system",
+        "path": "Observation.referenceRange.normalValue.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange.normalValue.coding.code",
+        "path": "Observation.referenceRange.normalValue.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange.normalValue.coding.display",
+        "path": "Observation.referenceRange.normalValue.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.type",
+        "path": "Observation.referenceRange.type",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.type.coding",
+        "path": "Observation.referenceRange.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.referenceRange.type.coding.system",
+        "path": "Observation.referenceRange.type.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange.type.coding.code",
+        "path": "Observation.referenceRange.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange.type.coding.display",
+        "path": "Observation.referenceRange.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.appliesTo",
+        "path": "Observation.referenceRange.appliesTo",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.appliesTo.coding",
+        "path": "Observation.referenceRange.appliesTo.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.referenceRange.appliesTo.coding.system",
+        "path": "Observation.referenceRange.appliesTo.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange.appliesTo.coding.code",
+        "path": "Observation.referenceRange.appliesTo.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange.appliesTo.coding.display",
+        "path": "Observation.referenceRange.appliesTo.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age",
+        "path": "Observation.referenceRange.age",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.low",
+        "path": "Observation.referenceRange.age.low",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.low.value",
+        "path": "Observation.referenceRange.age.low.value",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.low.unit",
+        "path": "Observation.referenceRange.age.low.unit",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.low.system",
+        "path": "Observation.referenceRange.age.low.system",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.low.code",
+        "path": "Observation.referenceRange.age.low.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.high",
+        "path": "Observation.referenceRange.age.high",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.high.value",
+        "path": "Observation.referenceRange.age.high.value",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.high.unit",
+        "path": "Observation.referenceRange.age.high.unit",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.high.system",
+        "path": "Observation.referenceRange.age.high.system",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.age.high.code",
+        "path": "Observation.referenceRange.age.high.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange.text",
+        "path": "Observation.referenceRange.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "short": "Nuorodos į kitas apžiūras, kurios susijusios su pastarąją / This observation is a group observation that includes the target as a member of the group",
+        "definition": "Nurodomas Observation resursas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.hasMember.reference",
+        "path": "Observation.hasMember.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "short": "Apžiūros duomenų komponentai",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Observation.component.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.component.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component.code.text",
+        "path": "Observation.component.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component.value[x]",
+        "path": "Observation.component.value[x]",
+        "mustSupport": true
+      }
+    ]
+  }
+}

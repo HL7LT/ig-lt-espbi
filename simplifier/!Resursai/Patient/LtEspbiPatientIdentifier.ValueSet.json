@@ -1,0 +1,51 @@
+{
+  "resourceType": "ValueSet",
+  "id": "lt-espbi-patient-identifier",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-patient-identifier",
+  "version": "0.0.1",
+  "name": "LtEspbiPatientIdentifier",
+  "status": "draft",
+  "experimental": false,
+  "description": "Pacientų identifikavimo sistemų sąrašas / A curated list of identifier systems for patients",
+  "compose": {
+    "include": [
+      {
+        "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-identifier",
+        "concept": [
+          {
+            "code": "http://esveikata.lt/Identifier/PersonalCode",
+            "display": "Personal Code"
+          },
+          {
+            "code": "http://esveikata.lt/Identifier/Patient/ESPBI",
+            "display": "ESPBI"
+          },
+          {
+            "code": "http://esveikata.lt/Identifier/Patient/DIK",
+            "display": "DIK"
+          },
+          {
+            "code": "http://esveikata.lt/Identifier/Patient/SveidraID",
+            "display": "SveidraID"
+          },
+          {
+            "code": "http://esveikata.lt/Identifier/Patient/eFormNumber",
+            "display": "eFormNumber"
+          },
+          {
+            "code": "http://esveikata.lt/Identifier/Patient/ForeignPersonalCode",
+            "display": "ForeignPersonalCode"
+          },
+          {
+            "code": "http://esveikata.lt/Identifier/eDelivery",
+            "display": "eDelivery"
+          },
+          {
+            "code": "http://esveikata.lt/classifiers/IdentityDocument/SerieNumber",
+            "display": "SerieNumber"
+          }
+        ]
+      }
+    ]
+  }
+}

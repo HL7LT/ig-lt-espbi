@@ -1,0 +1,158 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2333",
+  "name": "LtEspbiObservation02_2333",
+  "status": "draft",
+  "description": "ESI neregistruotos alergijos / No allergies registered in the ESI",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.2333",
+                  "display": "ESI neregistruotos alergijos"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.2333"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2012-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "ESI neregistruotos alergijos / Allergies not registered in the ESI",
+        "definition": "E113-ND forma. ESI neregistruotos alergijos \r\nLaisvai įvedamas tekstas\r\n\r\nValidacinė taisyklė:\r\nPateikiant paciento ESI neregistruotų alergijų suvestinę taikomi duomenų tikrinimo reikalavimai:\r\n• Pateikiamo teksto ilgis ribojamas atsižvelgiant į duomenų saugojimo formatą: oracle VARCHAR2 duomenų tipas.\r\n• leidžiama pateikti tekstinius simbolius",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "kitos alergijos"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "short": "Moters žalingi įpročiai (nėštumo metu) / A woman's bad habits (at hte time of pregnancy)",
+        "definition": "E113-ND forma. Moters žalingi įpročiai (nėštumo metu) \r\nTaip (code = 1) arba Ne (code=2) ar pasidavusi priklausomybei\r\nClassificator: common-option-selections-yes-no",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/NGN/PregnantBadHabits",
+                  "code": "1",
+                  "display": "Taip"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/NGN/PregnantBadHabits"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Šeimos anamnezė patikslinta / Family history clarified",
+        "definition": "Šeimos anamnezė patikslinta \r\nLaisvai įvedamas tekstas, prie kiekvieno \"Šeimos anamnezė\" punkto. ",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

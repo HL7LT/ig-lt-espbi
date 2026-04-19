@@ -1,0 +1,312 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-request",
+  "name": "LtEspbiDeviceRequest",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DeviceRequest",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DeviceRequest",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DeviceRequest.id",
+        "path": "DeviceRequest.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.meta",
+        "path": "DeviceRequest.meta",
+        "short": "Resurso meta duomenys / Metadata about the resource",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.meta.lastUpdated",
+        "path": "DeviceRequest.meta.lastUpdated",
+        "short": "Paskutinio resurso atnaujinimo / keitimo data ir laikas",
+        "definition": "Atnaujinimo data ir laikas ",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.meta.profile",
+        "path": "DeviceRequest.meta.profile",
+        "short": "Dokumento struktūros versiją identifikuojantis profilis / A profile identifying a version of the document structure",
+        "definition": "Dokumento struktūros versiją identifikuojantis profilis.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.contained",
+        "path": "DeviceRequest.contained",
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.extension",
+        "path": "DeviceRequest.extension",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.extension:ltEspbiExtPrescriptionType",
+        "path": "DeviceRequest.extension",
+        "sliceName": "ltEspbiExtPrescriptionType",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-type"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceRequest.modifierExtension",
+        "path": "DeviceRequest.modifierExtension",
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.identifier",
+        "path": "DeviceRequest.identifier",
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.instantiatesCanonical",
+        "path": "DeviceRequest.instantiatesCanonical",
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.instantiatesUri",
+        "path": "DeviceRequest.instantiatesUri",
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.basedOn",
+        "path": "DeviceRequest.basedOn",
+        "short": "Nuoroda į skiriamų korekcinių optikos gaminių aprašymo resursą",
+        "definition": "Nuoroda į skiriamų korekcinių optikos gaminių aprašymo resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-vision-prescription"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.basedOn.reference",
+        "path": "DeviceRequest.basedOn.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.replaces",
+        "path": "DeviceRequest.replaces",
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.status",
+        "path": "DeviceRequest.status",
+        "short": "Būsena / Status",
+        "definition": "Pagal FHIR R5 privaloma naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/request-status.\r\nGalimos reikšmės: draft | active | on-hold | revoked | completed | entered-in-error | unknown.\r\n\r\nŠiuo metu MedicationRequest (recepto resurso) naudojamos būsenos galimos reikšmės:\r\n- active : Galioja.\r\n- entered in error : Atšauktas.\r\n- stopped : Negalioja. Naudojama, kai recepto atšaukti negalima (nes yra vaistų išdavimų), tačiau norima, kad vaistai arba MPP pagal receptą nebebūtų išduodami.\r\n- completed : Įsigytas.\r\n- on hold : Rezervuotas/Sustabdytas.\r\nGalimos reikšmės nurodytos klasifikatoriuje medication-prescription-status.",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "devrex-stat-01",
+            "requirements": "Kai status yra on-hold statusReasonCode turi būti užpildytas",
+            "severity": "error",
+            "human": "When status = on-hold statusReasonCode must be present",
+            "expression": "status = 'on-hold' implies extension.where(url = 'http://esveikata.lt/Profile/lt-dev-request/statusReasonCode').exists()"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.status.extension",
+        "path": "DeviceRequest.status.extension",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.status.extension:ltEspbiExtRequestStatusChangeInformation",
+        "path": "DeviceRequest.status.extension",
+        "sliceName": "ltEspbiExtRequestStatusChangeInformation",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-request-status-change-information"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "DeviceRequest.intent",
+        "path": "DeviceRequest.intent",
+        "short": "Užsakymo poreikis / Request intent",
+        "definition": "Reikšmės iš https://www.hl7.org/fhir/valueset-request-intent.html Kadangi yra užsakymas automatiškai galima nurodyti \"order\".",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.code",
+        "path": "DeviceRequest.code",
+        "short": "Nuoroda į skiriamo MPP ar medicinos prietaiso resursą / Link to the prescribed MPP or device resource",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.code.reference",
+        "path": "DeviceRequest.code.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.code.reference.reference",
+        "path": "DeviceRequest.code.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.quantity",
+        "path": "DeviceRequest.quantity",
+        "short": "MPP ar medicinos prietaisų vienetų skaičius / Number of MPP or devices",
+        "definition": "MPP ar medicinos prietaisų vienetų skaičius ",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.parameter",
+        "path": "DeviceRequest.parameter",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.subject",
+        "path": "DeviceRequest.subject",
+        "short": "Nuoroda į paciento, kuriam yra skiriami MPP ar medicinos prietaisai, resursą",
+        "definition": "Nuoroda į paciento, kuriam yra skiriami MPP ar medicinos prietaisai, resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.subject.extension",
+        "path": "DeviceRequest.subject.extension",
+        "max": "1"
+      },
+      {
+        "id": "DeviceRequest.subject.reference",
+        "path": "DeviceRequest.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.encounter",
+        "path": "DeviceRequest.encounter",
+        "short": "Apsilankymas, kurio metu yra skiriamas MPP ar medicinos prietaisas / A visit during which MPP or device is administered",
+        "definition": "Apsilankymas, kurio metu yra skiriamas MPP ar medicinos prietaisas ",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.encounter.reference",
+        "path": "DeviceRequest.encounter.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.occurrence[x]",
+        "path": "DeviceRequest.occurrence[x]",
+        "short": "MPP ar medicinos prietaiso naudojimo instrukcijos / Desired time or schedule for use",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.authoredOn",
+        "path": "DeviceRequest.authoredOn",
+        "short": "Skyrimo bei recepto išrašymo data ir laikas / Date and time of appointment and prescription",
+        "definition": "Skyrimo bei recepto išrašymo data ir laikas.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.requester",
+        "path": "DeviceRequest.requester",
+        "short": "Sveikatos priežiūros specialistas, kuris skiria MPP ar medicinos prietaisą / A healthcare professional who prescribes MPP or device",
+        "definition": "Sveikatos priežiūros specialistas, kuris skiria MPP ar medicinos prietaisą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.requester.reference",
+        "path": "DeviceRequest.requester.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.reason",
+        "path": "DeviceRequest.reason",
+        "short": "Diagnozė dėl kurios kuriamas skyrimas / Diagnosis for which the prescription is being created",
+        "definition": "Diagnozė dėl kurios kuriamas skyrimas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceRequest.reason.reference",
+        "path": "DeviceRequest.reason.reference",
+        "short": "Diagnozė dėl kurios kuriamas skyrimas. Privalomas nuo versijos v29 / Diagnosis for which the prescription is being created. Required from version v29",
+        "definition": "Diagnozė dėl kurios kuriamas skyrimas. Privalomas nuo versijos v29",
+        "min": 1,
+        "mustSupport": false
+      },
+      {
+        "id": "DeviceRequest.reason.reference.reference",
+        "path": "DeviceRequest.reason.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceRequest.note",
+        "path": "DeviceRequest.note",
+        "short": "Pastaba farmacijos specialistui ar medicinos prietaisą išduodančiam sveikatos priežiūros specialistui / Note to the pharmacist or healthcare professional dispensing the medical device",
+        "definition": "Note to the pharmacist or healthcare professional dispensing the medical device",
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

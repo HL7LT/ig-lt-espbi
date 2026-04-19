@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-med-dispense/prescriptionDocumentNumber",
+  "name": "LtEspbiExtPrescriptionDocumentNumber",
+  "status": "draft",
+  "description": "Elektroninio recepto numeris (Composition id) / Electronic prescription number (Composition id)",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationDispense.authorizingPrescription"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Elektroninio recepto numeris (Composition id)",
+        "definition": "Elektroninio recepto numeris (Composition id). Būtinas jei recepto forma el (elektroninis). Neprivalomas nuo v29, kai recepto forma yra popierinė",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-med-dispense/prescriptionDocumentNumber"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

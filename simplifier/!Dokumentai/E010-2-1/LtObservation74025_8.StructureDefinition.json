@@ -1,0 +1,299 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-74025-8",
+  "name": "LtEspbiObservation74025_8",
+  "status": "draft",
+  "description": "Motina / Mother",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "74025-8",
+                  "display": "Mother identifier"
+                }
+              ],
+              "text": "Motina"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "74025-8"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Nėščiąją prižiūrėjo /  Prenatal care provider",
+        "definition": "Nėščiają prižiūrėjo (E010-2-1).\r\nE113-ND → \"Medicininiai duomenys\" → \"Nėštumo duomenys\" → \"Nėščiąją prižiūri\" → Reikšmė",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Nėščiąją prižiūrėjo"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:Z63_0",
+        "path": "Observation.hasMember",
+        "sliceName": "Z63_0",
+        "short": "Z63.0",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2001"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004047"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:bloodGroup",
+        "path": "Observation.hasMember",
+        "sliceName": "bloodGroup",
+        "short": "Rh (D) faktorius/ Blood group",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-365636006-string"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004049"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fluVaccine",
+        "path": "Observation.hasMember",
+        "sliceName": "fluVaccine",
+        "short": "Skiepas nuo gripo / Flu vaccine",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-72058-1"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004051"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:pertussisVaccine",
+        "path": "Observation.hasMember",
+        "sliceName": "pertussisVaccine",
+        "short": "Skiepas nuo kokliušo / Pertussis vaccine",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55263-8"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004053"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:previousPregnancies",
+        "path": "Observation.hasMember",
+        "sliceName": "previousPregnancies",
+        "short": "Ankstesni nėštumai ir jų baigtys  / Previous pregnancies",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-10163-4"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004055"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:previousChildbirths",
+        "path": "Observation.hasMember",
+        "sliceName": "previousChildbirths",
+        "short": "Ankstesni gimdymai  / Previous childbirths",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-394698008"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004065"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:riskFactors",
+        "path": "Observation.hasMember",
+        "sliceName": "riskFactors",
+        "short": "Rizikos veiksniai  / Risk factors",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-46467-7"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004081"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

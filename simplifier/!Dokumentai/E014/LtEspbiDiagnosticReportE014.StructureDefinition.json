@@ -1,0 +1,884 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-e014",
+  "name": "LtEspbiDiagnosticReportE014",
+  "status": "draft",
+  "description": "Tyrimų rezultatų protokolo specializuotas profilis, skirtas patologijos tyrimų dokumentams / DiagnosticReport profile for pathology study documents.\n\nProfilis sukurtas pagal LtEspbiDiagnosticReport profilį. Šis profilis paveldi LtEspbiDiagnosticReport resurso profilio struktūrą, tačiau jame yra pašalinti (nustatytas kardinalumas 0..0) tie duomenų elementai ir vidiniai elementai, kurie patologijos tyrimų dokumentuose nenaudojami.",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.id",
+        "path": "DiagnosticReport.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.implicitRules",
+        "path": "DiagnosticReport.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.language",
+        "path": "DiagnosticReport.language",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.text",
+        "path": "DiagnosticReport.text",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.contained",
+        "path": "DiagnosticReport.contained",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.modifierExtension",
+        "path": "DiagnosticReport.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier",
+        "path": "DiagnosticReport.identifier",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.identifier.id",
+        "path": "DiagnosticReport.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.extension",
+        "path": "DiagnosticReport.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.use",
+        "path": "DiagnosticReport.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.type",
+        "path": "DiagnosticReport.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.system",
+        "path": "DiagnosticReport.identifier.system",
+        "fixedUri": "http://esveikata.lt/Identifier/PathologyTestNumber"
+      },
+      {
+        "id": "DiagnosticReport.identifier.period",
+        "path": "DiagnosticReport.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.assigner",
+        "path": "DiagnosticReport.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn",
+        "path": "DiagnosticReport.basedOn",
+        "short": "Patologijos tyrimo užsakymas / Pathology service request",
+        "definition": "Nuoroda į patologijos tyrimo užsakymo ServiceRequest resursą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request-e014"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.basedOn.id",
+        "path": "DiagnosticReport.basedOn.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.extension",
+        "path": "DiagnosticReport.basedOn.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.type",
+        "path": "DiagnosticReport.basedOn.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.identifier",
+        "path": "DiagnosticReport.basedOn.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.display",
+        "path": "DiagnosticReport.basedOn.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.status",
+        "path": "DiagnosticReport.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "final"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.category",
+        "path": "DiagnosticReport.category",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "short": "Diagnostinės ataskaitos tipas / Diagnostic report type",
+        "definition": "Diagnostinės ataskaitos tipas: patologijos tyrimų atveju nurodomas LOINC (http://loinc.org) kodas 11526-1.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11526-1",
+                  "display": "Patologijos tyrimų rezultatai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.code.id",
+        "path": "DiagnosticReport.code.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.extension",
+        "path": "DiagnosticReport.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.id",
+        "path": "DiagnosticReport.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.extension",
+        "path": "DiagnosticReport.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.version",
+        "path": "DiagnosticReport.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.code",
+        "path": "DiagnosticReport.code.coding.code",
+        "fixedCode": "11526-1"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.userSelected",
+        "path": "DiagnosticReport.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.text",
+        "path": "DiagnosticReport.code.text",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject",
+        "path": "DiagnosticReport.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/123456798"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.subject.id",
+        "path": "DiagnosticReport.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.extension",
+        "path": "DiagnosticReport.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.type",
+        "path": "DiagnosticReport.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.identifier",
+        "path": "DiagnosticReport.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.display",
+        "path": "DiagnosticReport.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.encounter",
+        "path": "DiagnosticReport.encounter",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-03-12T09:28:00+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "short": "Tyrimo rezultatų pateikimo data / Date and time of issuing the test results",
+        "definition": "Tyrimo rezultatų pateikimo data.",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2025-03-12T13:28:00+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "short": "Tyrimą atlikęs gydytojas / Performing specialist",
+        "definition": "Patologijos tyrimą atlikęs sveikatos priežiūros specialistas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/12345601"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.performer.id",
+        "path": "DiagnosticReport.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.extension",
+        "path": "DiagnosticReport.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.type",
+        "path": "DiagnosticReport.performer.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.identifier",
+        "path": "DiagnosticReport.performer.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.display",
+        "path": "DiagnosticReport.performer.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter",
+        "path": "DiagnosticReport.resultsInterpreter",
+        "short": "Tyrimą interpretavęs ar patvirtinęs specialistas / Interpreting or confirming specialist",
+        "definition": "Patologijos tyrimą interpretavęs ar išvadas patvirtinęs sveikatos priežiūros specialistas (jei skiriasi nuo patologijos tyrimą atlikusio specialisto).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/12345602"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.id",
+        "path": "DiagnosticReport.resultsInterpreter.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.extension",
+        "path": "DiagnosticReport.resultsInterpreter.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.type",
+        "path": "DiagnosticReport.resultsInterpreter.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.identifier",
+        "path": "DiagnosticReport.resultsInterpreter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.display",
+        "path": "DiagnosticReport.resultsInterpreter.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "short": "Ištirti ėminiai / Examined specimens",
+        "definition": "Nuorodos į ištirtų ėminių Specimen resursus.\r\nPastaba: nuorodos į negautus arba netinkamus tyrimui ėminius nepateikiamos, o tokių ėminių Specimen.status lauke ėminio būklė pakeičiama atitinkamai į \"unavailable\" arba \"unsatisfactory \".",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen-e014"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.specimen.id",
+        "path": "DiagnosticReport.specimen.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.extension",
+        "path": "DiagnosticReport.specimen.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.type",
+        "path": "DiagnosticReport.specimen.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.identifier",
+        "path": "DiagnosticReport.specimen.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.display",
+        "path": "DiagnosticReport.specimen.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "DiagnosticReport.result.extension",
+        "path": "DiagnosticReport.result.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:specimensFindings",
+        "path": "DiagnosticReport.result",
+        "sliceName": "specimensFindings",
+        "short": "Nuoroda į Observation resursą / Reference to the Observation resource",
+        "definition": "Nuoroda į konkretaus ėminio tyrimo rezultatų aprašymo Observation (Panel) resursą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-panel-50595-8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:specimensFindings.id",
+        "path": "DiagnosticReport.result.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:specimensFindings.extension",
+        "path": "DiagnosticReport.result.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:specimensFindings.type",
+        "path": "DiagnosticReport.result.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:specimensFindings.identifier",
+        "path": "DiagnosticReport.result.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:specimensFindings.display",
+        "path": "DiagnosticReport.result.display",
+        "short": "Resurso, į kurį pateikiama nuoroda, identifikavimo informacija / Identification information for the referenced resource",
+        "definition": "Trumpas resurso, į kurį pateikiama nuoroda, aprašymas, leidžiantis greitai identifikuoti, kas per duomenys yra šiame resurse (pvz., nurodomas ėminio, kurios tyrimo rezultatai pateikiami, numeris).",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.result:summaryResults",
+        "path": "DiagnosticReport.result",
+        "sliceName": "summaryResults",
+        "short": "Nuoroda į Observation resursą / Reference to the Observation resource",
+        "definition": "Nuoroda į apibendrintų tyrimo rezultatų aprašymo Observation (Panel) resursą.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-panel-60567-5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:summaryResults.id",
+        "path": "DiagnosticReport.result.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:summaryResults.extension",
+        "path": "DiagnosticReport.result.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:summaryResults.type",
+        "path": "DiagnosticReport.result.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:summaryResults.identifier",
+        "path": "DiagnosticReport.result.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result:summaryResults.display",
+        "path": "DiagnosticReport.result.display",
+        "short": "Resurso, į kurį pateikiama nuoroda, identifikavimo informacija / Identification information for the referenced resource",
+        "definition": "Trumpas resurso, į kurį pateikiama nuoroda, aprašymas, leidžiantis greitai identifikuoti, kas per duomenys yra šiame resurse (pvz., nurodoma \"apibendrinti tyrimo rezultatai\").",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.note",
+        "path": "DiagnosticReport.note",
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.note.id",
+        "path": "DiagnosticReport.note.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.note.extension",
+        "path": "DiagnosticReport.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study",
+        "path": "DiagnosticReport.study",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.id",
+        "path": "DiagnosticReport.study.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.extension",
+        "path": "DiagnosticReport.study.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.type",
+        "path": "DiagnosticReport.study.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.identifier",
+        "path": "DiagnosticReport.study.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.display",
+        "path": "DiagnosticReport.study.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo",
+        "path": "DiagnosticReport.supportingInfo",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type.coding.code"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo.extension",
+        "path": "DiagnosticReport.supportingInfo.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo.modifierExtension",
+        "path": "DiagnosticReport.supportingInfo.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures",
+        "path": "DiagnosticReport.supportingInfo",
+        "sliceName": "usedPathologyProcedures",
+        "short": "Atliktos patologijos tyrimo procedūros / Performed pathology examination procedures",
+        "definition": "Patologijos tyrimo metu atliktos procedūros (nuorodos į Procedure resursus)."
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.id",
+        "path": "DiagnosticReport.supportingInfo.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.extension",
+        "path": "DiagnosticReport.supportingInfo.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.modifierExtension",
+        "path": "DiagnosticReport.supportingInfo.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.id",
+        "path": "DiagnosticReport.supportingInfo.type.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.extension",
+        "path": "DiagnosticReport.supportingInfo.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding",
+        "path": "DiagnosticReport.supportingInfo.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding.id",
+        "path": "DiagnosticReport.supportingInfo.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding.extension",
+        "path": "DiagnosticReport.supportingInfo.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding.system",
+        "path": "DiagnosticReport.supportingInfo.type.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding.version",
+        "path": "DiagnosticReport.supportingInfo.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding.code",
+        "path": "DiagnosticReport.supportingInfo.type.coding.code",
+        "min": 1,
+        "fixedCode": "108252007"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding.display",
+        "path": "DiagnosticReport.supportingInfo.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.coding.userSelected",
+        "path": "DiagnosticReport.supportingInfo.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.type.text",
+        "path": "DiagnosticReport.supportingInfo.type.text",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.reference",
+        "path": "DiagnosticReport.supportingInfo.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-e014"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.reference.id",
+        "path": "DiagnosticReport.supportingInfo.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.reference.extension",
+        "path": "DiagnosticReport.supportingInfo.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.reference.reference",
+        "path": "DiagnosticReport.supportingInfo.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.reference.type",
+        "path": "DiagnosticReport.supportingInfo.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.reference.identifier",
+        "path": "DiagnosticReport.supportingInfo.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo:usedPathologyProcedures.reference.display",
+        "path": "DiagnosticReport.supportingInfo.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media",
+        "path": "DiagnosticReport.media",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.id",
+        "path": "DiagnosticReport.media.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.extension",
+        "path": "DiagnosticReport.media.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.modifierExtension",
+        "path": "DiagnosticReport.media.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.comment",
+        "path": "DiagnosticReport.media.comment",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.id",
+        "path": "DiagnosticReport.media.link.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.extension",
+        "path": "DiagnosticReport.media.link.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.type",
+        "path": "DiagnosticReport.media.link.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.identifier",
+        "path": "DiagnosticReport.media.link.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.display",
+        "path": "DiagnosticReport.media.link.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.composition",
+        "path": "DiagnosticReport.composition",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusion",
+        "path": "DiagnosticReport.conclusion",
+        "short": "Apibendrinanti išvada / Summary diagnosis",
+        "definition": "Laisvu tekstu gali būti įrašoma visų objektų tyrimų rezultatus apibendrinanti išvada."
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode",
+        "path": "DiagnosticReport.conclusionCode",
+        "short": "Nustatytų ligų kodai / Pathological diagnosis codes",
+        "definition": "Nurodomi nustatytų ligų / diagnozių kodai iš TLK-10-AM kodų klasifikatoriaus."
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.id",
+        "path": "DiagnosticReport.conclusionCode.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.extension",
+        "path": "DiagnosticReport.conclusionCode.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding",
+        "path": "DiagnosticReport.conclusionCode.coding",
+        "short": "Ligos ar diagnozės kodas / Disease or diagnosis code",
+        "definition": "Ligos ar diagnozės kodas (-ai) iš TLK-10-AM kodų klasifikatoriaus."
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.id",
+        "path": "DiagnosticReport.conclusionCode.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.extension",
+        "path": "DiagnosticReport.conclusionCode.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.system",
+        "path": "DiagnosticReport.conclusionCode.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.version",
+        "path": "DiagnosticReport.conclusionCode.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.userSelected",
+        "path": "DiagnosticReport.conclusionCode.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.text",
+        "path": "DiagnosticReport.conclusionCode.text",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.presentedForm",
+        "path": "DiagnosticReport.presentedForm",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.id",
+        "path": "DiagnosticReport.presentedForm.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.extension",
+        "path": "DiagnosticReport.presentedForm.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.language",
+        "path": "DiagnosticReport.presentedForm.language",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.url",
+        "path": "DiagnosticReport.presentedForm.url",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.size",
+        "path": "DiagnosticReport.presentedForm.size",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.hash",
+        "path": "DiagnosticReport.presentedForm.hash",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.title",
+        "path": "DiagnosticReport.presentedForm.title",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.creation",
+        "path": "DiagnosticReport.presentedForm.creation",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.height",
+        "path": "DiagnosticReport.presentedForm.height",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.width",
+        "path": "DiagnosticReport.presentedForm.width",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.frames",
+        "path": "DiagnosticReport.presentedForm.frames",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.duration",
+        "path": "DiagnosticReport.presentedForm.duration",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.pages",
+        "path": "DiagnosticReport.presentedForm.pages",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-399248000",
+  "name": "LtEspbiProcedure399248000",
+  "status": "draft",
+  "description": "Anestezija / Anesthesia",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "short": "Anestezija / Anesthesia",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "399248000",
+                  "display": "Anestezija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "fixedCode": "399248000"
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "short": "Anestezijos pradžia / Anesthesia onset time",
+        "definition": "Anestezijos pradžia (E096-CPO). Data ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2024-02-01T07:12:40.031+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].id",
+        "path": "Procedure.occurrence[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].extension",
+        "path": "Procedure.occurrence[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].start",
+        "path": "Procedure.occurrence[x].start",
+        "definition": "Validacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "pro-occ-1",
+            "severity": "error",
+            "human": "Date and time cannot be later than the current date and time.",
+            "expression": "$this <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].end",
+        "path": "Procedure.occurrence[x].end",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "short": "Gydytojas anesteziologas reanimatologas / Anesthesiologist Intensive Care Doctor",
+        "min": 1
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "88189002",
+                  "display": "Anesthesiologist"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.performer.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "fixedCode": "88189002"
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "short": "Anestezijos tipas / Type of anesthesia",
+        "definition": "Anestezija (E096-CPO). Naudojamos D.4.117.41. Anestezija klasifikatoriaus reikšmės.\r\n- Sistema: http://esveikata.lt/classifiers/NGN/Anesthesia\r\n- Klasifikatoriaus rinkinio kodas: anesthesia",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/NGN/Anesthesia",
+                  "code": "1",
+                  "display": "Spinalinė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.bodySite.coding.system",
+        "path": "Procedure.bodySite.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/NGN/Anesthesia"
+      },
+      {
+        "id": "Procedure.bodySite.text",
+        "path": "Procedure.bodySite.text",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "max": "0"
+      }
+    ]
+  }
+}

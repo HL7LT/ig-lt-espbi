@@ -1,0 +1,220 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-364700005",
+  "name": "LtEspbiObservation364700005",
+  "status": "draft",
+  "description": "Speciali rekomendacija",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "364700005"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "364700005"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-09-17T14:13:54+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Liga / sveikatos sutrikimas (TLK-10-AM kodas)",
+        "definition": "Liga / sveikatos sutrikimas (TLK-10-AM kodas) (E027-1-I).\r\n\r\nLigos kodas iš TLK-10-AM klasifikatoriaus. Naudojamos klasifikatoriaus reikšmės:\n- Sistema: http://esveikata.lt/classifiers/TLK-10-AM\n- Klasifikatoriaus rinkinio kodas: tlk-10-am\r\n\r\nLauko taisyklės:\r\n- privaloma, jei yra nurodyta bendra rekomendacija “4-Skubios pagalbos poreikis”.",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/TLK-10-AM",
+                  "code": "T21.0",
+                  "display": "Nepatikslinto odos storio liemens nudegimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].id",
+        "path": "Observation.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding",
+        "path": "Observation.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x].coding.id",
+        "path": "Observation.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.extension",
+        "path": "Observation.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.system",
+        "path": "Observation.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "Observation.value[x].coding.version",
+        "path": "Observation.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.code",
+        "path": "Observation.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.display",
+        "path": "Observation.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.userSelected",
+        "path": "Observation.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].text",
+        "path": "Observation.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Specialios rekomendacijos ir pirmos pagalbos priemonės, kurių gali prireikti mokiniui, dalyvaujančiam ugdymo veikloje",
+        "definition": "Specialios rekomendacijos ir pirmos pagalbos priemonės, kurių gali prireikti mokiniui, dalyvaujančiam ugdymo veikloje (E027-1-I).\r\n\r\nLauko taisyklės:\r\n- Privaloma užpildyti, jei yra nurodyta bendra rekomendacija \"1-Pritaikytas maitinimas\", \"3-Vengti alergenų\" ar \"4-Skubios pagalbos poreikis\".\r\n- Ribotas teksto ilgis (2500 simbolių).",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Naudotojo nurodomas rekomendacijos ir priemonės."
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.note.text",
+        "path": "Observation.note.text",
+        "definition": "Lauko taisyklės:\r\n- Ribotas teksto ilgis (2500 simbolių).",
+        "constraint": [
+          {
+            "key": "obs-not-7",
+            "severity": "error",
+            "human": "Note.text must not exceed 2500 characters.",
+            "expression": "length() <= 2500"
+          }
+        ]
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role-special-user",
+  "name": "LtEspbiPractitionerRoleSpecialUser",
+  "status": "draft",
+  "description": "Sveikatos priežiūros specialisto vaidmens profilis, skirtas duomenims apie sisteminį naudotoją pateikti / PractitionerRole for providing system user data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "PractitionerRole",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "PractitionerRole.id",
+        "path": "PractitionerRole.id",
+        "short": "Sveikatos priežiūros specialisto vaidmens resurso id / Logical id of this artifact",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.meta",
+        "path": "PractitionerRole.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.extension",
+        "path": "PractitionerRole.extension",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.extension:ltEspbiExtSpecialUser",
+        "path": "PractitionerRole.extension",
+        "sliceName": "ltEspbiExtSpecialUser",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-practitionerrole/specialUser"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.extension:ltEspbiExtBlocked",
+        "path": "PractitionerRole.extension",
+        "sliceName": "ltEspbiExtBlocked",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-practitionerrole/blocked"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.identifier",
+        "path": "PractitionerRole.identifier",
+        "short": "Identifikatorius, skirtas identifikuoti sisteminį naudotoją",
+        "definition": "Siekiant identifikuoti sisteminį naudotoją, naudojamas sisteminio naudotojo identifikacinis kodas. Identifikuojančios sistemos pavadinimas (system): http://esveikata.lt/Identifier/SystemUser.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.identifier.system",
+        "path": "PractitionerRole.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/SystemUser"
+      },
+      {
+        "id": "PractitionerRole.identifier.value",
+        "path": "PractitionerRole.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.period",
+        "path": "PractitionerRole.period",
+        "short": "Laikotarpis, per kurį sisteminis naudotojas įgaliotas atlikti šias pareigas / The period during which the system user is authorized to act in these role(s) for the organization.",
+        "definition": "Teikiant duomenis apie sisteminį naudotoją - kada ir iki kada sisteminis naudotojas priskiriamas sveikatos priežiūros įstaigai. Nurodomi duomenys - metai, mėnuo, diena.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.period.start",
+        "path": "PractitionerRole.period.start",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.period.end",
+        "path": "PractitionerRole.period.end",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.organization",
+        "path": "PractitionerRole.organization",
+        "short": "Nuoroda į sveikatos priežiūros įstaigos (SPĮ) resursą, kurioje dirba sveikatos priežiūros specialistas arba kuri naudojasi sisteminiu naudotoju./ The organization where the Practitioner performs the roles associated",
+        "definition": "Nuoroda į sveikatos priežiūros įstaigos (SPĮ) resursą, kurioje dirba sveikatos priežiūros specialistas arba kuri naudojasi sisteminiu naudotoju.\n\nNuoroda į organizaciją nurodoma be organizacijos resurso istorinės versijos: Pvz.: \"Organization/123456789\". Sveikatos priežiūros specialistas gali būti įdarbintas keliose sveikatos priežiūros įstaigose.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.organization.reference",
+        "path": "PractitionerRole.organization.reference",
+        "min": 1
+      },
+      {
+        "id": "PractitionerRole.code",
+        "path": "PractitionerRole.code",
+        "short": "Vaidmuo, kurį specialistas atlieka sveikatos priežiūros įstaigoje / Roles which this practitioner is authorized to perform ",
+        "definition": "Sveikatos priežiūros specialisto vaidmuo, kurį specialistas atlieka sveikatos priežiūros įstaigoje.\r\nGalimos reikšmės nurodytos klasifikatoriuje special-user-type (http://esveikata.lt/classifiers/SpecialUserType)",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.code.coding",
+        "path": "PractitionerRole.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "PractitionerRole.code.coding.system",
+        "path": "PractitionerRole.code.coding.system",
+        "min": 1,
+        "patternUri": "https://ws.esveikata.lt/cxf/Classifiers/special-user-type"
+      },
+      {
+        "id": "PractitionerRole.code.coding.code",
+        "path": "PractitionerRole.code.coding.code",
+        "min": 1
+      }
+    ]
+  }
+}

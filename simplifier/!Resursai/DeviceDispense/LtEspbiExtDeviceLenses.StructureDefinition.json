@@ -1,0 +1,1193 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-lenses",
+  "name": "LtEspbiExtDeviceLenses",
+  "status": "draft",
+  "description": "Akinių/lęšių duomenys, pateikiami korekcinių optikos gaminių išdavimo resurse / Glasses/lens data provided in DeviceDispense dispensing resource",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceDispense"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Akinių/lęšių duomenys, pateikiami korekcinių optikos gaminių išdavimo resurse / Glasses/lens data provided in DeviceDispense dispensing resource",
+        "definition": "Akinių/lęšių duomenys, pateikiami korekcinių optikos gaminių išdavimo resurse",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:opticalDevice",
+        "path": "Extension.extension",
+        "sliceName": "opticalDevice",
+        "short": "Optinis prietaisas (akinių lęšiai, kontaktiniai lęšiai)",
+        "definition": "Optinis prietaisas (akinių lęšiai, kontaktiniai lęšiai).\r\nGalimos reikšmės:\r\n- al: Akinių lęšiai\r\n- kl: Kontaktiniai lęšiai",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "opticalDevice"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": " http://hl7.org/fhir/ValueSet/vision-product"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:opticalDevice.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type",
+        "path": "Extension.extension",
+        "sliceName": "type",
+        "short": "Akinių lęšių tipas (sudėtingieji, paprastieji)",
+        "definition": "Akinių lęšių tipas (sudėtingieji, paprastieji). Būtinas, jei optinis prietaisas yra akinių lęšiai.\r\nGalimos reikšmės:\r\n- sd: Sudėtingieji.\r\n- pp: Paprastieji.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "type"
+      },
+      {
+        "id": "Extension.extension:type.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:type.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification",
+        "path": "Extension.extension",
+        "sliceName": "lensSpecification",
+        "short": "Akinių / lęšių parametrai",
+        "definition": "Akinių / lęšių parametrai",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "ext-2",
+            "severity": "error",
+            "human": "Each eye (left or right) may be specified at most once within the lensSpecification extension.",
+            "expression": " extension.where(url='lensSpecification').extension.where(url='eye').value.isDistinct()"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension",
+        "path": "Extension.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:eye",
+        "path": "Extension.extension.extension",
+        "sliceName": "eye",
+        "short": "Akis",
+        "definition": "Akis",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:eye.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:eye.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "eye"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:eye.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/vision-eye-codes"
+        }
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere",
+        "path": "Extension.extension.extension",
+        "sliceName": "sphere",
+        "short": "OS sfera",
+        "definition": "OS sfera.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "sphere"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:sphere.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder",
+        "path": "Extension.extension.extension",
+        "sliceName": "cylinder",
+        "short": "Akies cilindras (CYL) / OS cilindras",
+        "definition": "Akies cilindras (CYL) / OS cilindras",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "cylinder"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinder.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism",
+        "path": "Extension.extension.extension",
+        "sliceName": "prism",
+        "short": "Akies prizmė (PRISM) / OS prizmė ",
+        "definition": "Akies prizmė (PRISM) / OS prizmė ",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "prism"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prism.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis",
+        "path": "Extension.extension.extension",
+        "sliceName": "cylinderAxis",
+        "short": "Akies ašis (AXIS) / OS cilindro ašis",
+        "definition": "Akies ašis (AXIS) / OS cilindro ašis",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "cylinderAxis"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:cylinderAxis.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add",
+        "path": "Extension.extension.extension",
+        "sliceName": "add",
+        "short": "Akies adidacija (ADD)/degresija / OS ADD",
+        "definition": "Akies adidacija (ADD)/degresija / OS ADD",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "add"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:add.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase",
+        "path": "Extension.extension.extension",
+        "sliceName": "prismBase",
+        "short": "Akies prizmės bazės (BASE) pusė",
+        "definition": "Akies prizmės bazės (BASE) pusė",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "prismBase"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding",
+        "path": "Extension.extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding.id",
+        "path": "Extension.extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding.extension",
+        "path": "Extension.extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding.system",
+        "path": "Extension.extension.extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://hl7.org/fhir/ValueSet/vision-base-codes"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding.version",
+        "path": "Extension.extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding.code",
+        "path": "Extension.extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding.display",
+        "path": "Extension.extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismBase.value[x].coding.userSelected",
+        "path": "Extension.extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis",
+        "path": "Extension.extension.extension",
+        "sliceName": "prismAxis",
+        "short": "Akies prizmės bazės krypties meridianas",
+        "definition": "Akies prizmės bazės krypties meridianas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "prismAxis"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:prismAxis.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD",
+        "path": "Extension.extension.extension",
+        "sliceName": "nearPD",
+        "short": "Akies PD artumui / OS PD (Artumui)",
+        "definition": "Akies PD artumui / OS PD (Artumui)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "nearPD"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:nearPD.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD",
+        "path": "Extension.extension.extension",
+        "sliceName": "distancePD",
+        "short": "Akies PD tolumui / OS PD (Tolumui)",
+        "definition": "Akies PD tolumui / OS PD (Tolumui)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "distancePD"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distancePD.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve",
+        "path": "Extension.extension.extension",
+        "sliceName": "backCurve",
+        "short": "Akies bazinė kreivė (BC) / OS Bazinės kreivė (BC)",
+        "definition": "Akies bazinė kreivė (BC) / OS Bazinės kreivė (BC)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "backCurve"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:backCurve.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter",
+        "path": "Extension.extension.extension",
+        "sliceName": "diameter",
+        "short": "Akies diametras (DIA) / OS Diametras (DIA)",
+        "definition": "Akies diametras (DIA) / OS Diametras (DIA)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "diameter"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:diameter.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose",
+        "path": "Extension.extension.extension",
+        "sliceName": "purpose",
+        "short": "Akinių/lešių paskirtis",
+        "definition": "Akinių/lešių paskirtis.\r\nGalimos reikšmės:\r\n- nu : Nuolatiniam dėvėjimui\r\n- ar : Artumui\r\n- nd : Tolumui",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "purpose"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding",
+        "path": "Extension.extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding.id",
+        "path": "Extension.extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding.extension",
+        "path": "Extension.extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding.system",
+        "path": "Extension.extension.extension.value[x].coding.system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding.version",
+        "path": "Extension.extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding.code",
+        "path": "Extension.extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding.display",
+        "path": "Extension.extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:purpose.value[x].coding.userSelected",
+        "path": "Extension.extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils",
+        "path": "Extension.extension.extension",
+        "sliceName": "distanceBetweenPupils",
+        "short": "Atstumas tarp vyzdžių",
+        "definition": "Atstumas tarp vyzdžių",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "distanceBetweenPupils"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x].value",
+        "path": "Extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x].comparator",
+        "path": "Extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x].unit",
+        "path": "Extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x].system",
+        "path": "Extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:distanceBetweenPupils.value[x].code",
+        "path": "Extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:description",
+        "path": "Extension.extension.extension",
+        "sliceName": "description",
+        "short": "Akinių/lešių paskirties aprašymas",
+        "definition": "Akinių/lešių paskirties aprašymas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:description.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:description.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "description"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:description.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:note",
+        "path": "Extension.extension.extension",
+        "sliceName": "note",
+        "short": "Pastabos",
+        "definition": "Pastabos",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:note.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:note.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "note"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.extension:note.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lensSpecification.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "lensSpecification"
+      },
+      {
+        "id": "Extension.extension:lensSpecification.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-paper-prescription-lenses"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

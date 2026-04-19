@@ -1,0 +1,223 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-43408002-result",
+  "name": "LtEspbiObservation43408002_result",
+  "status": "draft",
+  "description": "Akių dugno raudono reflekso tyrimas (+/–) / Red reflex examination of the eye fundus",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "5.1. Akių dugno raudono reflekso tyrimas (+/–) / Red reflex examination of the eye fundus"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "1"
+      },
+      {
+        "id": "Observation.extension:ltEspbiExtRepeat",
+        "path": "Observation.extension",
+        "sliceName": "ltEspbiExtRepeat",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-repeat"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:ltEspbiExtRepeat.value[x]",
+        "path": "Observation.extension.value[x]",
+        "short": "Reikalinga pakartoti / Need to repeat",
+        "definition": "Data. \n\r\nValidacinė taisyklė:\n- Negali būti ankstesnė už dabartinę datą ir laiką.",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-11-22T14:13:54.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-ext-val-1-43408002",
+            "severity": "error",
+            "human": "Date and time cannot be earlier than the current date and time.",
+            "expression": "valueDateTime >= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "43408002",
+                  "display": "Red reflex"
+                }
+              ],
+              "text": "Akių dugno raudono reflekso tyrimas (+/–)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "43408002"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Akių dugno raudono reflekso tyrimo data / Date of red reflex examination of the eye fundus",
+        "definition": "Datos ir laiko įvestis. \n\r\nValidacinė taisyklė:\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-01T07:12:40+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-eff-1-43408002",
+            "severity": "error",
+            "human": "Effective date ant time must not be later than the current date.",
+            "expression": "effectiveDateTime <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "definition": "Nuoroda į Naujagimio tikrinimą atlikusi gydytoją kataloge D2. Sveikatinimo specialistų katalogas.\r\nPateikiant medicininį dokumentą taikomi duomenų tikrinimo reikalavimai:\r\n• DTT.6. Įrašas egzistuoja ESPBI IS.",
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Neatlikimo priežastis / Reason for non-completion",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Neatlikimo priežastis / Reason for non-completion"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.hasMember:resultLeft",
+        "path": "Observation.hasMember",
+        "sliceName": "resultLeft",
+        "short": "5.1.2. Rezultatas kairė / Result left",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02.1701"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:resultRight",
+        "path": "Observation.hasMember",
+        "sliceName": "resultRight",
+        "short": "5.1.3. Rezultatas dešinė / Result right",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02.1702"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

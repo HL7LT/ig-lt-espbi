@@ -1,0 +1,116 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-service-request-indication",
+  "name": "LtEspbiExtServiceRequestIndication",
+  "status": "draft",
+  "description": "Siuntimo požymis / Service request indication",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "ServiceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Siuntimo požymis / Service request indication",
+        "definition": "Siuntimo požymis",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-service-request-indication"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ext-6",
+            "severity": "error",
+            "human": "If code is \"12\" (display - \"Kita\"), CodeableConcept.text must be present and not empty.",
+            "expression": "coding.where(system = 'http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-service-request-indication' and code = '12').exists() implies (text.exists() and text.trim() != '')"
+          }
+        ]
+      },
+      {
+        "id": "Extension.value[x].id",
+        "path": "Extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].extension",
+        "path": "Extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding",
+        "path": "Extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.value[x].coding.id",
+        "path": "Extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding.extension",
+        "path": "Extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding.system",
+        "path": "Extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-service-request-indication"
+      },
+      {
+        "id": "Extension.value[x].coding.version",
+        "path": "Extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding.code",
+        "path": "Extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].coding.display",
+        "path": "Extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].coding.userSelected",
+        "path": "Extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].text",
+        "path": "Extension.value[x].text",
+        "short": "Siuntimo požymio detalizavimas",
+        "definition": "Kai pasirenkama reikšmė \"Kita\", nurodomas siuntimo požymis, neįtrauktas į sąrašą."
+      }
+    ]
+  }
+}

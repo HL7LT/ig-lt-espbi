@@ -1,0 +1,346 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-organization/addressIdentifier",
+  "name": "LtEspbiExtAddressIdentifier",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Organization.contact.address"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Įstaigos registracijos adreso informacija",
+        "definition": "Įstaigos registracijos adreso informacija / Address of registration information"
+      },
+      {
+        "id": "Extension.extension:Type",
+        "path": "Extension.extension",
+        "sliceName": "Type",
+        "short": "Įstaigos adreso tipas",
+        "definition": "Įstaigos adreso tipas / Type of address",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Type.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Type.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Type"
+      },
+      {
+        "id": "Extension.extension:Type.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Type.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Type.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/AddressIdentifier/Type"
+      },
+      {
+        "id": "Extension.extension:Type.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:text",
+        "path": "Extension.extension",
+        "sliceName": "text",
+        "short": "Įstaigos tekstinis adresas",
+        "definition": "Įstaigos tekstinis adresas / Text representation of the address",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:text.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:text.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "text"
+      },
+      {
+        "id": "Extension.extension:text.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:addressID",
+        "path": "Extension.extension",
+        "sliceName": "addressID",
+        "short": "Adreso identifikatorius",
+        "definition": "Adreso identifikatorius / Address ID",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:addressID.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:addressID.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "addressID"
+      },
+      {
+        "id": "Extension.extension:addressID.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:addressID.value[x].system",
+        "path": "Extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Address/AddressIdentifier"
+      },
+      {
+        "id": "Extension.extension:addressID.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:municipalityID",
+        "path": "Extension.extension",
+        "sliceName": "municipalityID",
+        "short": "Savivaldybės identifikatorius",
+        "definition": "Savivaldybės identifikatorius / Municipality ID",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:municipalityID.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:municipalityID.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "municipalityID"
+      },
+      {
+        "id": "Extension.extension:municipalityID.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:cityID",
+        "path": "Extension.extension",
+        "sliceName": "cityID",
+        "short": "Vietovės identifikatorius",
+        "definition": "Vietovės identifikatorius / City ID",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:cityID.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:cityID.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "cityID"
+      },
+      {
+        "id": "Extension.extension:cityID.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:streetID",
+        "path": "Extension.extension",
+        "sliceName": "streetID",
+        "short": "Gatvės identifikatorius",
+        "definition": "Gatvės identifikatorius / Street ID",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:streetID.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:streetID.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "streetID"
+      },
+      {
+        "id": "Extension.extension:streetID.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:house",
+        "path": "Extension.extension",
+        "sliceName": "house",
+        "short": "Namo numeris",
+        "definition": "Namo numeris / House number",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:house.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:house.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "house"
+      },
+      {
+        "id": "Extension.extension:house.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:hull",
+        "path": "Extension.extension",
+        "sliceName": "hull",
+        "short": "Korpuso numeris",
+        "definition": "Korpuso numeris / Hull number",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:hull.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:hull.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "hull"
+      },
+      {
+        "id": "Extension.extension:hull.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:flat",
+        "path": "Extension.extension",
+        "sliceName": "flat",
+        "short": "Buto numeris",
+        "definition": "Buto numeris / Flat number",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:flat.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:flat.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "flat"
+      },
+      {
+        "id": "Extension.extension:flat.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:postCode",
+        "path": "Extension.extension",
+        "sliceName": "postCode",
+        "short": "Pašto kodas",
+        "definition": "Pašto kodas / Post code",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:postCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:postCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "postCode"
+      },
+      {
+        "id": "Extension.extension:postCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-organization/addressIdentifier"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

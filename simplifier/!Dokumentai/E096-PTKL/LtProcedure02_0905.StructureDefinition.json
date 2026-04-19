@@ -1,0 +1,258 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-02-0905",
+  "name": "LtEspbiProcedure02_0905",
+  "status": "draft",
+  "description": "Vakuuminės ekstrakcijos (VE) panaudojimas / Use of vacuum extraction",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ProcedureCode",
+                  "code": "02.0905",
+                  "display": "Vakuuminės ekstrakcijos panaudojimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ProcedureCode"
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "fixedCode": "02.0905"
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "short": "Procedūros atlikimo data / Procedure date",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2024-02-01T07:12:40.031+00:00",
+              "end": "2024-02-01T07:22:40.031+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].id",
+        "path": "Procedure.occurrence[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].extension",
+        "path": "Procedure.occurrence[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].start",
+        "path": "Procedure.occurrence[x].start",
+        "short": "Procedūros pradžia / Start of the procedure",
+        "definition": "Procedūros pradžia (E096-PTKL).\r\nData ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "constraint": [
+          {
+            "key": "pro-occ-1",
+            "severity": "error",
+            "human": "Date and time cannot be later than the current date and time.",
+            "expression": "$this <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].end",
+        "path": "Procedure.occurrence[x].end",
+        "short": "Procedūros pabaiga / End of the procedure",
+        "definition": "Procedūros pabaiga (E096-PTKL).\r\nData.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti ankstesnė už procedūros pradžios datą.",
+        "constraint": [
+          {
+            "key": "pro-occ-2",
+            "severity": "error",
+            "human": "Date and time cannot be later than the current date and time.",
+            "expression": "$this <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "short": "Procedūrą atliko / Performer of the procedure",
+        "definition": "Procedūrą atliko (E096-PTKL).\r\nNuoroda į procedūrą atlikusį gydytoją kataloge D2. Sveikatinimo specialistų katalogas.\r\n\r\nPateikiant medicininį dokumentą taikomi duomenų tikrinimo reikalavimai:\r\n- DTT.6. Įrašas egzistuoja ESPBI IS.\r\n\r\nAtvaizdavimui pdf dokumente ir Specialistų bei Pacientų portalo duomenų įvedimo ir peržiūros puslapiuose taikomi reikalavimai:\r\n- Rodomi duomenys apie specialistą: Vardas Pavardė, Profesinės kvalifikacijos pavadinimas, Spaudo numeris.",
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "short": "Indikacijos vvkuuminės ekstrakcijos panaudojimas / Indications for the use of vacuum extraction",
+        "definition": "Indikacija VE panaudojimui (E096-PTKL).\r\nParodomas sąrašas indikacijų, kuriose naudojamos D.4.117.86. Indikacija VE panaudojimui klasifikatoriaus reikšmės.\r\n- Klasifikatoriaus rinkinio kodas: ve-use-indication\r\n- Sistema: http://esveikata.lt/classifiers/VEUseIndication",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/VEUseIndication",
+                    "code": "1",
+                    "display": "Įtariama nestabili vaisiaus būklė"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason.concept",
+        "path": "Procedure.reason.concept",
+        "min": 1
+      },
+      {
+        "id": "Procedure.reason.concept.coding.system",
+        "path": "Procedure.reason.concept.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/VEUseIndication"
+      },
+      {
+        "id": "Procedure.reason.concept.text",
+        "path": "Procedure.reason.concept.text",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "short": "Sąlygos VE panaudojimui / Conditions for the use of vacuum extraction",
+        "definition": "Sąlygos VE panaudojimui (E096-PTKL).\r\nParodomas sąrašas sąlygų, kuriose naudojamos D.4.117.87. Sąlygos VE panaudojimui klasifikatoriaus reikšmės.\r\n- Klasifikatoriaus rinkinio kodas: ve-use-conditions\r\n- Sistema: http://esveikata.lt/classifiers/VEUseConditions",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/VEUseConditions",
+                    "code": "1",
+                    "display": "Pakaušio pirmeiga"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.complication.concept",
+        "path": "Procedure.complication.concept",
+        "min": 1
+      },
+      {
+        "id": "Procedure.complication.concept.coding",
+        "path": "Procedure.complication.concept.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.complication.concept.coding.system",
+        "path": "Procedure.complication.concept.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/VEUseConditions"
+      },
+      {
+        "id": "Procedure.complication.concept.text",
+        "path": "Procedure.complication.concept.text",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.reference",
+        "path": "Procedure.complication.reference",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "short": "Pastabos / Notes",
+        "definition": "Pastabos (E096-PTKL). Teksto įvedimo laukas."
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "short": "Vakuuminės ekstrakcijos (VE) panaudojimo veiksmai / Actions performed during vacuum extraction (VE)",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0983"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004048"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

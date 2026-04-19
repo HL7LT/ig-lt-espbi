@@ -1,0 +1,109 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-10157-6",
+  "name": "LtEspbiList10157_6",
+  "status": "draft",
+  "description": "Šeimos anamnezė / Family medical history",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10157-6",
+                  "display": "Family history"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding",
+        "path": "List.code.coding",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://snomed.info/sct",
+              "code": "365349005"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "fixedCode": "10157-6"
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "min": 1
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T06:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "max": "0"
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "min": 1
+      },
+      {
+        "id": "List.entry.flag",
+        "path": "List.entry.flag",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item",
+        "path": "List.entry.item",
+        "short": "Nuoroda į sąraše esantį resursą / A reference to the actual resource from which data was derived.",
+        "definition": "Nuoroda į sąraše esantį resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2317"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

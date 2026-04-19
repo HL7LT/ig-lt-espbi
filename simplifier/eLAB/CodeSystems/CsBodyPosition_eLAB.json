@@ -1,0 +1,57 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "bodyPosition",
+  "url": "http://esveikata.lt/fhir/CodeSystem/bodyPosition",
+  "version": "0.3.28",
+  "name": "BodyPosition",
+  "title": "Paciento kūno padėtis ėminio gavimo metu. / Patient's body position during specimen extraction.",
+  "status": "draft",
+  "date": "2025-10-28T15:03:01+00:00",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Paciento kūno padėtis ėminio gavimo metu. / Patient's body position during specimen extraction.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "content": "complete",
+  "concept": [
+    {
+      "code": "1",
+      "display": "Sėdima"
+    },
+    {
+      "code": "2",
+      "display": "Gulima"
+    },
+    {
+      "code": "3",
+      "display": "Stovima"
+    },
+    {
+      "code": "4",
+      "display": "Padėtis nesvarbi"
+    }
+  ]
+}

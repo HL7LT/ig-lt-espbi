@@ -1,0 +1,24 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-espbi-cs-lenses-type",
+  "url": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type",
+  "version": "1.0.0",
+  "name": "LtEspbiCsLensesType",
+  "status": "active",
+  "date": "2026-01-22",
+  "description": "Akinių lęšių tipas / Type of eyeglass lenses",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "sd",
+      "display": "Sudėtingieji",
+      "definition": "Sudėtingieji akinių lęšiai."
+    },
+    {
+      "code": "pp",
+      "display": "Paprastieji",
+      "definition": "Paprastieji akinių lęšiai."
+    }
+  ]
+}

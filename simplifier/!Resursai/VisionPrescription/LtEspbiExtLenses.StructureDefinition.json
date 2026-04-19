@@ -1,0 +1,507 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-lenses",
+  "name": "LtEspbiExtLenses",
+  "status": "draft",
+  "description": "Akiniai/lęšiai / Glasses/lenses",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "VisionPrescription.lensSpecification"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Akinių lęšių tipas / Type of eyeglass lenses",
+        "definition": "Akinių lęšių tipas.\r\nGalimos reikšmės nurodytos klasifikatoriuje LtEspbiCsLensesType (http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type).\r\n",
+        "max": "1"
+      },
+      {
+        "id": "Extension.id",
+        "path": "Extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:lensesType",
+        "path": "Extension.extension",
+        "sliceName": "lensesType",
+        "short": "Akinių lęšių tipas / Type of eyeglass lenses",
+        "definition": "Akinių lęšių tipas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensesType.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensesType.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "lensesType"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-lenses-type"
+        }
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lensesType.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:prismAxis",
+        "path": "Extension.extension",
+        "sliceName": "prismAxis",
+        "short": "Prizmės bazės krypties meridianas",
+        "definition": "Prizmės ašis.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:prismAxis.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:prismAxis.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "prismAxis"
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x].comparator",
+        "path": "Extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x].unit",
+        "path": "Extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x].system",
+        "path": "Extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:prismAxis.value[x].code",
+        "path": "Extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:nearPD",
+        "path": "Extension.extension",
+        "sliceName": "nearPD",
+        "short": "PD artumui / PD (Artumui)",
+        "definition": "Akies bazinė kreivė (BC) / Bazinės kreivė (BC).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:nearPD.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nearPD.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "nearPD"
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x].comparator",
+        "path": "Extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x].unit",
+        "path": "Extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x].system",
+        "path": "Extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:nearPD.value[x].code",
+        "path": "Extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:distancePD",
+        "path": "Extension.extension",
+        "sliceName": "distancePD",
+        "short": "Akies PD tolumui / PD (Tolumui)",
+        "definition": "Akies PD tolumui / PD (Tolumui).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:distancePD.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distancePD.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "distancePD"
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x].comparator",
+        "path": "Extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x].unit",
+        "path": "Extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x].system",
+        "path": "Extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:distancePD.value[x].code",
+        "path": "Extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils",
+        "path": "Extension.extension",
+        "sliceName": "distanceBetweenPupils",
+        "short": "Atstumas tarp vyzdžių centrų / Atstumas tarp vyzdžių",
+        "definition": "Atstumas tarp vyzdžių.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "distanceBetweenPupils"
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x].comparator",
+        "path": "Extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x].unit",
+        "path": "Extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x].system",
+        "path": "Extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:distanceBetweenPupils.value[x].code",
+        "path": "Extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:purpose",
+        "path": "Extension.extension",
+        "sliceName": "purpose",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:purpose.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purpose.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "purpose"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-purpose"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purpose.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purposeDescription",
+        "path": "Extension.extension",
+        "sliceName": "purposeDescription",
+        "short": "Akinių/lešių paskirties aprašymas",
+        "definition": "Akinių/lešių paskirties aprašymas. Privalomas laukas nuo versijos v29.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:purposeDescription.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:purposeDescription.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "purposeDescription"
+      },
+      {
+        "id": "Extension.extension:purposeDescription.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-lenses"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-substance",
+  "name": "LtEspbiSubstance",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Substance",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Substance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Substance.id",
+        "path": "Substance.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.meta",
+        "path": "Substance.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.instance",
+        "path": "Substance.instance",
+        "short": "Nurodoma, ar aprašomas medžiagos egzempliorius ar medžiagos tipas / Is this an instance of a substance or a kind of one",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.code",
+        "path": "Substance.code",
+        "short": "Komponento arba jo sudedamosios dalies pavadinimas / The component or its ingredient name",
+        "definition": "Vaistinio preparato komponento ar jo sudedamosios dalies pavadinimas lietuvių ir anglų kalba arba alergiją sukeliančios medžiagos aprašymas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.code.concept",
+        "path": "Substance.code.concept",
+        "min": 1
+      },
+      {
+        "id": "Substance.code.concept.coding",
+        "path": "Substance.code.concept.coding",
+        "short": "Sudedamosios medžiagos kodas ir pavadinimas / Code and name of substance",
+        "definition": "FHIR R5 pateikia pavyzdį, kad galima naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/substance-code, kuriame pateikiami http://snomed.info/sct kodai, kurių sąvokos priklauso kategorijai „105590001 – Substance (medžiaga)\".\r\n\r\nSumodeliuota pagal xml pateiktą pavyzdį, t. y., kad dislay (pavadinimas) pateikiamas lietuvių ir anglų kalbomis.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Substance.code.concept.coding.system",
+        "path": "Substance.code.concept.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/Substance/Code"
+      },
+      {
+        "id": "Substance.code.concept.coding.code",
+        "path": "Substance.code.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Substance.code.concept.coding.display",
+        "path": "Substance.code.concept.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-en",
+        "path": "Substance.code.concept.coding.display.extension",
+        "sliceName": "translation-en",
+        "short": "Pavadinimas anglų kalba / Name in English",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/translation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-en.extension:lang",
+        "path": "Substance.code.concept.coding.display.extension.extension",
+        "sliceName": "lang",
+        "short": "Kalbos kodas / Code for Language"
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-en.extension:lang.value[x]",
+        "path": "Substance.code.concept.coding.display.extension.extension.value[x]",
+        "fixedCode": "en"
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-en.extension:content",
+        "path": "Substance.code.concept.coding.display.extension.extension",
+        "sliceName": "content",
+        "short": "Pavadinimas anglų kalba / Name in English"
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-en.extension:content.value[x]",
+        "path": "Substance.code.concept.coding.display.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-la",
+        "path": "Substance.code.concept.coding.display.extension",
+        "sliceName": "translation-la",
+        "short": "Pavadinimas lotynų kalba / Name in Latin",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/translation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-la.extension:lang",
+        "path": "Substance.code.concept.coding.display.extension.extension",
+        "sliceName": "lang",
+        "short": "Kalbos kodas / Code for Language"
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-la.extension:lang.value[x]",
+        "path": "Substance.code.concept.coding.display.extension.extension.value[x]",
+        "fixedCode": "la"
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-la.extension:content",
+        "path": "Substance.code.concept.coding.display.extension.extension",
+        "sliceName": "content",
+        "short": "Pavadinimas lotynų kalba / Name in Latin"
+      },
+      {
+        "id": "Substance.code.concept.coding.display.extension:translation-la.extension:content.value[x]",
+        "path": "Substance.code.concept.coding.display.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Substance.code.concept.text",
+        "path": "Substance.code.concept.text",
+        "short": "Sąvokos tekstinis paaiškinimas arba jos reikšmė / Plain text representation of the concept",
+        "min": 1
+      },
+      {
+        "id": "Substance.description",
+        "path": "Substance.description",
+        "short": "Vaistinio preparato komponento arba jo sudedamosios dalies aprašymas (pavadinimas) / Textual description of the substance, comments",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.ingredient",
+        "path": "Substance.ingredient",
+        "short": "Medžiagos komponento sudėties informacija / Composition information about the substance",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.ingredient.quantity",
+        "path": "Substance.ingredient.quantity",
+        "short": "Medžiagos kiekis komponento kiekyje / Optional amount (concentration)",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.ingredient.quantity.numerator",
+        "path": "Substance.ingredient.quantity.numerator",
+        "mustSupport": true
+      },
+      {
+        "id": "Substance.ingredient.quantity.numerator.value",
+        "path": "Substance.ingredient.quantity.numerator.value",
+        "min": 1
+      },
+      {
+        "id": "Substance.ingredient.quantity.numerator.comparator",
+        "path": "Substance.ingredient.quantity.numerator.comparator",
+        "definition": "Pagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/quantity-comparator. Šiuo metu ESPBI IS naudojamas comparator http://esveikata.lt/classifiers/strength-operator.",
+        "min": 1
+      },
+      {
+        "id": "Substance.ingredient.quantity.numerator.unit",
+        "path": "Substance.ingredient.quantity.numerator.unit",
+        "min": 1
+      },
+      {
+        "id": "Substance.ingredient.quantity.numerator.system",
+        "path": "Substance.ingredient.quantity.numerator.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/StrengthUnit"
+      },
+      {
+        "id": "Substance.ingredient.quantity.numerator.code",
+        "path": "Substance.ingredient.quantity.numerator.code",
+        "min": 1
+      },
+      {
+        "id": "Substance.ingredient.substance[x]",
+        "path": "Substance.ingredient.substance[x]",
+        "short": "Nuoroda į vaistinio preparato komponento sudedamąją medžiagą / Ingredient substance",
+        "definition": "Nuoroda į vaistinio preparato komponento sudedamąją medžiagą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-substance"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Substance.ingredient.substance[x].reference",
+        "path": "Substance.ingredient.substance[x].reference",
+        "min": 1
+      }
+    ]
+  }
+}

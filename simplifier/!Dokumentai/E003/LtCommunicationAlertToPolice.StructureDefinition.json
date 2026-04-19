@@ -1,0 +1,484 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-communication-alert-to-police",
+  "name": "LtEspbiCommunicationAlertToPolice",
+  "status": "draft",
+  "description": "Detali pranešimo informacija / Alert to police system",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Communication",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-communication",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Communication.implicitRules",
+        "path": "Communication.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Communication.language",
+        "path": "Communication.language",
+        "max": "0"
+      },
+      {
+        "id": "Communication.text",
+        "path": "Communication.text",
+        "max": "0"
+      },
+      {
+        "id": "Communication.contained",
+        "path": "Communication.contained",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension",
+        "path": "Communication.extension",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver",
+        "path": "Communication.extension",
+        "sliceName": "ltEspbiExtExternalAlertReceiver",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x]",
+        "path": "Communication.extension.value[x]",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Alert/ExternalAlertReceiver",
+                  "code": "1"
+                }
+              ],
+              "text": "Lietuvos kelių policijos tarnybai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x].id",
+        "path": "Communication.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x].extension",
+        "path": "Communication.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x].coding.id",
+        "path": "Communication.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x].coding.extension",
+        "path": "Communication.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x].coding.version",
+        "path": "Communication.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x].coding.userSelected",
+        "path": "Communication.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtExternalAlertReceiver.value[x].text",
+        "path": "Communication.extension.value[x].text",
+        "min": 1
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtAppliesPeriod",
+        "path": "Communication.extension",
+        "sliceName": "ltEspbiExtAppliesPeriod",
+        "max": "0"
+      },
+      {
+        "id": "Communication.extension:ltEspbiExtVisibility",
+        "path": "Communication.extension",
+        "sliceName": "ltEspbiExtVisibility",
+        "max": "0"
+      },
+      {
+        "id": "Communication.modifierExtension",
+        "path": "Communication.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.identifier",
+        "path": "Communication.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Communication.instantiatesCanonical",
+        "path": "Communication.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "Communication.instantiatesUri",
+        "path": "Communication.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "Communication.basedOn",
+        "path": "Communication.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "Communication.partOf",
+        "path": "Communication.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Communication.inResponseTo",
+        "path": "Communication.inResponseTo",
+        "max": "0"
+      },
+      {
+        "id": "Communication.status",
+        "path": "Communication.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "Communication.statusReason",
+        "path": "Communication.statusReason",
+        "max": "0"
+      },
+      {
+        "id": "Communication.category",
+        "path": "Communication.category",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Communication/Category",
+                  "code": "1",
+                  "display": "draudžiamas pranešimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Communication.category.id",
+        "path": "Communication.category.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.category.extension",
+        "path": "Communication.category.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.category.coding.id",
+        "path": "Communication.category.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.category.coding.extension",
+        "path": "Communication.category.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.category.coding.version",
+        "path": "Communication.category.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Communication.category.coding.display",
+        "path": "Communication.category.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Communication.category.coding.userSelected",
+        "path": "Communication.category.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Communication.priority",
+        "path": "Communication.priority",
+        "max": "0"
+      },
+      {
+        "id": "Communication.medium",
+        "path": "Communication.medium",
+        "max": "0"
+      },
+      {
+        "id": "Communication.subject",
+        "path": "Communication.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Communication.subject.id",
+        "path": "Communication.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.subject.extension",
+        "path": "Communication.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.subject.reference",
+        "path": "Communication.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Communication.subject.type",
+        "path": "Communication.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Communication.subject.identifier",
+        "path": "Communication.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Communication.subject.display",
+        "path": "Communication.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "Communication.topic",
+        "path": "Communication.topic",
+        "max": "0"
+      },
+      {
+        "id": "Communication.about",
+        "path": "Communication.about",
+        "max": "0"
+      },
+      {
+        "id": "Communication.encounter",
+        "path": "Communication.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Communication.sent",
+        "path": "Communication.sent",
+        "max": "0"
+      },
+      {
+        "id": "Communication.received",
+        "path": "Communication.received",
+        "max": "0"
+      },
+      {
+        "id": "Communication.recipient",
+        "path": "Communication.recipient",
+        "max": "0"
+      },
+      {
+        "id": "Communication.sender",
+        "path": "Communication.sender",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Communication.sender.id",
+        "path": "Communication.sender.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.sender.extension",
+        "path": "Communication.sender.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.sender.reference",
+        "path": "Communication.sender.reference",
+        "min": 1
+      },
+      {
+        "id": "Communication.sender.type",
+        "path": "Communication.sender.type",
+        "max": "0"
+      },
+      {
+        "id": "Communication.sender.identifier",
+        "path": "Communication.sender.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Communication.sender.display",
+        "path": "Communication.sender.display",
+        "max": "0"
+      },
+      {
+        "id": "Communication.reason",
+        "path": "Communication.reason",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload",
+        "path": "Communication.payload",
+        "slicing": {
+          "description": "Payload išskaidomas pagal skirfingus communication resurso tipus",
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Communication.payload.id",
+        "path": "Communication.payload.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload.extension",
+        "path": "Communication.payload.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload.modifierExtension",
+        "path": "Communication.payload.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept",
+        "path": "Communication.payload",
+        "sliceName": "codeableConcept"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.id",
+        "path": "Communication.payload.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.extension",
+        "path": "Communication.payload.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.modifierExtension",
+        "path": "Communication.payload.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x]",
+        "path": "Communication.payload.content[x]",
+        "short": "Pranešimo tipas ir papildomas aprašymas / Message type and additional description ",
+        "definition": "Realizuota kaip:\r\n- Pranešimo tipas (dėl negalėjimo vairuoti, dėl negalėjimo naudoti ginklą) : CodeableConcept.coding\r\n- Papildomas aprašymas : CodeableConcept.text"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].id",
+        "path": "Communication.payload.content[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].extension",
+        "path": "Communication.payload.content[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding",
+        "path": "Communication.payload.content[x].coding",
+        "slicing": {
+          "description": "Coding išskaidomas pagal skirtingas sistemas",
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding:prohibitAlertType",
+        "path": "Communication.payload.content[x].coding",
+        "sliceName": "prohibitAlertType",
+        "definition": "Pranešimo tipas (dėl negalėjimo vairuoti, dėl negalėjimo naudoti ginklą).\r\n\r\n- Klasifikatoriaus rinkinio kodas: prohibit-alert-type"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding:prohibitAlertType.id",
+        "path": "Communication.payload.content[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding:prohibitAlertType.extension",
+        "path": "Communication.payload.content[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding:prohibitAlertType.version",
+        "path": "Communication.payload.content[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding:prohibitAlertType.userSelected",
+        "path": "Communication.payload.content[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding:commentAlertType",
+        "path": "Communication.payload.content[x].coding",
+        "sliceName": "commentAlertType",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].coding:systemAlertType",
+        "path": "Communication.payload.content[x].coding",
+        "sliceName": "systemAlertType",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:codeableConcept.content[x].text",
+        "path": "Communication.payload.content[x].text",
+        "short": "Papildomas aprašymas / Additional description"
+      },
+      {
+        "id": "Communication.payload:attachment",
+        "path": "Communication.payload",
+        "sliceName": "attachment",
+        "max": "0"
+      },
+      {
+        "id": "Communication.payload:reference",
+        "path": "Communication.payload",
+        "sliceName": "reference",
+        "max": "0"
+      },
+      {
+        "id": "Communication.note",
+        "path": "Communication.note",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-recommendation",
+  "name": "LtEspbiImmunizationRecommendation",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ImmunizationRecommendation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ImmunizationRecommendation.id",
+        "path": "ImmunizationRecommendation.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.meta",
+        "path": "ImmunizationRecommendation.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.extension",
+        "path": "ImmunizationRecommendation.extension",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.extension:ltExtAuthor",
+        "path": "ImmunizationRecommendation.extension",
+        "sliceName": "ltExtAuthor",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-immunizationrecommendation/author"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.extension:ltExtAuthor.value[x]",
+        "path": "ImmunizationRecommendation.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000015885"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.extension:ltExtAuthor.value[x].reference",
+        "path": "ImmunizationRecommendation.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationRecommendation.patient",
+        "path": "ImmunizationRecommendation.patient",
+        "short": "Nuoroda į paciento, kuris skiepijamas, resursą / Reference to patient, for who is given vaccine, resource",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.patient.reference",
+        "path": "ImmunizationRecommendation.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationRecommendation.date",
+        "path": "ImmunizationRecommendation.date",
+        "short": "Rekomendacijos sukūrimo data / Recommendation creation date",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation",
+        "path": "ImmunizationRecommendation.recommendation",
+        "short": "Duomenys apie rekomenduojamą skiepą / Vaccine administration recommendations",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode",
+        "short": "Rekomenduojamo vaisto prekinis kodas ir pavadinimas / Vaccine code and name",
+        "definition": "Rekomenduojamo vaisto prekinis kodas ir pavadinimas (imunobiologinio preparato kodas ir pavadinimas). Nurodomas VAPRIS identifikatorius iš vakcinos produkto vaccineMedication.Medication.code lauko.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/vaccine-code. ",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding.system",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding.system",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding.code",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.vaccineCode.coding.display",
+        "path": "ImmunizationRecommendation.recommendation.vaccineCode.coding.display",
+        "min": 1,
+        "mustSupport": false
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease",
+        "short": "Užkrečiamųjų ligų, nuo kurių skiepijama, pavadinimai / Vaccine-preventable disease name",
+        "definition": "Užkrečiamųjų ligų, nuo kurių skiepijama, pavadinimai.\r\nGalimos reikšmės nurodytos klasifikatoriuje infectious-disease (http://esveikata.lt/classifiers/infectious-disease)\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/immunization-target-disease, kuriame pateikiamos reikšmės iš http://snomed.info/sc.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding.system",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/infectious-disease"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding.code",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.coding.display",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.coding.display",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.targetDisease.text",
+        "path": "ImmunizationRecommendation.recommendation.targetDisease.text",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus",
+        "short": "Planuojamo skiepo būseną / Vaccine recommendation status",
+        "definition": "Planuojamo skiepo būseną.\r\nGalimos reikšmės nurodytos klasifikatoriuje immunization-recommendation-status (http://esveikata.lt/classifiers/immunization-recommendation-status).\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/immunization-recommendation-status, kurio kodai: due | overdue | immune | contraindicated | complete."
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/immunization-recommendation-status",
+              "code": "active",
+              "display": "Aktualus"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding.system",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/immunization-recommendation-status"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding.code",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.forecastStatus.coding.display",
+        "path": "ImmunizationRecommendation.recommendation.forecastStatus.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion",
+        "short": "Planuojamo skiepo data / Dates governing proposed immunization",
+        "definition": "Parametras nurodantis planuojamos skiepijimo dozės vėliausią ir anksčiausią skiepijimo datas (data ir laikas).",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code",
+        "short": "Planuojamo skiepo datos klasifikatorius",
+        "definition": "Planuojamo skiepo datos klasifikatorius. Nurodo ar skiepas turi būti atliktas iki nurodytos datos ar po jos. Šis laukas yra privalomas pagal FHIR specifikaciją, bet ESPBI IS logikoje nenaudojamas.\r\nGalimos reikšmės nurodytos klasifikatoriuje immunization-recommendation-date-criterion.\r\nReikšmė pagal nutylėjimą \"due\".\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion, kurio reikšmės pagal http://loinc.org: 30981-5 - Earliest date to give |30980-7 - Date vaccine due | 59777-3 - Latest date to give immunization | 59778-1 - Date when overdue for immunization."
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.system",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://hl7.org/fhir/immunization-recommendation-date-criterion"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.code",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.code",
+        "min": 1,
+        "fixedCode": "30980-7"
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.display",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.dateCriterion.value",
+        "path": "ImmunizationRecommendation.recommendation.dateCriterion.value",
+        "short": "Planuojamo skiepijimo data / Date of recommended vaccination",
+        "definition": "Planuojamo skiepo data (nurodoma data ir laikas)."
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.description",
+        "path": "ImmunizationRecommendation.recommendation.description",
+        "short": "Pastabos / Remarks",
+        "definition": "Nurodomos papildomos pastabos planuojamam / rekomenduojamam skiepui. Pateikiama tekstiniu formatu.",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationRecommendation.recommendation.doseNumber",
+        "path": "ImmunizationRecommendation.recommendation.doseNumber",
+        "short": "Dozės eilės numeris / Vaccine dose serial number",
+        "definition": "Dozės eilės numeris. Nurodoma pagal skiepijimo schemą kelinta vakcinos dozė bus įskiepyta.",
+        "min": 1
+      }
+    ]
+  }
+}

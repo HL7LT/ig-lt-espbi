@@ -1,0 +1,134 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-domain",
+  "name": "LtEspbiConditionDeathDomain",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.meta",
+        "path": "Condition.meta",
+        "short": "Resurso metaduomenys / Metadata about the resource",
+        "definition": "Resurso metaduomenys."
+      },
+      {
+        "id": "Condition.meta.lastUpdated",
+        "path": "Condition.meta.lastUpdated",
+        "short": "Pakutinio atnaujinimo data ir laikas / Last update date and time",
+        "definition": "Resurso paskutinio atnaujinimo (sukūrimo arba keitimo) data ir laikas."
+      },
+      {
+        "id": "Condition.meta.profile",
+        "path": "Condition.meta.profile",
+        "short": "Resurso duomenų modelis / Data model of the resource",
+        "definition": "Resurso duomenų modelis, tai yra profilio, kurio pagrindu buvo sukurtas resursas, URL reikšmė, pvz., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-direct\".\r\nJei tas pats profilis (tas pats URL) turi kelias versijas, reikiama versija nurodoma, prie resurso profilio URL pridedant vertikalų brūkšnį ir versijos numerį, pvzv., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-direct|1.0.0\". Nenurodžius versijos laikoma, kad resurso profilio versija yra naujausia."
+      },
+      {
+        "id": "Condition.extension:conditionAssertedDate",
+        "path": "Condition.extension",
+        "sliceName": "conditionAssertedDate",
+        "max": "0"
+      },
+      {
+        "id": "Condition.clinicalStatus",
+        "path": "Condition.clinicalStatus",
+        "definition": "Diagnozės būsena.\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/condition-clinical. Galimos reikšmės: active | recurrence | relapse | inactive | remission | resolved | unknown.\r\nMirties priežasčių atveju rekomenduojama naudoti reikšmę \"inactive\" (kas reikštų, kad liga nustojo būti klinikinė problema ne dėl pasveikimo, o dėl dėl paciento mirties)."
+      },
+      {
+        "id": "Condition.verificationStatus",
+        "path": "Condition.verificationStatus",
+        "definition": "Diagnozės patikrinimo būsena.\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/condition-ver-status: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error.\r\nMirties priežasčių atveju rekomenduojama naudoti reikšmę \"confirmed\" (nes liga yra patvirtinama medicininiu mirties liudijimu)."
+      },
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "short": "Mirties priežasties kategorija / Death cause category",
+        "definition": "Nurodoma mirties priežasties kategorija: direct (\"Tiesioginė mirties priežastis\"), intermediate1 (\"Tarpinė mirties priežastis (1)\"), intermediate2 (\"Tarpinė mirties priežastis (2)\"), underlying (\"Pagrindinė liga (trauma)\") arba contributing (\"Kita svarbi patologinė būklė\").",
+        "binding": {
+          "strength": "required"
+        }
+      },
+      {
+        "id": "Condition.category.coding.system",
+        "path": "Condition.category.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/DeathCauseCategory"
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "short": "Mirties priežasties kodas / Code of the cause of death",
+        "definition": "Mirties priežasties (diagnozės / retos ligos) kodas.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am arba klasifikatoriuje rare-diseases."
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM",
+        "path": "Condition.code.coding",
+        "sliceName": "TLK-10-AM"
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.display",
+        "path": "Condition.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding:ORPHA",
+        "path": "Condition.code.coding",
+        "sliceName": "ORPHA"
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.display",
+        "path": "Condition.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.bodySite",
+        "path": "Condition.bodySite",
+        "short": "Anatominė vieta / Anatomical location",
+        "definition": "Anatominė vieta (nurodoma tik tuo atveju, jei tai aktualu konkrečios mirties priežasties atveju).",
+        "binding": {
+          "strength": "preferred"
+        }
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "short": "Nuoroda į pacientą, kuriam buvo nustatyta mirties priežastis / Patient who the death cause record is associated with",
+        "definition": "Nuoroda į pacientą, kuriam buvo nustatyta mirties priežastis"
+      },
+      {
+        "id": "Condition.encounter",
+        "path": "Condition.encounter",
+        "short": "Encounter, kurio metu buvo nustatyta mirties priežastis / Encounter during which the cause of death was determined.",
+        "definition": "Nuoroda į Encounter resursą, kurio metu buvo nustatyta mirties priežastis."
+      },
+      {
+        "id": "Condition.onset[x]",
+        "path": "Condition.onset[x]",
+        "short": "Numatoma arba faktinė diagnozės pradžia / Estimated or actual onset of cause of death",
+        "definition": "Numatoma arba faktinė diagnozės (mirties priežasties) pradžia. Tuo atveju, jei nežinoma tiksli pradžios data, gali būti nurodytas apytikslis laikas, naudojant \"Age\" duomenų tipą (arba naudojant \"string\" duomenų tipą gali būti įrašyta, kad \"nežinoma\" ar pan.)."
+      },
+      {
+        "id": "Condition.abatement[x]",
+        "path": "Condition.abatement[x]",
+        "short": "Mirties data ir laikas / Date and time of death",
+        "definition": "Diagnozės pabaigos (paciento mirties) data ir laikas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Condition.note",
+        "path": "Condition.note",
+        "definition": "Papildomas mirties priežasties aprašymas."
+      }
+    ]
+  }
+}

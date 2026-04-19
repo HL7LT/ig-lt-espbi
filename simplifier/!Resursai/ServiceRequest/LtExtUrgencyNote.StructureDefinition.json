@@ -1,0 +1,166 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-service-request-urgency-note",
+  "name": "LtEspbiExtUrgencyNote",
+  "status": "draft",
+  "description": "Skubumo priežastis / Reason for urgency",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "ServiceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Skubumo priežastis. Privaloma jei skubumas ServiceRequest.priority nustatyta į urgent.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "ext-7",
+            "severity": "error",
+            "human": "If the type code is \"3\" (display - \"Kita\"), the note element must be provided.",
+            "expression": "extension.where(url='type').valueCodeableConcept.coding.code = '3' implies extension.where(url='note').value.exists()"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:type",
+        "path": "Extension.extension",
+        "sliceName": "type",
+        "short": "Skubumo priežasties tipas / Reason for urgency type",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "type"
+      },
+      {
+        "id": "Extension.extension:type.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:type.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-reason-for-urgency"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:note",
+        "path": "Extension.extension",
+        "sliceName": "note",
+        "short": "Nurodoma paslaugos suteikimo skubumo priežastis, kai pasirenkama reikšmė \"Kita\"",
+        "definition": "Jei laukas „Skubumo priežastis“ yra „Kita“, šis laukas turi būti užpildytas privalomai.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:note.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:note.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "note"
+      },
+      {
+        "id": "Extension.extension:note.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-service-request-urgency-note"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0",
+        "mustHaveValue": true
+      }
+    ]
+  }
+}

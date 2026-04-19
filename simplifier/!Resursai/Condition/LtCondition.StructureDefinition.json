@@ -1,0 +1,416 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition",
+  "name": "LtEspbiCondition",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Condition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition",
+        "path": "Condition",
+        "constraint": [
+          {
+            "key": "con-1",
+            "severity": "error",
+            "human": "Abatement must be present if clinicalStatus is 'inactive' or 'resolved'.",
+            "expression": "(clinicalStatus.coding.where(code = 'inactive' or code = 'resolved')).exists() implies abatement.exists()"
+          }
+        ]
+      },
+      {
+        "id": "Condition.id",
+        "path": "Condition.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta",
+        "path": "Condition.meta",
+        "short": "Resurso versijos informacija / Resource version information",
+        "definition": "Condition resurso versijos informacija.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.lastUpdated",
+        "path": "Condition.meta.lastUpdated",
+        "short": "Atnaujinimo data / Update date",
+        "definition": "Paskutinio resurso atnaujinimo/keitimo data ir laikas.",
+        "min": 1
+      },
+      {
+        "id": "Condition.meta.profile",
+        "path": "Condition.meta.profile",
+        "short": "Duomenų modelio versija / Data model version",
+        "definition": "Condition resurso struktūros versiją identifikuojantis profilis.\r\n\r\nReikšmė pagal nutylėjimą \"http://esveikata.lt/Profile/Condition/v29\".",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.extension",
+        "path": "Condition.extension",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.extension:conditionAssertedDate",
+        "path": "Condition.extension",
+        "sliceName": "conditionAssertedDate",
+        "short": "Diagnozės nustatymo pacientui data / Date of patient diagnosis",
+        "definition": "Diagnozės nustatymo pacientui data.",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.clinicalStatus",
+        "path": "Condition.clinicalStatus",
+        "short": "Būsena / State",
+        "definition": "Diagnozės būsena. Privalomas laukas naujom diagnozėm su meta lauku.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/condition-clinical. Galimos reikšmės: active | recurrence | relapse | inactive | remission | resolved | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.clinicalStatus.coding",
+        "path": "Condition.clinicalStatus.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.clinicalStatus.coding.system",
+        "path": "Condition.clinicalStatus.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Condition.clinicalStatus.coding.code",
+        "path": "Condition.clinicalStatus.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Condition.clinicalStatus.coding.display",
+        "path": "Condition.clinicalStatus.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.clinicalStatus.text",
+        "path": "Condition.clinicalStatus.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.verificationStatus",
+        "path": "Condition.verificationStatus",
+        "short": "Tikrumas / Verification status",
+        "definition": "Diagnozės patikrinimo būsena. Privalomas laukas naujom diagnozėm su meta lauku.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/condition-ver-status: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.verificationStatus.coding",
+        "path": "Condition.verificationStatus.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.verificationStatus.coding.system",
+        "path": "Condition.verificationStatus.coding.system",
+        "short": "unconfirmed | provisional | differential | confirmed | refuted | entered-in-error",
+        "definition": "Klasifikatorius / Classificator: http://hl7.org/fhir/ValueSet/condition-ver-status",
+        "min": 1
+      },
+      {
+        "id": "Condition.verificationStatus.coding.code",
+        "path": "Condition.verificationStatus.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Condition.verificationStatus.coding.display",
+        "path": "Condition.verificationStatus.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.verificationStatus.text",
+        "path": "Condition.verificationStatus.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "short": "Kategorija / Category",
+        "definition": "Nurodo kokiai kategorijai priklauso problema, pagal tai ji yra traukiama į paciento suvestinę arba netraukiama. Pasirenkama reikšmė iš \"Problemos kategorijos\" klasifikatoriaus.  Privalomas laukas naujom diagnozėm su meta lauku.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje problem-category. ",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.category.coding",
+        "path": "Condition.category.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.category.coding.system",
+        "path": "Condition.category.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Condition.category.coding.code",
+        "path": "Condition.category.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Condition.category.coding.display",
+        "path": "Condition.category.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.category.text",
+        "path": "Condition.category.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.severity",
+        "path": "Condition.severity",
+        "short": "Problemos sunkumas / Condition severity",
+        "definition": "Problemos sunkumas.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje condition-severity.",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.severity.coding",
+        "path": "Condition.severity.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.severity.coding.system",
+        "path": "Condition.severity.coding.system",
+        "min": 1,
+        "patternUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Condition.severity.coding.code",
+        "path": "Condition.severity.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Condition.severity.coding.display",
+        "path": "Condition.severity.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "short": "Diagnozės/retos ligos kodas ir pavadinimas / Diagnosis/rare disease code and name",
+        "definition": "Diagnozės/retos ligos kodas ir pavadinimas.\r\nDiagnozės kodas TLK-10-AM ir diagnozės pavadinimas atitinka tą patį įrašą klasifikatoriuje.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.\r\nGalimos reikšmės nurodytos klasifikatoriuje rare-diseases.\r\n",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding",
+        "path": "Condition.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM",
+        "path": "Condition.code.coding",
+        "sliceName": "TLK-10-AM",
+        "short": "Diagnozės TLK-10-AM kodas ir pavadinimas / Diagnosis TLK-10-AM code",
+        "definition": "Diagnozės TLK-10-AM kodas  ir diagnozės pavadinimas. Diagnozės kodas TLK-10-AM ir diagnozės pavadinimas atitinka tą patį įrašą klasifikatoriuje.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje infections-list.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.system",
+        "path": "Condition.code.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.code",
+        "path": "Condition.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Condition.code.coding:TLK-10-AM.display",
+        "path": "Condition.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Condition.code.coding:ORPHA",
+        "path": "Condition.code.coding",
+        "sliceName": "ORPHA",
+        "short": "Retos ligos ORPHA kodas ir pavadinimas / Rare disease ORPHA code and name",
+        "definition": "Reta liga. Reikšmę pridėti/redaguoti gali tik specialistas, kuris dirba įstaigoje, įtrauktoje į klasifikatorių orpha-organizations.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje rare-diseases.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.system",
+        "path": "Condition.code.coding.system",
+        "min": 1,
+        "patternUri": "https://www.orpha.net"
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.code",
+        "path": "Condition.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Condition.code.coding:ORPHA.display",
+        "path": "Condition.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Condition.code.text",
+        "path": "Condition.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.bodySite",
+        "path": "Condition.bodySite",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.bodySite.coding",
+        "path": "Condition.bodySite.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.bodySite.coding.system",
+        "path": "Condition.bodySite.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Condition.bodySite.coding.code",
+        "path": "Condition.bodySite.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Condition.bodySite.coding.display",
+        "path": "Condition.bodySite.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.bodySite.text",
+        "path": "Condition.bodySite.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "short": "Nuoroda į pacientą, kuriam buvo nustatyta ši diagnozė / Patient who the condition record is associated with",
+        "definition": "Pacientas, kuriam yra nustatyta diagnozė.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.subject.reference",
+        "path": "Condition.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Condition.encounter",
+        "path": "Condition.encounter",
+        "short": "Atvykimo duomenys, kai buvo nustatyta diagnozė / Encounter during which the condition was asserted",
+        "definition": "Nuoroda į atvykimo duomenis.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.encounter.reference",
+        "path": "Condition.encounter.reference",
+        "min": 1
+      },
+      {
+        "id": "Condition.onset[x]",
+        "path": "Condition.onset[x]",
+        "short": "Laikas, kada buvo nustatyta diagnozės pradžia (ir pabaiga) / Estimated or actual date, date-time, or age",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.abatement[x]",
+        "path": "Condition.abatement[x]",
+        "short": "Sprendimų priėmimo aplinkybės / Circumstances of decision-making",
+        "definition": "Sprendimų priėmimo aplinkybės. Laukas yra privalomas jei problemos būsena - clinicalStatus - yra nustatyta viena iš reikšmių:      \r\n- Neaktyvi (inactive)\r\n- Išspręsta (resolved)",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.recordedDate",
+        "path": "Condition.recordedDate",
+        "short": "Registracijos data / Registration date",
+        "definition": "Registracijos data.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.participant",
+        "path": "Condition.participant",
+        "short": "Nuoroda į specialistą, kuris nustatė šią diagnozę / Practitioner who has asserted this diagnosis",
+        "definition": "Nuoroda į specialistą, kuris nustatė šią diagnozę.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.participant.actor",
+        "path": "Condition.participant.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.participant.actor.reference",
+        "path": "Condition.participant.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "Condition.note",
+        "path": "Condition.note",
+        "short": "Aprašymas / Description",
+        "definition": "Diagnozės detalus aprašymas.",
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

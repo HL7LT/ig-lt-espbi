@@ -1,0 +1,256 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan",
+  "name": "LtEspbiCarePlan",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CarePlan",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/CarePlan",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CarePlan",
+        "path": "CarePlan",
+        "constraint": [
+          {
+            "key": "patientNotified-false-req-desc",
+            "requirements": "\"Priežastis (paciento supažindinimas)\" laukas skirtas teksto įvedimui (priežastis, kodėl nebuvo supažindintas pacientas, informacijai). Jeigu nepažymėtas laukas 4.1, šis laukas 4.3 tampa privalomu.",
+            "severity": "error",
+            "human": "If the patient has not been informed of the plan, the reason for this must be stated",
+            "expression": "extension.where(url='http://esveikata.lt/Profile/ltnhr-careplan/patientNotified').value.first() = false implies extension.where(url='http://esveikata.lt/Profile/ltnhr-careplan/patientNotNotifiedDescription').exists()"
+          },
+          {
+            "key": "relativesNotified-false-req-desc",
+            "requirements": "\"Priežastis (artimųjų supažindinimas)\" laukas skirtas teksto įvedimui (priežastis, kodėl nebuvo supažindinti artimieji informacijai). Jeigu nepažymėtas laukas 4.2, šis laukas 4.4 tampa privalomu.",
+            "severity": "error",
+            "human": "If the patient's relatives have not been informed of the plan, the reason for this must be stated",
+            "expression": "extension.where(url='http://esveikata.lt/Profile/ltnhr-careplan/relativesNotified').value.first() = false implies extension.where(url='http://esveikata.lt/Profile/ltnhr-careplan/relativesNotNotifiedDescription').exists()"
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.id",
+        "path": "CarePlan.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.meta",
+        "path": "CarePlan.meta",
+        "short": "Resurso metaduomenys / Metadata about the resource",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.meta.lastUpdated",
+        "path": "CarePlan.meta.lastUpdated",
+        "short": "Resurso paskutinio atnaujinimo data ir laikas / Date and time of the resource's last update",
+        "definition": "Resurso paskutinio atnaujinimo (sukūrimo arba keitimo) data ir laikas.",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2025-12-12T09:13:58+00:00"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.meta.profile",
+        "path": "CarePlan.meta.profile",
+        "short": "Profillis, kurį atitinka dokumento struktūra / Profile identifying the document structure",
+        "definition": "Resurso duomenų modelis, tai yra, profilio, kurio pagrindu buvo sukurtas resursas, URL reikšmė, pvz., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-xxx\", kur \"xxx\" atitinka resurso tipą.\r\nJei tas pats profilis (tas pats URL) turi kelias versijas, reikiama versija nurodoma, prie resurso profilio URL pridedant vertikalų brūkšnį ir versijos numerį, pvz., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-xxx|1.0.0\". Nenurodžius versijos laikoma, kad resurso profilio versija yra naujausia.\r\nPastaba: tas pats resurso profilis (tas pats URL) gali turėti skirtingas versijas tik tuo atveju, jei duomenų modelis tarp skirtingų versijų yra suderiniamas - jei nesuderinamas (pvz., atsiranda ar naikinamas tam tikras privalomas laukas), resurso profilio URL privalo pasikeisti, pvz., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-xxx-v29\".",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "CarePlan.extension",
+        "path": "CarePlan.extension",
+        "min": 2,
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.extension:ltExtPatientNotified",
+        "path": "CarePlan.extension",
+        "sliceName": "ltExtPatientNotified",
+        "short": "Pacientas buvo supažindintas su planu / Indicator of whether the patient was informed of the plan",
+        "definition": "Požymis, nurodantis, ar pacientas buvo supažindintas su slaugos planu.\r\nŠiame plėtinyje nurodžius reikšmę \"false\", plėtinyje \"ltExtPatientNotNotifiedDescription\" turi būti nurodyta priežastis, kodėl pacientas nebuvo supažindintas su slaugos planu.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-careplan/patientNotified"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.extension:ltExtPatientNotNotifiedDescription",
+        "path": "CarePlan.extension",
+        "sliceName": "ltExtPatientNotNotifiedDescription",
+        "short": "Priežastis, kodėl pacientas nesupažindintas su planu / Reason why the patient was not informed of the plan.",
+        "definition": "Priežastis, kodėl pacientas nebuvo supažindintas su slaugos planu.\r\nLauko (plėtinio) reikšmė privaloma, jei pacientas nebuvo supažindintas su slaugos planu, tai yra, plėtinio \"ltExtPatientNotified\" reikšmė yra \"false\".",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-careplan/patientNotNotifiedDescription"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.extension:ltExtRelativesNotified",
+        "path": "CarePlan.extension",
+        "sliceName": "ltExtRelativesNotified",
+        "short": "Artimieji supažindinti su planu / Indicator of whether the patient's family was informed of the plan",
+        "definition": "Požymis, nurodantis, ar paciento artimieji buvo supažindintas su slaugos planu.\r\nŠiame plėtinyje nurodžius reikšmę \"false\", plėtinyje \"ltExtRelativesNotNotifiedDescription\" turi būti nurodyta priežastis, kodėl paciento artimieji nebuvo supažindintas su slaugos planu.\r\n",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-careplan/relativesNotified"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.extension:ltExtRelativesNotNotifiedDescription",
+        "path": "CarePlan.extension",
+        "sliceName": "ltExtRelativesNotNotifiedDescription",
+        "short": "Priežastis, kodėl artimieji nesupažindinti su planu / Reason why the patient's family was not informed of the plan",
+        "definition": "Priežastis, kodėl paciento artimieji nebuvo supažindinti su slaugos planu.\r\nLauko (plėtinio) reikšmė privaloma, jei paciento artimieji nebuvo supažindinti su slaugos planu, tai yra, plėtinio \"ltExtRelativesNotified\" reikšmė yra \"false\".",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-careplan/relativesNotNotifiedDescription"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.status",
+        "path": "CarePlan.status",
+        "short": "Slaugos plano būsena / Care plan status",
+        "definition": "Paciento slaugos plano statusas.\r\nFHIR R5 atveju turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/request-status|5.0.0. Galimos reikšmės: draft | active | on-hold | revoked | completed | entered-in-error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.intent",
+        "path": "CarePlan.intent",
+        "short": "Su slaugos planu susijusių įgaliojimų ar ketinimų lygis / The level of authority/intentionality associated with the care plan ",
+        "definition": "Su slaugos planu susijusių įgaliojimų ar ketinimų lygis.\r\nFHIR R5 privalomas laukas, turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/care-plan-intent|5.0.0. Galimos reikšmės: proposal | plan | order | option | directive.",
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.subject",
+        "path": "CarePlan.subject",
+        "short": "Paciento duomenys / Information about the patient",
+        "definition": "Nuoroda į pacientą, kuriam skirtas slaugos planas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.subject.reference",
+        "path": "CarePlan.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "CarePlan.contributor",
+        "path": "CarePlan.contributor",
+        "short": "Slaugos planą sudaręs specialistas / Practitioner creating the care plan",
+        "definition": "Nuoroda į slaugos planą sudariusį sveikatos priežiūros specialistas (Practitioner resursą).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.contributor.reference",
+        "path": "CarePlan.contributor.reference",
+        "min": 1
+      },
+      {
+        "id": "CarePlan.goal",
+        "path": "CarePlan.goal",
+        "short": "Slaugos tikslas / Goal of care plan",
+        "definition": "Nuoroda į slaugos tikslą aprašantį \"Goal\" resursą.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-goal"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.goal.reference",
+        "path": "CarePlan.goal.reference",
+        "min": 1
+      },
+      {
+        "id": "CarePlan.activity",
+        "path": "CarePlan.activity",
+        "short": "Slaugos problema ir sprendimo metodai / Care problem and solution methods",
+        "definition": "Paciento slaugos problema ir jos spendimo metodai.",
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference",
+        "path": "CarePlan.activity.plannedActivityReference",
+        "short": "Slaugos problemos ir sprendimo metodų detalizavimas / The details of the care problem and solution methods",
+        "definition": "Nuoroda į slaugos problemą ir sprendimo metodus detalizuojantį ServiceRequest resursą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference.reference",
+        "path": "CarePlan.activity.plannedActivityReference.reference",
+        "min": 1
+      },
+      {
+        "id": "CarePlan.note",
+        "path": "CarePlan.note",
+        "short": "Pastaba / General notes",
+        "definition": "Pastaba / su slaugos planu susijusi papildoma informacija.",
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

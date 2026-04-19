@@ -1,0 +1,491 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition",
+  "name": "LtEspbiComposition",
+  "status": "draft",
+  "description": "Duomenų kompozicijos profilis / Composition profile",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Composition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.id",
+        "path": "Composition.id",
+        "short": "Resurso identifikatorius / Logical id of this artifact",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta",
+        "path": "Composition.meta",
+        "short": "Duomenų modelio versijos numeris / The metadata about the resource ",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.versionId",
+        "path": "Composition.meta.versionId",
+        "short": "Kompozicijos versijos id / Version specific identifier",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.lastUpdated",
+        "path": "Composition.meta.lastUpdated",
+        "short": "Paskutinio resurso atnaujinimo / keitimo data ir laikas",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.profile",
+        "path": "Composition.meta.profile",
+        "short": "Resurso struktūros versiją identifikuojantis profilis",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.meta.security",
+        "path": "Composition.meta.security",
+        "short": "Saugumo / konfidencialumo žymos / Security Labels applied to this resource",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.security.system",
+        "path": "Composition.meta.security.system",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.security.code",
+        "path": "Composition.meta.security.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.security.display",
+        "path": "Composition.meta.security.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.tag",
+        "path": "Composition.meta.tag",
+        "short": "Resursui pritaikytos žymos / Tags applied to this resource",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.tag.system",
+        "path": "Composition.meta.tag.system",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.tag.code",
+        "path": "Composition.meta.tag.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.tag.display",
+        "path": "Composition.meta.tag.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-composition/authorDepartment"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-composition/authorQualification"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.url",
+        "path": "Composition.url",
+        "short": "Kompozicijos kanoninis identifikatorius, pateikiamas kaip URI (globaliai unikalus) / Canonical identifier for this Composition, represented as a URI (globally unique)",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier",
+        "path": "Composition.identifier",
+        "short": "Dokumento antraštės identifikatorius kompozicijoje / Version-independent identifier for the Composition",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier.system",
+        "path": "Composition.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "Composition.identifier.value",
+        "path": "Composition.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "short": "Dokumento būsena / Status of the document",
+        "definition": "Teikiamo dokumento būsena.\r\nGalimos reikšmės:\r\n- preliminary: Nepilnai užpildyto ir/arba nepabaigto dokumento būsena.\r\n- final: Pateikto pasirašymui dokumento būsena. Būsena parodo, kad šio dokumento pagrindu yra sugeneruotas elektroninis pdf dokumentas pasirašymui, tačiau neapibrėžia, ar dokumentas yra pasirašytas, ar pateiktas pasirašymui. Pasirašyto dokumento būsena \"sign\" nusako to dokumento DocumentReference.docStatus laukas.\r\n- entered in error: Atšaukto dokumento būsena. Dokumentas yra atšauktas kartu su visais jo pagrindu sukurtais medicininiais resursais ir šių resursų pagrindu sukurtas vaikiniais dokumentais.\r\n- amended: Pakeisto po pasirašymo dokumento būsena. Dokumentas iš būsenos „final“ į būseną „amended“ pervedamas tik tuo atveju, jeigu pateiktas pakeitimus patvirtinantis pasirašytas pdf dokumentas. Ši būsena skirta tik E025 ir E003 dokumentų papildymui po pasirašymo.\r\nGalimos reikšmės nurodytos klasifikatoriuje composition-status.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/composition-status. Galimos reikšmės: registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered in error | deprecated | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "Dokumento tipas / Document type it references to. What type of document is this - e.g. Discharge Summary, referral, Consultation note",
+        "definition": "Nurodomas dokumento tipas pagal  kodą iš Loinc sistemos (OID kodų naudojimas nenumatytas). Galimi dokumentai ir jų tipai:\r\nE003 dokumentui 18842-5,\r\nE025 dokumentui 34108-1,\r\nE027 dokumentui 57133-1,\r\nE027-ats. dokumentui 11488-4,\r\nE027Alert dokumentui 57133-1,\r\nE200 dokumentui X-LAB-ORDER,\r\nE200-ats. dokumentui 11502-2,\r\nE014 dokumentui X-PATH-ORDER,\r\nE014-ats. dokumentui 11526-1,\r\nE063 dokumentui 11369-6.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-code.",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-doc-typecodes"
+        }
+      },
+      {
+        "id": "Composition.type.coding",
+        "path": "Composition.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.type.coding.display",
+        "path": "Composition.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.text",
+        "path": "Composition.type.text",
+        "min": 1,
+        "mustSupport": false
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "short": "Kompozicijos kategorija / Categorization of Composition",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "short": "Paciento duomenys / Information about the patient",
+        "definition": "Pacientas, kurio sveikatos būklę / apžiūros rezultatus aprašo kuriamas dokumentas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject.reference",
+        "path": "Composition.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "short": "Atvykimo duomenys / Patient Reception Data",
+        "definition": "Nuoroda į atvykimo duomenis, kurie yra dokumento registravimo pagrindas. Laukas yra neprivalomas tik teikiant E047 ir E048 pažymų darbdavio dalis. Visuose kituose medicininiuose dokumentuose ir pažymose šis laukas yra privalomas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.encounter.reference",
+        "path": "Composition.encounter.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "Dokumento parengimo data ir laikas / Composition editing time. The time this document was created",
+        "constraint": [
+          {
+            "key": "compo-date-1",
+            "severity": "error",
+            "human": "Date must not be later than the current date.",
+            "expression": "$this <= now()"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "short": "Asmuo, sukūręs dokumentą / Who authored the composition",
+        "definition": "Asmuo, kuris sukūrė šį dokumentą. Medicinio dokumento atveju tai bus sveikatos priežiūros specialistas (PractitionerRole). Pacientas (Patient) bus dokumento autoriumi tik E047 pažymos (darbdavio dalies) pateikimo atveju. Visais kitais atvejais autorius yra specialistas (PractitionerRole).\r\n\r\nResurse PractitionerRole saugoma informacija apie sveikatos priežiūros specialisto padalinį, kuriame dirba specialistas bei profesinę kvalifikaciją.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author.reference",
+        "path": "Composition.author.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "Dokumento pavadinimas / Official human-readable label for the composition.",
+        "definition": "Dokumento pavadinimas ",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "short": "Papildomai tvirtinti. Privalomas, jei dokumentas turi būti papildomai patvirtintas / Assert by specialist required. Mandatory, if required to assert by specialist",
+        "definition": "Informacija apie dokumentą papildomai tvirtinantį specialistą, jei jis toks nurodomas. Naudojama E200-ats dokumente.",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester.mode",
+        "path": "Composition.attester.mode",
+        "definition": "Privalomas laukas, logikoje nenaudojamas, todėl nurodome pagal nutylėjimą \"professional\" / Mandatory but not used field, so \"professional\" by default.\r\nGalimos reikšmės pagal FHIR R5: personal | professional | legal | official"
+      },
+      {
+        "id": "Composition.attester.mode.coding",
+        "path": "Composition.attester.mode.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.attester.mode.coding.system",
+        "path": "Composition.attester.mode.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Composition.attester.mode.coding.code",
+        "path": "Composition.attester.mode.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.attester.mode.coding.display",
+        "path": "Composition.attester.mode.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester.party",
+        "path": "Composition.attester.party",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester.party.reference",
+        "path": "Composition.attester.party.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "short": "Informacija apie asmens sveikatos priežiūros įstaigą / Organization who is the author of the document",
+        "definition": "Asmens sveikatos priežiūros įstaiga, pateikusi šį dokumentą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.custodian.reference",
+        "path": "Composition.custodian.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "short": "Ryšys su kitu dokumentu / Relationship to other document",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.relatesTo.type",
+        "path": "Composition.relatesTo.type",
+        "short": "Ryšio tipas / The type of relationship",
+        "definition": "Pagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/related-artifact-type. Galimos reikšmės: documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as."
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference",
+        "path": "Composition.relatesTo.resourceReference",
+        "short": "Nuoroda į keičiamą ankstesnį dokumentą / Reference to the previous document being replaced",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference.reference",
+        "path": "Composition.relatesTo.resourceReference.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.event",
+        "path": "Composition.event",
+        "short": "Įvykis, kurio pagrindu yra kuriamas dokumentas / The event being documented",
+        "definition": "Įvykis, kurio pagrindu yra kuriamas dokumentas. Įvykio kodas pasirenkamas iš klasifikatoriaus event-type (http://esveikata.lt/classifiers/EventType), kurio reikšmės yra sveikatos įvykių reikšmės, apibrėžtos SVEIKATOS PRIEŽIŪROS ĮSTAIGŲ INFORMACINIŲ SISTEMŲ SUSIEJIMO SU Е. SVEIKATOS PASLAUGŲ IR BENDRADARBIAVIMO INFRASTRUKTŪRA REIKALAVIMAI IR TECHNINĖS SĄLYGOS dokumente (patvirtintame SAM ministro įsakymu).",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.event.detail.concept.coding",
+        "path": "Composition.event.detail.concept.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.system",
+        "path": "Composition.event.detail.concept.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/EventType"
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.code",
+        "path": "Composition.event.detail.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.display",
+        "path": "Composition.event.detail.concept.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference.reference",
+        "path": "Composition.event.detail.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "short": "Dokumento duomenys / Document Data",
+        "definition": "Dokumentą sudarančios sekcijos. Sekcijos gali turėti vidines sekcijas. Sekcijų struktūra priklauso nuo dokumento tipo. Atitinkamų dokumentų sekcijų struktūros pavaizduotos \"Dokumentų struktūra\" skyriuje.",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section.code",
+        "path": "Composition.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-doc-section-codes"
+        }
+      },
+      {
+        "id": "Composition.section.code.coding",
+        "path": "Composition.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Composition.section.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section.focus",
+        "path": "Composition.section.focus",
+        "short": "Pacientas, kurio duomenys yra aprašomi sekcijoje",
+        "definition": "Pacientas, kurio duomenys yra aprašomi sekcijoje. Pacientas sekcijoje gali būti nurodomas, kai dokumente yra aprašomi keleto pacientų duomenys. Pavyzdžiui E047 ir E048 pažymos, kur darbdavio atstovo duomenys aprašomi Patient resursu, kaip ir paties pažymos paciento.",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section.focus.reference",
+        "path": "Composition.section.focus.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section.entry",
+        "path": "Composition.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "definition": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste.",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section.entry.reference",
+        "path": "Composition.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section.section",
+        "path": "Composition.section.section",
+        "mustSupport": true
+      }
+    ]
+  }
+}

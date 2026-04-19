@@ -1,0 +1,1552 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e113-tp",
+  "name": "LtEspbiCompositionE113_TP",
+  "status": "draft",
+  "description": "E113-TP Tyrimai ir procedūros nėštumo metu",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.meta",
+        "path": "Composition.meta",
+        "short": "Duomenų modelio versijos numeris",
+        "definition": "Duomenų modelio versijos numeris / The metadata about the resource."
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "Dokumento tipas / Document type it references to",
+        "definition": "Dokumento tipas / Document type it references to. ",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "73814-6",
+                  "display": "Obstetric procedures performed"
+                }
+              ],
+              "text": "Tyrimai ir procedūros nėštumo metu"
+            }
+          }
+        ],
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "73814-6"
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "definition": "Nuoroda į atvykimo duomenis, kurie yra dokumento registravimo pagrindas. ",
+        "min": 1,
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "Dokumento paruošimo data ir laikas / Composition editing time. The time this document was created",
+        "definition": "Negali būti ateities laikas. Laikas <= dabartinis laikas.",
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "definition": "Asmuo, kuris sukūrė šį dokumentą. Medicinio dokumento atveju tai bus sveikatos priežiūros specialistas (PractitionerRole). \r\nResurse PractitionerRole saugoma informacija apie sveikatos priežiūros specialisto padalinį, kuriame dirba specialistas bei profesinę kvalifikaciją.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "Dokumento pavadinimas",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Tyrimai ir procedūros nėštumo metu"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event",
+        "path": "Composition.event",
+        "code": [
+          {
+            "userSelected": false
+          }
+        ],
+        "short": "Įvykis, kurio pagrindu yra kuriamas dokumentas",
+        "definition": "Įvykis, kurio pagrindu yra kuriamas dokumentas / The event being documented"
+      },
+      {
+        "id": "Composition.event.detail.concept",
+        "path": "Composition.event.detail.concept",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/EventType",
+                  "code": "28",
+                  "display": "NGN gydymo paslaugos suteikimas (apsilankymas dėl nėštumo)"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ],
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Dokumento duomenys",
+        "definition": "Dokumento duomenys / Document Data",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle",
+        "path": "Composition.section",
+        "sliceName": "NGNtitle",
+        "short": "NGN antraštė ",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0100",
+                  "display": "NGN antraštė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNtitle.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0100"
+      },
+      {
+        "id": "Composition.section:NGNtitle.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry",
+        "path": "Composition.section.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID",
+        "path": "Composition.section.section",
+        "sliceName": "UniqueID",
+        "short": "Nėštumo kortelės unikalus ID",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0131",
+                  "display": "Nėštumo kortelės unikalus ID"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0131"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:UniqueID.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy",
+        "path": "Composition.section.section",
+        "sliceName": "1dayOfPregnancy",
+        "short": "3.2 Nėštumo pirmoji diena",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.0132",
+                  "display": "Nėštumo pirmoji diena"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0132"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0132"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:1dayOfPregnancy.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy",
+        "path": "Composition.section.section",
+        "sliceName": "weekOfPregnancy",
+        "short": "3.3 Nėštumo savaitė",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49051-6",
+                  "display": "Gestational age in weeks"
+                }
+              ],
+              "text": "Nėštumo savaitė"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49051-6"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49051-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:weekOfPregnancy.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy",
+        "path": "Composition.section.section",
+        "sliceName": "dayOfPregnancy",
+        "short": "3.4 Nėštumo diena",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49052-4",
+                  "display": "Gestational age in days"
+                }
+              ],
+              "text": "Nėštumo diena"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "49052-4"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49052-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section:dayOfPregnancy.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation",
+        "path": "Composition.section",
+        "sliceName": "clinicalInformation",
+        "short": "5 Medicininiai duomenys/ Clinical information",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "55752-0",
+                  "display": "Medicininiai duomenys"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "55752-0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests",
+        "path": "Composition.section.section",
+        "sliceName": "tests",
+        "short": "Tyrimai / Tests",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "89497-2",
+                  "display": "Mother's Prenatal tests"
+                }
+              ],
+              "text": "Tyrimai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "89497-2"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.code.text",
+        "path": "Composition.section.section.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-89497-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:tests.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures",
+        "path": "Composition.section.section",
+        "sliceName": "procedures",
+        "short": "Procedūros / Procedures",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "47519-4",
+                  "display": "History of Procedures Document"
+                }
+              ],
+              "text": "Procedūros"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "47519-4"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-47519-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:procedures.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation",
+        "path": "Composition.section.section",
+        "sliceName": "otherInformation",
+        "short": "5.3. Kita svarbi informacija/ Other important information"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1153",
+                  "display": "Kita svarbi informacija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1153"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1153"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:otherInformation.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

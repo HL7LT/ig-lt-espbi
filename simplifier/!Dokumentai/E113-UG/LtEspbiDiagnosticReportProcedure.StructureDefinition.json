@@ -1,0 +1,1702 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-02-0427",
+  "name": "LtEspbiDiagnosticReport02_0427",
+  "status": "draft",
+  "description": "Medicininiai duomenys apie vaisių / Result of Prenatal Chromosomal Abnormality Screening",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.extension",
+        "path": "DiagnosticReport.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier",
+        "path": "DiagnosticReport.identifier",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/Profile/ltnhr-DiagnosticReport#fetusId",
+              "value": "Vaisiaus pavadinimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.basedOn",
+        "path": "DiagnosticReport.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ProcedureCode",
+                  "code": "02.0427",
+                  "display": "Medicininiai duomenys apie vaisių"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.code.coding.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ProcedureCode"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.code",
+        "path": "DiagnosticReport.code.coding.code",
+        "fixedCode": "02.0427"
+      },
+      {
+        "id": "DiagnosticReport.subject",
+        "path": "DiagnosticReport.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2013-03-11T08:28:00.704+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "short": "Tyrimo rezultatų ataskaitos išrašymo data ir laikas / Date and time of issuing the laboratory test results report",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2013-03-11T08:28:00.704+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter",
+        "path": "DiagnosticReport.resultsInterpreter",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/12345"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.result:chorionicity",
+        "path": "DiagnosticReport.result",
+        "sliceName": "chorionicity",
+        "short": "Chorioniškumas/  Chorionicity",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0428"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:amnionicity",
+        "path": "DiagnosticReport.result",
+        "sliceName": "amnionicity",
+        "short": "Amniotiškumas/  Amnionicity",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0429"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:theMeasurementOfTheButtocksOfTheHead",
+        "path": "DiagnosticReport.result",
+        "sliceName": "theMeasurementOfTheButtocksOfTheHead",
+        "short": "Viršugalvio sėdmenų matmuo/  The measurement of the buttocks of the head",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0430"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:nuchalTranslucency",
+        "path": "DiagnosticReport.result",
+        "sliceName": "nuchalTranslucency",
+        "short": "Sprando vaiskuma/  Nuchal translucency",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0433"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:biparietalDiameter",
+        "path": "DiagnosticReport.result",
+        "sliceName": "biparietalDiameter",
+        "short": "Biparietalinis matmuo / Biparietal diameter",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0434"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:headCircumference",
+        "path": "DiagnosticReport.result",
+        "sliceName": "headCircumference",
+        "short": "Galvos apimtis/  Head circumference",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0437"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:abdominalCircumference",
+        "path": "DiagnosticReport.result",
+        "sliceName": "abdominalCircumference",
+        "short": "Pilvo apimtis / Abdominal circumference",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0440"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:femurLength",
+        "path": "DiagnosticReport.result",
+        "sliceName": "femurLength",
+        "short": "Šlaunikaulio ilgis / Femur length",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0443"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:tibiaLength",
+        "path": "DiagnosticReport.result",
+        "sliceName": "tibiaLength",
+        "short": "Žastikaulio ilgis / Tibia length",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0446"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fetalWeight",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fetalWeight",
+        "short": "Vaisiaus svoris / Fetal weight",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0449"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fetalPosition",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fetalPosition",
+        "short": "Vaisiaus padėtis/ Fetal position",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0452"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fetalPrimordial",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fetalPrimordial",
+        "short": "Vaisiaus pirmeiga / Fetal primordial",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0454"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:headShape",
+        "path": "DiagnosticReport.result",
+        "sliceName": "headShape",
+        "short": "Galvos forma / Head shape",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0455"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:skullOssification",
+        "path": "DiagnosticReport.result",
+        "sliceName": "skullOssification",
+        "short": "Kaukolės kaulėjimas / Skull ossification",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0456"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:cranialVault",
+        "path": "DiagnosticReport.result",
+        "sliceName": "cranialVault",
+        "short": "Skliauto pjautuvas / Cranial vault",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0457"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:cerebralVascularTerritories",
+        "path": "DiagnosticReport.result",
+        "sliceName": "cerebralVascularTerritories",
+        "short": "Galvos kraujagysliniai rezginiai / Cerebral vascular territories",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0458"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:cranialFormContours",
+        "path": "DiagnosticReport.result",
+        "sliceName": "cranialFormContours",
+        "short": "Kaukolės forma, kontūrai / Cranial form, contours",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0459"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:transparentSeptum",
+        "path": "DiagnosticReport.result",
+        "sliceName": "transparentSeptum",
+        "short": "Skaidrioji pertvara/ Transparent septum",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0460"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:midlineOfTheCranium",
+        "path": "DiagnosticReport.result",
+        "sliceName": "midlineOfTheCranium",
+        "short": "Vidurinė linija / Midline of the cranium",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0461"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:cerebralNuclei",
+        "path": "DiagnosticReport.result",
+        "sliceName": "cerebralNuclei",
+        "short": "Smegenų branduoliai / Cerebral nuclei",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0462"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:cerebellum",
+        "path": "DiagnosticReport.result",
+        "sliceName": "cerebellum",
+        "short": "Smegenėlės/ Cerebellum",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0463"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:greatCerebellarCistern",
+        "path": "DiagnosticReport.result",
+        "sliceName": "greatCerebellarCistern",
+        "short": "Didžioji cisterna/ Great cerebellar cistern",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai:  http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0467"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:rightAnteriorHornOfTheVentricle",
+        "path": "DiagnosticReport.result",
+        "sliceName": "rightAnteriorHornOfTheVentricle",
+        "short": "Skilvelio dešinysis priekinis ragas / Right anterior horn of the ventricle",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04152"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:leftAnteriorHornOfTheVentricle",
+        "path": "DiagnosticReport.result",
+        "sliceName": "leftAnteriorHornOfTheVentricle",
+        "short": "Skilvelio kairysis priekinis ragas / Left anterior horn of the ventricle",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0469"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:rightPosteriorHornOfTheVentricle",
+        "path": "DiagnosticReport.result",
+        "sliceName": "rightPosteriorHornOfTheVentricle",
+        "short": "Skilvelio dešinysis užpakalinis ragas/ Right posterior horn of the ventricle",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0471"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:leftPosteriorHornOfTheVentricle",
+        "path": "DiagnosticReport.result",
+        "sliceName": "leftPosteriorHornOfTheVentricle",
+        "short": "Skilvelio kairysis užpakalinis ragas / Left posterior horn of the ventricle",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0473"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:foramenMagnum",
+        "path": "DiagnosticReport.result",
+        "sliceName": "foramenMagnum",
+        "short": "Didžioji jungtis/ Foramen magnum",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0475"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:nuchalFold",
+        "path": "DiagnosticReport.result",
+        "sliceName": "nuchalFold",
+        "short": "Sprando raukšlė / Nuchal fold",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0476"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:humanFaceProfile",
+        "path": "DiagnosticReport.result",
+        "sliceName": "humanFaceProfile",
+        "short": "Profilis / Human Face Profile",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0478"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:upperLip",
+        "path": "DiagnosticReport.result",
+        "sliceName": "upperLip",
+        "short": "Viršutinė lūpa/ Upper lip",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0479"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:eyeholes",
+        "path": "DiagnosticReport.result",
+        "sliceName": "eyeholes",
+        "short": "Akiduobės / Eyeholes",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0480"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:noseNostrils",
+        "path": "DiagnosticReport.result",
+        "sliceName": "noseNostrils",
+        "short": "Nosis, šnervės / Nose, nostrils",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0481"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:chin",
+        "path": "DiagnosticReport.result",
+        "sliceName": "chin",
+        "short": "Smakras / Chin",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0482"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:nasalBone",
+        "path": "DiagnosticReport.result",
+        "sliceName": "nasalBone",
+        "short": "Nosies kaulas / Nasal bone",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0483"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:nuchalTranslucencyThickness",
+        "path": "DiagnosticReport.result",
+        "sliceName": "nuchalTranslucencyThickness",
+        "short": "Prienosinių audinių storis / Nuchal translucency thickness",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0485"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:neck",
+        "path": "DiagnosticReport.result",
+        "sliceName": "neck",
+        "short": "Kaklas / Neck",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0487"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:chestShape",
+        "path": "DiagnosticReport.result",
+        "sliceName": "chestShape",
+        "short": "Krūtinės ląstos forma / Chest shape",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0488"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:lungs",
+        "path": "DiagnosticReport.result",
+        "sliceName": "lungs",
+        "short": "Plaučiai / Lungs",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0489"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:diaphragm",
+        "path": "DiagnosticReport.result",
+        "sliceName": "diaphragm",
+        "short": "Diafragma / Diaphragm",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0490"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:heartActivity",
+        "path": "DiagnosticReport.result",
+        "sliceName": "heartActivity",
+        "short": "Širdies veikla / Heart activity",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0491"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:heartSize",
+        "path": "DiagnosticReport.result",
+        "sliceName": "heartSize",
+        "short": "Širdies dydis / Heart size",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0492"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:heartAxis",
+        "path": "DiagnosticReport.result",
+        "sliceName": "heartAxis",
+        "short": "Širdies ašis / Heart axis",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0493"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fourChamberView",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fourChamberView",
+        "short": "Keturių kamerų vaizdas/ Four-chamber view",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0494"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:aorticOutflowTract",
+        "path": "DiagnosticReport.result",
+        "sliceName": "aorticOutflowTract",
+        "short": "Aortos išvarymo traktas / Aortic outflow trac",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0495"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:pulmonaryOutflowtTract",
+        "path": "DiagnosticReport.result",
+        "sliceName": "pulmonaryOutflowtTract",
+        "short": "Plautinio kamieno išvarymo traktas / Pulmonary outflow tract",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04154"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:stomach",
+        "path": "DiagnosticReport.result",
+        "sliceName": "stomach",
+        "short": "Skrandis / Stomach",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0496"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:intestine",
+        "path": "DiagnosticReport.result",
+        "sliceName": "intestine",
+        "short": "Žarnynas / Intestine",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0497"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:bladder",
+        "path": "DiagnosticReport.result",
+        "sliceName": "bladder",
+        "short": "Šlapimo pūslė/ Bladder",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0498"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:abdominalWall",
+        "path": "DiagnosticReport.result",
+        "sliceName": "abdominalWall",
+        "short": "Pilvo siena: virkštelės tvirtinimosi vieta / Abdominal wall:site of attachment of the rectus abdominis",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0499"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:kidneys",
+        "path": "DiagnosticReport.result",
+        "sliceName": "kidneys",
+        "short": "Inkstai / Kidneys",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04100"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:rightKidney",
+        "path": "DiagnosticReport.result",
+        "sliceName": "rightKidney",
+        "short": "Dešinysis inkstas / Right kidney",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04101"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:leftKidney",
+        "path": "DiagnosticReport.result",
+        "sliceName": "leftKidney",
+        "short": "Kairysis inkstas / Left kidney",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04102"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:spine",
+        "path": "DiagnosticReport.result",
+        "sliceName": "spine",
+        "short": "Stuburas / Spine",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04104"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:rightHandWithForearm",
+        "path": "DiagnosticReport.result",
+        "sliceName": "rightHandWithForearm",
+        "short": "Dešinioji ranka su plaštaka / Right hand with forearm",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04105"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:leftHandWithForearm",
+        "path": "DiagnosticReport.result",
+        "sliceName": "leftHandWithForearm",
+        "short": "Kairioji ranka su plaštaka / Left hand with forearm",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04106"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:rightLegWithFoot",
+        "path": "DiagnosticReport.result",
+        "sliceName": "rightLegWithFoot",
+        "short": "Dešinioji koja su pėda / Right leg with foot",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04107"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:leftLegWithFoot",
+        "path": "DiagnosticReport.result",
+        "sliceName": "leftLegWithFoot",
+        "short": "Kairioji koja su pėda / Left leg with foot",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04108"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:bloodCirculationThroughTheTricuspidValve",
+        "path": "DiagnosticReport.result",
+        "sliceName": "bloodCirculationThroughTheTricuspidValve",
+        "short": "Kraujotaka pro triburį vožtuvą / Blood circulation through the tricuspid valve",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04109"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:bloodCirculationThroughTheVenousSystem",
+        "path": "DiagnosticReport.result",
+        "sliceName": "bloodCirculationThroughTheVenousSystem",
+        "short": "Kraujotaka pro veninį lataką / Blood circulation through the venous system",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04110"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:heartRate",
+        "path": "DiagnosticReport.result",
+        "sliceName": "heartRate",
+        "short": "Širdies susitraukimų dažnis / Heart rate",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04111"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:umbilicalCordBloodVessels",
+        "path": "DiagnosticReport.result",
+        "sliceName": "umbilicalCordBloodVessels",
+        "short": "Virkštelės kraujagyslės / Umbilical cord blood vessels",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..0 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04112"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:umbilicalCordThreeBloodVessels",
+        "path": "DiagnosticReport.result",
+        "sliceName": "umbilicalCordThreeBloodVessels",
+        "short": "Virkštelės trys kraujagyslės / Umbilical cord three blood vessels",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04113"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:maleReproductiveOrgans",
+        "path": "DiagnosticReport.result",
+        "sliceName": "maleReproductiveOrgans",
+        "short": "Vyriškieji lyties organai/ Male reproductive organs",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04114"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:womenReproductiveOrgans",
+        "path": "DiagnosticReport.result",
+        "sliceName": "womenReproductiveOrgans",
+        "short": "Moteriškieji lyties organai / Women reproductive organs",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04115"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:placentalLocalizationInTheUterus",
+        "path": "DiagnosticReport.result",
+        "sliceName": "placentalLocalizationInTheUterus",
+        "short": "Placentos lokalizacija gimdoje / Placental localization in the uterus",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04116"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:placenta",
+        "path": "DiagnosticReport.result",
+        "sliceName": "placenta",
+        "short": "Placenta / Placenta",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04118"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:appearanceOfThePlacenta",
+        "path": "DiagnosticReport.result",
+        "sliceName": "appearanceOfThePlacenta",
+        "short": "Placentos išvaizda / Appearance of the placenta",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04120"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:degreeOfPlacentalMaturity",
+        "path": "DiagnosticReport.result",
+        "sliceName": "degreeOfPlacentalMaturity",
+        "short": "Placentos subrendimo laipsnis / Degree of placental maturity",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04121"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:pathologicalPlacentalAttachment",
+        "path": "DiagnosticReport.result",
+        "sliceName": "pathologicalPlacentalAttachment",
+        "short": "Patologinis placentos prisitvirtinimas / Pathological placental attachment",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04122"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:radialArteryPI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "radialArteryPI",
+        "short": "Virkštelės arterija PI / Radial artery PI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04123"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:radialArteryRI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "radialArteryRI",
+        "short": "Virkštelės arterija RI/ Radial artery RI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04124"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:systolicDiastolicRatioOfTheRadialArtery",
+        "path": "DiagnosticReport.result",
+        "sliceName": "systolicDiastolicRatioOfTheRadialArtery",
+        "short": "Virkštelės arterija S/D santykis / Systolic/Diastolic Ratio of the Radial Artery",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04125"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:circulatorySystemClass",
+        "path": "DiagnosticReport.result",
+        "sliceName": "circulatorySystemClass",
+        "short": "Kraujotakos klasė / Circulatory system class",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04126"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:middleCerebralArteryPI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "middleCerebralArteryPI",
+        "short": "Vidurinė smegenų arterija PI / Middle Cerebral Artery PI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04127"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:middleCerebralArteryRI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "middleCerebralArteryRI",
+        "short": "Vidurinė smegenų arterija RI / Middle Cerebral Artery RI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04128"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:systolicDiastolicRatioOfTheMiddleCerebralArtery",
+        "path": "DiagnosticReport.result",
+        "sliceName": "systolicDiastolicRatioOfTheMiddleCerebralArtery",
+        "short": "Vidurinė smegenų arterija S/D santykis / Systolic/Diastolic Ratio of the Middle Cerebral Artery",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04129"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:middleCerebralArteryPSV",
+        "path": "DiagnosticReport.result",
+        "sliceName": "middleCerebralArteryPSV",
+        "short": "Vidurinė smegenų arterija PSV (Vmax) cm/s / Middle Cerebral Artery PSV (Vmax) cm/s",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04130"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:middleCerebralArteryPSVMoM",
+        "path": "DiagnosticReport.result",
+        "sliceName": "middleCerebralArteryPSVMoM",
+        "short": "Vidurinė smegenų arterija PSV (Vmax) MoM / Middle Cerebral Artery PSV (Vmax) MoM",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04131"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:venaCavaPI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "venaCavaPI",
+        "short": "Veninis latakas PI / Vena cava PI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04132"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:splenicArteryPI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "splenicArteryPI",
+        "short": "Blužnies arterija PI / Splenic artery PI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04133"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:splenicArteryRI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "splenicArteryRI",
+        "short": "Blužnies arterija RI / Splenic artery RI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04134"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:splenicArteryPSV",
+        "path": "DiagnosticReport.result",
+        "sliceName": "splenicArteryPSV",
+        "short": "Blužnies arterija PSV (Vmax) cm/s / Splenic artery PSV (Vmax) cm/s",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04135"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:splenicArteryPSVMoM",
+        "path": "DiagnosticReport.result",
+        "sliceName": "splenicArteryPSVMoM",
+        "short": "Blužnies arterija PSV (Vmax) MoM / Splenic artery PSV (Vmax) MoM",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04136"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fetalFluid",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fetalFluid",
+        "short": "Vaisiaus vandenys / Fetal fluid",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04137"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:amnioticFluidVVI",
+        "path": "DiagnosticReport.result",
+        "sliceName": "amnioticFluidVVI",
+        "short": "Vaisiaus vandenys VVI / Amniotic fluid VVI",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04138"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:amnioticFluidGVVK",
+        "path": "DiagnosticReport.result",
+        "sliceName": "amnioticFluidGVVK",
+        "short": "Vaisiaus vandenys GVVK / Amniotic fluid GVVK",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04139"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fetalRespiratoryMovements",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fetalRespiratoryMovements",
+        "short": "Vaisiaus kvėpavimo judesiai / Fetal respiratory movements",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04140"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fetalMovements",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fetalMovements",
+        "short": "Vaisiaus judesiai / Fetal movements",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04156"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:fetalTone",
+        "path": "DiagnosticReport.result",
+        "sliceName": "fetalTone",
+        "short": "Vaisiaus tonusas / Fetal tone",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04141"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:amountOfAmnioticFluid",
+        "path": "DiagnosticReport.result",
+        "sliceName": "amountOfAmnioticFluid",
+        "short": "Vaisiaus vandenų kiekis / Amount of amniotic fluid",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04142"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:cardiotocography",
+        "path": "DiagnosticReport.result",
+        "sliceName": "cardiotocography",
+        "short": "KTG / Cardiotocography",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04143"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:biophysicalProfile",
+        "path": "DiagnosticReport.result",
+        "sliceName": "biophysicalProfile",
+        "short": "Biofizinis profilis / Biophysical profile",
+        "definition": "0..0 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..0 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04144"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:notesDetailedInformationAboutPathologicalFindings",
+        "path": "DiagnosticReport.result",
+        "sliceName": "notesDetailedInformationAboutPathologicalFindings",
+        "short": "Pastabos, detali informacija apie patologinius radinius / Notes, detailed information about pathological findings",
+        "definition": "0..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n0..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n0..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04145"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:pregnancyWeekDeterminedByUltrasound",
+        "path": "DiagnosticReport.result",
+        "sliceName": "pregnancyWeekDeterminedByUltrasound",
+        "short": "Ultragarsu nustatyta nėštumo savaitė / Pregnancy week determined by ultrasound",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04146"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:pregnancyDayDeterminedByUltrasound",
+        "path": "DiagnosticReport.result",
+        "sliceName": "pregnancyDayDeterminedByUltrasound",
+        "short": "Ultragarsu nustatyta nėštumo diena / Pregnancy day determined by ultrasound",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04147"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result:conclusion",
+        "path": "DiagnosticReport.result",
+        "sliceName": "conclusion",
+        "short": "Išvada / Conclusion",
+        "definition": "1..1 kai: SCTID: 169669004 : Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę /  Antenatal ultrasound scan at 9-16 weeks\r\n\r\n1..1 kai: SCTID: 169670003 : Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę/   Antenatal ultrasound scan at 17-22 weeks (procedure\r\n\r\n1..1 kai: http://loinc.org/80866-7/ : Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)/ US for pregnancy in second or third trimester",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-04148"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.note",
+        "path": "DiagnosticReport.note",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study",
+        "path": "DiagnosticReport.study",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media",
+        "path": "DiagnosticReport.media",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusion",
+        "path": "DiagnosticReport.conclusion",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode",
+        "path": "DiagnosticReport.conclusionCode",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm",
+        "path": "DiagnosticReport.presentedForm",
+        "max": "0"
+      }
+    ]
+  }
+}

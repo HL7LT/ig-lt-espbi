@@ -1,0 +1,37 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-binary",
+  "name": "LtEspbiBinary",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Binary",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Binary",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Binary.id",
+        "path": "Binary.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Binary.contentType",
+        "path": "Binary.contentType",
+        "short": "Dokumento tipas (mime formatu) / Mime type of the content",
+        "definition": "Skaitmeninių duomenų tipas mime formatu. \r\nFHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/mimetypes (reikšmių rinkinyje yra visi galimi BCP-13 kodai (žr. http://tools.ietf.org/html/bcp13)).",
+        "mustSupport": true
+      },
+      {
+        "id": "Binary.data",
+        "path": "Binary.data",
+        "definition": "Base64 koduotas binarinis turinys (pvz., PDF, vaizdas ar kitas dokumentas).",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}

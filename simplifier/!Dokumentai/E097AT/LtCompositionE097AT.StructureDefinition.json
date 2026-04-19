@@ -1,0 +1,1199 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e097-at",
+  "name": "LtEspbiCompositionE097_AT",
+  "status": "draft",
+  "description": "E097-AT Atlikti tikrinimai",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.meta",
+        "path": "Composition.meta",
+        "short": "Duomenų modelio versijos numeris",
+        "definition": "Duomenų modelio versijos numeris / The metadata about the resource."
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "definition": "Užpildymo ir atvaizdavimo aprašymą žiūrėti D1. ESI duomenų bazė.\r\nE097-AT medicininiam dokumentui leidžiamos būsenos reikšmės: „preliminary“; „final“; „amended“; „entered in error“.\r\nŽiūrėti Medicininių dokumentų antraštė.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/composition-status. Galimos reikšmės: registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered in error | deprecated | unknown.",
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "68683-2",
+                  "display": "Neonatal perinatal medicine History and physical note"
+                }
+              ],
+              "text": "Atlikti tikrinimai"
+            }
+          }
+        ],
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "68683-2"
+      },
+      {
+        "id": "Composition.type.coding.display",
+        "path": "Composition.type.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1,
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "definition": "Negali būti ateities laikas. Laikas <= dabartinis laikas",
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "definition": "Asmuo, kuris sukūrė šį dokumentą. Medicinio dokumento atveju tai bus sveikatos priežiūros specialistas (PractitionerRole). Pacientas (Patient) bus dokumento autoriumi tik E047 pažymos (darbdavio dalies) pateikimo atveju. Visais kitais atvejais autorius yra specialistas (PractitionerRole).\r\n\r\nResurse PractitionerRole saugoma informacija apie sveikatos priežiūros specialisto padalinį, kuriame dirba specialistas ",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "Dokumento pavadinimas / Title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Atlikti tikrinimai"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event",
+        "path": "Composition.event",
+        "code": [
+          {
+            "userSelected": false
+          }
+        ],
+        "short": "Įvykis, kurio pagrindu yra kuriamas dokumentas",
+        "definition": "Įvykis, kurio pagrindu yra kuriamas dokumentas / The event being documented"
+      },
+      {
+        "id": "Composition.event.detail.concept",
+        "path": "Composition.event.detail.concept",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/EventType",
+                  "code": "7",
+                  "display": "Atvykimas į SPĮ gauti stacionarinių paslaugų"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ],
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Dokumento duomenys",
+        "definition": "Dokumento duomenys / Document Data"
+      },
+      {
+        "id": "Composition.section:NGNtitle",
+        "path": "Composition.section",
+        "sliceName": "NGNtitle",
+        "short": "NGN antraštė",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0100",
+                  "display": "NGN antraštė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNtitle.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0100"
+      },
+      {
+        "id": "Composition.section:NGNtitle.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section",
+        "path": "Composition.section.section",
+        "short": "e113ndData",
+        "definition": "E113-ND Nėštumo duomenys, anamnezė ir priežiūros planas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0131",
+                  "display": "Nėštumo kortelės unikalus ID"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0131"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNtitle.section.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation",
+        "path": "Composition.section",
+        "sliceName": "clinicalInformation",
+        "short": "5 Medicininiai duomenys",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "55752-0",
+                  "display": "Clinical information"
+                }
+              ],
+              "text": "Medicininiai duomenys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "55752-0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.code.text",
+        "path": "Composition.section.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination",
+        "path": "Composition.section.section",
+        "sliceName": "RedReflexExamination",
+        "short": "Akių dugno raudono reflekso tyrimas (+/–) / Red reflex examination of the eye fundus",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "43408002",
+                  "display": "Red reflex"
+                }
+              ],
+              "text": "Akių dugno raudono reflekso tyrimas (+/–)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "43408002"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.code.text",
+        "path": "Composition.section.section.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-43408002-result"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:RedReflexExamination.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest",
+        "path": "Composition.section.section",
+        "sliceName": "OtoacousticEmissionHearingTest",
+        "short": "Klausos tikrinimas OAE / Otoacoustic Emission hearing test",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "252623004",
+                  "display": "Oto-acoustic emission test"
+                }
+              ],
+              "text": "Klausos tikrinimas OAE"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "252623004"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.code.text",
+        "path": "Composition.section.section.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-252623004-result"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:OtoacousticEmissionHearingTest.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2",
+        "path": "Composition.section.section",
+        "sliceName": "SpO2",
+        "short": "ĮKŠY SpO2(%) / SpO2(%)",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "20564-1",
+                  "display": "Oxygen saturation in Blood"
+                }
+              ],
+              "text": "ĮKŠY SpO2(%)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "20564-1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.code.text",
+        "path": "Composition.section.section.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-20564-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:SpO2.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases",
+        "path": "Composition.section.section",
+        "sliceName": "HereditaryMetabolicDiseases",
+        "short": "5.4. Paveldimos medžiagų apykaitos ligos (PMAL) / Hereditary metabolic disease",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.1705",
+                  "display": "Paveldimos medžiagų apykaitos ligos"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1705"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02.1705-result"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalInformation.section:HereditaryMetabolicDiseases.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

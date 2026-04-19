@@ -1,0 +1,265 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner",
+  "name": "LtEspbiPractitioner",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Practitioner",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Practitioner",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Practitioner.id",
+        "path": "Practitioner.id",
+        "short": "Sveikatos priežiūros specialisto resurso id / Logical id of this artifact",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.meta",
+        "path": "Practitioner.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.extension:ltEspbiExtCountryCode",
+        "path": "Practitioner.extension",
+        "sliceName": "ltEspbiExtCountryCode",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-practitioner/countryCode"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Practitioner.extension:ltEspbiExtProfession",
+        "path": "Practitioner.extension",
+        "sliceName": "ltEspbiExtProfession",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-profession"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Practitioner.identifier",
+        "path": "Practitioner.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Specialisto identifikatorius skirtas identifikuoti specialistą pagal jo unikalų kodą",
+        "definition": "Specialisto identifikatorius skirtas identifikuoti specialistą pagal jo unikalų kodą. \r\n\r\nSpecialisto identifikatorius gali būti Lietuvos Piliečio Asmens kodas ir/arba sveikatos priežiūros specialistui suteikto spaudo numeris.\r\nIdentifikuojančios sistemos pavadinimas (system): http://esveikata.lt/classifiers/Identifier/PersonalCode ir/arba http://esveikata.lt/classifiers/Identifier/StampCode.\r\n\r\nTaip pat, identifikatorius gali būti naudojamas specialisto E. pristatymo dėžutės adresui nurodyti. E. pristatymo dėžutės identifikatoriaus system lauko reikšmė: http://esveikata.lt/Identifier/eDelivery.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:PersonalCode",
+        "path": "Practitioner.identifier",
+        "sliceName": "PersonalCode",
+        "short": "Specialisto asmens kodas / Health Care Specialist personal Code",
+        "definition": "Specialisto asmens kodas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Practitioner.identifier:PersonalCode.system",
+        "path": "Practitioner.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Identifier/PersonalCode"
+      },
+      {
+        "id": "Practitioner.identifier:PersonalCode.value",
+        "path": "Practitioner.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.identifier:StampCode",
+        "path": "Practitioner.identifier",
+        "sliceName": "StampCode",
+        "short": "Sveikatos priežiūros specialisto spaudo informacija / Health Care Specialist‘s stamp information",
+        "definition": "Sveikatos priežiūros specialisto spaudo informacija"
+      },
+      {
+        "id": "Practitioner.identifier:StampCode.system",
+        "path": "Practitioner.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/StampCode"
+      },
+      {
+        "id": "Practitioner.identifier:StampCode.value",
+        "path": "Practitioner.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.identifier:StampCode.period",
+        "path": "Practitioner.identifier.period",
+        "short": "Sveikatos priežiūros specialisto spaudo galiojimo laikotarpis",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.identifier:StampCode.period.start",
+        "path": "Practitioner.identifier.period.start",
+        "short": "Sveikatos priežiūros specialisto spaudo suteikimo data (metai, mėnuo, diena) ",
+        "definition": "Sveikatos priežiūros specialisto spaudo suteikimo data (metai, mėnuo, diena). Pateikiama tuo atveju, kai nurodomas sveikatos priežiūros specialistui suteikto spaudo numeris.",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.identifier:StampCode.period.end",
+        "path": "Practitioner.identifier.period.end",
+        "short": "Sveikatos priežiūros specialisto spaudo panaikinimo data (metai, mėnuo, diena)",
+        "definition": "Sveikatos priežiūros specialisto spaudo panaikinimo data (metai, mėnuo, diena). Pateikiama tuo atveju, kai nurodomas sveikatos priežiūros specialistui suteikto spaudo numeris."
+      },
+      {
+        "id": "Practitioner.identifier:eDelivery",
+        "path": "Practitioner.identifier",
+        "sliceName": "eDelivery",
+        "short": "Asmens E. pristatymo dėžutės duomenys",
+        "definition": "Asmens E. pristatymo dėžutės duomenys / Person eDelivery address",
+        "max": "1"
+      },
+      {
+        "id": "Practitioner.identifier:eDelivery.system",
+        "path": "Practitioner.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/eDelivery"
+      },
+      {
+        "id": "Practitioner.identifier:eDelivery.value",
+        "path": "Practitioner.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.name",
+        "path": "Practitioner.name",
+        "short": "Specialisto vardas, pavardė",
+        "definition": "Specialisto vardas, pavardė / Health Care Specialist name",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.name.family",
+        "path": "Practitioner.name.family",
+        "short": "Pavardė ",
+        "definition": "Pavardė / Last Name",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.name.given",
+        "path": "Practitioner.name.given",
+        "short": "Vardas",
+        "definition": "Vardas / First Name",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.photo",
+        "path": "Practitioner.photo",
+        "short": "Specialisto nuotrauka / Specialist photo",
+        "definition": "Sveikatos priežiūros specialisto nuotrauka.",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.qualification",
+        "path": "Practitioner.qualification",
+        "short": "Sveikatos priežiūros specialisto profesinė kvalifikacija / Health Care Specialist‘s Qualification",
+        "definition": "Sveikatos priežiūros specialisto profesinės kvalifikacijos duomenys - licencija, profesinės kvalifikacijos kodas.",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.qualification.extension",
+        "path": "Practitioner.qualification.extension",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.qualification.extension:ltExtLicenseStatus",
+        "path": "Practitioner.qualification.extension",
+        "sliceName": "ltExtLicenseStatus",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-practitioner/licenseStatus"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Practitioner.qualification.identifier",
+        "path": "Practitioner.qualification.identifier",
+        "short": "Licencijos numeris / License number",
+        "definition": "Sveikatos priežiūros specialistui suteiktos licencijos numeris. Vienas specialistas gali turėti kelias licencijas.\r\nPateikiami duomenys apie licencijos numerį iš http://esveikata.lt/classifiers/LicenceCode.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.qualification.identifier.system",
+        "path": "Practitioner.qualification.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/LicenseCode"
+      },
+      {
+        "id": "Practitioner.qualification.identifier.value",
+        "path": "Practitioner.qualification.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.qualification.code",
+        "path": "Practitioner.qualification.code",
+        "short": "Sveikatos priežiūros specialisto profesinė kvalifikacija / Coded representation of the qualification",
+        "definition": "Sveikatos priežiūros specialisto profesinės kvalifikacijos kodas ir pavadinimas.\r\nGalimos reikšmės nurodytos klasifikatoriuje qualification-code (http://esveikata.lt/classifiers/QualificationCode).\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://terminology.hl7.org/ValueSet/v2-0360."
+      },
+      {
+        "id": "Practitioner.qualification.code.coding",
+        "path": "Practitioner.qualification.code.coding",
+        "short": "Profesinės kvalifikacijos kodas",
+        "definition": "Profesinės kvalifikacijos kodas / Qualification code",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Practitioner.qualification.code.coding.system",
+        "path": "Practitioner.qualification.code.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/QualificationCode"
+      },
+      {
+        "id": "Practitioner.qualification.code.coding.code",
+        "path": "Practitioner.qualification.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.qualification.code.coding.display",
+        "path": "Practitioner.qualification.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Practitioner.qualification.period",
+        "path": "Practitioner.qualification.period",
+        "short": "Licencijos galiojimo laikotarpis / The period during which license is valid",
+        "definition": "Sveikatos priežiūros specialisto licencijos galiojimo laikotarpis - licencijos išdavimo ir sustabdymo datos (metai, mėnuo, diena).",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.qualification.period.start",
+        "path": "Practitioner.qualification.period.start",
+        "min": 1
+      }
+    ]
+  }
+}

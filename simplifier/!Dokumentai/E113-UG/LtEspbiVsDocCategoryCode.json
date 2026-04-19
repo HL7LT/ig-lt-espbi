@@ -1,0 +1,36 @@
+{
+  "resourceType": "ValueSet",
+  "id": "doc-category-code",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-doc-category-code",
+  "version": "0.0.1",
+  "name": "LtEspbiVsDocCategoryCode",
+  "status": "draft",
+  "experimental": false,
+  "description": "UG tyrimas / UG procedure",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "169669004",
+            "display": "Vaisiaus ultragarsinis tyrimas 11+0–13+6 nėštumo savaitę"
+          },
+          {
+            "code": "169670003",
+            "display": "Vaisiaus ultragarsinis tyrimas 18+0–20+0 nėštumo savaitę"
+          }
+        ]
+      },
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "80866-7",
+            "display": "Vaisiaus ultragarsinis tyrimas II–III nėštumo trečdalį (esant indikacijų)"
+          }
+        ]
+      }
+    ]
+  }
+}

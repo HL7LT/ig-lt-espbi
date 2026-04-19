@@ -1,0 +1,208 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-ingredient",
+  "name": "LtEspbiIngredient",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Ingredient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Ingredient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Ingredient.id",
+        "path": "Ingredient.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Ingredient.meta",
+        "path": "Ingredient.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Ingredient.status",
+        "path": "Ingredient.status",
+        "short": "Sudedamosios medžiagos resurso būsena / The status of this ingredient ",
+        "definition": "Pagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/publication-status.\r\nGalimos reikšmės: draft | active | retired | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Ingredient.for",
+        "path": "Ingredient.for",
+        "short": "Vaistinis preparatas, kurio sudedamoji dalis yra ši sudedamoji medžiaga / The product which this ingredient is a constituent part of",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medicinal-product-definition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Ingredient.for.reference",
+        "path": "Ingredient.for.reference",
+        "min": 1
+      },
+      {
+        "id": "Ingredient.role",
+        "path": "Ingredient.role",
+        "short": "Sudedamosios medžiagos vaidmuo / Purpose of the ingredient within the product, e.g. active, inactive",
+        "definition": "FHIR R5 siūlo naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/ingredient-role, kuriame pateikiamos tokios reiškės, kaip Active - veiklioji medžiaga;  Adjuvant - pagalbinė medžiaga (adjuvantas); Excipient - pagalbinė medžiaga.",
+        "mustSupport": true
+      },
+      {
+        "id": "Ingredient.role.coding",
+        "path": "Ingredient.role.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Ingredient.substance",
+        "path": "Ingredient.substance",
+        "short": "Sudedamosios medžiagos kodas ir pavadinimas / Code and name of substance",
+        "definition": "Vaistinio preparato komponento ar jo sudedamosios dalies pavadinimas lietuvių ir anglų kalba.",
+        "mustSupport": true
+      },
+      {
+        "id": "Ingredient.substance.code.concept",
+        "path": "Ingredient.substance.code.concept",
+        "min": 1
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding",
+        "path": "Ingredient.substance.code.concept.coding",
+        "definition": "FHIR R5 pateikia pavyzdį, kad galima naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/substance-code, kuriame pateikiami http://snomed.info/sct kodai, kurių sąvokos priklauso kategorijai „105590001 – Substance (medžiaga)\".\r\n\r\nSumodeliuota pagal xml pateiktą pavyzdį, t. y., kad dislay (pavadinimas) pateikiamas lietuvių ir anglų kalbomis.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.system",
+        "path": "Ingredient.substance.code.concept.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/Substance/Code"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.code",
+        "path": "Ingredient.substance.code.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display",
+        "path": "Ingredient.substance.code.concept.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-en",
+        "path": "Ingredient.substance.code.concept.coding.display.extension",
+        "sliceName": "translation-en",
+        "short": "Pavadinimas anglų kalba / Name in English",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/translation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-en.extension:lang",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension",
+        "sliceName": "lang",
+        "short": "Kalbos kodas / Code for Language"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-en.extension:lang.value[x]",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension.value[x]",
+        "fixedCode": "en"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-en.extension:content",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension",
+        "sliceName": "content",
+        "short": "Pavadinimas anglų kalba / Name in English"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-en.extension:content.value[x]",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-la",
+        "path": "Ingredient.substance.code.concept.coding.display.extension",
+        "sliceName": "translation-la",
+        "short": "Pavadinimas lotynų kalba / Name in Latin",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/translation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-la.extension:lang",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension",
+        "sliceName": "lang",
+        "short": "Kalbos kodas / Code for Language"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-la.extension:lang.value[x]",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension.value[x]",
+        "fixedCode": "la"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-la.extension:content",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension",
+        "sliceName": "content",
+        "short": "Pavadinimas lotynų kalba / Name in Latin"
+      },
+      {
+        "id": "Ingredient.substance.code.concept.coding.display.extension:translation-la.extension:content.value[x]",
+        "path": "Ingredient.substance.code.concept.coding.display.extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Ingredient.substance.strength.presentation[x]",
+        "path": "Ingredient.substance.strength.presentation[x]",
+        "short": "Vaistinio preparato medžiagos kiekis komponento kiekyje / The quantity of substance in the unit of presentation",
+        "definition": "Kai naudojamas RatioRange duomenų tipas, Ingredient.substance.strength.presentation[x].highNumerator pateikiami duomenys: Vaistinio preparato medžiagos kiekis \"iki\" komponento kiekyje (system=http://esveikata.lt/classifiers/StrengthUnit).\r\n\r\nKai naudojamas Ratio duomenų tipas, Ingredient.substance.strength.presentation[x].numerator pateikiami duomenys: Vaistinio preparato medžiagos kiekis komponento kiekyje (system=http://esveikata.lt/classifiers/StrengthUnit; comparator=pagal FHIR R5 turi būti naudojamas http://hl7.org/fhir/ValueSet/quantity-comparator). Šiuo metu ESPBI IS naudojamas comparator http://esveikata.lt/classifiers/strength-operator.",
+        "type": [
+          {
+            "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Ingredient.substance.strength.textPresentation",
+        "path": "Ingredient.substance.strength.textPresentation",
+        "short": "Stiprumas (Kiekis ir mato vienetas) / Strength (quantity + measurement unit) ",
+        "definition": "Vaistinio preparato komponento medžiagos stiprumas išreikštas kiekiu ir matavimo vienetais tekstine išraiška.",
+        "min": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-observation",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-observation",
+  "version": "0.3.28",
+  "name": "ElabObservation",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Analitės reikšmė / Observation",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "sct-concept",
+      "uri": "http://snomed.info/conceptdomain",
+      "name": "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "sct-attr",
+      "uri": "http://snomed.org/attributebinding",
+      "name": "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/elab-observation-base",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "constraint": [
+          {
+            "key": "lt-observation-1",
+            "severity": "error",
+            "human": "Value is required for non-cancelled observation.",
+            "expression": "status = 'cancelled' or value.exists()"
+          },
+          {
+            "key": "lt-observation-7",
+            "severity": "error",
+            "human": "Method is required for non-cancelled observations.",
+            "expression": "status = 'cancelled' or method.exists()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Analitės rezultatas / Result",
+        "constraint": [
+          {
+            "key": "lt-observation-2",
+            "severity": "error",
+            "human": "Observation value Quantity must contain value.",
+            "expression": "$this.exists().not() or ($this is Quantity).not() or ($this.value.hasValue())"
+          },
+          {
+            "key": "lt-observation-3",
+            "severity": "error",
+            "human": "Observation value CodeableConcept must contain a text representation of the concept.",
+            "expression": "$this.exists().not() or ($this is CodeableConcept).not() or ($this.text.hasValue() or $this.coding.display.hasValue())"
+          },
+          {
+            "key": "lt-observation-4",
+            "severity": "error",
+            "human": "Observation value Range must contain unit and value for a low or high range value.",
+            "expression": "$this.exists().not() or ($this is Range).not() or ($this.low.unit.hasValue() and $this.low.unit.hasValue()) or ($this.high.unit.hasValue() and $this.high.unit.hasValue())"
+          },
+          {
+            "key": "lt-observation-5",
+            "severity": "error",
+            "human": "Observation value Ratio must contain unit and value for numerator and denomitator values.",
+            "expression": "$this.exists().not() or ($this is Ratio).not() or ($this.numerator.unit.hasValue() and $this.numerator.value.hasValue() and $this.denominator.unit.hasValue() and $this.denominator.value.hasValue())"
+          },
+          {
+            "key": "lt-observation-6",
+            "severity": "error",
+            "human": "Observation value SampledData must contain unit and value for origin field.",
+            "expression": "$this.exists().not() or ($this is SampledData).not() or ($this.origin.unit.hasValue() and $this.origin.value.hasValue())"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "short": "Analitės referentinio dydžio rėžiai / Reference range",
+        "constraint": [
+          {
+            "key": "lt-observation-8",
+            "severity": "error",
+            "human": "Observation reference range low value must be greater than high value.",
+            "expression": "$this.low.value.exists() and $this.high.value.exists() implies $this.low.value < $this.high.value"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      }
+    ]
+  }
+}

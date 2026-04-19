@@ -1,0 +1,51 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-due-date",
+  "name": "LtEspbiExtDeviceDueDate",
+  "status": "draft",
+  "description": "Data, iki kada faktiškai užteks išduoto MPP ar medicinos prietaiso kiekio / The date by which the quantity of the issued MPP or medical device will actually be sufficient.",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceDispense"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Data, iki kada faktiškai užteks išduoto MPP ar medicinos prietaiso kiekio / The date by which the quantity of the issued MPP or medical device will actually be sufficient.",
+        "definition": "Data, iki kada faktiškai užteks išduoto MPP ar medicinos prietaiso kiekio",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-due-date"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      }
+    ]
+  }
+}

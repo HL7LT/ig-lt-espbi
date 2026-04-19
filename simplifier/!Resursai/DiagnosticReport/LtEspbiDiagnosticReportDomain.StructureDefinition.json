@@ -1,0 +1,557 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report-domain",
+  "name": "LtEspbiDiagnosticReportDomain",
+  "status": "draft",
+  "description": "Tyrimo rezultatų protokolo specializuotas profilis / Diagnostic Report domain profile.\r\n\r\nProfilis sukurtas pagal LtEspbiDiagnosticReport profilį. Šis profilis paveldi LtEspbiDiagnosticReport resurso profilio struktūrą, tačiau jame yra pašalinti (nustatytas kardinalumas 0..0) tie duomenų elementai ir vidiniai elementai, kurių ESPBI IS nenaudoja.",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.implicitRules",
+        "path": "DiagnosticReport.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.language",
+        "path": "DiagnosticReport.language",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.text",
+        "path": "DiagnosticReport.text",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.contained",
+        "path": "DiagnosticReport.contained",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.modifierExtension",
+        "path": "DiagnosticReport.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.id",
+        "path": "DiagnosticReport.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.extension",
+        "path": "DiagnosticReport.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.use",
+        "path": "DiagnosticReport.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.type",
+        "path": "DiagnosticReport.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.period",
+        "path": "DiagnosticReport.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.identifier.assigner",
+        "path": "DiagnosticReport.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.id",
+        "path": "DiagnosticReport.basedOn.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.extension",
+        "path": "DiagnosticReport.basedOn.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.type",
+        "path": "DiagnosticReport.basedOn.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.identifier",
+        "path": "DiagnosticReport.basedOn.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.basedOn.display",
+        "path": "DiagnosticReport.basedOn.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.status",
+        "path": "DiagnosticReport.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "final"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.category",
+        "path": "DiagnosticReport.category",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.id",
+        "path": "DiagnosticReport.code.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.extension",
+        "path": "DiagnosticReport.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.id",
+        "path": "DiagnosticReport.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.extension",
+        "path": "DiagnosticReport.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.version",
+        "path": "DiagnosticReport.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.userSelected",
+        "path": "DiagnosticReport.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.code.text",
+        "path": "DiagnosticReport.code.text",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject",
+        "path": "DiagnosticReport.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/123456798"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.subject.id",
+        "path": "DiagnosticReport.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.extension",
+        "path": "DiagnosticReport.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.type",
+        "path": "DiagnosticReport.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.identifier",
+        "path": "DiagnosticReport.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.subject.display",
+        "path": "DiagnosticReport.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.encounter",
+        "path": "DiagnosticReport.encounter",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-03-12T09:28:00+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "example": [
+          {
+            "label": "example",
+            "valueInstant": "2025-03-12T13:28:00+00:00"
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.performer.id",
+        "path": "DiagnosticReport.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.extension",
+        "path": "DiagnosticReport.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.type",
+        "path": "DiagnosticReport.performer.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.identifier",
+        "path": "DiagnosticReport.performer.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.display",
+        "path": "DiagnosticReport.performer.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter",
+        "path": "DiagnosticReport.resultsInterpreter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.id",
+        "path": "DiagnosticReport.resultsInterpreter.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.extension",
+        "path": "DiagnosticReport.resultsInterpreter.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.type",
+        "path": "DiagnosticReport.resultsInterpreter.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.identifier",
+        "path": "DiagnosticReport.resultsInterpreter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.display",
+        "path": "DiagnosticReport.resultsInterpreter.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.specimen.id",
+        "path": "DiagnosticReport.specimen.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.extension",
+        "path": "DiagnosticReport.specimen.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.type",
+        "path": "DiagnosticReport.specimen.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.identifier",
+        "path": "DiagnosticReport.specimen.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.specimen.display",
+        "path": "DiagnosticReport.specimen.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result.id",
+        "path": "DiagnosticReport.result.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result.extension",
+        "path": "DiagnosticReport.result.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result.type",
+        "path": "DiagnosticReport.result.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result.identifier",
+        "path": "DiagnosticReport.result.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.result.display",
+        "path": "DiagnosticReport.result.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.note",
+        "path": "DiagnosticReport.note",
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.note.id",
+        "path": "DiagnosticReport.note.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.note.extension",
+        "path": "DiagnosticReport.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.id",
+        "path": "DiagnosticReport.study.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.extension",
+        "path": "DiagnosticReport.study.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.type",
+        "path": "DiagnosticReport.study.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.identifier",
+        "path": "DiagnosticReport.study.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.study.display",
+        "path": "DiagnosticReport.study.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.supportingInfo",
+        "path": "DiagnosticReport.supportingInfo",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.id",
+        "path": "DiagnosticReport.media.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.extension",
+        "path": "DiagnosticReport.media.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.modifierExtension",
+        "path": "DiagnosticReport.media.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.comment",
+        "path": "DiagnosticReport.media.comment",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.id",
+        "path": "DiagnosticReport.media.link.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.extension",
+        "path": "DiagnosticReport.media.link.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.type",
+        "path": "DiagnosticReport.media.link.type",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.identifier",
+        "path": "DiagnosticReport.media.link.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media.link.display",
+        "path": "DiagnosticReport.media.link.display",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.composition",
+        "path": "DiagnosticReport.composition",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.id",
+        "path": "DiagnosticReport.conclusionCode.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.extension",
+        "path": "DiagnosticReport.conclusionCode.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding",
+        "path": "DiagnosticReport.conclusionCode.coding",
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.id",
+        "path": "DiagnosticReport.conclusionCode.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.extension",
+        "path": "DiagnosticReport.conclusionCode.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.version",
+        "path": "DiagnosticReport.conclusionCode.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.coding.userSelected",
+        "path": "DiagnosticReport.conclusionCode.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.conclusionCode.text",
+        "path": "DiagnosticReport.conclusionCode.text",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.id",
+        "path": "DiagnosticReport.presentedForm.id",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.extension",
+        "path": "DiagnosticReport.presentedForm.extension",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.language",
+        "path": "DiagnosticReport.presentedForm.language",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.url",
+        "path": "DiagnosticReport.presentedForm.url",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.size",
+        "path": "DiagnosticReport.presentedForm.size",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.hash",
+        "path": "DiagnosticReport.presentedForm.hash",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.title",
+        "path": "DiagnosticReport.presentedForm.title",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.creation",
+        "path": "DiagnosticReport.presentedForm.creation",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.height",
+        "path": "DiagnosticReport.presentedForm.height",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.width",
+        "path": "DiagnosticReport.presentedForm.width",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.frames",
+        "path": "DiagnosticReport.presentedForm.frames",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.duration",
+        "path": "DiagnosticReport.presentedForm.duration",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm.pages",
+        "path": "DiagnosticReport.presentedForm.pages",
+        "max": "0"
+      }
+    ]
+  }
+}

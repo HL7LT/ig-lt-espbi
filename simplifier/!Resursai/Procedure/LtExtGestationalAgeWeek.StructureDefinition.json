@@ -1,0 +1,102 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-procedure/nestumoSavaite",
+  "name": "LtEspbiExtGestationalAgeWeek",
+  "status": "draft",
+  "description": "Nėštumo savaitė / Gestational age (in weeks)",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Procedure"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Nėštumo savaitė / Gestational age (in weeks)",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.id",
+        "path": "Extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-procedure/nestumoSavaite"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 10,
+              "unit": "week",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Extension.value[x].id",
+        "path": "Extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].extension",
+        "path": "Extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].value",
+        "path": "Extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].comparator",
+        "path": "Extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].unit",
+        "path": "Extension.value[x].unit",
+        "min": 1,
+        "fixedString": "weeks"
+      },
+      {
+        "id": "Extension.value[x].system",
+        "path": "Extension.value[x].system",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.value[x].code",
+        "path": "Extension.value[x].code",
+        "max": "0"
+      }
+    ]
+  }
+}

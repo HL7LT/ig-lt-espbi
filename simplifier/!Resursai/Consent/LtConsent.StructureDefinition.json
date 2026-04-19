@@ -1,0 +1,259 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-consent",
+  "name": "LtEspbiConsent",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Consent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Consent",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Consent.id",
+        "path": "Consent.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.meta",
+        "path": "Consent.meta",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.extension",
+        "path": "Consent.extension",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.extension:ltExtPatientAgreementContext",
+        "path": "Consent.extension",
+        "sliceName": "ltExtPatientAgreementContext",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-patient-agreement-context"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.identifier",
+        "path": "Consent.identifier",
+        "short": "Sutikimo unikalus numeris / Document unique number",
+        "definition": "Pagrindinis dokumento identifikatorius dokumente (paciento Sutikimo ID).",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.identifier.system",
+        "path": "Consent.identifier.system",
+        "definition": "Unikalus identifikatoriaus pavadinimas (URI).\r\nReikšmė pagal nutylėjimą \"http://esveikata.lt/Identifier/DigitalPatientAgreement\".",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/DigitalPatientAgreement"
+      },
+      {
+        "id": "Consent.identifier.value",
+        "path": "Consent.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Consent.status",
+        "path": "Consent.status",
+        "short": "Sutikimo būsena / Consent status",
+        "definition": "Sutikimo būsena.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/consent-state-codes. Galimos reikšmės: draft | active | inactive | not-done | entered-in-error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.category",
+        "path": "Consent.category",
+        "short": "Sutikimo tipas / Consent type",
+        "definition": "Nurodo dokumento tipą. \r\nGalimos reikšmės nurodytos klasifikatoriuje patient-digital-agreement-type.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.category.coding",
+        "path": "Consent.category.coding",
+        "definition": "Nuorodą į kodo struktūrą (klasifikatoriaus pavadinimas ir kodas).",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Consent.category.coding.system",
+        "path": "Consent.category.coding.system",
+        "definition": "Unikalus klasifikatoriaus pavadinimas (URI).\r\nReikšmė pagal nutylėjimą \"http://esveikata.lt/classifiers/PatientDigitalAgreementCategory/Type\".",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/PatientDigitalAgreementCategory/Type"
+      },
+      {
+        "id": "Consent.category.coding.code",
+        "path": "Consent.category.coding.code",
+        "definition": "Reikšmė iš klasifikatoriaus.",
+        "min": 1
+      },
+      {
+        "id": "Consent.category.coding.display",
+        "path": "Consent.category.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Consent.subject",
+        "path": "Consent.subject",
+        "short": "Nuoroda į paciento, kuriam galioja sutikimas / Reference to the patient for whom consent is valid",
+        "definition": "Nuoroda į paciento, kuriam teikiamas dokumentas, resursą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.subject.reference",
+        "path": "Consent.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Consent.date",
+        "path": "Consent.date",
+        "short": "Sutikimo data / Date of consent",
+        "definition": "Data, kada pacientas arba su pacientu susijęs asmuo suteikė sutikimą.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.period",
+        "path": "Consent.period",
+        "short": "Sutikimo galiojimo intervalas / Consent validity interval",
+        "definition": "Dokumento galiojimo periodas.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.period.start",
+        "path": "Consent.period.start",
+        "short": "Galiojimo pradžios data / Effective from",
+        "definition": "Sutikimo arba valios pareiškimo galiojimo pradžios data.",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.period.end",
+        "path": "Consent.period.end",
+        "short": "Galiojimo pabaigos data / Effective to",
+        "definition": "Sutikimo arba valios pareiškimo galiojimo pabaigos data.",
+        "min": 1
+      },
+      {
+        "id": "Consent.grantor",
+        "path": "Consent.grantor",
+        "short": "Sutikimą patvirtino / Consent confirmed by",
+        "definition": "Asmuo, kuris patvirtinio sutikimą. Nuoroda į pacientą arba asmenį, nurodyta kaip su pacientu susijusį asmenį.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.grantor.reference",
+        "path": "Consent.grantor.reference",
+        "min": 1
+      },
+      {
+        "id": "Consent.sourceAttachment",
+        "path": "Consent.sourceAttachment",
+        "short": "Skaitmeninis sutikimo dokumentas / Digital consent document",
+        "definition": "Skaitmeninis sutikimo dokumentas.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.sourceAttachment.contentType",
+        "path": "Consent.sourceAttachment.contentType",
+        "short": "Dokumento tipas (mime formatu) / Mime type of the content",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/mimetypes (reikšmių rinkinyje yra visi galimi BCP-13 kodai (žr. http://tools.ietf.org/html/bcp13)).",
+        "min": 1
+      },
+      {
+        "id": "Consent.sourceAttachment.data",
+        "path": "Consent.sourceAttachment.data",
+        "short": "Skaitmeninis dokumentas / Digital document",
+        "definition": "Failo ar dokumento turinys užkoduotas base64 formatu.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.sourceAttachment.size",
+        "path": "Consent.sourceAttachment.size",
+        "short": "Documento turinio baitų skaičius / Number of bytes of content",
+        "definition": "Documento turinio baitų skaičius (prieš base64 kodavimą).",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.sourceAttachment.hash",
+        "path": "Consent.sourceAttachment.hash",
+        "short": "Dokumento turinio hash reikšmė / Hash of the data (sha-1, base64ed)",
+        "definition": "Documento turinio hash reikšmė.",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.verification",
+        "path": "Consent.verification",
+        "short": "Sutikimas patvirtintas paciento arba šeimos / Consent Verified by patient or family",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.verification.verifiedBy",
+        "path": "Consent.verification.verifiedBy",
+        "short": "Sutikimą patvirtinęs specialistas / Specialist who approved the consent",
+        "definition": "Sutikimą patvirtinęs specialistas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Consent.verification.verifiedBy.reference",
+        "path": "Consent.verification.verifiedBy.reference",
+        "min": 1
+      },
+      {
+        "id": "Consent.verification.verificationDate",
+        "path": "Consent.verification.verificationDate",
+        "short": "Sutikimo patvirtinimo data ir laikas / Approval date",
+        "definition": "Paciento sutikimo patvirtinimo data ir laikas.",
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

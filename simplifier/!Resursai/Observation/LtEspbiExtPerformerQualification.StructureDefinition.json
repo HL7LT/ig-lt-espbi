@@ -1,0 +1,107 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-observation/performerQualification",
+  "name": "LtEspbiExtPerformerQualification",
+  "status": "draft",
+  "description": "Specialisto, atlikusio apžiūrą, profesinė kvalifikacija / Health Care Specialist‘s Qualification ",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Observation"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Specialisto, atlikusio apžiūrą, profesinė kvalifikacija / Health Care Specialist‘s Qualification ",
+        "definition": "Specialisto, atlikusio apžiūrą, profesinė kvalifikacija. Naudojama, kai Observation resursas aprašo konsultacijos duomenis E025 dokumente.\r\nGalimos reikšmės nurodytos klasifikatoriuje qualification-code (http://esveikata.lt/classifiers/QualificationCode).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-observation/performerQualification"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.value[x].id",
+        "path": "Extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].extension",
+        "path": "Extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding",
+        "path": "Extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.value[x].coding.id",
+        "path": "Extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding.extension",
+        "path": "Extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding.system",
+        "path": "Extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/QualificationCode"
+      },
+      {
+        "id": "Extension.value[x].coding.version",
+        "path": "Extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].coding.code",
+        "path": "Extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].coding.display",
+        "path": "Extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].coding.userSelected",
+        "path": "Extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.value[x].text",
+        "path": "Extension.value[x].text",
+        "max": "0"
+      }
+    ]
+  }
+}

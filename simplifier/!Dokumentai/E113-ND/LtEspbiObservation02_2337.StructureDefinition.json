@@ -1,0 +1,219 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2337",
+  "name": "LtEspbiObservation0_2337",
+  "status": "draft",
+  "description": "Naujagimio/Negyvagimio informacija / Newborn / Stillbirth information",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.2337",
+                  "display": "Naujagimio/Negyvagimio informacija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.2337"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2012-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Nėštumo savaitės / Weeks of pregnancy",
+        "definition": "E113-ND forma. Nėštumo savaitės.\r\nVeikimo logika:\r\n• Jeigu yra patvirtinta E113-NNA, E113-NNA → \"NGN antraštė\" → \"Nėštumo savaitė\" → Reikšmė\r\n• Jeigu yra patvirtinta E096-N, apskaičiuojamas skirtumas tarp E096-N → \"Medicininiai duomenys\" → \"Gimimo data ir laikas\"→ Reikšmė (data) ir E096-N → \"NGN antraštė\" → \"Pirmoji nėštumo diena\" → Reikšmė (data). Išskaičiuojamas skirtumas pilnomis savaitėmis.",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "definition": "Apžiūros duomenų įvertinimas.\r\nGalimos reikšmės nurodytos klasifikatoriuje death-date-interpretation (Mirties datos interpretavimo kodas E106 ir E106-2-1 pažymose).\r\n\r\nFHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/observation-interpretation.\r\n\r\nE106 forma \r\nNelaimingo atsitikimo, savižudybės, žmogžudystės data nežinoma\r\nLaukas pildomas, bet neprivalomas, jei lauke „Gydytojo nuomone mirties rūšis“ nurodyta „Nelaimingas atsitikimas“, „Nelaimingas atsitikimas darbe“, „Savižudybė“ ar „Žmogžudystė“ ir laukas „Nelaimingo atsitikimo, savižudybės, žmogžudystės data“ neužpildytas. Laukas nepildomas, jei lauke „Gydytojo nuomone mirties rūšis“ nurodyta ne „Nelaimingas atsitikimas“, „Nelaimingas atsitikimas darbe“, „Savižudybė“ ar „Žmogžudystė“ arba laukas „Nelaimingo atsitikimo, savižudybės, žmogžudystės data“ užpildytas. Realizuota kaip: Nelaimingo atsitikimo, savižudybės, žmogžudystės data",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Observation/Interpretation/DeathDate",
+                  "code": "2",
+                  "display": "Nelaimingo atsitikimo, savižudybės, žmogžudystės data nežinoma"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/Observation/Interpretation/DeathDate"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "max": "1"
+      },
+      {
+        "id": "Observation.hasMember:gender",
+        "path": "Observation.hasMember",
+        "sliceName": "gender",
+        "short": "Lytis / Gender",
+        "definition": "E113-ND forma. Lytis.\r\nE096-N → \"Medicininiai duomenys\" → \"Naujagimio įrašas\" → \"Lytis\" → Reikšmė\r\nValidacinė taisyklė:\r\n• Rodomas tuščias reikšmės ir pavadinimo laukelis, jeigu yra patvirtinta E113-NNA, E113-NNA → \"Medicininiai duomenys\" → Vaisius → Reikšmė = Vaisius;\r\n• Jeigu nerandama duomenų, rodoma tuščias laukelis ir laukelio pavadinimas",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-46098-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:height",
+        "path": "Observation.hasMember",
+        "sliceName": "height",
+        "short": "Ūgis / Height",
+        "definition": "Matavimo vienetas išreiškiamas centimetrais, - cm\r\nE096-N → \"Medicininiai duomenys\" → \"Naujagimio įrašas\" →\"Ūgis\" → Reikšmė\r\nValidacinė taisyklė:\r\n• Rodomas tuščias reikšmės ir pavadinimo laukelis, jeigu yra patvirtinta E113-NNA, E113-NNA → \"Medicininiai duomenys\" → Vaisius → Reikšmė = Vaisius;\r\n• Jeigu nerandama duomenų, rodoma tuščias laukelis ir laukelio pavadinimas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8302-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:weight",
+        "path": "Observation.hasMember",
+        "sliceName": "weight",
+        "short": "Svoris / Weight",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-29463-7"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:developmentalDefects",
+        "path": "Observation.hasMember",
+        "sliceName": "developmentalDefects",
+        "short": "Nustatyti sklaidos trūkumai / raidos ydos / Dissemination deficiencies/developmental defects identified",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-21390004"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

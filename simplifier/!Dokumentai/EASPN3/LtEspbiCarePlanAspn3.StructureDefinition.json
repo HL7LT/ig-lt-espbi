@@ -1,0 +1,55 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-e-aspn-3",
+  "name": "LtEspbiCarePlanAspn3",
+  "status": "draft",
+  "description": "Slaugos plano duomenys",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CarePlan",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CarePlan.meta",
+        "path": "CarePlan.meta"
+      },
+      {
+        "id": "CarePlan.meta.profile",
+        "path": "CarePlan.meta.profile",
+        "example": [
+          {
+            "label": "example",
+            "valueCanonical": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-e-aspn-3"
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.goal",
+        "path": "CarePlan.goal",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-goal-e-aspn-3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.activity.plannedActivityReference",
+        "path": "CarePlan.activity.plannedActivityReference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request-aspn-3"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

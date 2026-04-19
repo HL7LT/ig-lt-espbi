@@ -1,0 +1,224 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-10163-4",
+  "name": "LtEspbiObservation10163_4",
+  "status": "draft",
+  "description": "Ankstesni nėštumai ir jų baigtys  / Previous pregnancies",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10163-4",
+                  "display": "History of pregnancies"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "10163-4"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Ankstesnių nėštumų skaičius/ Number of previous pregnancies",
+        "definition": "Ankstesni nėštumai (E010-2-1).\r\n**Skaičiavimo logika**:\r\n- Paskutinė gimdyvės (E113-ND Nėštumo duomenys, anamnezė → \"Nėštumas\"-Reikšmė) - 1\r\n\r\n**Validacinė taisyklė**:\r\n- Jeigu reikšmė negaunama, pateikiama, jog nėra atsakymo \"N.A.\".\r\n",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 1
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.hasMember:spontaneousMiscarriage",
+        "path": "Observation.hasMember",
+        "sliceName": "spontaneousMiscarriage",
+        "short": "Savaiminis persileidimas / nesivystantis nėštumas / Spontaneous miscarriage",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-17369002"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004057"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:ectopicPregnancy",
+        "path": "Observation.hasMember",
+        "sliceName": "ectopicPregnancy",
+        "short": "Ektopinis nėštumas / Ectopic pregnancy",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-33065-4"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004059"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:terminationOnDemand",
+        "path": "Observation.hasMember",
+        "sliceName": "terminationOnDemand",
+        "short": "Nėštumo nutraukimas savo noru / termination of pregnancy on demand",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-69302000"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004061"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:medicalTerminationOfPregnancy",
+        "path": "Observation.hasMember",
+        "sliceName": "medicalTerminationOfPregnancy",
+        "short": "Nėštumo nutraukimas pagal medicinines indikacijas / Termination of pregnancy according to medical indications",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-285409006"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004063"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

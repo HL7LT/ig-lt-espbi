@@ -1,0 +1,164 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-evaluation",
+  "name": "LtEspbiImmunizationEvaluation",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ImmunizationEvaluation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ImmunizationEvaluation.id",
+        "path": "ImmunizationEvaluation.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationEvaluation.status",
+        "path": "ImmunizationEvaluation.status",
+        "short": "Atlikto skiepo įvykio vertinimo būsena / Indicates the current status of the evaluation of the vaccination administration event",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/immunization-evaluation-status. Galimos reikšmės: užbaigta | įvesta per klaidą (completed | entered-in-error).",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationEvaluation.patient",
+        "path": "ImmunizationEvaluation.patient",
+        "short": "Pacientas, dėl kurio skiepo atliekamas vertinimas / The individual for whom the evaluation is being done",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/32856257683256"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationEvaluation.patient.reference",
+        "path": "ImmunizationEvaluation.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationEvaluation.targetDisease",
+        "path": "ImmunizationEvaluation.targetDisease",
+        "short": "Užkrečiamųjų ligų, nuo kurių skiepijama, kodai ir pavadinimai / The vaccine preventable disease schedule being evaluated",
+        "definition": "Užkrečiamosios ligos, nuo kurių buvo skiepytas pacientas. Galimos reikšmės nurodytos klasifikatoriuje infectious-disease (http://esveikata.lt/classifiers/infectious-disease)\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/immunization-target-disease.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/infectious-disease",
+                  "code": "A36",
+                  "display": "Difterija"
+                }
+              ],
+              "text": "Difterija"
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationEvaluation.targetDisease.coding",
+        "path": "ImmunizationEvaluation.targetDisease.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationEvaluation.targetDisease.coding.system",
+        "path": "ImmunizationEvaluation.targetDisease.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/infectious-disease"
+      },
+      {
+        "id": "ImmunizationEvaluation.targetDisease.coding.code",
+        "path": "ImmunizationEvaluation.targetDisease.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationEvaluation.targetDisease.coding.display",
+        "path": "ImmunizationEvaluation.targetDisease.coding.display",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationEvaluation.immunizationEvent",
+        "path": "ImmunizationEvaluation.immunizationEvent",
+        "short": "Atlikto skiepo duomenys / Immunization being evaluated",
+        "definition": "Nuoroda į atlikto skiepo įvykio (Immunization), kuris yra įvertinamas, resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationEvaluation.immunizationEvent.reference",
+        "path": "ImmunizationEvaluation.immunizationEvent.reference",
+        "min": 1
+      },
+      {
+        "id": "ImmunizationEvaluation.doseStatus",
+        "path": "ImmunizationEvaluation.doseStatus",
+        "short": "Požymis ar skiepijimo faktas aktualus / Is vaccination fact actual",
+        "definition": "ESPBI sistemoje naudojamas požymis ar skiepijimo faktas aktualus (count - aktualus | nocount - neaktualus). Galimos reikšmės nurodytos klasifikatoriuje vaccination-protocol-dose-status (http://hl7.org/fhir/vaccination-protocol-dose-status). \r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status. Galimos reikšmės:  valid - galiojanti | not valid - negaliojanti. ",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/vaccination-protocol-dose-status",
+                  "code": "valid"
+                }
+              ]
+            }
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImmunizationEvaluation.doseStatus.coding",
+        "path": "ImmunizationEvaluation.doseStatus.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImmunizationEvaluation.doseStatus.coding.system",
+        "path": "ImmunizationEvaluation.doseStatus.coding.system",
+        "min": 1,
+        "fixedUri": "http://hl7.org/fhir/vaccination-protocol-dose-status"
+      },
+      {
+        "id": "ImmunizationEvaluation.doseStatus.coding.code",
+        "path": "ImmunizationEvaluation.doseStatus.coding.code",
+        "min": 1
+      }
+    ]
+  }
+}

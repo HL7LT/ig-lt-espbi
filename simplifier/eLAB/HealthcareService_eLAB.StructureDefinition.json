@@ -1,0 +1,198 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-healthcare-service",
+  "url": "http://termx.snomed.lt/fhir/StructureDefinition/elab-healthcare-service",
+  "version": "0.3.28",
+  "name": "ElabHealthcareService",
+  "status": "active",
+  "date": "2024-12-16",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Įstaigos atliekamas tyrimas",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "interface",
+      "uri": "http://hl7.org/fhir/interface",
+      "name": "Interface Pattern"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "HealthcareService",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/HealthcareService",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "HealthcareService.extension",
+        "path": "HealthcareService.extension",
+        "min": 1
+      },
+      {
+        "id": "HealthcareService.extension:LMB",
+        "path": "HealthcareService.extension",
+        "sliceName": "LMB",
+        "short": "LMB papildomos savybės / LMB additional fields",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "targetProfile": [
+              "http://termx.snomed.lt/fhir/StructureDefinition/elab-ext-healthcareService-labTestExtradata"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "HealthcareService.active",
+        "path": "HealthcareService.active",
+        "short": "Ar ši paslauga aktyvi / Whether this HealthcareService is in active use",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "HealthcareService.providedBy",
+        "path": "HealthcareService.providedBy",
+        "short": "Paslaugą teikiantis padalinys / Organization that provides this service",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "HealthcareService.category",
+        "path": "HealthcareService.category",
+        "short": "Paslaugos kategorija / Broad category of service being performed or delivered",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "HealthcareService.category.coding",
+        "path": "HealthcareService.category.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "HealthcareService.category.coding:observation-category",
+        "path": "HealthcareService.category.coding",
+        "sliceName": "observation-category",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "HealthcareService.category.coding:observation-category.system",
+        "path": "HealthcareService.category.coding.system",
+        "min": 1,
+        "patternUri": "https://www.hl7.org/fhir/valueset-observation-category.html"
+      },
+      {
+        "id": "HealthcareService.category.coding:observation-category.code",
+        "path": "HealthcareService.category.coding.code",
+        "min": 1
+      },
+      {
+        "id": "HealthcareService.type",
+        "path": "HealthcareService.type",
+        "short": "Paslaugos tipas / Type of service that may be delivered or performed",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "HealthcareService.type.coding",
+        "path": "HealthcareService.type.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "HealthcareService.type.coding:LMB",
+        "path": "HealthcareService.type.coding",
+        "sliceName": "LMB",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "HealthcareService.type.coding:LMB.system",
+        "path": "HealthcareService.type.coding.system",
+        "min": 1,
+        "patternUri": "http://termx.snomed.lt/fhir/CodeSystem/lt-klt-nomenclature"
+      },
+      {
+        "id": "HealthcareService.type.coding:LMB.code",
+        "path": "HealthcareService.type.coding.code",
+        "min": 1
+      }
+    ]
+  }
+}

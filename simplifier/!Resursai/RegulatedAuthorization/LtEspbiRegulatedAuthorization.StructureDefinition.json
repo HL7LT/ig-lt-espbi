@@ -1,0 +1,142 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-regulated-authorization",
+  "name": "LtEspbiRegulatedAuthorization",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "RegulatedAuthorization",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "RegulatedAuthorization.id",
+        "path": "RegulatedAuthorization.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.identifier",
+        "path": "RegulatedAuthorization.identifier",
+        "short": "Rinkodaros teisės (registracijos) pažymėjimo numeris, jei vaistinio preparato pakuotė, arba gamintojo registro numeris, jei MPP / Business identifier for the authorization, typically assigned by the authorizing body",
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.subject",
+        "path": "RegulatedAuthorization.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medicinal-product-definition",
+              "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct",
+              "http://hl7.org/fhir/StructureDefinition/NutritionProduct",
+              "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition",
+              "http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition",
+              "http://hl7.org/fhir/StructureDefinition/Ingredient",
+              "http://hl7.org/fhir/StructureDefinition/SubstanceDefinition",
+              "http://hl7.org/fhir/StructureDefinition/DeviceDefinition",
+              "http://hl7.org/fhir/StructureDefinition/ResearchStudy",
+              "http://hl7.org/fhir/StructureDefinition/ActivityDefinition",
+              "http://hl7.org/fhir/StructureDefinition/PlanDefinition",
+              "http://hl7.org/fhir/StructureDefinition/ObservationDefinition",
+              "http://hl7.org/fhir/StructureDefinition/Practitioner",
+              "http://hl7.org/fhir/StructureDefinition/Organization",
+              "http://hl7.org/fhir/StructureDefinition/Location"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.subject.reference",
+        "path": "RegulatedAuthorization.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "RegulatedAuthorization.status",
+        "path": "RegulatedAuthorization.status",
+        "short": "Preparato galiojimo būsena / Medication status",
+        "definition": "Preparato galiojimo būsena.\r\nGalimos reikšmės nurodytos klasifikatoriuje medication-product-status (http://esveikata.lt/classifiers/Medication/productStatus).\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/publication-status, kurio reikšmės:  draft, active, retired, unknown.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.status.coding",
+        "path": "RegulatedAuthorization.status.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "RegulatedAuthorization.status.coding.system",
+        "path": "RegulatedAuthorization.status.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Medication/productStatus"
+      },
+      {
+        "id": "RegulatedAuthorization.status.coding.code",
+        "path": "RegulatedAuthorization.status.coding.code",
+        "min": 1
+      },
+      {
+        "id": "RegulatedAuthorization.status.coding.display",
+        "path": "RegulatedAuthorization.status.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.validityPeriod",
+        "path": "RegulatedAuthorization.validityPeriod",
+        "short": "Registravimo data / Date of registration",
+        "definition": "Vaistinio preparato registravimo data ar įrašo sukūrimo data ir laikas, jei MPP (metai, mėnuo, diena).",
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.validityPeriod.start",
+        "path": "RegulatedAuthorization.validityPeriod.start",
+        "short": "Vaistinio preparato registravimo data ar įrašo sukūrimo data ir laikas, jei MPP (metai, mėnuo, diena).",
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.holder",
+        "path": "RegulatedAuthorization.holder",
+        "short": "Rinkodaros teisės turėtojas / Marketing authorization holder",
+        "definition": "Rinkodaros teisės turėtojo pavadinimas",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.holder.reference",
+        "path": "RegulatedAuthorization.holder.reference",
+        "min": 1
+      },
+      {
+        "id": "RegulatedAuthorization.case",
+        "path": "RegulatedAuthorization.case",
+        "short": "Perregistravimo data / Date of renewal",
+        "mustSupport": true
+      },
+      {
+        "id": "RegulatedAuthorization.case.date[x]",
+        "path": "RegulatedAuthorization.case.date[x]",
+        "short": "Perregistravimo data / Date of renewal",
+        "definition": "Vaistinio preparato perregistravimo data (metai, mėnuo, diena).",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

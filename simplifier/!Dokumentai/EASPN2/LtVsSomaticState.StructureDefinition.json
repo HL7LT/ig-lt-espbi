@@ -1,0 +1,77 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-somatic-state",
+  "name": "LtEspbiVsSomaticState",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ValueSet",
+  "baseDefinition": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-value-set",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ValueSet.url",
+        "path": "ValueSet.url",
+        "fixedUri": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-somatic-state"
+      },
+      {
+        "id": "ValueSet.version",
+        "path": "ValueSet.version",
+        "min": 1,
+        "fixedString": "1.0"
+      },
+      {
+        "id": "ValueSet.name",
+        "path": "ValueSet.name",
+        "min": 1,
+        "fixedString": "LtVsSomaticState"
+      },
+      {
+        "id": "ValueSet.title",
+        "path": "ValueSet.title",
+        "min": 1,
+        "fixedString": "Somatic state"
+      },
+      {
+        "id": "ValueSet.status",
+        "path": "ValueSet.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "draft"
+          }
+        ]
+      },
+      {
+        "id": "ValueSet.compose",
+        "path": "ValueSet.compose",
+        "min": 1
+      },
+      {
+        "id": "ValueSet.compose.include",
+        "path": "ValueSet.compose.include",
+        "max": "1"
+      },
+      {
+        "id": "ValueSet.compose.include.system",
+        "path": "ValueSet.compose.include.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PatientHealthAssessmentForm/SomaticState"
+      },
+      {
+        "id": "ValueSet.compose.include.concept",
+        "path": "ValueSet.compose.include.concept",
+        "definition": "Į reikšmių rinkinį įtraukiama reikšmė.\r\nĮ šį reikšmių rinkinį (ValueSet) turėtų būti įtraukti šie \"concept\" elementai:\r\n(code: display)\r\n1: gera\r\n2: patenkinama\r\n3: bloga\r\n4: labai bloga",
+        "min": 1
+      },
+      {
+        "id": "ValueSet.compose.include.concept.display",
+        "path": "ValueSet.compose.include.concept.display",
+        "definition": "Tekstas, kuris bus rodomas naudotojui pasirenkant / naudojant šią reikšmę. Jei reikšmės rodomas tekstas nenurodytas, reikšmę naudojančiose sistemose naudotojui turėtų būti rodomas reikšmės kodas.",
+        "min": 1
+      }
+    ]
+  }
+}

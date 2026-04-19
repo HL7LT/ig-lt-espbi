@@ -1,0 +1,132 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2002",
+  "name": "LtEspbiObservation02_2002",
+  "status": "draft",
+  "description": "Neišnešioti negyvagimiai / Preterm stillborn",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.2002",
+                  "display": "Neišnešioti negyvagimiai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.2002"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Neišnešiotų negyvagimių skaičius / Number of Preterm stillborn",
+        "definition": "iš jų neišnešiotų (E010-2-1).\r\nViso įrašų skaičius, kur moters (Paciento)  E113-ND → \"Medicininiai duomenys\" → \"Ankstesni nėštumai ir jų baigtys\" → \"Informacija iš Paciento ESI\" → \"Nėštumo savaitės\" → Reikšmė mažiau arba lygu 36 \r\n\r\nViso įrašų skaičius, kur moters (Paciento)  E113-ND → \"Medicininiai duomenys\" → \"Ankstesni nėštumai ir jų baigtys\" → \"Pacientės pateikta informacija\" → \"Nėštumo savaitės\" → Reikšmė mažiau arba lygu 36\r\n\r\n**Skaičiavimo logika**:\r\n- Sudedami įrašų skaičiai pagal pateiktas aukščiau esančias sąlygas ir išvedamas sveikasis skaičius.\r\n- Prieš skaičiuojant atrenkama pagal sąlygą: moters (Paciento)  E113-ND → \"Medicininiai duomenys\" → \"Ankstesni nėštumai ir jų baigtys\" → \"Informacija iš Paciento ESI\" → \"Nėštumo baigtis\" → Reikšmė = D.4.117.14 Nėštumo baigtis → Pavadinimas → \"Negyvagimis\"\r\n- Prieš skaičiuojant atrenkama pagal sąlygą: moters (Paciento)  E113-ND → \"Medicininiai duomenys\" → \"Ankstesni nėštumai ir jų baigtys\" → \"Pacientės pateikta informacija\" → \"Nėštumo baigtis\" → Reikšmė = D.4.117.14 Nėštumo baigtis → Pavadinimas → \"Negyvagimis\"\r\n\r\n**Validacinė taisyklė**:\r\n- Skaičius lygus arba daugiau už 0 (nulį)",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 1
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-val-1",
+            "severity": "error",
+            "human": "Value must be greater than or equal to 0.",
+            "expression": "valueInteger >= 0"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,454 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-57075-4",
+  "name": "LtEspbiObservation57075_4",
+  "status": "draft",
+  "description": "Apžiūros rezultatai / Examination results",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "5.4. Apžiūros rezultatai /  Examination results"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "57075-4",
+                  "display": "Newborn delivery information"
+                }
+              ],
+              "text": "Apžiūros rezultatai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "57075-4"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Data ir laikas",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T14:13:54.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-eff-1",
+            "requirements": "Validacinė taisyklė:\r\n• Negali būti vėlesnė už dabartinę datą ir laiką.",
+            "severity": "error",
+            "human": "Effective date and time cannot be earlier than the current date and time.",
+            "expression": "effective >= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Apžiūrą atliko / The examination was performed by",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "5.4. Apžiūros rezultatai. /  Examination results",
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:generalCondition",
+        "path": "Observation.hasMember",
+        "sliceName": "generalCondition",
+        "short": "Bendra būklė / General condition of the newborn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-73789-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:skin",
+        "path": "Observation.hasMember",
+        "sliceName": "skin",
+        "short": "Oda / Skin",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-46046-9"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:visibleMucousMembranes",
+        "path": "Observation.hasMember",
+        "sliceName": "visibleMucousMembranes",
+        "short": "Matomos gleivinės / Visible mucous membranes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-28183-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:umbilicalCordExamination",
+        "path": "Observation.hasMember",
+        "sliceName": "umbilicalCordExamination",
+        "short": "Virkštelės bigė, kraujagyslių skaičius / Umbilical cord examination",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-12116-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:head",
+        "path": "Observation.hasMember",
+        "sliceName": "head",
+        "short": "Galva / Head",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8701-5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:integrityOfThePalate",
+        "path": "Observation.hasMember",
+        "sliceName": "integrityOfThePalate",
+        "short": "Gomurio vientisumas / Integrity of the palate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-32460-8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:chestShape",
+        "path": "Observation.hasMember",
+        "sliceName": "chestShape",
+        "short": "Krūtinės ląstos forma / Chest shape",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11422-3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:lungCondition",
+        "path": "Observation.hasMember",
+        "sliceName": "lungCondition",
+        "short": "Plaučių būklė/ Lung condition",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8710-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:respiratoryRate",
+        "path": "Observation.hasMember",
+        "sliceName": "respiratoryRate",
+        "short": "Kvėpavimo dažnis / Respiratory rate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11443-9"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:heart",
+        "path": "Observation.hasMember",
+        "sliceName": "heart",
+        "short": "Širdis (ribos, ūžesiai, ritmo pobūdis) / Heart (borders, murmurs, rhythm characteristics)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8702-3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:pulse",
+        "path": "Observation.hasMember",
+        "sliceName": "pulse",
+        "short": "Pulso dažnis / Pulse",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55283-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:nervousSystem",
+        "path": "Observation.hasMember",
+        "sliceName": "nervousSystem",
+        "short": "Nervų sistema / Nervous system",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8705-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:abdominalCavityOrgans",
+        "path": "Observation.hasMember",
+        "sliceName": "abdominalCavityOrgans",
+        "short": "Pilvo ertmės organai / Abdominal cavity organs",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8694-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:meconium",
+        "path": "Observation.hasMember",
+        "sliceName": "meconium",
+        "short": "Mekonijus / Meconium",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-111989001-e097-npa"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:urination",
+        "path": "Observation.hasMember",
+        "sliceName": "urination",
+        "short": "Šlapinimasis / Urination",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-300474003-e097-npa"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:externalGenitalia",
+        "path": "Observation.hasMember",
+        "sliceName": "externalGenitalia",
+        "short": "Išoriniai lyties organai / External genitalia",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-364204002-e097-npa"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:anus",
+        "path": "Observation.hasMember",
+        "sliceName": "anus",
+        "short": "Analinė anga / Anus",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-364154000-e097-npa"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:hipJointCondition",
+        "path": "Observation.hasMember",
+        "sliceName": "hipJointCondition",
+        "short": "Klubų sąnarių būklė / Hip joint condition",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-299231009-e097-npa"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:identifiedDevelopmentalDeficiencies",
+        "path": "Observation.hasMember",
+        "sliceName": "identifiedDevelopmentalDeficiencies",
+        "short": "Nustatyti sklaidos trūkumai / raidos ydos / Identified developmental deficiencies / developmental abnormalities",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-21390004"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

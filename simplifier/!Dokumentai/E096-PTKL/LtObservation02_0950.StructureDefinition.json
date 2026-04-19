@@ -1,0 +1,366 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0950",
+  "name": "LtEspbiObservation02_0950",
+  "status": "draft",
+  "description": "Vaisiaus pečių užstrigimas / Shoulder dystocia",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.0950",
+                  "display": "Vaisiaus pečių užstrigimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.0950"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Diagnozuojama pečių distocija / Shoulder dystocia is diagnosed",
+        "definition": "Diagnozuojama pečių distocija (E096-PTKL).\r\nData ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-09-17T14:13:54.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-eff-2-02-0950",
+            "severity": "warning",
+            "human": "Effective date ant time must not be later than the current date.",
+            "expression": "effectiveDateTime <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.hasMember:shoulderDystocia",
+        "path": "Observation.hasMember",
+        "sliceName": "shoulderDystocia",
+        "short": "Diagnozuota vaisiaus pečių distocija / Diagnosed with shoulder dystocia",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0952"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004133"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:assistanceCalled",
+        "path": "Observation.hasMember",
+        "sliceName": "assistanceCalled",
+        "short": "Help - pagalba pakviesta / Assistance called",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0953"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004135"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:episiotomy",
+        "path": "Observation.hasMember",
+        "sliceName": "episiotomy",
+        "short": "Episiotomia - priimtas sprendimas dėl epiziotomijos reikalingumo / Episiotomy - decision made regarding the necessity of an episiotomy ",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0954"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004137"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:legs",
+        "path": "Observation.hasMember",
+        "sliceName": "legs",
+        "short": "Legs - gimdyvės kojos maksimaliai sulenkiamos per klubų ir kelių sąnarius, kad šlaunys siektų pilvo sienos šonus (McRoberts) / Legs - the woman's legs are maximally flexed at the hips and knees, so that the thighs reach the sides of the abdominal wall ",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0955"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004139"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:pressure",
+        "path": "Observation.hasMember",
+        "sliceName": "pressure",
+        "short": "Pressure - kryptingas paspaudimas virš gaktinės sąvaržos iš vaisiaus nugaros pusės  / Directed pressure above the occiput from the fetal back side",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0956"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004141"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:enter",
+        "path": "Observation.hasMember",
+        "sliceName": "enter",
+        "short": "Vidiniai vaisiaus pečių pasukimo veiksmai pro makštį / Internal maneuvers for fetal shoulder rotation through the vagina",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0957"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004145"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:remove",
+        "path": "Observation.hasMember",
+        "sliceName": "remove",
+        "short": "Užpakalinės vaisiaus rankos išlaisvinimas / Release of the posterior fetal arm",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0958"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004149"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:roll",
+        "path": "Observation.hasMember",
+        "sliceName": "roll",
+        "short": "Gimdyvės padėtis - \"kelių-alkūnių\" / Position of the woman - knee-elbow",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0959"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004153"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:appliedExtremeMethod",
+        "path": "Observation.hasMember",
+        "sliceName": "appliedExtremeMethod",
+        "short": "Taikytas kraštutinis metodas / Applied extreme method",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0960"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004157"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:birthTime",
+        "path": "Observation.hasMember",
+        "sliceName": "birthTime",
+        "short": "Fiksuotas naujagimio gimimo laikas / Recorded time of newborn's birth",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0961"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004159"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

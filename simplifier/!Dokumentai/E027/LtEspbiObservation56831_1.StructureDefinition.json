@@ -1,0 +1,625 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-56831-1",
+  "name": "LtEspbiObservation56831_1",
+  "status": "draft",
+  "description": "Didelės rizikos požymiai, dėl kurių pacientas siunčiamas skubiai konsultacijai / High-risk signs that require urgent referral",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "56831-1"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "56831-1"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "constraint": [
+          {
+            "key": "obs-com-5",
+            "severity": "error",
+            "human": "Components 4.1–4.5 may be marked only if component 4 is marked.",
+            "expression": "component.where(valueBoolean=true and code.coding.code.matches('4\\\\.[1-5]')).exists()impliescomponent.where(code.coding.code='4' and valueBoolean=true).exists()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:functionalClassIV",
+        "path": "Observation.component",
+        "sliceName": "functionalClassIV",
+        "short": "IV funkcinės klasės stabilioji krūtinės angina, kai yra patvirtinta vainikinių arterijų ligos diagnozė",
+        "definition": "IV funkcinės klasės stabilioji krūtinės angina, kai yra patvirtinta vainikinių arterijų ligos diagnozė.",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:functionalClassIV.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "1",
+                  "display": "IV funkcinės klasės stabilioji krūtinės angina, kai yra patvirtinta vainikinių arterijų ligos diagnozė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:functionalClassIV.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": " http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:functionalClassIV.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "1"
+      },
+      {
+        "id": "Observation.component:functionalClassIV.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:functionalClassIV.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:functionalClassIV.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:functionalClassIII",
+        "path": "Observation.component",
+        "sliceName": "functionalClassIII",
+        "short": "III funkcinės klasės stabilioji krūtinės angina ir (ar) progresuojantis dusulys, kai yra patvirtinta vainikinių arterijų ligos diagnozė ir išlieka simptomai po optimalaus paskirto antiangininio gydymo",
+        "definition": "III funkcinės klasės stabilioji krūtinės angina ir (ar) progresuojantis dusulys, kai yra patvirtinta vainikinių arterijų ligos diagnozė ir išlieka simptomai po optimalaus paskirto antiangininio gydymo",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:functionalClassIII.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "2",
+                  "display": "III funkcinės klasės stabilioji krūtinės angina ir (ar) progresuojantis dusulys, kai yra patvirtinta vainikinių arterijų ligos diagnozė ir išlieka simptomai po optimalaus paskirto antiangininio gydymo"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:functionalClassIII.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:functionalClassIII.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "2"
+      },
+      {
+        "id": "Observation.component:functionalClassIII.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:functionalClassIII.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:functionalClassIII.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:functionalClassIIorIV",
+        "path": "Observation.component",
+        "sliceName": "functionalClassIIorIV",
+        "short": "III arba IV funkcinės klasės stabilioji krūtinės angina ir (ar) progresuojantis dusulys ir pacientui atliktos vainikinių arterijų kompiuterinės tomografijos angiografijos metu nustatyta aterosklerotinė pažaida (daugiau kaip 50 proc. epikardinių kraujagyslių susiaurėjimas).",
+        "definition": "III arba IV funkcinės klasės stabilioji krūtinės angina ir (ar) progresuojantis dusulys ir pacientui atliktos vainikinių arterijų kompiuterinės tomografijos angiografijos metu nustatyta aterosklerotinė pažaida (daugiau kaip 50 proc. epikardinių kraujagyslių susiaurėjimas).",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:functionalClassIIorIV.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "3",
+                  "display": "III arba IV funkcinės klasės stabilioji krūtinės angina ir (ar) progresuojantis dusulys ir pacientui atliktos vainikinių arterijų kompiuterinės tomografijos angiografijos metu nustatyta aterosklerotinė pažaida (daugiau kaip 50 proc. epikardinių kraujagyslių susiaurėjimas)"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:functionalClassIIorIV.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns "
+      },
+      {
+        "id": "Observation.component:functionalClassIIorIV.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "22"
+      },
+      {
+        "id": "Observation.component:functionalClassIIorIV.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:functionalClassIIorIV.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:functionalClassIIorIV.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:newOrWorseningAnginaPectoris",
+        "path": "Observation.component",
+        "sliceName": "newOrWorseningAnginaPectoris",
+        "short": "Pacientui naujai atsiradusi ar paūmėjusi krūtinės angina, rizikos veiksnių klinikinė obstrukcinės vainikinių arterijų ligos tikimybė > 15 proc. ir yra bent vienas iš požymių",
+        "definition": "Pacientui naujai atsiradusi ar paūmėjusi krūtinės angina, rizikos veiksnių klinikinė obstrukcinės vainikinių arterijų ligos tikimybė > 15 proc. ir yra bent vienas iš požymių",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:newOrWorseningAnginaPectoris.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "4",
+                  "display": "Pacientui naujai atsiradusi ar paūmėjusi krūtinės angina, rizikos veiksnių klinikinė obstrukcinės vainikinių arterijų ligos tikimybė > 15 proc. ir yra bent vienas iš požymių"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:newOrWorseningAnginaPectoris.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:newOrWorseningAnginaPectoris.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "4"
+      },
+      {
+        "id": "Observation.component:newOrWorseningAnginaPectoris.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:newOrWorseningAnginaPectoris.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:newOrWorseningAnginaPectoris.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:signOfIschemia",
+        "path": "Observation.component",
+        "sliceName": "signOfIschemia",
+        "short": "Ramybės 12 derivacijų elektrokardiogramoje naujai atsiradusi kairės ar dešinės Hiso pluošto kojytės pilna blokada ar naujai atsiradę kiti išemijos požymiai (Q banga, ST-T pokyčiai), nesant nestabiliosios krūtinės anginos įtarimo",
+        "definition": "Ramybės 12 derivacijų elektrokardiogramoje naujai atsiradusi kairės ar dešinės Hiso pluošto kojytės pilna blokada ar naujai atsiradę kiti išemijos požymiai (Q banga, ST-T pokyčiai), nesant nestabiliosios krūtinės anginos įtarimo",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:signOfIschemia.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "4.1",
+                  "display": "Ramybės 12 derivacijų elektrokardiogramoje naujai atsiradusi kairės ar dešinės Hiso pluošto kojytės pilna blokada ar naujai atsiradę kiti išemijos požymiai (Q banga, ST-T pokyčiai), nesant nestabiliosios krūtinės anginos įtarimo"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:signOfIschemia.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:signOfIschemia.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "4.1"
+      },
+      {
+        "id": "Observation.component:signOfIschemia.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:signOfIschemia.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:leftVentricularSystolicFunction",
+        "path": "Observation.component",
+        "sliceName": "leftVentricularSystolicFunction",
+        "short": "Nustatyta sumažėjusi kairiojo skilvelio sistolinė funkcija",
+        "definition": "Nustatyta sumažėjusi kairiojo skilvelio sistolinė funkcija",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:leftVentricularSystolicFunction.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "4.2",
+                  "display": "Nustatyta sumažėjusi kairiojo skilvelio sistolinė funkcija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:leftVentricularSystolicFunction.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:leftVentricularSystolicFunction.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "4.2"
+      },
+      {
+        "id": "Observation.component:leftVentricularSystolicFunction.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:leftVentricularSystolicFunction.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:leftVentricularSystolicFunction.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:signsOfHeartFailure",
+        "path": "Observation.component",
+        "sliceName": "signsOfHeartFailure",
+        "short": "Naujai atsiradę širdies nepakankamumo požymiai",
+        "definition": "Naujai atsiradę širdies nepakankamumo požymiai",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:signsOfHeartFailure.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "4.3",
+                  "display": "Naujai atsiradę širdies nepakankamumo požymiai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:signsOfHeartFailure.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:signsOfHeartFailure.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "4.3"
+      },
+      {
+        "id": "Observation.component:signsOfHeartFailure.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:signsOfHeartFailure.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:signsOfHeartFailure.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:disease",
+        "path": "Observation.component",
+        "sliceName": "disease",
+        "short": "Pacientas serga cukriniu diabetu ir (arba) pažengusia lėtine inkstų liga",
+        "definition": "Pacientas serga cukriniu diabetu ir (arba) pažengusia lėtine inkstų liga",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:disease.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "4.4",
+                  "display": "Pacientas serga cukriniu diabetu ir (arba) pažengusia lėtine inkstų liga"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:disease.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:disease.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "4.4"
+      },
+      {
+        "id": "Observation.component:disease.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:disease.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:disease.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:undergoneRevascularizationProcedures",
+        "path": "Observation.component",
+        "sliceName": "undergoneRevascularizationProcedures",
+        "short": "Pacientas serga kitų periferinių arterijų ateroskleroze ir praeityje jam taikytos revaskuliarizacijos procedūros",
+        "definition": "Pacientas serga kitų periferinių arterijų ateroskleroze ir praeityje jam taikytos revaskuliarizacijos procedūros",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:undergoneRevascularizationProcedures.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/HighRiskSigns",
+                  "code": "4.5",
+                  "display": "Pacientas serga kitų periferinių arterijų ateroskleroze ir praeityje jam taikytos revaskuliarizacijos procedūros"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:undergoneRevascularizationProcedures.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/HighRiskSigns"
+      },
+      {
+        "id": "Observation.component:undergoneRevascularizationProcedures.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "4.5"
+      },
+      {
+        "id": "Observation.component:undergoneRevascularizationProcedures.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:undergoneRevascularizationProcedures.code.text",
+        "path": "Observation.component.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component:undergoneRevascularizationProcedures.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

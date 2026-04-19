@@ -1,0 +1,203 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list",
+  "name": "LtEspbiList",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/List",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.id",
+        "path": "List.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "List.meta",
+        "path": "List.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "List.status",
+        "path": "List.status",
+        "short": "Sąrašo būsena / The current state of this list",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/list-status. \r\n\r\nGalimos reikšmės: current - galiojantis | retired - neaktyvus | entered-in-error - sukurtas klaidingai. ",
+        "mustSupport": true
+      },
+      {
+        "id": "List.mode",
+        "path": "List.mode",
+        "short": "Sąrašo būsena / režimas / The processing mode that applies to this list",
+        "definition": "Sąrašo būsena/režimas. Nenaudojama ESPBI sistemos kontekste, bet yra privaloma pagal FHIR standartą.\r\nGalimos reikšmės:\r\n- working : Standartinis sąrašo režimas (naudojamas pagal nutylėjimą).\r\nGalimos reikšmės nurodytos klasifikatoriuje list-mode.\r\nReikšmė pagal nutylėjimą \"working\".\r\n\r\nFHIR R5 rekomenduojama naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/list-mode. Galimos reikšmės: working | snapshot | changes.",
+        "mustSupport": true
+      },
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "short": "Kodas identifikuojantis resursų sąrašo tipą ir paskirtį / List type ",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuose: \r\n- http://loinc.org\r\n\r\n- http://snomed.info/sct\r\n \r\n- http://esveikata.lt/classifiers/ListCode (klasifikatorius list-code)",
+        "mustSupport": true
+      },
+      {
+        "id": "List.code.coding",
+        "path": "List.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "List.code.coding.system",
+        "path": "List.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "List.code.coding.code",
+        "path": "List.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "List.code.coding.display",
+        "path": "List.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "short": "Pacientas, su kuriuo yra susiję sąraše esantys resursai / Patient who is a subject of listed resources",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "List.subject.reference",
+        "path": "List.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "List.encounter.reference",
+        "path": "List.encounter.reference",
+        "min": 1
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "short": "Sąrašo parengimo data / When the list was prepared",
+        "mustSupport": true
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "short": "Specialistas, kuris parengė sąrašą / Who and/or what defined the list contents (aka Author)",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "List.source.reference",
+        "path": "List.source.reference",
+        "min": 1
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "short": "Nuorodos į sąraše esančius resursus / Entries in this list",
+        "mustSupport": true
+      },
+      {
+        "id": "List.entry.flag",
+        "path": "List.entry.flag",
+        "short": "Diagnozės tipas dokumente / Condition type in the document",
+        "definition": "Dokumentuose diagnozių sąraše naudojamas laukas diagnozės tipui nurodyti. Nurodo, kuri diagnozė sąraše yra pagrindinė, o kuri – gretutinė.\r\nGalimos reikšmės nurodytos klasifikatoriuje condition-diagnosis-type (http://esveikata.lt/classifiers/Condition/DiagnosisType).",
+        "mustSupport": true
+      },
+      {
+        "id": "List.entry.flag.coding",
+        "path": "List.entry.flag.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "List.entry.flag.coding.system",
+        "path": "List.entry.flag.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Condition/DiagnosisType"
+      },
+      {
+        "id": "List.entry.flag.coding.code",
+        "path": "List.entry.flag.coding.code",
+        "min": 1
+      },
+      {
+        "id": "List.entry.flag.coding.display",
+        "path": "List.entry.flag.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "List.entry.item",
+        "path": "List.entry.item",
+        "short": "Nuoroda į sąraše esantį resursą",
+        "definition": "Nuoroda į sąraše esantį resursą / A reference to the actual resource from which data was derived."
+      },
+      {
+        "id": "List.entry.item.reference",
+        "path": "List.entry.item.reference",
+        "min": 1
+      },
+      {
+        "id": "List.emptyReason",
+        "path": "List.emptyReason",
+        "short": "Informacija, kad nėra žinomų nepageidaujamų alergijų ar kitų reakcijų vaistams ir / arba kitiems dirgikliams / Information indicates that patient was asked about allergies and he is not aware of any allergies ",
+        "definition": "Jei resursų sąrašas tuščias, nurodoma priežastis. ESPBI sistemos kontekste naudojamas informacijai nurodyti, kad nėra žinomų nepageidaujamų alergijų ar kitų reakcijų vaistams ir / arba kitiems dirgikliams.\r\nGalimos reikšmės nurodytos klasifikatoriuje list-empty-reason.\r\n\r\n FHIR R5 numatyta, kad naudojami reikšmių sąrašo http://hl7.org/fhir/ValueSet/list-empty-reason duomenys.",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible"
+        }
+      },
+      {
+        "id": "List.emptyReason.coding",
+        "path": "List.emptyReason.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "List.emptyReason.coding.system",
+        "path": "List.emptyReason.coding.system",
+        "min": 1,
+        "patternUri": "http://hl7.org/fhir/ValueSet/list-empty-reason"
+      },
+      {
+        "id": "List.emptyReason.coding.code",
+        "path": "List.emptyReason.coding.code",
+        "min": 1
+      },
+      {
+        "id": "List.emptyReason.coding.display",
+        "path": "List.emptyReason.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "List.emptyReason.text",
+        "path": "List.emptyReason.text",
+        "min": 1
+      }
+    ]
+  }
+}

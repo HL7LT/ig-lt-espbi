@@ -1,0 +1,230 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-address",
+  "name": "LtEspbiAddress",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "type": "Address",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Address",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Address.extension",
+        "path": "Address.extension",
+        "mustSupport": true
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier",
+        "path": "Address.extension",
+        "sliceName": "ltEspbiExtResourceAddressIdentifier",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-resource/addressIdentifier"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:type",
+        "path": "Address.extension.extension",
+        "sliceName": "type"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:type.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Address/Type",
+                  "code": "declared"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:addressID",
+        "path": "Address.extension.extension",
+        "sliceName": "addressID"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:addressID.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/classifiers/Address/AddressIdentifier",
+              "value": "1827821"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:municipalityID",
+        "path": "Address.extension.extension",
+        "sliceName": "municipalityID"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:municipalityID.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "461"
+          }
+        ]
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:cityID",
+        "path": "Address.extension.extension",
+        "sliceName": "cityID"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:cityID.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1"
+          }
+        ]
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:streetID",
+        "path": "Address.extension.extension",
+        "sliceName": "streetID"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:streetID.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "22154"
+          }
+        ]
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:house",
+        "path": "Address.extension.extension",
+        "sliceName": "house"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:house.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "5C"
+          }
+        ]
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:hull",
+        "path": "Address.extension.extension",
+        "sliceName": "hull"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:hull.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "B"
+          }
+        ]
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:flat",
+        "path": "Address.extension.extension",
+        "sliceName": "flat"
+      },
+      {
+        "id": "Address.extension:ltEspbiExtResourceAddressIdentifier.extension:flat.value[x]",
+        "path": "Address.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "15"
+          }
+        ]
+      },
+      {
+        "id": "Address.text",
+        "path": "Address.text",
+        "short": "Vietos tekstinis adresas / Text representation of the address",
+        "definition": "Adreso tekstinė reprezentacija arba adresas įvedamas laisvu tekstu.",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Elektrėnų sav., Semeliškės, Ąžuolų g. 5C-15"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Address.line",
+        "path": "Address.line",
+        "short": "Gatvė, prospektas, namo (buto) numeris / Street name, number, direction & P.O. Box etc.",
+        "definition": "Gatvė, prospektas, namo (buto) numeris.",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Ąžuolų g. 5C-15"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Address.city",
+        "path": "Address.city",
+        "short": "Miesto, kaimo ar kitos gyvenvietės pavadinimas / Name of city, town etc.",
+        "definition": "Miesto, kaimo ar kitos gyvenvietės pavadinimas.",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Semeliškės"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Address.district",
+        "path": "Address.district",
+        "short": "Rajonas arba apskritis / District name (aka county)",
+        "definition": "Rajonas arba apskritis.",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Elektrėnų sav."
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Address.postalCode",
+        "path": "Address.postalCode",
+        "short": "Pašto kodas / Post code",
+        "definition": "Pašto kodas.",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "12345"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

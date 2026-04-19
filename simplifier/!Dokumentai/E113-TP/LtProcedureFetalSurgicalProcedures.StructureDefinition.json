@@ -1,0 +1,138 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-fetal-surgical-procedures",
+  "name": "LtEspbiProcedureFetalSurgicalProcedures",
+  "status": "draft",
+  "description": "Vaisiaus chirurginės procedūros / Fetal surgical procedures",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "definition": "Naudojamos D.4.117.37. Standartinės vaisiaus chirurginės procedūros klasifikatoriaus reikšmės.\nSistema: http://esveikata.lt/classifiers/NGN/StandartFetalSugicalProcedures\nKlasifikatoriaus rinkinio kodas: standard-fetal-surgical-procedures",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "116859006",
+                  "display": "Kraujo transfuzija"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.subject.reference",
+        "path": "Procedure.subject.reference",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Patient/123456"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer.actor.reference",
+        "path": "Procedure.performer.actor.reference",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "PractitionerRole/123456"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "short": "5.2.4.2. Kitos vaisiaus chirurginės procedūros / Other fetal surgical procedures",
+        "definition": " Tekstas kitoms vaisiaus chirurginėms procedūroms aprašyti.",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Kitos"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "max": "0"
+      }
+    ]
+  }
+}

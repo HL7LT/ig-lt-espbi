@@ -1,0 +1,2164 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-paper-prescription",
+  "name": "LtEspbiExtDevicePaperPrescription",
+  "status": "draft",
+  "description": "Popierinio recepto, kuriuo skiriami MPP ar medicinos prietaisai, duomenys / Data from a paper prescription for prescription MPP or medical devices",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceDispense.basedOn"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Popierinio recepto duomenys",
+        "definition": "Popierinio recepto duomenys. Būtinas jei recepto forma yra pp (popierinis)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "short": "Popierinio recepto skyrimo tipas",
+        "min": 7
+      },
+      {
+        "id": "Extension.extension:type",
+        "path": "Extension.extension",
+        "sliceName": "type",
+        "short": "Popierinio recepto skyrimo tipas",
+        "definition": "Popierinio recepto skyrimo tipas.\r\nGalimos reikšmės nurodytos klasifikatoriuje medication-prescription-type (http://esveikata.lt/classifiers/MedicationPrescriptionType).",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "type"
+      },
+      {
+        "id": "Extension.extension:type.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:type.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/MedicationPrescriptionType"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:type.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:type.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form",
+        "path": "Extension.extension",
+        "sliceName": "form",
+        "short": "Popierinio recepto forma",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuje http://esveikata.lt/classifiers/PaperPrescriptionForm.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "form"
+      },
+      {
+        "id": "Extension.extension:form.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:form.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/PaperPrescriptionForm"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:form.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:form.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:date",
+        "path": "Extension.extension",
+        "sliceName": "date",
+        "short": "Popierinio recepto išrašymo data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:date.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:date.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "date"
+      },
+      {
+        "id": "Extension.extension:date.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:validityPeriod",
+        "path": "Extension.extension",
+        "sliceName": "validityPeriod",
+        "short": "Popierinio recepto galiojimo laikotarpis",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "validityPeriod"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].start",
+        "path": "Extension.extension.value[x].start",
+        "short": "SPopierinio recepto galiojimo pradžios data",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:validityPeriod.value[x].end",
+        "path": "Extension.extension.value[x].end",
+        "short": "Popierinio recepto galiojimo pabaigos data",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:series",
+        "path": "Extension.extension",
+        "sliceName": "series",
+        "short": "Popierinio recepto serija",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:series.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:series.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "series"
+      },
+      {
+        "id": "Extension.extension:series.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:number",
+        "path": "Extension.extension",
+        "sliceName": "number",
+        "short": "Popierinio recepto numeris",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:number.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:number.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "number"
+      },
+      {
+        "id": "Extension.extension:number.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:conditionCode",
+        "path": "Extension.extension",
+        "sliceName": "conditionCode",
+        "short": "Popieriniame recepte nurodyta diagnozė, dėl kurios skiriami MPP ar medicinos prietaisai (TLK10). Galimos reikšmės nurodytos klasifikatoriuje tlk-10-am.",
+        "definition": "Popieriniame recepte nurodyta diagnozė, dėl kurios skiriami MPP ar medicinos prietaisai (TLK10). Galimos reikšmės nurodytos klasifikatoriuje tlk-10-am.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:conditionCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "conditionCode"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:conditionCode.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode",
+        "path": "Extension.extension",
+        "sliceName": "compensationCode",
+        "short": "Popieriniame recepte nurodytas kompensacijos kodas (privalomas, jeigu kompensuojamas)",
+        "definition": "Popieriniame recepte nurodytas kompensacijos kodas (privalomas, jeigu kompensuojamas).\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "compensationCode"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/Medication/CompensationCode"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:compensationCode.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber",
+        "path": "Extension.extension",
+        "sliceName": "aagaSgasNumber",
+        "short": "Popieriniame recepte nurodytas AAGA/SGAS numeris",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "aagaSgasNumber"
+      },
+      {
+        "id": "Extension.extension:aagaSgasNumber.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber",
+        "path": "Extension.extension",
+        "sliceName": "authorLabelNumber",
+        "short": "Popieriniame recepte nurodytas gydytojo lipduko numeris",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "authorLabelNumber"
+      },
+      {
+        "id": "Extension.extension:authorLabelNumber.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:author",
+        "path": "Extension.extension",
+        "sliceName": "author",
+        "short": "Sveikatos priežiūros specialistas, kuris išrašė popierinį receptą",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:author.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "author"
+      },
+      {
+        "id": "Extension.extension:author.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:author.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:author.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:author.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment",
+        "path": "Extension.extension",
+        "sliceName": "authorDepartment",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "authorDepartment"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:authorDepartment.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:dispenserNote",
+        "path": "Extension.extension",
+        "sliceName": "dispenserNote",
+        "short": "Popieriniame recepte nurodyta pastaba farmacijos specialistui",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:dispenserNote.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:dispenserNote.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "dispenserNote"
+      },
+      {
+        "id": "Extension.extension:dispenserNote.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:quantity",
+        "path": "Extension.extension",
+        "sliceName": "quantity",
+        "short": "Popieriniame recepte nurodytas MPP ar medicinos prietaisų vienetų skaičius.",
+        "definition": "Popieriniame recepte nurodytas MPP ar medicinos prietaisų vienetų skaičius.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:quantity.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "quantity"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].value",
+        "path": "Extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].comparator",
+        "path": "Extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].unit",
+        "path": "Extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].system",
+        "path": "Extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:quantity.value[x].code",
+        "path": "Extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:tags",
+        "path": "Extension.extension",
+        "sliceName": "tags",
+        "short": "Popierinio recepto papildomos žymos",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "tagsGkTag",
+        "short": "Popieriniame recepte nurodyta GK sprendimo žyma",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "tagsGkTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:tagsGkTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "specialTag",
+        "short": "Popieriniame recepte nurodyta ypatingo skyrimo žyma",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "specialTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "specialistDecisionTag",
+        "short": "Popieriniame recepte nurodyta specialisto sprendimu žyma ",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "specialistDecisionTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:specialistDecisionTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag",
+        "path": "Extension.extension.extension",
+        "sliceName": "labelingExemptionTag",
+        "short": "Popieriniame recepte nurodyta ženklinimo išimtis žyma.",
+        "definition": "Popieriniame recepte nurodyta ženklinimo išimtis žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "labelingExemptionTag"
+      },
+      {
+        "id": "Extension.extension:tags.extension:labelingExemptionTag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:tags.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "tags"
+      },
+      {
+        "id": "Extension.extension:tags.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:deviceReference",
+        "path": "Extension.extension",
+        "sliceName": "deviceReference",
+        "short": "Popieriniame recepte skiriamo MPP ar medicinos prietaiso resurso nuoroda.",
+        "definition": "Popieriniame recepte skiriamo MPP ar medicinos prietaiso resurso nuoroda.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:deviceReference.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:deviceReference.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "deviceReference"
+      },
+      {
+        "id": "Extension.extension:deviceReference.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:deviceReference.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:deviceReference.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:deviceReference.value[x].reference",
+        "path": "Extension.extension.value[x].reference",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:deviceReference.value[x].type",
+        "path": "Extension.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:deviceReference.value[x].identifier",
+        "path": "Extension.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:deviceReference.value[x].display",
+        "path": "Extension.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids",
+        "path": "Extension.extension",
+        "sliceName": "medicalAids",
+        "short": "Popierinio recepto skiramos Medicinos pagalbos priemonės (MPP) ar medicinos prietaiso duomenys",
+        "definition": "Popierinio recepto skiramos Medicinos pagalbos priemonės (MPP) ar medicinos prietaiso duomenys",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode",
+        "path": "Extension.extension.extension",
+        "sliceName": "groupCode",
+        "short": "Popieriniame recepte nurodytas MPP grupės kodas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "groupCode"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupCode.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName",
+        "path": "Extension.extension.extension",
+        "sliceName": "groupName",
+        "short": "Popieriniame recepte nurodytas MPP grupės pavadinimas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "groupName"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:groupName.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name",
+        "path": "Extension.extension.extension",
+        "sliceName": "name",
+        "short": "Popieriniame recepte nurodytas MPP konkretus pavadinimas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "name"
+      },
+      {
+        "id": "Extension.extension:medicalAids.extension:name.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:medicalAids.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "medicalAids"
+      },
+      {
+        "id": "Extension.extension:medicalAids.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses",
+        "path": "Extension.extension",
+        "sliceName": "lenses",
+        "short": "Popierinio recepto skiramos MP (akinių/lęšių) duomenys",
+        "definition": "Popierinio recepto skiramos MP (akinių/lęšių) duomenys.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension",
+        "path": "Extension.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice",
+        "path": "Extension.extension.extension",
+        "sliceName": "opticalDevice",
+        "short": "Popieriniame recepte nurodytas optinis prietaisas (akinių lęšiai, kontaktiniai lęšiai)",
+        "definition": "Popieriniame recepte nurodytas optinis prietaisas (akinių lęšiai, kontaktiniai lęšiai).\r\nGalimos reikšmės:\r\n- al: Akinių lęšiai\r\n- kl: Kontaktiniai lęšiai",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "opticalDevice"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding",
+        "path": "Extension.extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding.id",
+        "path": "Extension.extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding.extension",
+        "path": "Extension.extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding.system",
+        "path": "Extension.extension.extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": " http://hl7.org/fhir/ValueSet/vision-product"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding.version",
+        "path": "Extension.extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding.code",
+        "path": "Extension.extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding.display",
+        "path": "Extension.extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].coding.userSelected",
+        "path": "Extension.extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:opticalDevice.value[x].text",
+        "path": "Extension.extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type",
+        "path": "Extension.extension.extension",
+        "sliceName": "type",
+        "short": "Popieriniame recepte nurodytas akinių lęšių tipas (sudėtingieji, paprastieji)",
+        "definition": "Popieriniame recepte nurodytas akinių lęšių tipas (sudėtingieji, paprastieji). Būtinas, jei optinis prietaisas yra akinių lęšiai.\r\nGalimos reikšmės:\r\n- sd: Sudėtingieji.\r\n- pp: Paprastieji.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "type"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].id",
+        "path": "Extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].extension",
+        "path": "Extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding",
+        "path": "Extension.extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding.id",
+        "path": "Extension.extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding.extension",
+        "path": "Extension.extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding.system",
+        "path": "Extension.extension.extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-type"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding.version",
+        "path": "Extension.extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding.code",
+        "path": "Extension.extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding.display",
+        "path": "Extension.extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].coding.userSelected",
+        "path": "Extension.extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:type.value[x].text",
+        "path": "Extension.extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification",
+        "path": "Extension.extension.extension",
+        "sliceName": "lensSpecification",
+        "short": "Popieriniame recepte nurodyti akinių / lęšių parametrai",
+        "definition": "Popieriniame recepte nurodyti akinių / lęšių parametrai.",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "ext-2",
+            "severity": "error",
+            "human": "Each eye (left or right) may be specified at most once within the lensSpecification extension.",
+            "expression": " extension.where(url='lensSpecification').extension.where(url='eye').value.isDistinct()"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension",
+        "path": "Extension.extension.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:eye",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "eye",
+        "short": "Popieriniame recepte nurodyta akis",
+        "definition": "Popieriniame recepte nurodyta akis",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:eye.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:eye.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "eye"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:eye.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/vision-eye-codes"
+        }
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "sphere",
+        "short": "Popieriniame recepte nurodyta akies sfera (SPH) / OS sfera",
+        "definition": "Popieriniame recepte nurodyta akies sfera (SPH) / OS sfera.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "sphere"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:sphere.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "cylinder",
+        "short": "Popieriniame recepte nurodytas akies cilindras (CYL) / OS cilindras",
+        "definition": "Popieriniame recepte nurodytas akies cilindras (CYL) / OS cilindras",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "cylinder"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinder.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "cylinderAxis",
+        "short": "Popieriniame recepte nurodyta akies ašis (AXIS) / OS cilindro ašis",
+        "definition": "Popieriniame recepte nurodyta akies ašis (AXIS) / OS cilindro ašis",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "cylinderAxis"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:cylinderAxis.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "add",
+        "short": "Popieriniame recepte nurodyta akies adidacija (ADD)/degresija / OS ADD",
+        "definition": "Popieriniame recepte nurodyta akies adidacija (ADD)/degresija / OS ADD",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "add"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:add.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "prism",
+        "short": "Popieriniame recepte nurodyta akies prizmė (PRISM) / OS prizmė ",
+        "definition": "Popieriniame recepte nurodyta akies prizmė (PRISM) / OS prizmė ",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "prism"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prism.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "prismBase",
+        "short": "Popieriniame recepte nurodyta akies prizmės bazės (BASE) pusė",
+        "definition": "Popieriniame recepte nurodyta akies prizmės bazės (BASE) pusė",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "prismBase"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding",
+        "path": "Extension.extension.extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding.id",
+        "path": "Extension.extension.extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding.extension",
+        "path": "Extension.extension.extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding.system",
+        "path": "Extension.extension.extension.extension.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://hl7.org/fhir/ValueSet/vision-base-codes"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding.version",
+        "path": "Extension.extension.extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding.code",
+        "path": "Extension.extension.extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding.display",
+        "path": "Extension.extension.extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismBase.value[x].coding.userSelected",
+        "path": "Extension.extension.extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "prismAxis",
+        "short": "Popieriniame recepte nurodytas akies prizmės bazės krypties meridianas",
+        "definition": "Popieriniame recepte nurodytas akies prizmės bazės krypties meridianas",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "prismAxis"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1,
+        "patternUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:prismAxis.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "nearPD",
+        "short": "Popieriniame recepte nurodytas akies PD artumui / OS PD (Artumui)",
+        "definition": "Popieriniame recepte nurodytas akies PD artumui / OS PD (Artumui)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "nearPD"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:nearPD.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "distancePD",
+        "short": "Popieriniame recepte nurodytas akies PD tolumui / OS PD (Tolumui)",
+        "definition": "Popieriniame recepte nurodytas akies PD tolumui / OS PD (Tolumui)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "distancePD"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distancePD.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "backCurve",
+        "short": "Popieriniame recepte nurodyta akies bazinė kreivė (BC) / OS Bazinės kreivė (BC)",
+        "definition": "Popieriniame recepte nurodyta akies bazinė kreivė (BC) / OS Bazinės kreivė (BC)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "backCurve"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:backCurve.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "diameter",
+        "short": "Popieriniame recepte nurodytas kairės akies diametras (DIA) / OS Diametras (DIA)",
+        "definition": "Popieriniame recepte nurodytas kairės akies diametras (DIA) / OS Diametras (DIA)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "diameter"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:diameter.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "distanceBetweenPupils",
+        "short": "Popieriniame recepte nurodytas atstumas tarp vyzdžių centrų / Atstumas tarp vyzdžių",
+        "definition": "Popieriniame recepte nurodytas atstumas tarp vyzdžių centrų / Atstumas tarp vyzdžių",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "distanceBetweenPupils"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x].id",
+        "path": "Extension.extension.extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x].extension",
+        "path": "Extension.extension.extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x].value",
+        "path": "Extension.extension.extension.extension.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x].comparator",
+        "path": "Extension.extension.extension.extension.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x].unit",
+        "path": "Extension.extension.extension.extension.value[x].unit",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x].system",
+        "path": "Extension.extension.extension.extension.value[x].system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:distanceBetweenPupils.value[x].code",
+        "path": "Extension.extension.extension.extension.value[x].code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:description",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "description",
+        "short": "Popieriniame recepte nurodytas akinių/lešių paskirties aprašymas",
+        "definition": "Popieriniame recepte nurodytas akinių/lešių paskirties aprašymas",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:description.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:description.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "description"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:description.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:note",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "note",
+        "short": "Popieriniame recepte nurodytos pastabos",
+        "definition": "Popieriniame recepte nurodytos pastabos",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:note.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:note.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "note"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.extension:note.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "lensSpecification"
+      },
+      {
+        "id": "Extension.extension:lenses.extension:lensSpecification.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:lenses.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "lenses"
+      },
+      {
+        "id": "Extension.extension:lenses.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-paper-prescription"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

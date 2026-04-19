@@ -1,0 +1,249 @@
+{
+  "resourceType": "ValueSet",
+  "id": "lt-espbi-vs-doc-typecodes",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-doc-typecodes",
+  "version": "1.0.0",
+  "name": "LtEspbiVsDocumentTypeCodes",
+  "status": "draft",
+  "date": "2026-01-08",
+  "description": "Dokumentų tipų kodų sąrašas / Document type codes. Naudojamas LtEspbiComposition.type (CodeableConcept).",
+  "compose": {
+    "include": [
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "34108-1",
+            "display": "Ambulatorinio apsilankymo aprašymas"
+          },
+          {
+            "code": "47420-5",
+            "display": "Ambulatorinių slaugos paslaugų namuose poreikio vertinimo klausimynas"
+          },
+          {
+            "code": "18594-2",
+            "display": "Asmens psichikos sveikatos istorija"
+          },
+          {
+            "code": "68683-2",
+            "display": "Atlikti tikrinimai"
+          },
+          {
+            "code": "11488-4",
+            "display": "Atsakymas į siuntimą"
+          },
+          {
+            "code": "57833-6",
+            "display": "Elektroninis receptas"
+          },
+          {
+            "code": "57074-7",
+            "display": "Gimdymo eiga"
+          },
+          {
+            "code": "67796-3",
+            "display": "Greitosios medicinos pagalbos kvietimo kortelė"
+          },
+          {
+            "code": "57130-7",
+            "display": "Gydytojo dienynas"
+          },
+          {
+            "code": "11502-2",
+            "display": "Laboratorinio tyrimo rezultatų (duomenų) protokolas"
+          },
+          {
+            "code": "X-LAB-ORDER",
+            "display": "Laboratorinio tyrimo užsakymas"
+          },
+          {
+            "code": "18748-4",
+            "display": "Medicininio vaizdo aprašymas"
+          },
+          {
+            "code": "57133-1",
+            "display": "Medicinos dokumentų išrašas / siuntimas"
+          },
+          {
+            "code": "57717-1",
+            "display": "Naujagimio pirma apžiūra"
+          },
+          {
+            "code": "92015-7",
+            "display": "Naujagimis (-iai)"
+          },
+          {
+            "code": "67471-3",
+            "display": "Nėštumo duomenys, anamnezė"
+          },
+          {
+            "code": "57083-8",
+            "display": "Nėštumo ir gimdymo istorija"
+          },
+          {
+            "code": "69045-3",
+            "display": "Nėštumo nutrūkimo / nutraukimo patvirtinimo aktas"
+          },
+          {
+            "code": "90767-5",
+            "display": "Nėštumo suvestinė"
+          },
+          {
+            "code": "57059-8",
+            "display": "Nėščiosios ambulatorinio apsilankymo aprašymas"
+          },
+          {
+            "code": "57077-0",
+            "display": "Nėščiosios ir naujagimio kortelė"
+          },
+          {
+            "code": "92574-3",
+            "display": "Nėščiosios tyrimas, gimdymo priežiūros planas, paskyrimai"
+          },
+          {
+            "code": "64295-9",
+            "display": "Paciento slaugos ir priežiūros planas"
+          },
+          {
+            "code": "60591-5",
+            "display": "Paciento suvestinės dokumentas"
+          },
+          {
+            "code": "34129-7",
+            "display": "Paciento sveikatos būklės vertinimo lapas"
+          },
+          {
+            "code": "96134-2",
+            "display": "Paciento veiklos ir namų aplinkos vertinimo lapas"
+          },
+          {
+            "code": "11526-1",
+            "display": "Patologijos tyrimo atsakymas"
+          },
+          {
+            "code": "X-PATH-ORDER",
+            "display": "Patologijos tyrimo užsakymas"
+          },
+          {
+            "code": "34782-3",
+            "display": "Pranešimas apie nustatytą (įtariamą) infekcinį susirgimą ar būklę"
+          },
+          {
+            "code": "78706-9",
+            "display": "Pranešimas apie pirmą kartą nustatytą onkologinės ligos diagnozę"
+          },
+          {
+            "code": "75423-4",
+            "display": "Psichikos ir elgesio sutrikimų, vartojant narkotines ir psichotropines medžiagas, statistinės apskaitos duomenų aprašas"
+          },
+          {
+            "code": "92016-5",
+            "display": "Rizikos veiksniai"
+          },
+          {
+            "code": "18842-5",
+            "display": "Stacionaro epikrizė"
+          },
+          {
+            "code": "73814-6",
+            "display": "Tyrimai ir procedūros nėštumo metu"
+          },
+          {
+            "code": "60593-1",
+            "display": "Vaisto išdavimas"
+          },
+          {
+            "code": "11369-6",
+            "display": "Vakcinacijos įrašas"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "224406003",
+            "display": "Asmens medicininė knygelė (sveikatos pasas) (Darbdavio dalis)"
+          },
+          {
+            "code": "171363009",
+            "display": "Asmens medicininė knygelė (sveikatos pasas) (Gydytojo dalis)"
+          },
+          {
+            "code": "184822001",
+            "display": "Asmens privalomojo sveikatos tikrinimo kortelė"
+          },
+          {
+            "code": "307930005",
+            "display": "Medicininis mirties liudijimas"
+          },
+          {
+            "code": "270101008",
+            "display": "Medicininis perinatalinis mirties liudijimas"
+          },
+          {
+            "code": "160922003",
+            "display": "Privalomojo sveikatos patikrinimo medicininė pažyma (Darbdavio dalis)"
+          },
+          {
+            "code": "275674000",
+            "display": "Privalomojo sveikatos patikrinimo medicininė pažyma (Gydytojo dalis)"
+          },
+          {
+            "code": "444561001",
+            "display": "Vaiko gimimo pažymėjimas"
+          },
+          {
+            "code": "274410002",
+            "display": "Vaiko sveikatos pažymėjimas (Odontologo dalis)"
+          },
+          {
+            "code": "171387006",
+            "display": "Vaiko sveikatos pažymėjimas (Šeimos gydytojo dalis)"
+          },
+          {
+            "code": "270370004",
+            "display": "Vairuotojo sveikatos patikrinimo medicininė pažyma"
+          },
+          {
+            "code": "241491007",
+            "display": "Vaisiaus ultragarsinis tyrimas"
+          }
+        ]
+      },
+      {
+        "system": "http://esveikata.lt/classifier/DocCode",
+        "concept": [
+          {
+            "code": "01.0002",
+            "display": "Cezario pjūvio operacijos protokolas"
+          },
+          {
+            "code": "01.0007",
+            "display": "Naujagimio raidos istorija"
+          },
+          {
+            "code": "01.0006",
+            "display": "Negyvagimio / naujagimio mirties atvejo priežasčių nagrinėjimas"
+          },
+          {
+            "code": "01.0004",
+            "display": "Nėštumo, gimdymo ar pogimdyminio laikotarpio arti netekties ir netekties atvejai"
+          },
+          {
+            "code": "01.0001",
+            "display": "Pagalbos teikimo kontrolinis lapas"
+          },
+          {
+            "code": "01.0003",
+            "display": "Partograma"
+          },
+          {
+            "code": "01.0005",
+            "display": "Tėvų sutikimas dėl naujagimiui atliekamų procedūrų"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-imaging-study",
+  "name": "LtEspbiImagingStudy",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ImagingStudy",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ImagingStudy.id",
+        "path": "ImagingStudy.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.meta",
+        "path": "ImagingStudy.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.extension",
+        "path": "ImagingStudy.extension",
+        "min": 2,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.extension:ltEspbiExtReported",
+        "path": "ImagingStudy.extension",
+        "sliceName": "ltEspbiExtReported",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-imagingstudy/reported"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.extension:ltEspbiExtOrganization",
+        "path": "ImagingStudy.extension",
+        "sliceName": "ltEspbiExtOrganization",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-imagingstudy/organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.identifier",
+        "path": "ImagingStudy.identifier",
+        "short": "Unikalus tyrimo identifikatorius / Unique study id",
+        "definition": "Unikalus tyrimo identifikatorius. Duomuo iš DICOM rinkmenos (Tag: (0020,000D)).",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.identifier.system",
+        "path": "ImagingStudy.identifier.system",
+        "min": 1,
+        "patternUri": "urn:dicom:uid"
+      },
+      {
+        "id": "ImagingStudy.identifier.value",
+        "path": "ImagingStudy.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.status",
+        "path": "ImagingStudy.status",
+        "short": "Diagnostinio tyrimo būsena / The current state of the ImagingStudy resource",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/imagingstudy-status. Galimos reikšmės: registered | available | cancelled | entered-in-error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.subject",
+        "path": "ImagingStudy.subject",
+        "short": "Nuoroda į Paciento resursą\u0005 / Reference to Patient resource",
+        "definition": "Informacija apie pacientą, kuriam atliktas tyrimas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.subject.reference",
+        "path": "ImagingStudy.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.encounter",
+        "path": "ImagingStudy.encounter",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.started",
+        "path": "ImagingStudy.started",
+        "short": "Tyrimo atlikimo data ir laikas / study date",
+        "definition": "Tyrimo atlikimo data ir laikas. Duomuo iš DICOM rinkmenos (Tag: (0008,0020); (0008,0030)).",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.numberOfSeries",
+        "path": "ImagingStudy.numberOfSeries",
+        "short": "Serijų skaičius tyrime / Number of series in study",
+        "definition": "Serijų skaičius tyrime. Duomuo iš DICOM rinkmenos (Tag: (0020,1206)).",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.numberOfInstances",
+        "path": "ImagingStudy.numberOfInstances",
+        "short": "Vaizdų skaičius tyrime / Number of images in study",
+        "definition": "Vaizdų skaičius tyrime. Duomuo iš DICOM rinkmenos (Tag: (0020,1208)).",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.note",
+        "path": "ImagingStudy.note",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.description",
+        "path": "ImagingStudy.description",
+        "short": "Tyrimo pavadinimas / The Imaging Manager description of the study",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series",
+        "path": "ImagingStudy.series",
+        "short": "Tyrimo serija / Series of study",
+        "definition": "Tyrimo serijos.",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.uid",
+        "path": "ImagingStudy.series.uid",
+        "short": "Tyrimo serijos identifikatorius / Series of study unique id",
+        "definition": "Unikalus tyrimo serijos identifikatorius. Duomuo iš DICOM rinkmenos (Tag: (0020,000E)).\r\nReikalauja urn:oid: dalies šalinimo pvz.: urn:oid:1.2.840.113619.2.327.3.4271022949.94.1410959782.332 tampa 1.2.840.113619.2.327.3.4271022949.94.1410959782.332",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.number",
+        "path": "ImagingStudy.series.number",
+        "short": "Serijos eilės numeris tyrime / Sequence number of series in study ",
+        "definition": "Serijos eilės numeris tyrime, t.y. kelinta iš visų tyrimo serijų yra minimoji. Duomuo iš DICOM rinkmenos (Tag: (0020,0011)).",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.modality",
+        "path": "ImagingStudy.series.modality",
+        "short": "Tyrimo serijos tipas / Modality of series",
+        "definition": "Tyrimo serijos tipas. Duomuo iš DICOM rinkmenos (Tag: (0008,0060)).\r\nGalimos reikšmės:\r\n● CR : Kompiuterinė radiografija.\r\n● CT : Kompiuterinė tomografija.\r\n● MR : -\r\n● NM : Branduolinė medicina.\r\n● US : Echoskopija.\r\n● OT : Kita.\r\n● BI : Biomagnetic imaging.\r\n● CD : Color flow Doppler.\r\n● DD : Duplex Doppler.\r\n● DG : Diaphanography.\r\n● ES : Endoskopija.\r\n● LS : Laser surface scan.\r\n● PT : Positron emission tomography (PET).\r\n● RG : Radiografinis atvaizdavimas.\r\n● ST : Single-photon emission computed tomography (SPECT).\r\n● TG : Thermography.\r\n● XA : Rentgeno angiografija.\r\n● RF : Fluoroskopija.\r\n● RTIMAGE : Radiotherapy Image.\r\n● RTDOSE : Radiotherapy Dose.\r\n● RTSTRUCT : Radiotherapy Structure Set.\r\n● RTPLAN : Radiotherapy Plan.\r\n● RTRECORD : RT Treatment Record.\r\n● HC : Hard Copy.\r\n● DX : Skaitmeninė radiografija.\r\n● MG : Mamografija.\r\n● IO : Intra-oral Radiography.\r\n● PX : Panoraminė rentgenografija.\r\n● GM : General Microscopy.\r\n● SM : Slide Microscopy.\r\n● XC : External-camera Photography.\r\n● PR : Presentation State.\r\n● AU : Audio.\r\n● ECG : Elektrokardiografija.\r\n● EPS : Cardiac Electrophysiology.\r\n● HD : Hemodynamic Waveform.\r\n● SR : SR Document.\r\n● IVUS : Intravascular Ultrasound.\r\n● OP : Ophthalmic Photography.\r\n● SMR : Stereometric Relationship.\r\n● OCT : Optical Coherence Tomography.\r\n● OPR : Ophthalmic Refraction.\r\n● OPV : Ophthalmic Visual Field.\r\n● OPM : Ophthalmic Mapping.\r\n● KO : Key Object Selection.\r\n● SEG : Segmentation.\r\n● REG : Registration.\r\n● SC : Antrinis pagavimas.\r\nGalimos reikšmės nurodytos klasifikatoriuje dicom-modality.",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.modality.coding",
+        "path": "ImagingStudy.series.modality.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImagingStudy.series.modality.coding.system",
+        "path": "ImagingStudy.series.modality.coding.system",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.modality.coding.code",
+        "path": "ImagingStudy.series.modality.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.description",
+        "path": "ImagingStudy.series.description",
+        "short": "Tyrimo serijos apibūdinimas / Series of study description",
+        "definition": "Apibūdinimas, pateikiamas gydytojo. Duomuo iš DICOM rinkmenos (Tag: (0008,103E)).",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.numberOfInstances",
+        "path": "ImagingStudy.series.numberOfInstances",
+        "short": "Vaizdų skaičius serijoje / Number of images in series",
+        "definition": "Vaizdų skaičius serijoje. Duomuo iš DICOM rinkmenos (Tag: (0020,1209)).",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.bodySite",
+        "path": "ImagingStudy.series.bodySite",
+        "short": "Tirta kūno dalis / Body part examined",
+        "definition": "Tirta kūno dalis, pagal DICOM standartą. Duomuo iš DICOM rinkmenos (Tag: (0018,0015)).\r\n\r\nPagal FHIR R5 dokumentaciją kaip pavyzdys pateikiamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/body-site (kuriame pateikiami http://snomed.info/sct kodai). DICOM ir SNOMED-CT atitikmenims žr. DICOM 16 dalies L priedą (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html).",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept",
+        "path": "ImagingStudy.series.bodySite.concept",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding",
+        "path": "ImagingStudy.series.bodySite.concept.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding.system",
+        "path": "ImagingStudy.series.bodySite.concept.coding.system",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding.code",
+        "path": "ImagingStudy.series.bodySite.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding.display",
+        "path": "ImagingStudy.series.bodySite.concept.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.performer",
+        "path": "ImagingStudy.series.performer",
+        "short": "Tyrimą atlikęs specialistas / Performing physician",
+        "definition": "Tyrimą atlikusio gydytojo / radiologo vardas ir pavardė ",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor",
+        "path": "ImagingStudy.series.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor.reference",
+        "path": "ImagingStudy.series.performer.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.instance",
+        "path": "ImagingStudy.series.instance",
+        "short": "Serijos vaizdas / Image of series",
+        "definition": "Tyrimo serijų vaizdai.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.instance.extension",
+        "path": "ImagingStudy.series.instance.extension",
+        "max": "1"
+      },
+      {
+        "id": "ImagingStudy.series.instance.modifierExtension",
+        "path": "ImagingStudy.series.instance.modifierExtension",
+        "max": "1"
+      },
+      {
+        "id": "ImagingStudy.series.instance.uid",
+        "path": "ImagingStudy.series.instance.uid",
+        "short": "Tyrimo vaizdo identifikatorius / Unique id of image",
+        "definition": "Unikalus tyrimo vaizdo identifikatorius. Duomuo iš DICOM rinkmenos (Tag: (0008,0018)).\r\n"
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass",
+        "path": "ImagingStudy.series.instance.sopClass",
+        "short": "Tyrimo vaizdo SOP klasės UID / Study SOP class unique id",
+        "definition": "Tyrimo vaizdo SOP klasės UID. Duomuo iš DICOM rinkmenos (Tag: (0008,0016)).\r\n"
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass.extension",
+        "path": "ImagingStudy.series.instance.sopClass.extension",
+        "max": "1"
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass.system",
+        "path": "ImagingStudy.series.instance.sopClass.system",
+        "definition": "The identification of the code system that defines the meaning of the symbol in the code.\r\nGalimos reikšmės pateiktos https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass.code",
+        "path": "ImagingStudy.series.instance.sopClass.code",
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.series.instance.number",
+        "path": "ImagingStudy.series.instance.number",
+        "short": "Vaizdo eilės numeris / Sequence number of image in series",
+        "definition": "Eilės numeris tyrime, t.y. kelinta iš visų tyrimo serijų yra minimoji. Duomuo iš DICOM rinkmenos (Tag: (0020,0013)).",
+        "example": [
+          {
+            "label": "example",
+            "valueUnsignedInt": 1
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-domain",
+  "name": "LtEspbiListDomain",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List.implicitRules",
+        "path": "List.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "List.language",
+        "path": "List.language",
+        "max": "0"
+      },
+      {
+        "id": "List.text",
+        "path": "List.text",
+        "max": "0"
+      },
+      {
+        "id": "List.contained",
+        "path": "List.contained",
+        "max": "0"
+      },
+      {
+        "id": "List.extension",
+        "path": "List.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.modifierExtension",
+        "path": "List.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "List.identifier",
+        "path": "List.identifier",
+        "max": "0"
+      },
+      {
+        "id": "List.status",
+        "path": "List.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "current"
+          }
+        ]
+      },
+      {
+        "id": "List.mode",
+        "path": "List.mode",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "working"
+          }
+        ]
+      },
+      {
+        "id": "List.title",
+        "path": "List.title",
+        "max": "0"
+      },
+      {
+        "id": "List.code.id",
+        "path": "List.code.id",
+        "max": "0"
+      },
+      {
+        "id": "List.code.extension",
+        "path": "List.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.code.coding.id",
+        "path": "List.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "List.code.coding.extension",
+        "path": "List.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.code.coding.version",
+        "path": "List.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "List.code.coding.userSelected",
+        "path": "List.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "List.code.text",
+        "path": "List.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.subject.id",
+        "path": "List.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "List.subject.extension",
+        "path": "List.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.subject.type",
+        "path": "List.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "List.subject.identifier",
+        "path": "List.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "List.subject.display",
+        "path": "List.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "List.encounter",
+        "path": "List.encounter",
+        "max": "0"
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "List.source.id",
+        "path": "List.source.id",
+        "max": "0"
+      },
+      {
+        "id": "List.source.extension",
+        "path": "List.source.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.source.type",
+        "path": "List.source.type",
+        "max": "0"
+      },
+      {
+        "id": "List.source.identifier",
+        "path": "List.source.identifier",
+        "max": "0"
+      },
+      {
+        "id": "List.source.display",
+        "path": "List.source.display",
+        "max": "0"
+      },
+      {
+        "id": "List.orderedBy",
+        "path": "List.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "List.note",
+        "path": "List.note",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.id",
+        "path": "List.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.extension",
+        "path": "List.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.modifierExtension",
+        "path": "List.entry.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.flag.id",
+        "path": "List.entry.flag.id",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.flag.extension",
+        "path": "List.entry.flag.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.flag.coding.id",
+        "path": "List.entry.flag.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.flag.coding.extension",
+        "path": "List.entry.flag.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.flag.coding.version",
+        "path": "List.entry.flag.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.flag.coding.userSelected",
+        "path": "List.entry.flag.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.flag.text",
+        "path": "List.entry.flag.text",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.deleted",
+        "path": "List.entry.deleted",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.date",
+        "path": "List.entry.date",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item.id",
+        "path": "List.entry.item.id",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item.extension",
+        "path": "List.entry.item.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item.type",
+        "path": "List.entry.item.type",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item.identifier",
+        "path": "List.entry.item.identifier",
+        "max": "0"
+      },
+      {
+        "id": "List.entry.item.display",
+        "path": "List.entry.item.display",
+        "max": "0"
+      },
+      {
+        "id": "List.emptyReason.id",
+        "path": "List.emptyReason.id",
+        "max": "0"
+      },
+      {
+        "id": "List.emptyReason.extension",
+        "path": "List.emptyReason.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.emptyReason.coding.id",
+        "path": "List.emptyReason.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "List.emptyReason.coding.extension",
+        "path": "List.emptyReason.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "List.emptyReason.coding.version",
+        "path": "List.emptyReason.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "List.emptyReason.coding.userSelected",
+        "path": "List.emptyReason.coding.userSelected",
+        "max": "0"
+      }
+    ]
+  }
+}

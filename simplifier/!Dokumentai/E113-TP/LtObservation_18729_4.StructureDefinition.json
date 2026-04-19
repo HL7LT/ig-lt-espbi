@@ -1,0 +1,236 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-18729-4",
+  "name": "LtEspbiObservation18729_4",
+  "status": "draft",
+  "description": "Šlapimo tyrimas / Urine test",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "5.1.11. Šlapimo tyrimas/ Urine test"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros duomenų pavadinimas. Koduotam pavadinimui gali būti naudojami Loinc ir Snomed kodai identifikuojantys apžiūros duomenų tipą ir paskirtį.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18729-4",
+                  "display": "Urinalysis studies (set)"
+                }
+              ],
+              "text": "Šlapimo tyrimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "18729-4"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Šlapimo tyrimo data / Urine test date-",
+        "definition": "Data Pacientės šlapimo tyrimo datai nustatyti.\r\nPatikros sąlygos:\r\n• Pagal nutylėjimą kortelės užvedimo data",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:urineProtein",
+        "path": "Observation.hasMember",
+        "sliceName": "urineProtein",
+        "short": "5.1.11.2. Šlapimo baltymas / Urine protein",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-2888-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:urineLeukocytes",
+        "path": "Observation.hasMember",
+        "sliceName": "urineLeukocytes",
+        "short": "5.1.11.3. Šlapimo leukocitai/ Urine leukocytes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-30405-5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:urineErythrocytes",
+        "path": "Observation.hasMember",
+        "sliceName": "urineErythrocytes",
+        "short": "5.1.11.4. Šlapimo eritrocitai/ Urine erythrocytes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-30391-7"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:urineGlucose",
+        "path": "Observation.hasMember",
+        "sliceName": "urineGlucose",
+        "short": "5.1.11.5. Šlapimo gliukozė/ Urine glucose",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-2350-7"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:urineKetones",
+        "path": "Observation.hasMember",
+        "sliceName": "urineKetones",
+        "short": "5.1.11.6. Šlapimo ketonai/ Urine ketones",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-49779-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:urineNitrites",
+        "path": "Observation.hasMember",
+        "sliceName": "urineNitrites",
+        "short": "5.1.11.7. Šlapimo nitritai/ Urine nitrites",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-2657-5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

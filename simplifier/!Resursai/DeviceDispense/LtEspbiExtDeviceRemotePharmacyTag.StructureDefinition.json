@@ -1,0 +1,54 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-remote-pharmacy-tag",
+  "name": "LtEspbiExtDeviceRemotePharmacyTag",
+  "status": "draft",
+  "description": "Požymis, ar MPP ar medicinos prietaisas įsigytas nuotoliniu būdu / Tag whether MPP or medical device was purchased remotely",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceDispense"
+    },
+    {
+      "type": "element",
+      "expression": "DeviceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Požymis, ar MPP ar medicinos prietaisas įsigytas nuotoliniu būdu",
+        "definition": "Požymis, ar MPP ar medicinos prietaisas įsigytas nuotoliniu būdu. Pridedamas tik tuo atveju, kai įsigyjama nuotoliniu būdu.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-remote-pharmacy-tag"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

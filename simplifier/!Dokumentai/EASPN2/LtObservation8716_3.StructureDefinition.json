@@ -1,0 +1,267 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8716-3-e-aspn-2",
+  "name": "LtEspbiObservation8716_3_EAspn2",
+  "status": "draft",
+  "description": "Matavimai",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "Koduotas apžiūros / matavimų duomenų pavadinimas.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8716-3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "8716-3"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "short": "Paciento duomenys / Information about the patient",
+        "definition": "Nuoroda į pacientą, kurio apžiūros / matavimių duomenys yra teikiami."
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Įvertinimo data ir laikas / Date and time for observation",
+        "definition": "Apžiūros / matavimų atlikimo data ir laikas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-10-21T15:20:39+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "short": "Sveikatos priežiūros specialisto duomenys / Information about health care specialist",
+        "definition": "Nuoroda į pacientą apžiūrėjusį ir / ar jo duomenis išmatavusį sveikatos priežiūros specialistą.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000015885"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "reference"
+            }
+          ],
+          "rules": "closed"
+        }
+      },
+      {
+        "id": "Observation.hasMember:55284-4",
+        "path": "Observation.hasMember",
+        "sliceName": "55284-4",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55284-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:20564-1",
+        "path": "Observation.hasMember",
+        "sliceName": "20564-1",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-20564-1-aspn2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:2339-0",
+        "path": "Observation.hasMember",
+        "sliceName": "2339-0",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-2339-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:96588-9",
+        "path": "Observation.hasMember",
+        "sliceName": "96588-9",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-96588-9"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:66760-0",
+        "path": "Observation.hasMember",
+        "sliceName": "66760-0",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-66760-0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:8886-4",
+        "path": "Observation.hasMember",
+        "sliceName": "8886-4",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8886-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:8310-5",
+        "path": "Observation.hasMember",
+        "sliceName": "8310-5",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8310-5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:3141-9",
+        "path": "Observation.hasMember",
+        "sliceName": "3141-9",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-3141-9"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

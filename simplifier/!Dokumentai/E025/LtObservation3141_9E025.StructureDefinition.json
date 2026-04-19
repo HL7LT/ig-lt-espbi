@@ -1,0 +1,239 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-3141-9-e025",
+  "name": "LtEspbiObservation3141_9E025",
+  "status": "draft",
+  "description": "Kūno svoris ir jo procentilė / Body weight and its percentile",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "3141-9",
+                  "display": "Body weight Measured"
+                }
+              ],
+              "text": "Kūno svoris"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "3141-9"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-09-17T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Kūno svorio reikšmė ir matavimo vienetai / Weight values",
+        "definition": "Kūno svoris (E025). Kūno svoris nurodomas kilogramais.\r\n\r\nLauko taisyklės:\r\n- Galimi 2 skaitmenys po kablelio.\r\n- Maksimali kūno svorio parametro reikšmė 250 kg.\r\n- Minimali kūno svorio parametro reikšmė 5 kg.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 75.9,
+              "unit": "kg",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].id",
+        "path": "Observation.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].value",
+        "path": "Observation.value[x].value",
+        "definition": "Lauko taisyklės:\r\n- Galimi 2 skaitmenys po kablelio.\r\n- Maksimali kūno svorio parametro reikšmė 250 kg.\r\n- Minimali kūno svorio parametro reikšmė 5 kg.",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "obs-val-val-7",
+            "severity": "error",
+            "human": "The number can be two decimal place.",
+            "expression": "($this * 100).round() = ($this * 100)"
+          },
+          {
+            "key": "obs-val-val-8",
+            "severity": "error",
+            "human": "Body weight must be between 5–250 kg",
+            "expression": "$this >= 5 and $this <= 250"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].comparator",
+        "path": "Observation.value[x].comparator",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].unit",
+        "path": "Observation.value[x].unit",
+        "min": 1,
+        "fixedString": "kg"
+      },
+      {
+        "id": "Observation.value[x].system",
+        "path": "Observation.value[x].system",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org"
+      },
+      {
+        "id": "Observation.value[x].code",
+        "path": "Observation.value[x].code",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "short": "Svorio procentilė / Weight percentile",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component.code",
+        "path": "Observation.component.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8336-0",
+                  "display": "Body weight [Percentile] Per age"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "fixedCode": "8336-0"
+      },
+      {
+        "id": "Observation.component.value[x]",
+        "path": "Observation.component.value[x]",
+        "short": "Svorio procentilė / Weight percentile",
+        "definition": "Svorio procentilė (E025).\r\n\r\nSvorio procentilė automatiškai apskaičiuojamas laukas.\r\nLaukas turi būti matomas ir pildomas vaikui iki 18 metų.",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 55
+          }
+        ]
+      }
+    ]
+  }
+}

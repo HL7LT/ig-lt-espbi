@@ -1,0 +1,343 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen",
+  "name": "LtEspbiSpecimen",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Specimen",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Specimen",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Specimen.id",
+        "path": "Specimen.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.meta",
+        "path": "Specimen.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.identifier",
+        "path": "Specimen.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.identifier:registrationCode",
+        "path": "Specimen.identifier",
+        "sliceName": "registrationCode",
+        "short": "Ėminio registracijos kodas / Specimen code",
+        "definition": "Identifikatorius, skirtas identifikuoti ėminį pagal jo registracijos kodą.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.system",
+        "path": "Specimen.identifier.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/Specimen/RegistrationCode"
+      },
+      {
+        "id": "Specimen.identifier:registrationCode.value",
+        "path": "Specimen.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type",
+        "path": "Specimen.type",
+        "short": "Ėminys / Speciment",
+        "definition": "Tiriamos medžiagos tipas ir aprašymas nurodomos iš „specimen-type“ klasifikatoriaus. Ėminio patikslinimas įvedamas į text lauką.",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.type.coding",
+        "path": "Specimen.type.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Specimen.type.coding.system",
+        "path": "Specimen.type.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type.coding.code",
+        "path": "Specimen.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type.coding.display",
+        "path": "Specimen.type.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.type.coding:materialType",
+        "path": "Specimen.type.coding",
+        "sliceName": "materialType",
+        "short": "Tiriamos medžiagos tipas",
+        "definition": "Tiriamos medžiagos tipas.\r\nGalimos reikšmės iš specimen-type klasifikatoriaus.",
+        "max": "1"
+      },
+      {
+        "id": "Specimen.type.coding:materialType.system",
+        "path": "Specimen.type.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/Specimen/Type"
+      },
+      {
+        "id": "Specimen.type.coding:materialType.code",
+        "path": "Specimen.type.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type.coding:materialType.display",
+        "path": "Specimen.type.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Specimen.type.text",
+        "path": "Specimen.type.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.subject",
+        "path": "Specimen.subject",
+        "short": "Nuoroda į pacientą, kuriam tiriamas ėminys / Reference to the patient whose specimen data",
+        "definition": "Nuoroda į pacientą, kuriam tiriamas ėminys.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.subject.reference",
+        "path": "Specimen.subject.reference",
+        "min": 1,
+        "mustSupport": false
+      },
+      {
+        "id": "Specimen.collection",
+        "path": "Specimen.collection",
+        "short": "Duomenys, susiję su ėminio/mėginio paėmimo informacija / Details concerning the specimen collection",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.collector",
+        "path": "Specimen.collection.collector",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.collector.reference",
+        "path": "Specimen.collection.collector.reference",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.collected[x]",
+        "path": "Specimen.collection.collected[x]",
+        "short": "Medžiagos paėmimo data / Date and time when specimen was taken",
+        "definition": "Ėminio/medžiagos paėmimo data ir laikas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Specimen.collection.method",
+        "path": "Specimen.collection.method",
+        "short": "Ėminio paėmimo metodas / Specimen collection method",
+        "definition": "Ėminio paėmimo metodas",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.method.coding.system",
+        "path": "Specimen.collection.method.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.method.coding.code",
+        "path": "Specimen.collection.method.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.collection.method.coding.display",
+        "path": "Specimen.collection.method.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.method.text",
+        "path": "Specimen.collection.method.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.collection.procedure",
+        "path": "Specimen.collection.procedure",
+        "short": "Operacijos/procedūros pobūdis / Surgery/procedure type ",
+        "definition": "Operacijos/procedūros pobūdis",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.processing",
+        "path": "Specimen.processing",
+        "short": "Informacija apie tiriamojo ėminio ar medžiagos apdorojimą / Processing and processing step details",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.processing.method",
+        "path": "Specimen.processing.method",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.processing.method.coding",
+        "path": "Specimen.processing.method.coding",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.processing.method.coding.system",
+        "path": "Specimen.processing.method.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Specimen.processing.method.coding.code",
+        "path": "Specimen.processing.method.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.processing.method.coding.display",
+        "path": "Specimen.processing.method.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.processing.method.text",
+        "path": "Specimen.processing.method.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.processing.additive",
+        "path": "Specimen.processing.additive",
+        "short": "Audinį fiksuojanti medžiaga / Sample fixating substance",
+        "definition": "Audinį fiksuojanti medžiaga (nuoroda į Substance resursą).\r\n\r\n",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-substance"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.processing.additive.reference",
+        "path": "Specimen.processing.additive.reference",
+        "min": 1
+      },
+      {
+        "id": "Specimen.condition",
+        "path": "Specimen.condition",
+        "short": "Ėminio laikymo, gabenimo informacija / Specimen holding/transportation details",
+        "definition": "Ėminio laikymo, gabenimo informacija, naudojama laboratoriniuose tyrimuose.\r\nGalimos reikšmės nurodytos klasifikatoriuje specimen-storage-trans-detail (http://esveikata.lt/classifiers/Specimen/StorageTransportationDetails).\r\n\r\nFHIR R5 siūloma naudoti reikšmių sąrašą http://terminology.hl7.org/ValueSet/v2-0493, kuriame pateikiama 10 tiriamosios medžiagos būsenų: Autolyzed | Clotted | Contaminated | Cool | Frozen | Hemolyzed | Live | Room temperature | Sample not received | Centrifuged",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.condition.coding",
+        "path": "Specimen.condition.coding",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.condition.coding.system",
+        "path": "Specimen.condition.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Specimen.condition.coding.code",
+        "path": "Specimen.condition.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Specimen.condition.coding.display",
+        "path": "Specimen.condition.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.condition.text",
+        "path": "Specimen.condition.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.note",
+        "path": "Specimen.note",
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.note.author[x]",
+        "path": "Specimen.note.author[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          },
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Specimen.note.time",
+        "path": "Specimen.note.time",
+        "mustSupport": true
+      }
+    ]
+  }
+}

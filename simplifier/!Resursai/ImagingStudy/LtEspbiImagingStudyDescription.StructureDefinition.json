@@ -1,0 +1,507 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-imaging-study-description",
+  "name": "LtEspbiImagingStudyDescription",
+  "status": "draft",
+  "description": "Tyrimo aprašymo informacija / Study description information",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ImagingStudy",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-imaging-study",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ImagingStudy.implicitRules",
+        "path": "ImagingStudy.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.language",
+        "path": "ImagingStudy.language",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.text",
+        "path": "ImagingStudy.text",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.contained",
+        "path": "ImagingStudy.contained",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.extension:ltEspbiExtAchiCode",
+        "path": "ImagingStudy.extension",
+        "sliceName": "ltEspbiExtAchiCode",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-imagingstudy/achi-code"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.modifierExtension",
+        "path": "ImagingStudy.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.identifier",
+        "path": "ImagingStudy.identifier",
+        "example": [
+          {
+            "label": "example",
+            "valueIdentifier": {
+              "system": "urn:dicom:uid",
+              "value": "urn:oid:1.2.840.113619.2.327.3.4271022949.94.1410959782.326"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.identifier.id",
+        "path": "ImagingStudy.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.identifier.extension",
+        "path": "ImagingStudy.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.identifier.use",
+        "path": "ImagingStudy.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.identifier.type",
+        "path": "ImagingStudy.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.identifier.period",
+        "path": "ImagingStudy.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.identifier.assigner",
+        "path": "ImagingStudy.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.status",
+        "path": "ImagingStudy.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "registered"
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.modality",
+        "path": "ImagingStudy.modality",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.subject",
+        "path": "ImagingStudy.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000000086"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.subject.id",
+        "path": "ImagingStudy.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.subject.extension",
+        "path": "ImagingStudy.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.subject.type",
+        "path": "ImagingStudy.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.subject.identifier",
+        "path": "ImagingStudy.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.subject.display",
+        "path": "ImagingStudy.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.started",
+        "path": "ImagingStudy.started",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-11-04T09:01:20+00:00"
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.basedOn",
+        "path": "ImagingStudy.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.partOf",
+        "path": "ImagingStudy.partOf",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.referrer",
+        "path": "ImagingStudy.referrer",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.endpoint",
+        "path": "ImagingStudy.endpoint",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.numberOfSeries",
+        "path": "ImagingStudy.numberOfSeries",
+        "example": [
+          {
+            "label": "example",
+            "valueUnsignedInt": 2
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.numberOfInstances",
+        "path": "ImagingStudy.numberOfInstances",
+        "example": [
+          {
+            "label": "example",
+            "valueUnsignedInt": 3
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.procedure",
+        "path": "ImagingStudy.procedure",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.location",
+        "path": "ImagingStudy.location",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.reason",
+        "path": "ImagingStudy.reason",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.note",
+        "path": "ImagingStudy.note",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.id",
+        "path": "ImagingStudy.series.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.extension",
+        "path": "ImagingStudy.series.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.modifierExtension",
+        "path": "ImagingStudy.series.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.uid",
+        "path": "ImagingStudy.series.uid",
+        "definition": "Unikalus tyrimo serijos identifikatorius. Duomuo iš DICOM rinkmenos (Tag: (0020,000E)).\r\n",
+        "example": [
+          {
+            "label": "example",
+            "valueId": "1.2.840.113619.2.327.3.4271022949.94.1410959782.332"
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.number",
+        "path": "ImagingStudy.series.number",
+        "example": [
+          {
+            "label": "example",
+            "valueUnsignedInt": 1
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.modality",
+        "path": "ImagingStudy.series.modality",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "CT"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.modality.id",
+        "path": "ImagingStudy.series.modality.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.modality.extension",
+        "path": "ImagingStudy.series.modality.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.modality.coding.id",
+        "path": "ImagingStudy.series.modality.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.modality.coding.extension",
+        "path": "ImagingStudy.series.modality.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.modality.coding.version",
+        "path": "ImagingStudy.series.modality.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.modality.coding.userSelected",
+        "path": "ImagingStudy.series.modality.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.modality.text",
+        "path": "ImagingStudy.series.modality.text",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.numberOfInstances",
+        "path": "ImagingStudy.series.numberOfInstances",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueUnsignedInt": 2
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.endpoint",
+        "path": "ImagingStudy.series.endpoint",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite",
+        "path": "ImagingStudy.series.bodySite",
+        "definition": "Tirta kūno dalis (0018, 0015).\r\n\r\n ir naudojamas klasifikatorius http://hl7.org/fhir/ValueSet/body-site. Sunku pasakyti ar suderinamas. Konvertavimas iš klasifikatoriaus galimas reikia naudoti trečiųjų šalių duomenų lenteles (https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) arba įrankius."
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.id",
+        "path": "ImagingStudy.series.bodySite.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.extension",
+        "path": "ImagingStudy.series.bodySite.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.id",
+        "path": "ImagingStudy.series.bodySite.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.extension",
+        "path": "ImagingStudy.series.bodySite.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding.id",
+        "path": "ImagingStudy.series.bodySite.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding.extension",
+        "path": "ImagingStudy.series.bodySite.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding.version",
+        "path": "ImagingStudy.series.bodySite.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.concept.coding.userSelected",
+        "path": "ImagingStudy.series.bodySite.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.bodySite.reference",
+        "path": "ImagingStudy.series.bodySite.reference",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.laterality",
+        "path": "ImagingStudy.series.laterality",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.specimen",
+        "path": "ImagingStudy.series.specimen",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.started",
+        "path": "ImagingStudy.series.started",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.id",
+        "path": "ImagingStudy.series.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.extension",
+        "path": "ImagingStudy.series.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.modifierExtension",
+        "path": "ImagingStudy.series.performer.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.function",
+        "path": "ImagingStudy.series.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor",
+        "path": "ImagingStudy.series.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor.id",
+        "path": "ImagingStudy.series.performer.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor.extension",
+        "path": "ImagingStudy.series.performer.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor.type",
+        "path": "ImagingStudy.series.performer.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor.identifier",
+        "path": "ImagingStudy.series.performer.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.performer.actor.display",
+        "path": "ImagingStudy.series.performer.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.id",
+        "path": "ImagingStudy.series.instance.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.extension",
+        "path": "ImagingStudy.series.instance.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.modifierExtension",
+        "path": "ImagingStudy.series.instance.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.uid",
+        "path": "ImagingStudy.series.instance.uid",
+        "example": [
+          {
+            "label": "example",
+            "valueId": "1.2.840.113619.2.327.3.4271022949.94.1410959782.334.1"
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass",
+        "path": "ImagingStudy.series.instance.sopClass",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "code": "1.2.840.10008.5.1.4.1.1.2"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass.id",
+        "path": "ImagingStudy.series.instance.sopClass.id",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass.extension",
+        "path": "ImagingStudy.series.instance.sopClass.extension",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass.version",
+        "path": "ImagingStudy.series.instance.sopClass.version",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.sopClass.userSelected",
+        "path": "ImagingStudy.series.instance.sopClass.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ImagingStudy.series.instance.title",
+        "path": "ImagingStudy.series.instance.title",
+        "max": "0"
+      }
+    ]
+  }
+}

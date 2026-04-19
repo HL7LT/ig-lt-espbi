@@ -1,0 +1,269 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-med-request/usageTags",
+  "name": "LtEspbiExtDevMedRequestUsageTags",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Dosage"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 8
+      },
+      {
+        "id": "Extension.extension:Morning",
+        "path": "Extension.extension",
+        "sliceName": "Morning",
+        "short": "Vartoti ryte / Take at the morning",
+        "definition": "Vartoti ryte.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Morning.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Morning.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Morning"
+      },
+      {
+        "id": "Extension.extension:Morning.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Noon",
+        "path": "Extension.extension",
+        "sliceName": "Noon",
+        "short": "Vartoti per pietus/ Take at the noon",
+        "definition": "Vartoti per pietus.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Noon.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Noon.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Noon"
+      },
+      {
+        "id": "Extension.extension:Noon.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Evening",
+        "path": "Extension.extension",
+        "sliceName": "Evening",
+        "short": "Vartoti vakare / Take at the evening",
+        "definition": "Vartoti vakare",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Evening.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Evening.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Evening"
+      },
+      {
+        "id": "Extension.extension:Evening.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:BeforeMeal",
+        "path": "Extension.extension",
+        "sliceName": "BeforeMeal",
+        "short": "Vartoti prieš valgį / Take before meal",
+        "definition": "Vartoti prieš valgį.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:BeforeMeal.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:BeforeMeal.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "BeforeMeal"
+      },
+      {
+        "id": "Extension.extension:BeforeMeal.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:DuringMeal",
+        "path": "Extension.extension",
+        "sliceName": "DuringMeal",
+        "short": "Vartoti valgio metu / Take during meal",
+        "definition": "Vartoti valgio metu.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:DuringMeal.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:DuringMeal.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "DuringMeal"
+      },
+      {
+        "id": "Extension.extension:DuringMeal.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:AfterMeal",
+        "path": "Extension.extension",
+        "sliceName": "AfterMeal",
+        "short": "Vartoti po valgio / Take after meal",
+        "definition": "Vartoti po valgio.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:AfterMeal.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:AfterMeal.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "AfterMeal"
+      },
+      {
+        "id": "Extension.extension:AfterMeal.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:IndependMeal",
+        "path": "Extension.extension",
+        "sliceName": "IndependMeal",
+        "short": "Vartoti nepriklausomai nuo valgymo / Take regardless of meal",
+        "definition": "Vartoti nepriklausomai nuo valgymo",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:IndependMeal.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:IndependMeal.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "IndependMeal"
+      },
+      {
+        "id": "Extension.extension:IndependMeal.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:BeforeSleep",
+        "path": "Extension.extension",
+        "sliceName": "BeforeSleep",
+        "short": "Vartoti prieš miegą / Take before sleep",
+        "definition": "Vartoti prieš miegą",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:BeforeSleep.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:BeforeSleep.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "BeforeSleep"
+      },
+      {
+        "id": "Extension.extension:BeforeSleep.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-med-request/usageTags"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

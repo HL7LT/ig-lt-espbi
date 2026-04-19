@@ -1,0 +1,205 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-20507-0",
+  "name": "LtEspbiObservation20507_0",
+  "status": "draft",
+  "description": "Tyrimas dėl sifilio (RPR) / Syphilis test (RPR)",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "5.1.4 Tyrimas dėl sifilio (RPR)/ Syphilis test (RPR)"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "20507-0",
+                  "display": "Reagin Ab [Presence] in Serum by RPR"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "20507-0"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "RPR tyrimo data / RPR test date",
+        "definition": "Data Pacientės RPR tyrimo datai nustatyti.\r\nPatikros sąlygos:\r\n• Pagal nutylėjimą kortelės užvedimo data\r\n• Leidžiama keisti\r\n• Privaloma",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "RPR testo titras  / RPR test titer",
+        "definition": "Sveikasis skaičius.\r\nPatikros sąlyga:\r\n• Leidžiama pildyti jeigu RPR rezultatas teigiamas\r\n• Privalomas laukas jeigu RPR rezultatas teigiamas",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 60
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-val-cod-4",
+            "requirements": "Patikros sąlyga:\r\n• Privalomas laukas jeigu RPR rezultatas teigiamas",
+            "severity": "error",
+            "human": "The value element is mandatory when interpretation has the code '10828004' from system 'http://snomed.info/sct.",
+            "expression": "(interpretation.where(coding.code = '10828004' and coding.system = 'http://snomed.info/sct').exists()) implies (value.exists())"
+          },
+          {
+            "key": "obs-val-cod-3-20507-0",
+            "requirements": " Sveikasis skaičius.",
+            "severity": "error",
+            "human": "ValueQuantity.value must be an integer.",
+            "expression": "valueQuantity.value.truncate() = valueQuantity.value"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "short": "RPR tyrimo rezultatas / RPR test result ",
+        "definition": "Parinkties modulis, RPR rezultatui nustatyti. Pradinės parinktys turėtų būti:\r\n• Ne\r\n• Taip",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "10828004",
+                  "display": "Positive"
+                }
+              ],
+              "text": "Taip"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.interpretation.coding.code",
+        "path": "Observation.interpretation.coding.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "10828004"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation.coding.display",
+        "path": "Observation.interpretation.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Observation.interpretation.text",
+        "path": "Observation.interpretation.text",
+        "min": 1
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

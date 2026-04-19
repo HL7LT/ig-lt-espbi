@@ -1,0 +1,29 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-espbi-cs-lenses-purpose",
+  "url": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-lenses-purpose",
+  "version": "1.0.0",
+  "name": "LtEspbiCsLensesPurpose",
+  "status": "active",
+  "date": "2026-01-23",
+  "description": "Akinių / lęšių paskirtis / Purpose of eyeglass / lenses",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "nu",
+      "display": "Nuolatiniam dėvėjimui",
+      "definition": "Akiniai / lęšiai, skirti nuolatiniam dėvėjimui."
+    },
+    {
+      "code": "ar",
+      "display": "Artumui",
+      "definition": "Akiniai / lęšiai, skirti artumui."
+    },
+    {
+      "code": "nd",
+      "display": "Tolumui",
+      "definition": "Akiniai / lęšiai, skirti tolumui."
+    }
+  ]
+}

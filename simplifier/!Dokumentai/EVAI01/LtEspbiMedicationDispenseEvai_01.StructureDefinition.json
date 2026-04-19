@@ -1,0 +1,1991 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-dispense-evai-01",
+  "name": "LtEspbiMedicationDispenseEvai_01",
+  "status": "draft",
+  "description": "Vaisto išdavimo duomenys / Medication dispense data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationDispense",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-dispence",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationDispense.implicitRules",
+        "path": "MedicationDispense.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.language",
+        "path": "MedicationDispense.language",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.text",
+        "path": "MedicationDispense.text",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.contained",
+        "path": "MedicationDispense.contained",
+        "short": "Definition of a Medication"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtStatusWho",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtStatusWho"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtStatusWho.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000010475"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtPrice"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice.extension:retail",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "retail"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice.extension:retail.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 10,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice.extension:paid",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "paid"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice.extension:paid.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 7,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice.extension:compensated",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "compensated"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice.extension:compensated.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 3,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDueDate",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtDueDate"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDueDate.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDate": "2015-11-11"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtCompensationTag",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtCompensationTag"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtCompensationTag.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtStatusConfirmedBy",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtStatusConfirmedBy",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/statusConfirmedBy"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtStatusConfirmedBy.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000010475"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtStatusConfirmationDate",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtStatusConfirmationDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/statusConfirmationDate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtStatusConfirmationDate.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-03-06T12:00:56.037+00:00"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDescription",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtDescription",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/description"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDescription.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Mėtų arbata."
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispensePackage",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtDispensePackage",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/dispensePackage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispensePackage.extension:name",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "name"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispensePackage.extension:name.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "N10"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispensePackage.extension:size",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "size"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispensePackage.extension:size.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "N",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "N"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtRemotePharmacyTag",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtRemotePharmacyTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-espbi-med-dispense/remotePharmacyTag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtRemotePharmacyTag.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtMedDeliveryDate",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtMedDeliveryDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-espbi-med-dispense/medDeliveryDate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtMedDeliveryDate.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDate": "2025-02-05"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowestPriceTag",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtLowestPriceTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/lowestPriceTag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowestPriceTag.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowIncome",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtLowIncome",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/lowIncome"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowIncome.extension:surchargeCompensated",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "surchargeCompensated"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowIncome.extension:surchargeCompensated.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueMoney": {
+              "value": 3,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowIncome.extension:tag",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "tag"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowIncome.extension:tag.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowIncome.extension:surchargeEligible",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "surchargeEligible"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtLowIncome.extension:surchargeEligible.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtMppBarcode",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtMppBarcode",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/mppBarcode"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtMppBarcode.value[x]",
+        "path": "MedicationDispense.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2789444566221"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtDispenseTags",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/dispenseTags"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:dispenseBySubstances",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "dispenseBySubstances"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:dispenseBySubstances.extension:tag",
+        "path": "MedicationDispense.extension.extension.extension",
+        "sliceName": "tag"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:dispenseBySubstances.extension:tag.value[x]",
+        "path": "MedicationDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:dispenseBySubstances.extension:groupId",
+        "path": "MedicationDispense.extension.extension.extension",
+        "sliceName": "groupId"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:dispenseBySubstances.extension:groupId.value[x]",
+        "path": "MedicationDispense.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:noValidPrescriptionTag",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "noValidPrescriptionTag"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:noValidPrescriptionTag.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:overLimitQuantityTag",
+        "path": "MedicationDispense.extension.extension",
+        "sliceName": "overLimitQuantityTag"
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDispenseTags.extension:overLimitQuantityTag.value[x]",
+        "path": "MedicationDispense.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.modifierExtension",
+        "path": "MedicationDispense.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.identifier",
+        "path": "MedicationDispense.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.basedOn",
+        "path": "MedicationDispense.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.partOf",
+        "path": "MedicationDispense.partOf",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.status",
+        "path": "MedicationDispense.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.notPerformedReason",
+        "path": "MedicationDispense.notPerformedReason",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.statusChanged",
+        "path": "MedicationDispense.statusChanged",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-03-06T12:00:56.037+00:00"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.category",
+        "path": "MedicationDispense.category",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication",
+        "path": "MedicationDispense.medication",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "reference": {
+                "reference": "Medication/1234567"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.medication.id",
+        "path": "MedicationDispense.medication.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication.extension",
+        "path": "MedicationDispense.medication.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication.concept",
+        "path": "MedicationDispense.medication.concept",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication.reference.id",
+        "path": "MedicationDispense.medication.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication.reference.extension",
+        "path": "MedicationDispense.medication.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication.reference.type",
+        "path": "MedicationDispense.medication.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication.reference.identifier",
+        "path": "MedicationDispense.medication.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.medication.reference.display",
+        "path": "MedicationDispense.medication.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.subject",
+        "path": "MedicationDispense.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000004454"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.subject.id",
+        "path": "MedicationDispense.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.subject.extension",
+        "path": "MedicationDispense.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.subject.type",
+        "path": "MedicationDispense.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.subject.identifier",
+        "path": "MedicationDispense.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.subject.display",
+        "path": "MedicationDispense.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.encounter",
+        "path": "MedicationDispense.encounter",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.supportingInformation",
+        "path": "MedicationDispense.supportingInformation",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.id",
+        "path": "MedicationDispense.performer.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.extension",
+        "path": "MedicationDispense.performer.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.modifierExtension",
+        "path": "MedicationDispense.performer.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.function",
+        "path": "MedicationDispense.performer.function",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.actor",
+        "path": "MedicationDispense.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.performer.actor.id",
+        "path": "MedicationDispense.performer.actor.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.actor.extension",
+        "path": "MedicationDispense.performer.actor.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.actor.type",
+        "path": "MedicationDispense.performer.actor.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.actor.identifier",
+        "path": "MedicationDispense.performer.actor.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.performer.actor.display",
+        "path": "MedicationDispense.performer.actor.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.location",
+        "path": "MedicationDispense.location",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription",
+        "path": "MedicationDispense.authorizingPrescription",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "MedicationRequest/123456789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.id",
+        "path": "MedicationDispense.authorizingPrescription.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPrescriptionForm",
+        "path": "MedicationDispense.authorizingPrescription.extension",
+        "sliceName": "ltEspbiExtPrescriptionForm",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/prescriptionForm"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPrescriptionForm.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-prescription-form",
+                  "code": "el",
+                  "display": "Elektroninis receptas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription",
+        "path": "MedicationDispense.authorizingPrescription.extension",
+        "sliceName": "ltEspbiExtPaperPrescription",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/paperPrescription"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:type",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "type"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:type.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/medicationPrescriptionType",
+                  "code": "va",
+                  "display": "Vaistas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "form"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/PaperPrescriptionForm",
+                  "code": "1",
+                  "display": "1 Forma"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:date",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "date"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:date.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueDate": "2015-03-06"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:validityPeriod",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "validityPeriod"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:validityPeriod.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2014-03-06",
+              "end": "2015-03-06"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:series",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "series"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:series.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "ABC"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:number",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "number"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:number.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1234567891"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form2",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "form2"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form2.extension:tag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "tag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form2.extension:tag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form2.extension:series",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "series"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form2.extension:series.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "ABC"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form2.extension:number",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "number"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:form2.extension:number.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1234567891"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:conditionCode",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "conditionCode"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:conditionCode.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/TLK-10-AM",
+                  "code": "J11.1",
+                  "display": "Gripas su kitais kvėpavimo takų pažeidimais, virusas nenustatytas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:compensationCode",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "compensationCode"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:compensationCode.value[x].coding",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].coding",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/Medication/CompensationCode",
+              "code": "1",
+              "display": "Vaikui (100%)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:aagaSgasNumber",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "aagaSgasNumber"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:aagaSgasNumber.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2014/123456/123"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:authorLabelNumber",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "authorLabelNumber"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:authorLabelNumber.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "12345678"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:author",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "author"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:author.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000000003"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:authorDepartment",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "authorDepartment"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:authorDepartment.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/123546789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:dispenserNote",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "dispenserNote"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:dispenserNote.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Pastaba farmacijos specialistui"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:quantity",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "quantity"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:quantity.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "mg",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "mg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "tags"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:tagsGkTag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "tagsGkTag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:tagsGkTag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:specialTag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "specialTag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:specialTag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:specialistDecisionTag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "specialistDecisionTag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:specialistDecisionTag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:labelingExemptionTag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "labelingExemptionTag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:labelingExemptionTag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "nominal"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal.extension:tag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.extension",
+        "sliceName": "tag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal.extension:tag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal.extension:confirm",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.extension",
+        "sliceName": "confirm"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal.extension:confirm.extension:tag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.extension.extension",
+        "sliceName": "tag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal.extension:confirm.extension:tag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal.extension:confirm.extension:declarationValid",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.extension.extension",
+        "sliceName": "declarationValid"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:tags.extension:nominal.extension:confirm.extension:declarationValid.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "end": "2010-05-01"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationReference",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "medicationReference"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationReference.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Medication/1000121448"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "medication"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:substances",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "substances"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:substances.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "test + test"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:name",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "name"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:name.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Super Ultra Problem Solver HD"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:strength",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "strength"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:strength.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "55mg+1,205-1,631g+72mg/patch"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:form",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "form"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medication.extension:form.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/PharmaceuticalForm",
+                  "code": "1",
+                  "display": "hemofiltracijos tirpalas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:extemporaneous",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "extemporaneous"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:extemporaneous.extension:description",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "description"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:extemporaneous.extension:description.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Kalii iodidi 3 g, Glyceroli 20 ml, Aqua destillata ad 100 ml."
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:extemporaneous.extension:urgencyTag",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "urgencyTag"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:extemporaneous.extension:urgencyTag.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/request-priority",
+                  "code": "urgent",
+                  "display": "Urgent"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "medicationInstruction"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].text",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].text",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2 šaukštai"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].additionalInstruction",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].additionalInstruction",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "text": "Greitai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].timing.repeat.period",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].timing.repeat.period",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 2
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].timing.repeat.periodUnit",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].timing.repeat.periodUnit",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "d"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].timing.repeat.when",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].timing.repeat.when",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "AC"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].asNeeded",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].asNeeded",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].route",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].route",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Route",
+                  "code": "2",
+                  "display": "Vartoti per burną"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].maxDosePerPeriod",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].maxDosePerPeriod",
+        "example": [
+          {
+            "label": "example",
+            "valueRatio": {
+              "numerator": {
+                "value": 7.0,
+                "unit": "mg",
+                "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "day",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicationInstruction.value[x].maxDosePerAdministration",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.value[x].maxDosePerAdministration",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "mg",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "mg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicalAids",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension",
+        "sliceName": "medicalAids"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicalAids.extension:groupCode",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "groupCode"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicalAids.extension:groupCode.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "67890"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicalAids.extension:groupName",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "groupName"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicalAids.extension:groupName.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Respiracinės pagalbos priemonės"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicalAids.extension:name",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension",
+        "sliceName": "name"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPaperPrescription.extension:medicalAids.extension:name.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.extension.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Astmos inhaliatorius"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPrescriptionDocumentNumber",
+        "path": "MedicationDispense.authorizingPrescription.extension",
+        "sliceName": "ltEspbiExtPrescriptionDocumentNumber",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/prescriptionDocumentNumber"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.extension:ltEspbiExtPrescriptionDocumentNumber.value[x]",
+        "path": "MedicationDispense.authorizingPrescription.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "1234567891"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.type",
+        "path": "MedicationDispense.authorizingPrescription.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.identifier",
+        "path": "MedicationDispense.authorizingPrescription.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.display",
+        "path": "MedicationDispense.authorizingPrescription.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.type",
+        "path": "MedicationDispense.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.quantity",
+        "path": "MedicationDispense.quantity",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "mg",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "mg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.quantity.id",
+        "path": "MedicationDispense.quantity.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.quantity.extension",
+        "path": "MedicationDispense.quantity.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.recorded",
+        "path": "MedicationDispense.recorded",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.whenPrepared",
+        "path": "MedicationDispense.whenPrepared",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.whenHandedOver",
+        "path": "MedicationDispense.whenHandedOver",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-05-01"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.destination",
+        "path": "MedicationDispense.destination",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.receiver",
+        "path": "MedicationDispense.receiver",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000004454"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.receiver.id",
+        "path": "MedicationDispense.receiver.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.receiver.extension",
+        "path": "MedicationDispense.receiver.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.receiver.type",
+        "path": "MedicationDispense.receiver.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.receiver.identifier",
+        "path": "MedicationDispense.receiver.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.receiver.display",
+        "path": "MedicationDispense.receiver.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.note",
+        "path": "MedicationDispense.note",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.renderedDosageInstruction",
+        "path": "MedicationDispense.renderedDosageInstruction",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.id",
+        "path": "MedicationDispense.dosageInstruction.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.extension",
+        "path": "MedicationDispense.dosageInstruction.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.modifierExtension",
+        "path": "MedicationDispense.dosageInstruction.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.sequence",
+        "path": "MedicationDispense.dosageInstruction.sequence",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.text",
+        "path": "MedicationDispense.dosageInstruction.text",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "2 šaukštai"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.additionalInstruction",
+        "path": "MedicationDispense.dosageInstruction.additionalInstruction",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.patientInstruction",
+        "path": "MedicationDispense.dosageInstruction.patientInstruction",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Gausiai užgerti vandeniu"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.id",
+        "path": "MedicationDispense.dosageInstruction.timing.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.extension",
+        "path": "MedicationDispense.dosageInstruction.timing.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.modifierExtension",
+        "path": "MedicationDispense.dosageInstruction.timing.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.event",
+        "path": "MedicationDispense.dosageInstruction.timing.event",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.id",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.extension",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.bounds[x]",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.bounds[x]",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.count",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.count",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.countMax",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.countMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.duration",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.duration",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 1
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.durationMax",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.durationMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.durationUnit",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.durationUnit",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.frequency",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.frequency",
+        "example": [
+          {
+            "label": "example",
+            "valuePositiveInt": 3
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.frequencyMax",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.frequencyMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.period",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.period",
+        "example": [
+          {
+            "label": "example",
+            "valueDecimal": 2
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.periodMax",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.periodMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.periodUnit",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.periodUnit",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "h"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.dayOfWeek",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.dayOfWeek",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.timeOfDay",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.timeOfDay",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.when",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.when",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "ACM"
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.offset",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.offset",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.code",
+        "path": "MedicationDispense.dosageInstruction.timing.code",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.asNeeded",
+        "path": "MedicationDispense.dosageInstruction.asNeeded",
+        "example": [
+          {
+            "label": "example",
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.asNeededFor",
+        "path": "MedicationDispense.dosageInstruction.asNeededFor",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.site",
+        "path": "MedicationDispense.dosageInstruction.site",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route",
+        "path": "MedicationDispense.dosageInstruction.route",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Route",
+                  "code": "2",
+                  "display": "Vartoti per burną"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.id",
+        "path": "MedicationDispense.dosageInstruction.route.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.extension",
+        "path": "MedicationDispense.dosageInstruction.route.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.id",
+        "path": "MedicationDispense.dosageInstruction.route.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.extension",
+        "path": "MedicationDispense.dosageInstruction.route.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.version",
+        "path": "MedicationDispense.dosageInstruction.route.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.userSelected",
+        "path": "MedicationDispense.dosageInstruction.route.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.method",
+        "path": "MedicationDispense.dosageInstruction.method",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "text": "Greitai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.method.id",
+        "path": "MedicationDispense.dosageInstruction.method.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.method.extension",
+        "path": "MedicationDispense.dosageInstruction.method.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.method.coding",
+        "path": "MedicationDispense.dosageInstruction.method.coding",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.doseAndRate",
+        "path": "MedicationDispense.dosageInstruction.doseAndRate",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod",
+        "example": [
+          {
+            "label": "example",
+            "valueRatio": {
+              "numerator": {
+                "value": 7,
+                "unit": "mg",
+                "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "d",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.id",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.extension",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "mg",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "mg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration.id",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration.extension",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerLifetime",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerLifetime",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.substitution",
+        "path": "MedicationDispense.substitution",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.eventHistory",
+        "path": "MedicationDispense.eventHistory",
+        "max": "0"
+      }
+    ]
+  }
+}

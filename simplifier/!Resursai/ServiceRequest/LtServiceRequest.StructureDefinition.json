@@ -1,0 +1,429 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request",
+  "name": "LtEspbiServiceRequest",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ServiceRequest",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ServiceRequest.id",
+        "path": "ServiceRequest.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.meta",
+        "path": "ServiceRequest.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.status",
+        "path": "ServiceRequest.status",
+        "short": "Paslaugos ar procedūros paskyrimo būsena / The status of the service request",
+        "definition": "Paslaugos ar procedūros paskyrimo būsena.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/request-status. Galimos reikšmės: draft | active | on-hold | revoked | completed | entered-in-error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.intent",
+        "path": "ServiceRequest.intent",
+        "short": "Paslaugos ar procedūros tikslas (ketinimas) / Intent of the service",
+        "definition": "Pagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/request-intent. \r\n\r\nGalimos reikšmės: proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.category",
+        "path": "ServiceRequest.category",
+        "short": "Skyrimo / užduoties kategorija / Category of request",
+        "definition": "Nurodo skyrimo (siuntimo konsultuoti, gydyti, laboratorinio tyrimo, patologijos tyrimo, skiepų skyrimas) arba pažymos užduoties tipą.\r\nGalimos reikšmės nurodytos klasifikatoriuje order-type (http://esveikata.lt/classifiers/OrderType).",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.category.coding",
+        "path": "ServiceRequest.category.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ServiceRequest.category.coding.system",
+        "path": "ServiceRequest.category.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/OrderType"
+      },
+      {
+        "id": "ServiceRequest.category.coding.code",
+        "path": "ServiceRequest.category.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.category.coding.display",
+        "path": "ServiceRequest.category.coding.display",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.category.text",
+        "path": "ServiceRequest.category.text",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.priority",
+        "path": "ServiceRequest.priority",
+        "short": "Paslaugos suteikimo skubumas / Priority of request",
+        "definition": "Paslaugos suteikimo skubumas.\r\nGalimos reikšmės:\r\n- routine : Užsakymas yra pateiktas vykdyti.\r\n- urgent : Užsakymas yra atšaukiamas.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/request-priority. Galimos reikšmės: routine | urgent | asap | stat",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.doNotPerform",
+        "path": "ServiceRequest.doNotPerform",
+        "short": "Požymis, kad nuroyta paslauga ar procedūra pacientui negali būti vykdoma / Set this to true if the record is saying that the service/procedure should NOT be performed.",
+        "definition": "Požymis, kad nuroyta paslauga ar procedūra pacientui negali būti vykdoma.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code",
+        "path": "ServiceRequest.code",
+        "short": "Paslaugos ar procedūros kodas, nuoroda ar tekstinis aprašymas / A code or reference that identifies a particular service ",
+        "definition": "Paslaugos ar procedūros kodas, nuoroda ar tekstinis aprašymas.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje order-type (http://esveikata.lt/classifiers/OrderType). Naudojamas patologijos tyrimo užsakymo atveju.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje diagnostic-type (http://esveikata.lt/classifiers/DiagnosticOrder/ItemCode). Naudojamas tyrimų pavadinimų klasifikatorius E200 dokumento atveju.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje certificate-task (http://esveikata.lt/classifiers/CertificateTask). Pažymos užduoties kodas.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding",
+        "path": "ServiceRequest.code.concept.coding",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.system",
+        "path": "ServiceRequest.code.concept.coding.system",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.code",
+        "path": "ServiceRequest.code.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding.display",
+        "path": "ServiceRequest.code.concept.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code.concept.text",
+        "path": "ServiceRequest.code.concept.text",
+        "short": "Procedūros (paslaugos ar procedūros) tekstinis aprašymas",
+        "definition": "Procedūros (paslaugos ar procedūros) tekstinis aprašymas / A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.subject",
+        "path": "ServiceRequest.subject",
+        "short": "Pacientas, kuriam skirta nurodyta paslauga ar procedūra / Patient for whom the specified service or procedure is to be performed",
+        "definition": "Nuoroda į paciento, kuriam yra išrašytas paskyrimas / siuntimas, resursą.\r\n\r\nPacientas, kuriam skirta nurodyta paslauga ar procedūra",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.subject.reference",
+        "path": "ServiceRequest.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.encounter",
+        "path": "ServiceRequest.encounter",
+        "short": "Atvykimo duomenys, kurių pagrindu buvo sukurtas šis skyrimo resursas / Encounter in which the request was created",
+        "definition": "Atvykimo duomenys, kurių pagrindu buvo sukurtas šis skyrimo resursas.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.encounter.reference",
+        "path": "ServiceRequest.encounter.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.occurrence[x]",
+        "path": "ServiceRequest.occurrence[x]",
+        "short": "Paslaugos ar procedūros skyrimo laikas ar periodiškumas / The date/time at which the requested service should occur",
+        "definition": "Paslaugos ar procedūros laikas ar periodiškumas. \r\nSiūloma naudoti, kai norima pažymėti, kad siuntimas yra ilgalaikis.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.authoredOn",
+        "path": "ServiceRequest.authoredOn",
+        "short": "Paskyrimo / siuntimo sukūrimo data ir laikas / When the request transitioned to being actionable",
+        "definition": "Paskyrimo / siuntimo sukūrimo data ir laikas.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.requester",
+        "path": "ServiceRequest.requester",
+        "short": "Siuntimą ar užduotį sūkuręs sveikatos priežiūros specialistas arba pacientas / Who is requesting service",
+        "definition": "Nuoroda į sveikatos priežiūros specialisto, sukūrusio siuntimą, resursą.\r\nNuorodą į pacientą, kuris sukūrė šią užduotį (naudojama, kai ServiceRequest resursas saugo užduoties duomenis).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.requester.reference",
+        "path": "ServiceRequest.requester.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.performerType",
+        "path": "ServiceRequest.performerType",
+        "short": "Specialisto, pas kurį siunčiamas pacientas, prof. kvalifikacija / Professional qualification of the specialist to whom the patient is referred",
+        "definition": "Specialisto, pas kurį siunčiamas pacientas, prof. kvalifikacija arba skyriaus specializacija.\r\n\r\nLaukas privalomas, jeigu yra kuriamas siuntimo konsultacijos, tyrimų, gydymo skyrimas.\r\nLaukas negali būti nurodytas kitų tipų skyrimams.\r\nDraudžiama keisti lauko reikšmę  atnaujinant Order resurso duomenis.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje qualification-code.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.performerType.coding",
+        "path": "ServiceRequest.performerType.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.system",
+        "path": "ServiceRequest.performerType.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/QualificationCode"
+      },
+      {
+        "id": "ServiceRequest.performerType.coding.code",
+        "path": "ServiceRequest.performerType.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.performerType.text",
+        "path": "ServiceRequest.performerType.text",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.performer",
+        "path": "ServiceRequest.performer",
+        "short": "SPĮ arba sveikatos priežiūros specialistas, kuriam yra priskirta užduotis / Performer",
+        "definition": "Nurodo SPĮ arba specialistą, kuriam yra priskirtą užduotis.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.performer.reference",
+        "path": "ServiceRequest.performer.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.location",
+        "path": "ServiceRequest.location",
+        "short": "SPĮ padalinio specializacija / The preferred location where the procedure should actually happen",
+        "definition": "SPĮ padalinio specializacija (nuoroda į Location resursą).",
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-location"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reason",
+        "path": "ServiceRequest.reason",
+        "short": "Skyrimo arba pažymos užduoties priežastis / Reason of request",
+        "definition": "Skyrimo arba pažymos užduoties priežastis. \r\n\r\nTuo atveju, kai skyrimo resursas (Order) yra  siuntimo konsultacijos, tyrimų, gydymo skyrimas arba patologijos tyrimo skyrimas, skyrimo priežastis bus siuntimo diagnozių sąrašas (List) ir jame privaloma nurodyti bent vieną diagnozę. Konsultacijos, tyrimų, gydymo siuntimo skyrime galima nurodyti tik vieną diagnozę. Draudžiama keisti lauko reikšmę  atnaujinant Order resurso duomenis.\r\n\r\nKai skyrimo resursas (Order) yra naudojamas medicininės pažymos užduočiai aprašyti, skyrimo priežastis bus nuoroda į medicininę pažymą (DocumentReference resursas).",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reason.concept",
+        "path": "ServiceRequest.reason.concept",
+        "short": "Sistemoje neregistruotame siuntime nurodyta diagnozė",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding",
+        "path": "ServiceRequest.reason.concept.coding",
+        "short": "Sistemoje neregistruotame siuntime nurodyta diagnozė",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding.system",
+        "path": "ServiceRequest.reason.concept.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding.code",
+        "path": "ServiceRequest.reason.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding.display",
+        "path": "ServiceRequest.reason.concept.coding.display",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.reason.concept.text",
+        "path": "ServiceRequest.reason.concept.text",
+        "short": "Slaugos diagnozė laisvu tekstu",
+        "definition": "Slaugos diagnozė laisvu tekstu / A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reason.reference",
+        "path": "ServiceRequest.reason.reference",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reason.reference.reference",
+        "path": "ServiceRequest.reason.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.supportingInfo",
+        "path": "ServiceRequest.supportingInfo",
+        "short": "Detalesnė paskyrimo ar siuntimo informacija / Supporting information for request or referral",
+        "definition": "Detalesnė paskyrimo ar siuntimo informacija. \r\nGalimos nuorodos į ServiceRequest, ImmunizationRecommendation, Communication, DiagnosticReport ar kitus resursus.\r\nSkiepų skyrimui privaloma nuoroda į ImmunizationRecommendation.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.concept",
+        "path": "ServiceRequest.supportingInfo.concept",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.concept.coding",
+        "path": "ServiceRequest.supportingInfo.concept.coding",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.concept.coding.system",
+        "path": "ServiceRequest.supportingInfo.concept.coding.system",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.concept.coding.code",
+        "path": "ServiceRequest.supportingInfo.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.concept.coding.display",
+        "path": "ServiceRequest.supportingInfo.concept.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.concept.text",
+        "path": "ServiceRequest.supportingInfo.concept.text",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.reference",
+        "path": "ServiceRequest.supportingInfo.reference",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.supportingInfo.reference.reference",
+        "path": "ServiceRequest.supportingInfo.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.specimen",
+        "path": "ServiceRequest.specimen",
+        "short": "Informacija apie tiriamąjį ėminį arba tiriamąją medžiagą / One or more specimens that the laboratory procedure will use",
+        "definition": "Informacija apie tiriamąjį ėminį arba tiriamąją medžiagą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-specimen"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.specimen.reference",
+        "path": "ServiceRequest.specimen.reference",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.note",
+        "path": "ServiceRequest.note",
+        "short": "Aktuali paciento klinikinė informacija / Relevant clinical data",
+        "definition": "Aktuali paciento klinikinė informacija - vartojami vaistai, nėštumas, kt.\r\n\r\nBūklės vertinime identifikuota slaugos problema.\r\n\r\nPapildomas aprašymas laboratorijai ar specialistui, kuriam siunčiamas pacientas konsultuotis.",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.note.author[x]",
+        "path": "ServiceRequest.note.author[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          },
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.note.time",
+        "path": "ServiceRequest.note.time",
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure",
+  "name": "LtEspbiProcedure",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.id",
+        "path": "Procedure.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.meta",
+        "path": "Procedure.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "short": "Su procedūra susieti resursai / A larger event of which this particular procedure is a component or step",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-administration"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.status",
+        "path": "Procedure.status",
+        "short": "Procedūros būsena / A code specifying the state of the procedure",
+        "definition": "Procedūros būsena. Galimos reikšmės nurodytos klasifikatoriuje procedure-status (http://esveikata.lt/classifiers/Procedure/Status).\r\n\r\nFHIR R5 rekomenduojama naudoti reikšmių sąraša http://esveikata.lt/classifiers/Procedure/Status. Galimos reikšmės: preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown.",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "short": "Procedūros identifikavimo duomenys - procedūros kodas ir apibūdinimas / The specific procedure that is performed",
+        "definition": "Galimos reikšmės nurodytos klasifikatoriuose:\r\n\r\nhttp://esveikata.lt/classifiers/ACHI\r\n\r\nhttp://loinc.org\r\n\r\nhttp://snomed.info/sct\r\n\r\nhttp://esveikata.lt/classifiers/ProcedureCode\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/PersonaHygiene\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/DrainCare\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/EnteralNutritioning\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/FunctionalObservation\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/Treatment\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/MucusSuction\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/OtherNursingProcedure\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/MedicalServiceOrganization\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/TrainingInformational\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/ConditionMonitoring\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/MobilityAid\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/NutritionAid\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/NurseAssistance\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/DefecationAid\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/BedsorePrevention\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/PsychologistService\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/StomaCare\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/BladderCatherization\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/MedicationAdministering\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/WoundCare\r\n\r\nhttp://esveikata.lt/classifiers/Procedure/IntestinalEnemasCleansing\r\n\r\nhttp://esveikata.lt/classifiers/NGN/StandartFetalSugicalProcedures\r\n\r\nhttp://esveikata.lt/classifiers/NGN/TocolysisDuringPregnancy",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.code.coding",
+        "path": "Procedure.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Procedure.code.coding.display",
+        "path": "Procedure.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Procedure.code.text",
+        "path": "Procedure.code.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.subject",
+        "path": "Procedure.subject",
+        "short": "Pacientas, su kuriuo susijusi procedūra / Patient who the procedure record is associated with",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.subject.reference",
+        "path": "Procedure.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "short": "Procedūros atlikimo data ir laikas / Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring",
+        "type": [
+          {
+            "code": "dateTime"
+          },
+          {
+            "code": "Period"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "short": "Specialistas, kuris atliko procedūrą / Indicates who or what performed the procedure ",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.performer.function",
+        "path": "Procedure.performer.function",
+        "short": "Specialisto rolė procedūros atlikimo metu / Distinguishes the type of involvement of the performer in the procedure",
+        "definition": "Specialisto rolė procedūros atlikimo metu. Klasifikatorius procedure-participant-role (https://build.fhir.org/valueset-participant-role.html)\r\n\r\nFHIR R5 rekomenduojama naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/performer-role.",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.performer.function.coding",
+        "path": "Procedure.performer.function.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Procedure.performer.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Procedure.performer.function.coding.display",
+        "path": "Procedure.performer.function.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer.actor.reference",
+        "path": "Procedure.performer.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "short": "Procedūros atlikimo priežastis / Reason for performing the procedure",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.reason.concept",
+        "path": "Procedure.reason.concept",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.reason.concept.coding",
+        "path": "Procedure.reason.concept.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.reason.concept.coding.system",
+        "path": "Procedure.reason.concept.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Procedure.reason.concept.coding.code",
+        "path": "Procedure.reason.concept.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Procedure.reason.concept.coding.display",
+        "path": "Procedure.reason.concept.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.reason.concept.text",
+        "path": "Procedure.reason.concept.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "short": "Procedūros atlikimo anatominė vieta / Detailed and structured anatomical location information",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "short": "Komplikacijos po procedūros / Complication following the procedure",
+        "definition": "Komplikacijos, kilusios procedūros metu arba iškart po jos.",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "short": "Papildomas tekstinis aprašymas apie atliekamą procedūrą / Procedure additional description",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "short": "Implantai/medicininės priemonės / Implants/medical devices",
+        "definition": "Implantai / medicininės priemonės.",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.focalDevice.manipulated",
+        "path": "Procedure.focalDevice.manipulated",
+        "short": "Nuoroda į implantus/medicinines priemones / Reference to implants/medical devices",
+        "definition": "Nuoroda į implantus/medicinines priemones.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "short": "Su procedūra susieti resursai / Other resources from the patient record that may be relevant to the procedure",
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-psdf",
+  "name": "LtEspbiCoveragePsdf",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Coverage",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Coverage.kind",
+        "path": "Coverage.kind",
+        "fixedCode": "insurance"
+      },
+      {
+        "id": "Coverage.type",
+        "path": "Coverage.type",
+        "short": "Draustumo tipas / Insurance type",
+        "definition": "Draustumo tipas. PSDF atveju nurodoma fiksuota reikšmė PUBLICPOL.",
+        "min": 1
+      },
+      {
+        "id": "Coverage.type.id",
+        "path": "Coverage.type.id",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.type.extension",
+        "path": "Coverage.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.type.coding.id",
+        "path": "Coverage.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.type.coding.extension",
+        "path": "Coverage.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.type.coding.system",
+        "path": "Coverage.type.coding.system",
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+      },
+      {
+        "id": "Coverage.type.coding.version",
+        "path": "Coverage.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.type.coding.code",
+        "path": "Coverage.type.coding.code",
+        "fixedCode": "PUBLICPOL"
+      },
+      {
+        "id": "Coverage.type.coding.userSelected",
+        "path": "Coverage.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.insurer",
+        "path": "Coverage.insurer",
+        "short": "Draudikas / Issuer of the policy",
+        "definition": "Nuoroda į draudiko Organization resursą. PSDF draudimo atveju tai turėtų būti Valstybinė ligonių kasa (VLK), kurios JAR kodas yra 191351679.",
+        "min": 1
+      }
+    ]
+  }
+}

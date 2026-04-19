@@ -1,0 +1,92 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-charge-item",
+  "name": "LtEspbiChargeItem",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ChargeItem",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ChargeItem",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ChargeItem.id",
+        "path": "ChargeItem.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "ChargeItem.definitionUri",
+        "path": "ChargeItem.definitionUri",
+        "short": "Mokėjimo priežastis",
+        "definition": "Mokėjimo priežastis (Išduoto vaisto ar MPP kaina, Išduoto vaisto ar MPP/MP kaina, kurią sumokėjo pacientas, Kompensuojama suma, Paciento priemoka už technologinius ypatumus)",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ChargeItem.code.text",
+        "path": "ChargeItem.code.text",
+        "short": "Nurodomas tekstinis valiutos kodas",
+        "definition": "Nurodomas tekstinis valiutos kodas",
+        "min": 1
+      },
+      {
+        "id": "ChargeItem.subject",
+        "path": "ChargeItem.subject",
+        "short": "Privalomas laukas nurodomas pacientas",
+        "definition": "Privalomas laukas nurodomas pacientas",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ChargeItem.totalPriceComponent",
+        "path": "ChargeItem.totalPriceComponent",
+        "min": 1
+      },
+      {
+        "id": "ChargeItem.totalPriceComponent.amount",
+        "path": "ChargeItem.totalPriceComponent.amount",
+        "min": 1
+      },
+      {
+        "id": "ChargeItem.totalPriceComponent.amount.value",
+        "path": "ChargeItem.totalPriceComponent.amount.value",
+        "short": "Reikšmė",
+        "definition": "Reikšmė",
+        "min": 1
+      },
+      {
+        "id": "ChargeItem.totalPriceComponent.amount.currency",
+        "path": "ChargeItem.totalPriceComponent.amount.currency",
+        "short": "Valiutos Kodas",
+        "definition": "Valiutos Kodas",
+        "min": 1
+      },
+      {
+        "id": "ChargeItem.supportingInformation",
+        "path": "ChargeItem.supportingInformation",
+        "short": "Nuoroda į medicationDispense resursą",
+        "definition": "Nuoroda į medicationDispense resursą",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-dispence"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

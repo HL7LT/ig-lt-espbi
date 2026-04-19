@@ -1,0 +1,569 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-dispence",
+  "name": "LtEspbiMedicationDispense",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationDispense",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MedicationDispense",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationDispense.id",
+        "path": "MedicationDispense.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.meta",
+        "path": "MedicationDispense.meta",
+        "short": "Resurso versijos informacija / Metadata about the resource",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.meta.versionId",
+        "path": "MedicationDispense.meta.versionId",
+        "short": "Kompozicijos versijos id / Version specific identifier",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.meta.profile",
+        "path": "MedicationDispense.meta.profile",
+        "short": "Resurso struktūros versiją identifikuojantis profilis / Profiles this resource claims to conform to",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.contained",
+        "path": "MedicationDispense.contained",
+        "short": "Išduodamas ekstemporalus vaistas, vardinis vaistas (kurio nėra registre) ",
+        "max": "1",
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.contained.contained",
+        "path": "MedicationDispense.contained.contained",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.extension",
+        "path": "MedicationDispense.extension",
+        "min": 4,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtStatusWho",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtStatusWho",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/statusWho"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtPrice",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtPrice",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/price"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtDueDate",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtDueDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/dueDate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.extension:ltEspbiExtCompensationTag",
+        "path": "MedicationDispense.extension",
+        "sliceName": "ltEspbiExtCompensationTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-dispense/compensationTag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.status",
+        "path": "MedicationDispense.status",
+        "short": "Vaisto ar MPP išdavimo būsena / A code specifying the state of the set of dispense events",
+        "definition": "Vaisto ar MPP išdavimo būsena in progress | completed | entered in error\r\nGalimos reikšmės:\r\n- in progress: Pildoma.\r\n- completed: Aktualus.\r\n- entered in error: Atšauktas.\r\nGalimos reikšmės nurodytos klasifikatoriuje medication-dispense-status.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.statusChanged",
+        "path": "MedicationDispense.statusChanged",
+        "short": "Būsenos keitimo data ir laikas",
+        "definition": "Būsenos keitimo data ir laikas",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.medication",
+        "path": "MedicationDispense.medication",
+        "short": "Išduotas vaistas ar MPP / MP",
+        "definition": "Išduotas vaistas ar MPP/MP",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.medication.reference",
+        "path": "MedicationDispense.medication.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.medication.reference.reference",
+        "path": "MedicationDispense.medication.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.subject",
+        "path": "MedicationDispense.subject",
+        "short": "Pacientas, kuriam yra išduodamas vaistas / Who the dispense is for",
+        "definition": "Pacientas, kuriam yra išduodamas vaistas",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.subject.reference",
+        "path": "MedicationDispense.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.performer",
+        "path": "MedicationDispense.performer",
+        "short": "Farmacijos specialistas, kuris išduoda vaistą ar MPP",
+        "definition": "Farmacijos specialistas, kuris išduoda vaistą ar MPP",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.performer.extension",
+        "path": "MedicationDispense.performer.extension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.performer.modifierExtension",
+        "path": "MedicationDispense.performer.modifierExtension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.performer.actor",
+        "path": "MedicationDispense.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.performer.actor.reference",
+        "path": "MedicationDispense.performer.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription",
+        "path": "MedicationDispense.authorizingPrescription",
+        "short": "Nuoroda į vaisto ar MPP skyrimo resursą",
+        "definition": "Nuoroda į vaisto ar MPP skyrimo resursą",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription.reference",
+        "path": "MedicationDispense.authorizingPrescription.reference",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.quantity",
+        "path": "MedicationDispense.quantity",
+        "short": "Dozuočių arba MPP vienetų skaičius",
+        "definition": "Dozuočių arba MPP vienetų skaičius",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.quantity.extension",
+        "path": "MedicationDispense.quantity.extension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.quantity.value",
+        "path": "MedicationDispense.quantity.value",
+        "short": "Reikšmė",
+        "definition": "Reikšmė",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.quantity.unit",
+        "path": "MedicationDispense.quantity.unit",
+        "short": "Matavimo vienetai",
+        "definition": "Matavimo vienetai",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.quantity.system",
+        "path": "MedicationDispense.quantity.system",
+        "short": "Matavimo vienetų sistema",
+        "definition": "Matavimo vienetų sistema",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit"
+      },
+      {
+        "id": "MedicationDispense.quantity.code",
+        "path": "MedicationDispense.quantity.code",
+        "short": "Matavimo vienetų kodas",
+        "definition": "Matavimo vienetų kodas",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.daysSupply",
+        "path": "MedicationDispense.daysSupply",
+        "short": "Išduodamo vaisto vartojimo dienų skaičius",
+        "definition": "Išduodamo vaisto vartojimo dienų skaičius",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.daysSupply.id",
+        "path": "MedicationDispense.daysSupply.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationDispense.daysSupply.extension",
+        "path": "MedicationDispense.daysSupply.extension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.daysSupply.value",
+        "path": "MedicationDispense.daysSupply.value",
+        "short": "Reikšmė",
+        "definition": "Reikšmė",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.whenHandedOver",
+        "path": "MedicationDispense.whenHandedOver",
+        "short": "Vaisto ar MPP/MP išdavimo data",
+        "definition": "Vaisto ar MPP/MP išdavimo data",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.receiver",
+        "path": "MedicationDispense.receiver",
+        "short": "Vaistą ar MPP atsiėmęs asmuo / Who collected the medication or where the medication was delivered",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.receiver.extension",
+        "path": "MedicationDispense.receiver.extension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.receiver.reference",
+        "path": "MedicationDispense.receiver.reference",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction",
+        "path": "MedicationDispense.dosageInstruction",
+        "short": "Vaisto vartojimo instrukcijos",
+        "definition": "Vaisto vartojimo instrukcijos",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.text",
+        "path": "MedicationDispense.dosageInstruction.text",
+        "short": "Dozė per dieną.",
+        "definition": "Dozė per dieną. Nestruktūrizuotas aprašymas (privalomas, jeigu neužpildytas struktūrizuotas aprašymas).",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.additionalInstruction",
+        "path": "MedicationDispense.dosageInstruction.additionalInstruction",
+        "mustSupport": false
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.additionalInstruction.extension",
+        "path": "MedicationDispense.dosageInstruction.additionalInstruction.extension",
+        "mustSupport": false
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.patientInstruction",
+        "path": "MedicationDispense.dosageInstruction.patientInstruction",
+        "short": "Papildoma informacija pacientui",
+        "definition": "Papildoma informacija pacientui."
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing",
+        "path": "MedicationDispense.dosageInstruction.timing",
+        "short": "Vartojimo dažnumas / How often prescribed is taken",
+        "definition": "Vartojimo dažnumas ",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat",
+        "short": "Vartojimo dažnumas",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.extension",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.extension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.duration",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.duration",
+        "short": "Laiko kiekis, kuriam matuojamas dažnumas (privaloma nurodyti 1)",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.frequency",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.frequency",
+        "short": "Vartojimo dažnumas (per 1 dieną)",
+        "definition": "Vartojimo dažnumas (per 1 dieną)",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.period",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.period",
+        "short": "Kas kiek valandų vartoti vaistą",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.periodUnit",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.periodUnit",
+        "short": "Vartojimo laiko matavimo vienetas d | wk | mo ",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.timing.repeat.when",
+        "path": "MedicationDispense.dosageInstruction.timing.repeat.when",
+        "short": "Vaisto vartojimo žymos",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.asNeeded",
+        "path": "MedicationDispense.dosageInstruction.asNeeded",
+        "short": "Vartoti pagal poreikį",
+        "definition": "Vartoti pagal poreikį\r\n",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route",
+        "path": "MedicationDispense.dosageInstruction.route",
+        "short": "Vartojimo būdas",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.extension",
+        "path": "MedicationDispense.dosageInstruction.route.extension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding",
+        "path": "MedicationDispense.dosageInstruction.route.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.extension",
+        "path": "MedicationDispense.dosageInstruction.route.coding.extension",
+        "max": "1"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.system",
+        "path": "MedicationDispense.dosageInstruction.route.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Route"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.code",
+        "path": "MedicationDispense.dosageInstruction.route.coding.code",
+        "short": "Kodas",
+        "definition": "Kodas",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.route.coding.display",
+        "path": "MedicationDispense.dosageInstruction.route.coding.display",
+        "short": "Reikšmė",
+        "definition": "Reikšmė",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.method",
+        "path": "MedicationDispense.dosageInstruction.method",
+        "short": "Vartojimo metodas",
+        "definition": "Vartojimo metodas",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.method.text",
+        "path": "MedicationDispense.dosageInstruction.method.text",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod",
+        "short": "Dozė per dieną",
+        "definition": "Dozė per dieną. Struktūrizuotas aprašymas (privalomas, jeigu neužpildytas nestruktūrizuotas aprašymas).",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.value",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.value",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.unit",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.unit",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.system",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit"
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.code",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.numerator.code",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.value",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.value",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.unit",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.unit",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.system",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.system",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.code",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerPeriod.denominator.code",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration",
+        "short": "Vienkartinė dozė",
+        "definition": "Vienkartinė dozė",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration.value",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration.value",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration.unit",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration.unit",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration.system",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration.system",
+        "min": 1
+      },
+      {
+        "id": "MedicationDispense.dosageInstruction.maxDosePerAdministration.code",
+        "path": "MedicationDispense.dosageInstruction.maxDosePerAdministration.code",
+        "min": 1
+      }
+    ]
+  }
+}

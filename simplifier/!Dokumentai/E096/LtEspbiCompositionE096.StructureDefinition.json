@@ -1,0 +1,717 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e096",
+  "name": "LtEspbiCompositionE096",
+  "status": "draft",
+  "description": "E096 Nėštumo ir gimdymo istorija",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.meta",
+        "path": "Composition.meta",
+        "short": "Duomenų modelio versijos numeris",
+        "definition": "Duomenų modelio versijos numeris / The metadata about the resource."
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "definition": "Užpildymo ir atvaizdavimo aprašymą žiūrėti D1. ESI duomenų bazė.\r\nE097-AT medicininiam dokumentui leidžiamos būsenos reikšmės: „preliminary“; „final“; „amended“; „entered in error“.\r\nŽiūrėti Medicininių dokumentų antraštė.\r\n\r\nPagal FHIR R5 turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/composition-status. Galimos reikšmės: registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered in error | deprecated | unknown.",
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "Dokumento tipas / Document type it references to. ",
+        "definition": "Nurodomas dokumento tipas pagal  kodą iš Loinc sistemos (OID kodų naudojimas nenumatytas). \r\nGalimos reikšmės nurodytos klasifikatoriuje doc-code.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "57083-8",
+                  "display": "Labor and Delivery record panel"
+                }
+              ],
+              "text": "Nėštumo ir gimdymo istorija"
+            }
+          }
+        ],
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "57083-8"
+      },
+      {
+        "id": "Composition.type.coding.display",
+        "path": "Composition.type.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "short": "4. Atvykimo duomenys / Patient Reception Data",
+        "definition": "Nuoroda į apsilankymo registravimo duomenų rinkinį Atvykimo duomenys, išsaugotą D1. ESI duomenų bazė.",
+        "min": 1,
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "Dokumento paruošimo SPĮ pusėje data ir laikas.",
+        "definition": "Užpildymo ir atvaizdavimo aprašymą žiūrėti D1. ESI duomenų bazė.",
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "definition": "Nuoroda į Naujagimio tikrinimą atlikusi gydytoją kataloge D2. Sveikatinimo specialistų katalogas.\r\nPateikiant medicininį dokumentą taikomi duomenų tikrinimo reikalavimai:\r\n• DTT.6. Įrašas egzistuoja ESPBI IS.\r\n\r\nResurse PractitionerRole saugoma informacija apie sveikatos priežiūros specialisto padalinį, kuriame dirba specialistas bei profesinę kvalifikaciją.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/123456"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "Dokumento pavadinimas / Title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Nėštumo ir gimdymo istorija"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event",
+        "path": "Composition.event",
+        "code": [
+          {
+            "userSelected": false
+          }
+        ],
+        "short": "Įvykis, kurio pagrindu yra kuriamas dokumentas",
+        "definition": "Įvykis, kurio pagrindu yra kuriamas dokumentas / The event being documented"
+      },
+      {
+        "id": "Composition.event.detail.concept",
+        "path": "Composition.event.detail.concept",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/EventType",
+                  "code": "7",
+                  "display": "Atvykimas į SPĮ gauti stacionarinių paslaugų"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ],
+        "mustHaveValue": true
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Dokumento duomenys",
+        "definition": "Dokumento duomenys / Document Data",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:e113ND",
+        "path": "Composition.section",
+        "sliceName": "e113ND",
+        "short": "E113-ND Nėštumo duomenys, anamnezė ir priežiūros planas / E113-ND Pregnancy data, anamnesis and care plan",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:e113ND.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "67471-3",
+                  "display": "History of Pregnancy"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e113ND.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:e113ND.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "67471-3"
+      },
+      {
+        "id": "Composition.section:e113ND.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e113ND.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/31"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e113ND.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096NT",
+        "path": "Composition.section",
+        "sliceName": "e096NT",
+        "short": "E096-NT | Nėščiosios tyrimas, gimdymo priežiūros planas, paskyrimai / Prenatal examination, birth care plan, appointments"
+      },
+      {
+        "id": "Composition.section:e096NT.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "92574-3",
+                  "display": "Labor and delivery summary - recommended IHE set"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096NT.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:e096NT.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "92574-3"
+      },
+      {
+        "id": "Composition.section:e096NT.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096NT.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096GE",
+        "path": "Composition.section",
+        "sliceName": "e096GE",
+        "short": "E096-GE Gimdymo eiga / E096-GE Birth progress",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:e096GE.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "57074-7",
+                  "display": "Labor and delivery process"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096GE.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:e096GE.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "57074-7"
+      },
+      {
+        "id": "Composition.section:e096GE.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096GE.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/71"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096GE.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096PART",
+        "path": "Composition.section",
+        "sliceName": "e096PART",
+        "short": "E096-PART | Partograma",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:e096PART.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifier/DocCode",
+                  "code": "01.0003",
+                  "display": "Newborn administrative information"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096PART.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifier/DocCode"
+      },
+      {
+        "id": "Composition.section:e096PART.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "92015-7"
+      },
+      {
+        "id": "Composition.section:e096PART.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096PART.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/41"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096PART.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:E096PTKL",
+        "path": "Composition.section",
+        "sliceName": "E096PTKL",
+        "short": "E096-PTKL | Pagalbos teikimo kontrolinis lapas / Assistance Checklist"
+      },
+      {
+        "id": "Composition.section:E096PTKL.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifier/DocCode",
+                  "code": "01.0001",
+                  "display": "Obstetric procedures performed"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:E096PTKL.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifier/DocCode"
+      },
+      {
+        "id": "Composition.section:E096PTKL.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0001"
+      },
+      {
+        "id": "Composition.section:E096PTKL.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:E096PTKL.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/61"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:E096PTKL.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096CPO",
+        "path": "Composition.section",
+        "sliceName": "e096CPO",
+        "short": "E096-CPO | Cezario pjūvio operacijos protokolas/ E096-CPO Cesarean section surgery protocol",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:e096CPO.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifier/DocCode",
+                  "code": "01.0002",
+                  "display": "Cezario pjūvio operacijos protokolas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096CPO.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifier/DocCode"
+      },
+      {
+        "id": "Composition.section:e096CPO.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0005"
+      },
+      {
+        "id": "Composition.section:e096CPO.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096CPO.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/81"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096CPO.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096N",
+        "path": "Composition.section",
+        "sliceName": "e096N",
+        "short": "E096-N | Naujagimis (-iai) / E096-N | Newborn(s)",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:e096N.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "92015-7",
+                  "display": "NNewborn administrative information"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096N.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:e096N.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "57717-1"
+      },
+      {
+        "id": "Composition.section:e096N.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096N.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Newborn screen card data panel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096N.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096AN",
+        "path": "Composition.section",
+        "sliceName": "e096AN",
+        "short": "E096-AN | Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai / E096-AN | Near-miss and near-miss events during pregnancy, childbirth or the postpartum period "
+      },
+      {
+        "id": "Composition.section:e096AN.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifier/DocCode",
+                  "code": "01.0004",
+                  "display": "Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096AN.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifier/DocCode"
+      },
+      {
+        "id": "Composition.section:e096AN.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0004"
+      },
+      {
+        "id": "Composition.section:e096AN.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:e096AN.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/111"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:e096AN.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

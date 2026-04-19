@@ -1,0 +1,134 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2314",
+  "name": "LtEspbiObservation02_2314",
+  "status": "draft",
+  "description": "Gimdymo terminas pagal paskutines mėnesines / Due date based on last menstrual period",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.2314",
+                  "display": "Gimdymo terminas pagal paskutines mėnesines"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.2314"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Gimdymo terminas pagal paskutines mėnesines / Due date based on the last menstrual period",
+        "definition": "E113-ND forma. Gimdymo terminas pagal paskutines mėnesines\r\n\r\nAutomatiškai apskaičiuojama reikšmė pagal pateiktą “Mėnesinių trukmė”, “Mėnesinių ciklo trukmė” ir “Paskutinių normalių mėnesinių data”.\r\nVeikimo logika:\r\n• Apskaičiuojamas Pacientės mėnesinių ciklo nuokrypis nuo standartinio mėnesinių ciklo: 28 -(minus) “Mėnesinių ciklo trukmė”\r\n• Apskaičiuojamas gimdymo terminas: \"Paskutinių normalių mėnesinių data\"+(plius) 280 dienos -(minus) \"Pacientės mėnesinių ciklo nuokrypis nuo standartinio mėnesinių ciklo\". \r\n\r\nValidacijos taisyklės:\r\n• “Mėnesinių trukmė” lauko reikšmė turi būti daugiau už 0;\r\n• “Mėnesinių ciklo trukmė” lauko reikšmė turi būti daugiau už 0.\r\n• “Paskutinių normalių mėnesinių data” lauko reikšmė turi būti daugiau už 0. \r\n• “Paskutinių normalių mėnesinių data” reikšmė turi būti mažesnė už duomenų pateikties datą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-12-22T14:13:54.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/Observation/Interpretation/DeathDate"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

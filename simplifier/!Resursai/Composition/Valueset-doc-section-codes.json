@@ -1,0 +1,1743 @@
+{
+  "resourceType": "ValueSet",
+  "id": "lt-espbi-vs-doc-section-codes",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-doc-section-codes",
+  "version": "1.0.0",
+  "name": "LtEspbiVsDocumentSectionCodes",
+  "status": "draft",
+  "experimental": false,
+  "date": "2026-01-09",
+  "description": "Dokumentų sekcijų kodų sąrašas / Document section codes. Naudojamas LtEspbiComposition.section.code (CodeableConcept).",
+  "compose": {
+    "include": [
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "55107-7",
+            "display": " Prisegtos bylos / Attached files"
+          },
+          {
+            "code": "64295-9",
+            "display": "ASPN Paciento slaugos ir priežiūros planas"
+          },
+          {
+            "code": "48765-2",
+            "display": "Alergijos / Allergies"
+          },
+          {
+            "code": "11348-0",
+            "display": "Anamnezė / Anamnesis"
+          },
+          {
+            "code": "11526-1",
+            "display": "Ankstesni morfologiniai tyrimai (data, tyrimo vieta ir registracijos Nr.) /  Earlier morphological tests (date, test location and registration no.)"
+          },
+          {
+            "code": "69043-8",
+            "display": "Anksčiau gimusių vaikų (gyvų ir negyvagimių) skaičius / Previous born babies number "
+          },
+          {
+            "code": "52799-4",
+            "display": "Ar buvo atlikta operacija (-os) per paskutines 28 dienas iki mirties? / Any operations before death have been performed?"
+          },
+          {
+            "code": "77974-4",
+            "display": "Asmuo hospitalizuotas / Whether the patient was hospitalized for condition of interest"
+          },
+          {
+            "code": "47519-4",
+            "display": "Atliktos chirurginės procedūros / Performed surgery procedures"
+          },
+          {
+            "code": "30954-2",
+            "display": "Atliktų laboratorinių ir instrumentinių tyrimų aprašymas / Performed lab tests description"
+          },
+          {
+            "code": "34075-2",
+            "display": "Atliktų laboratorinių ir instrumentinių tyrimų informacija / Info about diagnostic/lab results"
+          },
+          {
+            "code": "57079-6",
+            "display": "Birth plan narrative"
+          },
+          {
+            "code": "11640-0",
+            "display": "Births total"
+          },
+          {
+            "code": "3137-7",
+            "display": "Body height Measured"
+          },
+          {
+            "code": "3141-9",
+            "display": "Body weight Measured"
+          },
+          {
+            "code": "8716-3",
+            "display": "Būklės įvertinimas (objektyviai) / Objective condition"
+          },
+          {
+            "code": "11961-0",
+            "display": "Cervix [Length] US"
+          },
+          {
+            "code": "8690-0",
+            "display": "Chirurginės procedūros (per pastaruosius 6 mėn.) / History of surgical procedures Narrative"
+          },
+          {
+            "code": "10167-5",
+            "display": "Chirurginės procedūros prieš pastaruosius šešis mėnesius / History of surgical procedures Narrative"
+          },
+          {
+            "code": "57719-7",
+            "display": "Conditions tested for in this newborn screening study"
+          },
+          {
+            "code": "11527-9",
+            "display": "Diagnozių aprašymas / Description of Diagnosis"
+          },
+          {
+            "code": "11535-2",
+            "display": "Diagnozių sąrašas / Diagnosis"
+          },
+          {
+            "code": "101573-4",
+            "display": "Diet at discharge"
+          },
+          {
+            "code": "58199-1",
+            "display": "Dokumento pateikimo/keitimo/šalinimo paaiškinimas / Document submission/update/delete description"
+          },
+          {
+            "code": "60593-1",
+            "display": "Dokumento tipas / Document type"
+          },
+          {
+            "code": "57833-6",
+            "display": "Dokumento tipas / Document type"
+          },
+          {
+            "code": "21958-4",
+            "display": "Dozė / Dose"
+          },
+          {
+            "code": "21964-2",
+            "display": "Dozės matavimo vienetas / Dose measurement unit"
+          },
+          {
+            "code": "95376-0",
+            "display": "Duomenys apie gyvūną, kuris sužalojo žmogų / Type of animal exposed to"
+          },
+          {
+            "code": "10157-6",
+            "display": "Family history"
+          },
+          {
+            "code": "12116-0",
+            "display": "Fetal Umbilical cord Study observation US"
+          },
+          {
+            "code": "84429-0",
+            "display": "GMP kortelės ne FHIR struktūros duomenys prisegti kaip bylos / Level 3 emergency medical services patient care report - recommended CDA R1 and R2 set"
+          },
+          {
+            "code": "72115-9",
+            "display": "Gaivinimas / Resuscitation attempted"
+          },
+          {
+            "code": "8290-9",
+            "display": "Galvos apimtis / Head Occipital-frontal circumference --at birth"
+          },
+          {
+            "code": "73789-0",
+            "display": "General physical condition [NSRAS]"
+          },
+          {
+            "code": "18185-9",
+            "display": "Gestacinis amžius / Gestational age"
+          },
+          {
+            "code": "11888-5",
+            "display": "Gestational age US composite estimate"
+          },
+          {
+            "code": "15508-5",
+            "display": "Gimdymas / Labor and delivery records"
+          },
+          {
+            "code": "48767-8",
+            "display": "Gydymo, slaugos, darbo, ambulatorines priežiūros rekomendacijos duomenys / Treatment recommendations data"
+          },
+          {
+            "code": "11510-5",
+            "display": "Gydymo, slaugos, darbo, ambulatorinės priežiūros rekomendacijos (aprašymas) / Treatment recommendations"
+          },
+          {
+            "code": "39223-3",
+            "display": "Gydymo, slaugos, darbo, ambulatorinės priežiūros rekomendacijos (aprašymas) / Treatment recommendations"
+          },
+          {
+            "code": "39221-7",
+            "display": "Gydymo, slaugos, darbo, ambulatorinės priežiūros rekomendacijos / Recommendations for treatment"
+          },
+          {
+            "code": "69449-7",
+            "display": "Gydytojo nuomone mirties rūšis / Death type (by Practitioner conclusion)"
+          },
+          {
+            "code": "72056-5",
+            "display": "HB vakcinacija / Hepatitis B vaccination received"
+          },
+          {
+            "code": "67471-3",
+            "display": "History of Pregnancy"
+          },
+          {
+            "code": "57080-4",
+            "display": "Implantai / Implants"
+          },
+          {
+            "code": "67163-6",
+            "display": "Informacija apie atliktus diagnostinius tyrimus ligai nustatyti ir jų rezultatus / Diagnostic procedures performed [PhenX]"
+          },
+          {
+            "code": "60484-3",
+            "display": "Informacija apie atliktą skiepą / Information about performed vaccination"
+          },
+          {
+            "code": "11488-4",
+            "display": "Informacija apie atliktų laboratorinių ir instrumentinių tyrimų rezultatų medicininius dokumentus (dokumento pavadinimas, data) / Info about diagnostic/lab results documents"
+          },
+          {
+            "code": "57139-8",
+            "display": "Informacija apie išrašytus siuntimo dokumentus (E027, E200, E014) / Info about prepared order (E027, E200, E014) documents"
+          },
+          {
+            "code": "59779-9",
+            "display": "Informacija apie pakartotinai numatomus skiepus / Information about next vaccinations (if any)"
+          },
+          {
+            "code": "57133-1",
+            "display": "Informacija apie siunčiamą medicininį dokumentą (medicininio dokumento pavadinimas, data) / Info about medical docs sent to police"
+          },
+          {
+            "code": "34108-1",
+            "display": "Informacija apie susietą E025 (jeigu gydymas tęsiamas) / Info about previous E025 if treatment is continued"
+          },
+          {
+            "code": "55110-1",
+            "display": "Išvada / Conclusion"
+          },
+          {
+            "code": "73569-6",
+            "display": "Jonizuojančios spinduliuotės duomenys / Radiation information"
+          },
+          {
+            "code": "73771-8",
+            "display": "Kelintas gimdymas / Which birth in a row it is"
+          },
+          {
+            "code": "68991-9",
+            "display": "Kita epidemiologiškai svarbi informacija / Epidemiologically important information for public health reporting panel"
+          },
+          {
+            "code": "68346-6",
+            "display": "Kitos svarbios patologinės būklės, sąlygojusios mirtį, bet nesusijusios su pagrindine mirties priežastimi / Other conditions (not related to main death reason)"
+          },
+          {
+            "code": "69441-4",
+            "display": "Kitų aplinkybių paaiškinimas /  Other explanation of the death circumstances"
+          },
+          {
+            "code": "72231-4",
+            "display": "Konsultuojančio gydytojo atsakymas / Consult reply note"
+          },
+          {
+            "code": "56796-6",
+            "display": "Kontaktiniai asmenys ypatingu atveju / Emergency contact information panel"
+          },
+          {
+            "code": "76426-6",
+            "display": "Kreipimosi (atvykimo į SPĮ) data / Start date for episode of care"
+          },
+          {
+            "code": "57074-7",
+            "display": "Labor and delivery process"
+          },
+          {
+            "code": "92574-3",
+            "display": "Labor and delivery summary - recommended IHE set"
+          },
+          {
+            "code": "10158-4",
+            "display": "Ligos (gyvenimo) anamnezė / Disease (life) Anamnesis"
+          },
+          {
+            "code": "67188-3",
+            "display": "Ligos forma / Type of complication - infection"
+          },
+          {
+            "code": "46098-0",
+            "display": "Lytis / Sex"
+          },
+          {
+            "code": "92016-5",
+            "display": "Maternal pregnancy risk factors Document"
+          },
+          {
+            "code": "11518-8",
+            "display": "Medicininiai duomenys / Clinical Data"
+          },
+          {
+            "code": "55752-0",
+            "display": "Medicininiai duomenys / Clinical Data"
+          },
+          {
+            "code": "69437-2",
+            "display": "Medicininį mirties liudijimą išrašė /  Death Certificate author type"
+          },
+          {
+            "code": "10160-0",
+            "display": "Medikamentų vartojimo istorija / History of medication use Narrative"
+          },
+          {
+            "code": "21984-0",
+            "display": "Mirties priežastys / Death circumstances"
+          },
+          {
+            "code": "69442-2",
+            "display": "Moteris mirė / Timing of recent pregnancy in relation to death "
+          },
+          {
+            "code": "74025-8",
+            "display": "Motina / Mother identifier"
+          },
+          {
+            "code": "57712-2",
+            "display": "Motinos išsilavinimas / Mothers education"
+          },
+          {
+            "code": "12132-7",
+            "display": "Narrative [Interpretation] Study observation general"
+          },
+          {
+            "code": "73772-6",
+            "display": "Naujagimis (negyvagimis) gimė / Which dead born in a row it is (First, first of twins, second of twins, more than two babies)"
+          },
+          {
+            "code": "77753-2",
+            "display": "Naviko morfologija / Tumor morphology panel Cancer"
+          },
+          {
+            "code": "11374-6",
+            "display": "Nelaimingo atsitikimo, savižudybės, žmogžudystės aplinkybės / Incident(cause to death) circumstances"
+          },
+          {
+            "code": "31211-6",
+            "display": "Nelaimingo atsitikimo, savižudybės, žmogžudystės data / Incident date (cause to death)"
+          },
+          {
+            "code": "58332-8",
+            "display": "Nelaimingo atsitikimo, savižudybės, žmogžudystės vieta / Place of accident, suicide or homicide"
+          },
+          {
+            "code": "62387-6",
+            "display": "Nemedikamentinis / Performed non-medical Treatment description"
+          },
+          {
+            "code": "92015-7",
+            "display": "Newborn administrative information"
+          },
+          {
+            "code": "57717-1",
+            "display": "Newborn screen card data panel"
+          },
+          {
+            "code": "57130-7",
+            "display": "Newborn screening report - overall interpretation"
+          },
+          {
+            "code": "18594-2",
+            "display": "Nuoroda į Psichikos sveikatos duomenų priedą E030 / Reference to Mental Health Data Annex"
+          },
+          {
+            "code": "34792-2",
+            "display": "Nusiskundimai / Complaints"
+          },
+          {
+            "code": "75322-8",
+            "display": "Nusiskundimų aprašas / Complaint info"
+          },
+          {
+            "code": "49052-4",
+            "display": "Nėštumo diena / Gestational age in days"
+          },
+          {
+            "code": "42228-7",
+            "display": "Nėštumo informacija / Pregnancy information"
+          },
+          {
+            "code": "11885-1",
+            "display": "Nėštumo savaitė pagal mėnesines / Gestational age Estimated from last menstrual period"
+          },
+          {
+            "code": "49051-6",
+            "display": "Nėštumo trukmė (sav.) / Gestational age in weeks"
+          },
+          {
+            "code": "73814-6",
+            "display": "Obstetric procedures performed"
+          },
+          {
+            "code": "28183-2",
+            "display": "Oral mucous membranes impairment [CCC]"
+          },
+          {
+            "code": "52463-7",
+            "display": "Paciento identifikavimo žyma / Patient identifiaction mark"
+          },
+          {
+            "code": "34129-7",
+            "display": "Paciento sveikatos būklės vertinimo forma"
+          },
+          {
+            "code": "96134-2",
+            "display": "Paciento veiklos ir namų aplinkos vertinimo forma"
+          },
+          {
+            "code": "18782-3",
+            "display": "Pagrindinė diagnozė / Main diagnosis"
+          },
+          {
+            "code": "52535-2",
+            "display": "Papildomi duomenys / Additional Data"
+          },
+          {
+            "code": "46513-8",
+            "display": "Papildomos diagnozės / Additional diagnoses"
+          },
+          {
+            "code": "LP30630-5",
+            "display": "Pelvis\\u003eUterine artery"
+          },
+          {
+            "code": "11349-8",
+            "display": "Persirgtų ligų istorija / History of Past illness"
+          },
+          {
+            "code": "8694-2",
+            "display": "Physical findings of Abdomen"
+          },
+          {
+            "code": "11422-3",
+            "display": "Physical findings of Chest"
+          },
+          {
+            "code": "8701-5",
+            "display": "Physical findings of Head"
+          },
+          {
+            "code": "8702-3",
+            "display": "Physical findings of Heart"
+          },
+          {
+            "code": "32455-8",
+            "display": "Physical findings of Muscle tone"
+          },
+          {
+            "code": "8705-6",
+            "display": "Physical findings of Nervous system"
+          },
+          {
+            "code": "32460-8",
+            "display": "Physical findings of Palate"
+          },
+          {
+            "code": "11443-9",
+            "display": "Physical findings of Respiratory system"
+          },
+          {
+            "code": "8710-6",
+            "display": "Physical findings of Thorax and Lungs"
+          },
+          {
+            "code": "57075-4",
+            "display": "Pirmoji naujagimio apžiūra namuose / Information in Case of Newborn Baby Examination (at home)"
+          },
+          {
+            "code": "93037-0",
+            "display": "Portable medical order form"
+          },
+          {
+            "code": "100483-7",
+            "display": "Požymis \\"
+          },
+          {
+            "code": "101439-8",
+            "display": "Požymis \\"
+          },
+          {
+            "code": "100591-7",
+            "display": "Požymis \\"
+          },
+          {
+            "code": "44944-7",
+            "display": "Pranešimai policijos elektroninių paslaugų sistemai / The list of alerts to police"
+          },
+          {
+            "code": "57059-8",
+            "display": "Pregnancy visit summary note"
+          },
+          {
+            "code": "60569-1",
+            "display": "Prisegtų bylų skaičius / Number of attached files"
+          },
+          {
+            "code": "18738-5",
+            "display": "Psichiatrinė anamnezė ir (ar) psichikos sveikatos būsena / Psychiatric anamnesis and/or mental health status"
+          },
+          {
+            "code": "83906-8",
+            "display": "Psichikos rizikos veiksniai / Mental risk factors"
+          },
+          {
+            "code": "75423-4",
+            "display": "Psichotropinių priklausomybių klausimynas (ASIS)"
+          },
+          {
+            "code": "55283-6",
+            "display": "Pulso dažnio būklė / Fetal Heart rate"
+          },
+          {
+            "code": "46467-7",
+            "display": "Rizikos veiksniai / Risk factors "
+          },
+          {
+            "code": "82593-5",
+            "display": "Skiepijimų istorija / Immunization summary report"
+          },
+          {
+            "code": "11369-6",
+            "display": "Skiepų skyrimai / Immunization orders"
+          },
+          {
+            "code": "46046-9",
+            "display": "Skin condition section"
+          },
+          {
+            "code": "57828-6",
+            "display": "Skiriami vaistai ir MPP / Prescribed medications"
+          },
+          {
+            "code": "65842-7",
+            "display": "Skyrimo(-ų)(Order) būsenos pakeitimas / Order(s) status changing OrderResponse(s)"
+          },
+          {
+            "code": "39016-1",
+            "display": "Spėjamas amžius (m., mėn., d.), kai mirusiojo tapatybė nenustatyta / hypothetical age (years, months, days)"
+          },
+          {
+            "code": "55114-3",
+            "display": "Susiję tyrimai / Related tests"
+          },
+          {
+            "code": "85585-8",
+            "display": "Susirgimo (ligos simptomų pradžia) / Date of condition onset"
+          },
+          {
+            "code": "29463-7",
+            "display": "Svoris / Body weight"
+          },
+          {
+            "code": "55753-8",
+            "display": "Taikytas gydymas / Performed treatment"
+          },
+          {
+            "code": "89812-2",
+            "display": "Taikytas medikamentinis gydymas / Performed medication treatment"
+          },
+          {
+            "code": "10183-2",
+            "display": "Taikytas medikamentinis gydymas / Performed medication treatment"
+          },
+          {
+            "code": "89497-2",
+            "display": "Tyrimai / Mother\\u0027s Prenatal tests"
+          },
+          {
+            "code": "18834-2",
+            "display": "Tyrimo (medicininio vaizdo) aprašas / Test (medical view) description"
+          },
+          {
+            "code": "11513-9",
+            "display": "Tyrimo (medicininio vaizdo) aprašymo numeris / Test (medical view) description ID"
+          },
+          {
+            "code": "19005-8",
+            "display": "Tyrimo ACHI kodas / Test ACHI code"
+          },
+          {
+            "code": "55113-5",
+            "display": "Tyrimo UID / Test UID"
+          },
+          {
+            "code": "55111-9",
+            "display": "Tyrimo aprašymo informacija / Diagnostic report information"
+          },
+          {
+            "code": "18779-9",
+            "display": "Tyrimo data ir laikas / Test date and time"
+          },
+          {
+            "code": "18771-6",
+            "display": "Tyrimo pavadinimas / Test name"
+          },
+          {
+            "code": "56851-9",
+            "display": "Tyrimų / konsultacijų planas (paskirti tyrimų ir konsultacijų siuntimai, diagnozių sąrašas) / Tests and Consultations Plan"
+          },
+          {
+            "code": "18776-5",
+            "display": "Tyrimų / konsultacijų planas / Tests and Consultations Plan"
+          },
+          {
+            "code": "80770-1",
+            "display": "Tyrimų / konsultacijų plano aprašymas / Tests and Consultations Plan description"
+          },
+          {
+            "code": "56447-6",
+            "display": "Tyrimų / konsultacijų plano aprašymas / Tests and Consultations Plan description"
+          },
+          {
+            "code": "34970-4",
+            "display": "Ultragarsinio tyrimo data / Ultrasound date"
+          },
+          {
+            "code": "LP7696-0",
+            "display": "Uterine artery.left"
+          },
+          {
+            "code": "LP7697-8",
+            "display": "Uterine artery.right"
+          },
+          {
+            "code": "55281-0",
+            "display": "Vaisių skaičius / Number of fetuses"
+          },
+          {
+            "code": "57852-6",
+            "display": "Ypatingų indikatorių sąrašas / Alerts list"
+          },
+          {
+            "code": "11996-6",
+            "display": "[#] Pregnancies"
+          },
+          {
+            "code": "34104-0",
+            "display": "pecialistų konsultacijos / Specialists consultations"
+          },
+          {
+            "code": "20564-1",
+            "display": "ĮKŠY SpO2(%) / Oxygen saturation in Blood"
+          },
+          {
+            "code": "74711-3",
+            "display": "Įrenginio serijinis numeris / Device serial number"
+          },
+          {
+            "code": "8302-2",
+            "display": "Ūgis / Body height"
+          },
+          {
+            "code": "8306-3",
+            "display": "Ūgis / Height"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "17542004",
+            "display": "Accident while engaged in work-related activity (event)"
+          },
+          {
+            "code": "43408002",
+            "display": "Akių dugno raudono reflekso tyrimas (+/–) / Red reflex"
+          },
+          {
+            "code": "394704008",
+            "display": "Ankstesnės profesijos ir stažas, metais / Previous jobs and years of work"
+          },
+          {
+            "code": "37823000",
+            "display": "Antros grupės kategorijos / Group II driving category"
+          },
+          {
+            "code": "364154000",
+            "display": "Appearance of anus (observable entity)"
+          },
+          {
+            "code": "365349005",
+            "display": "Apribojimai / Limitations"
+          },
+          {
+            "code": "443942000",
+            "display": "Asmuo, kuris kreipėsi dėl pažymos išrašymo / Person requested this certificate"
+          },
+          {
+            "code": "42284007",
+            "display": "BCG vakcinacija / BCG vaccination"
+          },
+          {
+            "code": "302787001",
+            "display": "Bilirubin measurement (procedure)"
+          },
+          {
+            "code": "405176005",
+            "display": "Blood glucose status (observable entity)"
+          },
+          {
+            "code": "396550006",
+            "display": "Blood test (procedure)"
+          },
+          {
+            "code": "124923004",
+            "display": "C-reactive protein reaction, function (observable entity)"
+          },
+          {
+            "code": "708130001",
+            "display": "Coombs test"
+          },
+          {
+            "code": "159553004",
+            "display": "Darbdavio dokumentą pildančio naudotojo duomenys / Employment clerk"
+          },
+          {
+            "code": "224373009",
+            "display": "Darbo stažas pagal šią profesiją, metais / Years of work at that position"
+          },
+          {
+            "code": "394571004",
+            "display": "Darbovietė / Workplace"
+          },
+          {
+            "code": "247583006",
+            "display": "Decision making"
+          },
+          {
+            "code": "111989001",
+            "display": "Defecation, function (observable entity)"
+          },
+          {
+            "code": "171351004",
+            "display": "Dokumento duomenys / Document Data"
+          },
+          {
+            "code": "406194006",
+            "display": "Dokumento duomenys / Document data"
+          },
+          {
+            "code": "169811007",
+            "display": "Dokumento duomenys / Document data"
+          },
+          {
+            "code": "58322009",
+            "display": "Dokumento galiojimo pabaiga / Document expired at date"
+          },
+          {
+            "code": "224361009",
+            "display": "Dokumentą pildančio naudotojo pareigos / Author job position title"
+          },
+          {
+            "code": "224406003",
+            "display": "Dokumentą pildančio naudotojo pareigos / Author job position title"
+          },
+          {
+            "code": "27624003",
+            "display": "ESI neregistruotos dabartinės, lėtinės ligos"
+          },
+          {
+            "code": "289707002",
+            "display": "Finding of regularity of uterine contraction"
+          },
+          {
+            "code": "300474003",
+            "display": "Finding of urine output (finding)"
+          },
+          {
+            "code": "307929000",
+            "display": "Galutinis / laikinas dokumentas / Final or Temporary  certificate"
+          },
+          {
+            "code": "364204002",
+            "display": "Genital observable (observable entity)"
+          },
+          {
+            "code": "184099003",
+            "display": "Gimdymo data ir laikas / Birth delivery date and time"
+          },
+          {
+            "code": "169812000",
+            "display": "Gimdymo vieta / Birth delivery place"
+          },
+          {
+            "code": "299231009",
+            "display": "Hip joint observation"
+          },
+          {
+            "code": "55923008",
+            "display": "Infant diet"
+          },
+          {
+            "code": "387760006",
+            "display": "Infusion care"
+          },
+          {
+            "code": "365389004",
+            "display": "Išduotas nedarbingumo pažymėjimas / pažyma / Certificate given (Incapacity for Work, Maternity leave, some Medical certificate)"
+          },
+          {
+            "code": "440337002",
+            "display": "Išduotas nedarbingumo pažymėjimas / pažyma / Certificate of Incapacity for Work"
+          },
+          {
+            "code": "243883003",
+            "display": "Išvada / Conclusion"
+          },
+          {
+            "code": "301707001",
+            "display": "Išvados duomenys / Conclusion data"
+          },
+          {
+            "code": "307930005",
+            "display": "Keičiamas liudijimas / Replaced temporary certificate"
+          },
+          {
+            "code": "160909006",
+            "display": "Kenksmingi veiksniai darbe / Harmful factors at work"
+          },
+          {
+            "code": "35018000",
+            "display": "Kitos kategorijos / Other driving category"
+          },
+          {
+            "code": "252623004",
+            "display": "Klausos tikrinimas OAE / Oto-acoustic emission test"
+          },
+          {
+            "code": "160922003",
+            "display": "Klinikiniai duomenys / Clinical Data"
+          },
+          {
+            "code": "365636006",
+            "display": "Kraujo grupė / Blood group"
+          },
+          {
+            "code": "103695000",
+            "display": "Medicininės pažymos / Medical certificate data"
+          },
+          {
+            "code": "399753006",
+            "display": "Mirties data / Date of death"
+          },
+          {
+            "code": "184305005",
+            "display": "Mirties priežastys: pagrindinės ligos (traumos), sukėlusios mirtį, kodas / Death cause (main disease code)"
+          },
+          {
+            "code": "366044004",
+            "display": "Mirties vieta / Death place"
+          },
+          {
+            "code": "419620001",
+            "display": "Mirtis / Death"
+          },
+          {
+            "code": "184096005",
+            "display": "Mirusiojo naujagimio pavardė / Baby surname"
+          },
+          {
+            "code": "371484003",
+            "display": "Mirusiojo naujagimio vardas / Baby name"
+          },
+          {
+            "code": "47340003",
+            "display": "Naujagimio kūno masė / Baby weight"
+          },
+          {
+            "code": "263495000",
+            "display": "Naujagimio lytis / Baby gender"
+          },
+          {
+            "code": "302080006",
+            "display": "Naujagimio, mirusio nuo 7 iki 28 parų, išnešiojimas / Pregnancy completion"
+          },
+          {
+            "code": "371508000",
+            "display": "Naviko stadija / Tumor stage"
+          },
+          {
+            "code": "237364002",
+            "display": "Negyvagimis / mirė pirmą gyvenimo savaitę / Baby death type (Born dead or died during the first week)"
+          },
+          {
+            "code": "386369002",
+            "display": "Newborn monitoring"
+          },
+          {
+            "code": "184225006",
+            "display": "Nuoroda į naujagimio paciento resursą (jeigu mire po gimimo) / Link to baby patient if died after born"
+          },
+          {
+            "code": "446059004",
+            "display": "Nustatytas nedarbingumas / Work ability index score"
+          },
+          {
+            "code": "21134002",
+            "display": "Nustatytas neįgalumas / Disability defined"
+          },
+          {
+            "code": "229056002",
+            "display": "Nustatyti specialūs poreikiai / Special needs register"
+          },
+          {
+            "code": "310506006",
+            "display": "Nėštumo nutraukimo priežastis / Reason for termination of pregnancy"
+          },
+          {
+            "code": "57485005",
+            "display": "Oxygen therapy care"
+          },
+          {
+            "code": "112115002",
+            "display": "Oxytocin"
+          },
+          {
+            "code": "444301002",
+            "display": "Paciento (motinos) duomenys / Babies mothers patient data"
+          },
+          {
+            "code": "133933007",
+            "display": "Paciento (naujagimio) duomenys / New born Patient data"
+          },
+          {
+            "code": "257445002",
+            "display": "Paciento fotografija /Picture"
+          },
+          {
+            "code": "108257001",
+            "display": "Patologinis mirusio negyvagimio/naujagimio tyrimas / Anatomic pathology procedure"
+          },
+          {
+            "code": "173300003",
+            "display": "Perinatalinės mirties priežastys: pagrindinės motinos ligos ar būklės (placentos būklės), lėmusios naujagimio mirtį, kodas / Death cause (Mother main disease)"
+          },
+          {
+            "code": "35683002",
+            "display": "Phototherapy of newborn"
+          },
+          {
+            "code": "55121009",
+            "display": "Pirmos grupės kategorijos / Group I driving category"
+          },
+          {
+            "code": "184104002",
+            "display": "Profesijos kodas / Occupation (job) code"
+          },
+          {
+            "code": "133877004",
+            "display": "Regimen orders"
+          },
+          {
+            "code": "80943009",
+            "display": "Risk factor"
+          },
+          {
+            "code": "32709003",
+            "display": "Socialinė paciento istorija / Social patient history"
+          },
+          {
+            "code": "364700005",
+            "display": "Specialios rekomendacijos / Special recommendations"
+          },
+          {
+            "code": "444135009",
+            "display": "Spėjamas amžius (dienomis), kai mirusiojo tapatybė nenustatyta / baby hypothetical age (in days)"
+          },
+          {
+            "code": "182816009",
+            "display": "Therapeutic prescription"
+          },
+          {
+            "code": "241491007",
+            "display": "Ultrasound scan of fetus"
+          },
+          {
+            "code": "266955002",
+            "display": "Įdarbinimo ar darbo sąlygų keitimo data / Employment date"
+          }
+        ]
+      },
+      {
+        "system": "http://esveikata.lt/classifiers/DocSectionCode",
+        "concept": [
+          {
+            "code": "02.0903",
+            "display": "Akušerinių replių panaudojimas"
+          },
+          {
+            "code": "02.2334",
+            "display": "Ankstesni nėštumai ir jų baigtys"
+          },
+          {
+            "code": "02.1021",
+            "display": "Apgar balas po 1 min"
+          },
+          {
+            "code": "02.1027",
+            "display": "Apgar balas po 10 min"
+          },
+          {
+            "code": "02.1024",
+            "display": "Apgar balas po 5 min"
+          },
+          {
+            "code": "01.0106",
+            "display": "Apsirengt bei apsiauti pagalbos poreikio vertinimas"
+          },
+          {
+            "code": "01.0134",
+            "display": "Artimųjų asmenų dalyvivimo slaugoje vertinimas"
+          },
+          {
+            "code": "01.0104",
+            "display": "Asmens higienos ir rengimosi pagalbos poreikio vertinimas"
+          },
+          {
+            "code": "02.0931",
+            "display": "Atlikti veiksmai"
+          },
+          {
+            "code": "02.2005",
+            "display": "Baigtis"
+          },
+          {
+            "code": "02.0933",
+            "display": "Bendra informacija pagalbos teikimo pabaigoje"
+          },
+          {
+            "code": "01.0119",
+            "display": "Bendravimo vertinimas"
+          },
+          {
+            "code": "02.1202",
+            "display": "Bendroji Cesario Pjuvio Operacijos informacija"
+          },
+          {
+            "code": "02.0507",
+            "display": "Bendroji informacija apie nėštumo nutraukimo aprašą"
+          },
+          {
+            "code": "02.2102",
+            "display": "Bevandenis laikotarpis"
+          },
+          {
+            "code": "02.1402",
+            "display": "Būklė hospitalizuojant"
+          },
+          {
+            "code": "02.1208",
+            "display": "Cesario Pjuvio Operacijos eiga"
+          },
+          {
+            "code": "01.0002",
+            "display": "Cezario pjūvio operacijos protokolas"
+          },
+          {
+            "code": "02.0351",
+            "display": "Didelės rizikos nėštumo veiksniai"
+          },
+          {
+            "code": "02.2333",
+            "display": "ESI neregistruotos alergijos"
+          },
+          {
+            "code": "02.1327",
+            "display": "Epiziotomija"
+          },
+          {
+            "code": "02.2305",
+            "display": "Folinės r. vartojimas"
+          },
+          {
+            "code": "02.03561",
+            "display": "GVT (PE) Rizikos veiksniai"
+          },
+          {
+            "code": "02.0356",
+            "display": "GVT (PE) rizikos vertinimas ir prevencija nėštumo metu"
+          },
+          {
+            "code": "02.0357",
+            "display": "GVT (PE) rizikos vertinimas ir prevencija po gimdymo"
+          },
+          {
+            "code": "02.03582",
+            "display": "GVT (PE) rizikos vertinimas ir prevencija po gimdymo rizikos indikatorius"
+          },
+          {
+            "code": "02.03572",
+            "display": "GVT rizikos veiksniai"
+          },
+          {
+            "code": "02.1018",
+            "display": "Gaivinimas"
+          },
+          {
+            "code": "02.1020",
+            "display": "Gaivinimo trukmė (min)"
+          },
+          {
+            "code": "01.0135",
+            "display": "Galutinis ASPN poreikio vertinimas"
+          },
+          {
+            "code": "01.0138",
+            "display": "Galutinis ASPN poreikio vertinimas balais"
+          },
+          {
+            "code": "02.0405",
+            "display": "Gimdos priedų išvaizda"
+          },
+          {
+            "code": "02.03571",
+            "display": "Gimdymo būdas"
+          },
+          {
+            "code": "02.1303",
+            "display": "Gimdymo pradžios būdas"
+          },
+          {
+            "code": "02.1302",
+            "display": "Gimdymo pradžios būdas"
+          },
+          {
+            "code": "02.0354",
+            "display": "Gimdymo rizika"
+          },
+          {
+            "code": "02.03579",
+            "display": "Gimdymo rizikos indikatorius"
+          },
+          {
+            "code": "02.03541",
+            "display": "Gimdymo rizikos veiksniai"
+          },
+          {
+            "code": "02.1330",
+            "display": "Gimdymo skausmo malšinimas medikamentinis"
+          },
+          {
+            "code": "02.1331",
+            "display": "Gimdymo skausmo malšinimas nemedikamentinis"
+          },
+          {
+            "code": "02.1328",
+            "display": "Gimdymo takai"
+          },
+          {
+            "code": "02.2312",
+            "display": "Gimdymo terminas"
+          },
+          {
+            "code": "02.2314",
+            "display": "Gimdymo terminas pagal paskutines mėnesines"
+          },
+          {
+            "code": "02.2315",
+            "display": "Gimdymo terminas pagal ultragarsinį tyrimą"
+          },
+          {
+            "code": "02.2101",
+            "display": "Gimdymo trukmė"
+          },
+          {
+            "code": "02.1003",
+            "display": "Gimdymo vieta"
+          },
+          {
+            "code": "01.0112",
+            "display": "Griuvimo rizikos vertinimas"
+          },
+          {
+            "code": "01.0125",
+            "display": "Gyvenamosios vietos aplinkos pritaikymo vertinimas"
+          },
+          {
+            "code": "01.0105",
+            "display": "Higienos pagalbos poreikio vertinimas"
+          },
+          {
+            "code": "02.2335",
+            "display": "Informacija iš Paciento ESI"
+          },
+          {
+            "code": "02.1326",
+            "display": "Intervencijos"
+          },
+          {
+            "code": "01.0113",
+            "display": "Judesių koordinacijos sutrikimo vertinimas"
+          },
+          {
+            "code": "01.0109",
+            "display": "Judėjimo ir transportavimo pagalbos poreikio vertinimas"
+          },
+          {
+            "code": "01.0111",
+            "display": "Judėjimo vertinimas"
+          },
+          {
+            "code": "01.0121",
+            "display": "Kalbos sutrikimo vertinimas"
+          },
+          {
+            "code": "01.0132",
+            "display": "Kineziterapeuto paslaugos poreikio vertinimas"
+          },
+          {
+            "code": "02.2202",
+            "display": "Kita motinos liga  lėmusi naujagimio mirtį"
+          },
+          {
+            "code": "02.1153",
+            "display": "Kita svarbi informacija"
+          },
+          {
+            "code": "02.2205",
+            "display": "Kitos būklės"
+          },
+          {
+            "code": "01.0108",
+            "display": "Klausos sutrikimo vertinimas"
+          },
+          {
+            "code": "00.020513",
+            "display": "Klinikinis: M"
+          },
+          {
+            "code": "00.020512",
+            "display": "Klinikinis: N"
+          },
+          {
+            "code": "00.020511",
+            "display": "Klinikinis: T"
+          },
+          {
+            "code": "01.0110",
+            "display": "Kūno padėties vertinimas"
+          },
+          {
+            "code": "02.1001",
+            "display": "Medicininiai duomenys"
+          },
+          {
+            "code": "02.1601",
+            "display": "Medicininiai duomenys"
+          },
+          {
+            "code": "02.1501",
+            "display": "Medicininiai duomenys"
+          },
+          {
+            "code": "02.1301",
+            "display": "Medicininiai duomenys"
+          },
+          {
+            "code": "02.0615",
+            "display": "Medicininiai duomenys"
+          },
+          {
+            "code": "02.1201",
+            "display": "Medicininiai duomenys"
+          },
+          {
+            "code": "01.0136",
+            "display": "Minčių raiškos sutrikimo vertinimas"
+          },
+          {
+            "code": "02.0611",
+            "display": "Moteris mirė"
+          },
+          {
+            "code": "02.0914",
+            "display": "Moters būklė"
+          },
+          {
+            "code": "02.2318",
+            "display": "Moters žalingi įpročiai (iki nėštumo)"
+          },
+          {
+            "code": "02.2323",
+            "display": "Moters žalingi įpročiai (nėštumo metu)"
+          },
+          {
+            "code": "02.2308",
+            "display": "Mėnesinių ciklas"
+          },
+          {
+            "code": "02.2310",
+            "display": "Mėnesinių ciklo trukmė"
+          },
+          {
+            "code": "02.2309",
+            "display": "Mėnesinių trukmė"
+          },
+          {
+            "code": "02.2307",
+            "display": "Mėnesinės"
+          },
+          {
+            "code": "02.0100",
+            "display": "NGN antraštė"
+          },
+          {
+            "code": "02.1401",
+            "display": "NGN stacionaro medicininiai duomenys"
+          },
+          {
+            "code": "02.1004",
+            "display": "Naujagimio įrašas"
+          },
+          {
+            "code": "00.02042",
+            "display": "Naviko diferencialinio laipsnio kodas"
+          },
+          {
+            "code": "00.02041",
+            "display": "Naviko diferencialinis laipsnis"
+          },
+          {
+            "code": "00.02032",
+            "display": "Naviko morfologijos kodas"
+          },
+          {
+            "code": "02.2203",
+            "display": "Negyvagimio/Naujagimio mirties aplinkybės"
+          },
+          {
+            "code": "02.03511",
+            "display": "Nepalanki akušerinė anamnezė"
+          },
+          {
+            "code": "02.03513",
+            "display": "Nepalanki nėščiosios būklė"
+          },
+          {
+            "code": "02.1325",
+            "display": "Netekto kraujo kiekis"
+          },
+          {
+            "code": "02.0134",
+            "display": "Nėštumo diena"
+          },
+          {
+            "code": "02.04151",
+            "display": "Nėštumo diena pagal ankstyvą ultragarsinį tyrimą"
+          },
+          {
+            "code": "02.04150",
+            "display": "Nėštumo diena pagal mėnesines"
+          },
+          {
+            "code": "02.2301",
+            "display": "Nėštumo duomenys"
+          },
+          {
+            "code": "02.0131",
+            "display": "Nėštumo kortelės unikalus ID"
+          },
+          {
+            "code": "02.03512",
+            "display": "Nėštumo patologija"
+          },
+          {
+            "code": "02.0132",
+            "display": "Nėštumo pirmoji diena"
+          },
+          {
+            "code": "02.0133",
+            "display": "Nėštumo savaitė"
+          },
+          {
+            "code": "02.0610",
+            "display": "Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai"
+          },
+          {
+            "code": "02.1404",
+            "display": "Nėščiosios būklės vertinimas"
+          },
+          {
+            "code": "02.03515",
+            "display": "Nėščiosios ligos"
+          },
+          {
+            "code": "02.1415",
+            "display": "Nėščiosios tyrimas per makštį"
+          },
+          {
+            "code": "02.2306",
+            "display": "Nėščiąją prižiūri"
+          },
+          {
+            "code": "00.0207",
+            "display": "Onkologinės ligos diagnozės nustatymo aplinkybės"
+          },
+          {
+            "code": "00.0208",
+            "display": "Onkologinės ligos diagnozės patvirtinimo būdas (nurodyti vieną ar daugiau)"
+          },
+          {
+            "code": "01.0117",
+            "display": "Orientacijos erdvėje sutrikimo vertinimas"
+          },
+          {
+            "code": "01.0116",
+            "display": "Orientacijos laike sutrikimo vertinimas"
+          },
+          {
+            "code": "01.0115",
+            "display": "Orientacijos sutrikimo vertinimas"
+          },
+          {
+            "code": "02.0410",
+            "display": "PI"
+          },
+          {
+            "code": "02.0407",
+            "display": "PI"
+          },
+          {
+            "code": "02.2338",
+            "display": "Pacientės pateikta informacija"
+          },
+          {
+            "code": "02.1307",
+            "display": "Pagalbos būdas"
+          },
+          {
+            "code": "02.0912",
+            "display": "Pagalbos teikimas pogimdyminio kraujavimo atveju"
+          },
+          {
+            "code": "02.0939",
+            "display": "Pagalbos teikimo pabaiga"
+          },
+          {
+            "code": "02.1305",
+            "display": "Pagimdė"
+          },
+          {
+            "code": "02.0613",
+            "display": "Pagrindinė mirties priežastis"
+          },
+          {
+            "code": "02.0419",
+            "display": "Papildomas tyrimas"
+          },
+          {
+            "code": "02.1607",
+            "display": "Papildomi priežiūros plano įrašai"
+          },
+          {
+            "code": "02.1504",
+            "display": "Partogramos įrašai"
+          },
+          {
+            "code": "02.2311",
+            "display": "Paskutinių normalių mėnesinių data"
+          },
+          {
+            "code": "00.05801",
+            "display": "Paskutinį kartą buvimo darbe ar vaikų ugdymo įstaigoje"
+          },
+          {
+            "code": "00.02010",
+            "display": "Pastabos Vėžio Registrui"
+          },
+          {
+            "code": "02.0913",
+            "display": "Pastebėtas pogimdyminis kraujavimas"
+          },
+          {
+            "code": "01.0122",
+            "display": "Pateiktos informacijos suvokimo vertinimas"
+          },
+          {
+            "code": "00.020523",
+            "display": "Patologinis: M"
+          },
+          {
+            "code": "00.020522",
+            "display": "Patologinis: N"
+          },
+          {
+            "code": "00.020521",
+            "display": "Patologinis: T"
+          },
+          {
+            "code": "02.0518",
+            "display": "Patvirtinimo data"
+          },
+          {
+            "code": "02.2313",
+            "display": "Patvirtintas gimdymo terminas"
+          },
+          {
+            "code": "02.1705",
+            "display": "Paveldimos medžiagų apykaitos ligos"
+          },
+          {
+            "code": "02.2328",
+            "display": "Persirgtos ir gretutinės ligos"
+          },
+          {
+            "code": "02.2302",
+            "display": "Pirmo apsilankymo data"
+          },
+          {
+            "code": "02.1314",
+            "display": "Placentos atributai"
+          },
+          {
+            "code": "02.1329",
+            "display": "Placentos užgimimo laikas"
+          },
+          {
+            "code": "02.1427",
+            "display": "Planuojami tyrimai"
+          },
+          {
+            "code": "02.1321",
+            "display": "Plyšimai"
+          },
+          {
+            "code": "02.0355",
+            "display": "Pogimdyminio kraujavimo rizika"
+          },
+          {
+            "code": "02.03580",
+            "display": "Pogimdyminio kraujavimo rizikos indikatorius"
+          },
+          {
+            "code": "02.03551",
+            "display": "Pogimdyminio kraujavimo rizikos veiksniai"
+          },
+          {
+            "code": "02.2316",
+            "display": "Preliminari nėštumo ir gimdymo atostogų pradžios data"
+          },
+          {
+            "code": "02.0353",
+            "display": "Priešlaikinio gimdymo rizika"
+          },
+          {
+            "code": "02.03578",
+            "display": "Priešlaikinio gimdymo rizikos indikatorius"
+          },
+          {
+            "code": "02.03531",
+            "display": "Priešlaikinio gimdymo rizikos veiksniai"
+          },
+          {
+            "code": "02.0412",
+            "display": "Protodiastolinė banga"
+          },
+          {
+            "code": "02.0409",
+            "display": "Protodiastolinė banga"
+          },
+          {
+            "code": "02.0508",
+            "display": "Psichologo konsultacija"
+          },
+          {
+            "code": "01.0114",
+            "display": "Pusiausvyros sutrikimo vertinimas"
+          },
+          {
+            "code": "02.0411",
+            "display": "RI"
+          },
+          {
+            "code": "02.0408",
+            "display": "RI"
+          },
+          {
+            "code": "01.0107",
+            "display": "Regėjimo sutrikimo vertinimas"
+          },
+          {
+            "code": "02.0418",
+            "display": "Rekomendacijos"
+          },
+          {
+            "code": "02.0902",
+            "display": "Replių ir vakuuminio ekstraktoriaus naudojimas"
+          },
+          {
+            "code": "02.03581",
+            "display": "Rizikos lygmuo"
+          },
+          {
+            "code": "02.1308",
+            "display": "Robsono grupė"
+          },
+          {
+            "code": "01.0120",
+            "display": "Samonės sutrikimo vertinimas"
+          },
+          {
+            "code": "01.0102",
+            "display": "Savirūpos pagalbos poreikio vertinimas"
+          },
+          {
+            "code": "01.0101",
+            "display": "Savirūpos vertinimas"
+          },
+          {
+            "code": "01.0118",
+            "display": "Savęs suvokimo vertinimas"
+          },
+          {
+            "code": "02.0421",
+            "display": "Skirta konsultacija pas"
+          },
+          {
+            "code": "02.1310",
+            "display": "Skirti antibiotikai"
+          },
+          {
+            "code": "01.0131",
+            "display": "Slaugytojo padėjėjo paslaugos reguliarumo vertinimas"
+          },
+          {
+            "code": "01.0130",
+            "display": "Slaugytojo padėjėjo poreikio vertinimas"
+          },
+          {
+            "code": "01.0128",
+            "display": "Slaugytojo paslaugos poreikio vertinimas"
+          },
+          {
+            "code": "01.0129",
+            "display": "Slaugytojo paslaugų reguliarumo vertinimas"
+          },
+          {
+            "code": "02.0510",
+            "display": "Socialinio darbuotojo konsultacija"
+          },
+          {
+            "code": "01.0137",
+            "display": "Socialinės paslaugos poreikio vertinimas"
+          },
+          {
+            "code": "01.0127",
+            "display": "Specialistų pagalbos poreikio vertinimas"
+          },
+          {
+            "code": "01.0126",
+            "display": "Specializuotos priežiūros poreikio vertinimas"
+          },
+          {
+            "code": "01.0123",
+            "display": "Sprendimų priėmimo sugebėjimo vertinimas"
+          },
+          {
+            "code": "02.0516",
+            "display": "Taikytas gimdymas"
+          },
+          {
+            "code": "02.0403",
+            "display": "Tyrimo sąlygos"
+          },
+          {
+            "code": "02.0401",
+            "display": "Tyrimo tikslai"
+          },
+          {
+            "code": "02.1801",
+            "display": "Tėvų sutikimas dėl naujagimiui atliekamų procedūrų"
+          },
+          {
+            "code": "02.2330",
+            "display": "Vaiko biologinio tėvo amžius"
+          },
+          {
+            "code": "02.1409",
+            "display": "Vaisiaus būklės vertinimas"
+          },
+          {
+            "code": "02.1502",
+            "display": "Vaisiaus duomenys"
+          },
+          {
+            "code": "02.03514",
+            "display": "Vaisiaus patologija"
+          },
+          {
+            "code": "02.0950",
+            "display": "Vaisiaus pečių užstrigimas"
+          },
+          {
+            "code": "02.1605",
+            "display": "Vaisiaus tyrimo informacija"
+          },
+          {
+            "code": "02.0426",
+            "display": "Vaisiaus tyrimo informacija."
+          },
+          {
+            "code": "01.0124",
+            "display": "Vaistų vartojimo vertinimas"
+          },
+          {
+            "code": "02.0905",
+            "display": "Vakuuminės ekstrakcijos panaudojimas"
+          },
+          {
+            "code": "01.0103",
+            "display": "Valgymo ir gėrimo pagalbos poreikio vertinimas"
+          },
+          {
+            "code": "02.1011",
+            "display": "Virkštelės kraujo pH/Lac"
+          }
+        ]
+      },
+      {
+        "system": "http://esveikata.lt/classifier/DocCode",
+        "concept": [
+          {
+            "code": "01.0004",
+            "display": "Nėštumo, gimdymo ar pogimdyminiu laikotarpio arti netekties ir netekties atvejai"
+          },
+          {
+            "code": "01.0001",
+            "display": "Pagalbos teikimo kontrolinis lapas"
+          },
+          {
+            "code": "01.0003",
+            "display": "Partograma"
+          },
+          {
+            "code": "01.0005",
+            "display": "Tėvų sutikimas dėl naujagimiui atliekamų procedūrų"
+          }
+        ]
+      }
+    ]
+  }
+}

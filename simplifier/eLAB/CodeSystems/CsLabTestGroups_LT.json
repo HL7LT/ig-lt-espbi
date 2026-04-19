@@ -1,0 +1,296 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-lab-test-groups",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2024-08-07T16:50:01.173+00:00"
+  },
+  "language": "lt",
+  "url": "https://www.medicinosnk.lt/CodeSystem/lt-lab-test-groups",
+  "version": "0.3.28",
+  "title": "LT LAB tyrimų grupės",
+  "_title": {
+    "extension": [
+      {
+        "extension": [
+          {
+            "url": "lang",
+            "valueCode": "en"
+          },
+          {
+            "url": "content",
+            "valueString": "LT LAB test groups"
+          }
+        ],
+        "url": "http://hl7.org/fhir/StructureDefinition/translation"
+      }
+    ]
+  },
+  "status": "active",
+  "experimental": false,
+  "date": "2024-04-25T00:00:00Z",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "property": [
+    {
+      "code": "display",
+      "uri": "http://terminology.hl7.org/CodeSystem/designation-usage|display",
+      "description": "Display",
+      "type": "string"
+    }
+  ],
+  "concept": [
+    {
+      "code": "BC",
+      "display": "Bendrosios citologijos tyrimai",
+      "concept": [
+        {
+          "code": "FERT",
+          "display": "Nevaisingumo tyrimai"
+        },
+        {
+          "code": "UA",
+          "display": "Šlapimo tyrimai"
+        }
+      ]
+    },
+    {
+      "code": "BM",
+      "display": "Bendrosios mikrobiologijos tyrimai",
+      "concept": [
+        {
+          "code": "BMT",
+          "display": "Mikrobiologiniai tyrimai"
+        },
+        {
+          "code": "PAR",
+          "display": "Parazitologiniai tyrimail"
+        },
+        {
+          "code": "TB",
+          "display": "Tuberkuliozės tyrimai"
+        }
+      ]
+    },
+    {
+      "code": "BT",
+      "display": "Biocheminiai tyrimai",
+      "concept": [
+        {
+          "code": "BT-ALC",
+          "display": "Alkoholiai"
+        },
+        {
+          "code": "BT-CANCER",
+          "display": "Vėžio"
+        },
+        {
+          "code": "BT-CARB",
+          "display": "Angliavandeniai"
+        },
+        {
+          "code": "BT-CARDIO",
+          "display": "Širdies"
+        },
+        {
+          "code": "BT-DRUG",
+          "display": "Narkotinės medžiagos"
+        },
+        {
+          "code": "BT-EL",
+          "display": "Elektrolitai"
+        },
+        {
+          "code": "BT-ENDO",
+          "display": "Endokrininiai"
+        },
+        {
+          "code": "BT-ENZ",
+          "display": "Fermentai"
+        },
+        {
+          "code": "BT-FE",
+          "display": "Geležies"
+        },
+        {
+          "code": "BT-GAS",
+          "display": "Rūgščių-šarmų pusiausvyros"
+        },
+        {
+          "code": "BT-HEP",
+          "display": "Kepenų"
+        },
+        {
+          "code": "BT-IL",
+          "display": "Citokinai"
+        },
+        {
+          "code": "BT-LIP",
+          "display": "Lipidų"
+        },
+        {
+          "code": "BT-MED",
+          "display": "Vaistai"
+        },
+        {
+          "code": "BT-MICRO",
+          "display": "Mikroelementai"
+        },
+        {
+          "code": "BT-MIN",
+          "display": "Mineralų"
+        },
+        {
+          "code": "BT-OTH",
+          "display": "Kiti biocheminiai"
+        },
+        {
+          "code": "BT-PEF",
+          "display": "Baltymų elektroforezė"
+        },
+        {
+          "code": "BT-PROT",
+          "display": "Baltymai"
+        },
+        {
+          "code": "BT-REN",
+          "display": "Inkstų"
+        },
+        {
+          "code": "BT-VIT",
+          "display": "Vitaminai"
+        }
+      ]
+    },
+    {
+      "code": "COAG",
+      "display": "Kraujo krešėjimo tyrimai",
+      "concept": [
+        {
+          "code": "IM-COAG",
+          "display": "Krešėjimo serologiniai tyrimai"
+        }
+      ]
+    },
+    {
+      "code": "HEM",
+      "display": "Laboratorinės hematologijos tyrimai",
+      "concept": [
+        {
+          "code": "KRBAN",
+          "display": "Kraujo bankas (transfuziologijos) tyrimai"
+        }
+      ]
+    },
+    {
+      "code": "IM",
+      "display": "Imunologiniai tyrimai",
+      "concept": [
+        {
+          "code": "ALERG",
+          "display": "Alergologijos tyrimai"
+        },
+        {
+          "code": "AUTO-SERO",
+          "display": "Autoantikūnai"
+        },
+        {
+          "code": "AUTOIM",
+          "display": "Autoimuniteto tyrimai"
+        },
+        {
+          "code": "CELLMARK",
+          "display": "Ląstelių biožymenys"
+        },
+        {
+          "code": "IM-CELL",
+          "display": "Ląstelinio imuniteto tyrimai"
+        },
+        {
+          "code": "IM-HUM",
+          "display": "Humoralinio imuniteto tyrimai"
+        },
+        {
+          "code": "IM-INNATE",
+          "display": "Nespecifinio/įgimto imuniteto tyrimai"
+        },
+        {
+          "code": "TOLER",
+          "display": "Imuninės tolerancijos tyrimai"
+        },
+        {
+          "code": "TRANSP",
+          "display": "HLA/HNA/HPA"
+        }
+      ]
+    },
+    {
+      "code": "INF-SER",
+      "display": "Infekcinės serologijos tyrimai",
+      "concept": [
+        {
+          "code": "INF-MOL",
+          "display": "Molekuliniai infekcijų tyrimai"
+        }
+      ]
+    },
+    {
+      "code": "MOLGEN",
+      "display": "Molekuliniai tyrimai",
+      "concept": [
+        {
+          "code": "MOL-CITO",
+          "display": "Citogenetiniai tyrimai"
+        },
+        {
+          "code": "MOL-DNR",
+          "display": "DNR diagnostikos tyrimai"
+        },
+        {
+          "code": "MOL-KARY",
+          "display": "Kariotipavimo tyrimai"
+        },
+        {
+          "code": "MOL-ONCO",
+          "display": "Onkogenetiniai tyrimai"
+        },
+        {
+          "code": "MOL-PROT",
+          "display": "Baltymų raiškos tyrimai"
+        },
+        {
+          "code": "MOL-RNR",
+          "display": "RNR raiškos tyrimai"
+        }
+      ]
+    }
+  ]
+}

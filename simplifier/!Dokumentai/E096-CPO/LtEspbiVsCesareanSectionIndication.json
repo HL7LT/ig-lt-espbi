@@ -1,0 +1,119 @@
+{
+  "resourceType": "ValueSet",
+  "id": "cesarean-section-indication",
+  "url": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-cesarean-section-indication",
+  "version": "0.0.1",
+  "name": "LtEspbiVsCesareanSectionIndication",
+  "status": "draft",
+  "experimental": false,
+  "description": "Cezario pjūvio indikacijos / Indications for Cesarean section",
+  "compose": {
+    "include": [
+      {
+        "system": "http://esveikata.lt/classifiers/NGN/RepeatOperation",
+        "concept": [
+          {
+            "code": "1",
+            "display": "Randas po buvusios cezario pjūvio operacijos (vienos)"
+          },
+          {
+            "code": "2",
+            "display": "Randas po buvusios cezario pjūvio operacijos (dviejų ir daugiau)"
+          },
+          {
+            "code": "3",
+            "display": "Įvykęs (gresiantis) gimdos plyšimas, esant randui gimdoje"
+          },
+          {
+            "code": "4",
+            "display": "Randas po kitų gimdos operacijų"
+          }
+        ]
+      },
+      {
+        "system": "http://esveikata.lt/classifiers/NGN/Dystocia",
+        "concept": [
+          {
+            "code": "1",
+            "display": "Neprogresuojantis gimdymas"
+          },
+          {
+            "code": "2",
+            "display": "Kliniškai siauras dubuo"
+          },
+          {
+            "code": "3",
+            "display": "Nepavykęs gimdymo sužadinimas"
+          },
+          {
+            "code": "4",
+            "display": "Kliūtis gimdymo takuose"
+          },
+          {
+            "code": "5",
+            "display": "Atloštinė vaisiaus pirmeiga"
+          },
+          {
+            "code": "6",
+            "display": "Skersinė (įstrižinė) vaisiaus pirmeiga"
+          },
+          {
+            "code": "7",
+            "display": "Stambus vaisius"
+          }
+        ]
+      },
+      {
+        "system": "http://esveikata.lt/classifiers/NGN/FetusConditionIssues",
+        "concept": [
+          {
+            "code": "1",
+            "display": "Įtariama nestabili vaisiaus būklė"
+          },
+          {
+            "code": "2",
+            "display": "Komplikuota vaisiaus liga"
+          },
+          {
+            "code": "3",
+            "display": "Komplikuotas daugiavaisis nėštumas"
+          }
+        ]
+      },
+      {
+        "system": "http://esveikata.lt/classifiers/NGN/FetusBreechPresentation",
+        "concept": [
+          {
+            "code": "1",
+            "display": "Sėdmeninė pirmeiga"
+          }
+        ]
+      },
+      {
+        "system": "http://esveikata.lt/classifiers/NGN/OtherIndications",
+        "concept": [
+          {
+            "code": "1",
+            "display": "Gyvybei grėsmingas kraujavimas"
+          },
+          {
+            "code": "2",
+            "display": "Sunki preeklampsija / eklampsija"
+          },
+          {
+            "code": "3",
+            "display": "Visiška placentos pirmeiga"
+          },
+          {
+            "code": "4",
+            "display": "Būklė po lytinių organų  plastinės operacijos"
+          },
+          {
+            "code": "5",
+            "display": "Nėščiosios liga"
+          }
+        ]
+      }
+    ]
+  }
+}

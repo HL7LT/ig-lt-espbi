@@ -1,0 +1,2017 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e010-mpn",
+  "name": "LtEspbiCompositionE010_MPN",
+  "status": "draft",
+  "description": "E010-MPN Negyvagimio/naujagimio mirties atvejo priežasčių nagrinėjimas",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.identifier",
+        "path": "Composition.identifier",
+        "example": [
+          {
+            "label": "example",
+            "valueIdentifier": {
+              "system": "http://esveikata.lt/identifier/PregnancyCardId",
+              "value": "1000014555"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.identifier.system",
+        "path": "Composition.identifier.system",
+        "fixedUri": "http://esveikata.lt/identifier/PregnancyCardId"
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "67471-3"
+                }
+              ],
+              "text": "Nėštumo duomenys, anamnezė"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://esveikata.lt/classifier/DocCode"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "01.0006"
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "max": "0"
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/EventType",
+                    "code": "28",
+                    "display": "NGN gydymo paslaugos suteikimas (apsilankymas dėl nėštumo)"
+                  }
+                ],
+                "text": "Nėštumo duomenys, anamnezė"
+              },
+              "reference": {
+                "reference": "Provenance/10/_history/1"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:NGNheader",
+        "path": "Composition.section",
+        "sliceName": "NGNheader",
+        "short": "3 NGN antraštė / NGN header",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0100",
+                  "display": "NGN antraštė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "02.0100"
+      },
+      {
+        "id": "Composition.section:NGNheader.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            },
+            {
+              "type": "value",
+              "path": "code.coding.system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID",
+        "path": "Composition.section.section",
+        "sliceName": "pregnancyCardID",
+        "short": "3.1 Nėštumo kortelės unikalus ID / Pregnancy card unique ID",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "02.0131",
+                  "display": "Nėštumo kortelės unikalus ID"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.0131"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-ngn"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/31"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:NGNheader.section:pregnancyCardID.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData",
+        "path": "Composition.section",
+        "sliceName": "medicalData",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "55752-0",
+                  "display": "Medicininiai duomenys"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:medicalData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "55752-0"
+      },
+      {
+        "id": "Composition.section:medicalData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Folinės r. vartojimas"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber",
+        "path": "Composition.section.section",
+        "sliceName": "fetusNumber",
+        "short": "Anamnezė / Medical history",
+        "definition": "Anamnezė.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11348-0",
+                  "display": "Anamnezė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.1004"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1004"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusNumber.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath",
+        "path": "Composition.section.section",
+        "sliceName": "fetusDeath",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "237364002"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-237364002"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:fetusDeath.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death",
+        "path": "Composition.section.section",
+        "sliceName": "death",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "419620001"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.entry",
+        "path": "Composition.section.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section",
+        "path": "Composition.section.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath",
+        "path": "Composition.section.section.section",
+        "sliceName": "dateOfDeath",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "399753006"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding.display",
+        "path": "Composition.section.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-399753006"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:dateOfDeath.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath",
+        "path": "Composition.section.section.section",
+        "sliceName": "causeOfDeath",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "184305005"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding.display",
+        "path": "Composition.section.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-184305005"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:causeOfDeath.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath",
+        "path": "Composition.section.section.section",
+        "sliceName": "otherCauseOfDeath",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "68346-6"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding.display",
+        "path": "Composition.section.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-68346-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherCauseOfDeath.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy",
+        "path": "Composition.section.section.section",
+        "sliceName": "primaryDisorderOfPregnancy",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "173300003"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding.display",
+        "path": "Composition.section.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation173300003"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:primaryDisorderOfPregnancy.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy",
+        "path": "Composition.section.section.section",
+        "sliceName": "otherDisorderOfPregnancy",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.2202"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding.display",
+        "path": "Composition.section.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation02-2202"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDisorderOfPregnancy.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions",
+        "path": "Composition.section.section.section",
+        "sliceName": "otherDeathCauseConditions",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.2205"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding.display",
+        "path": "Composition.section.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.code.text",
+        "path": "Composition.section.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation02-2205"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:death.section:otherDeathCauseConditions.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth",
+        "path": "Composition.section.section",
+        "sliceName": "circumstancesOfStillbirth",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "02.2203"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-02-2203"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:circumstancesOfStillbirth.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion",
+        "path": "Composition.section.section",
+        "sliceName": "conclusion",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "55110-1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation55110-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:conclusion.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased",
+        "path": "Composition.section.section",
+        "sliceName": "pathologicalExaminationOfDeceased",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code",
+        "path": "Composition.section.section.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "108257001"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.entry",
+        "path": "Composition.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation108257001"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:medicalData.section:pathologicalExaminationOfDeceased.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

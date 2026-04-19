@@ -1,0 +1,311 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1405-e096-nt",
+  "name": "LtEspbiObservation02_1405_E096_NT",
+  "status": "draft",
+  "description": "Nėščiosios būklės vertinimas / Evaluation of the pregnancy status",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.1405",
+                  "display": "Nėščiosios būklės vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.1405"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:bloodPressure",
+        "path": "Observation.hasMember",
+        "sliceName": "bloodPressure",
+        "short": "Sistolinis ir diastolinis kraujospūdis (Kairė/Dešinė) / Systolic and diastolic blood pressure (Left/Right) ",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-83389-7"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/56"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:pulse",
+        "path": "Observation.hasMember",
+        "sliceName": "pulse",
+        "short": "Pulsas / Pulse",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8886-4"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/6666666"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:temperature",
+        "path": "Observation.hasMember",
+        "sliceName": "temperature",
+        "short": "Temperatūra / Temperature",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8310-5"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/511"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:weight",
+        "path": "Observation.hasMember",
+        "sliceName": "weight",
+        "short": "Svoris / Body weight",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-3141-9"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/54"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:weightGain",
+        "path": "Observation.hasMember",
+        "sliceName": "weightGain",
+        "short": "Prieaugis nėštumo metu / Weight gain during pregnancy",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1612"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/55"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fundalHeight",
+        "path": "Observation.hasMember",
+        "sliceName": "fundalHeight",
+        "short": "GDA (Gimdos dugno aukštis) / Uterus Fundal height",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11881-0"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/8888888"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:numberOfFetuses",
+        "path": "Observation.hasMember",
+        "sliceName": "numberOfFetuses",
+        "short": "Vaisių skaičius / Number of fetuses",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-55281-0"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/4444444"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:secretionsFromReproductiveOrgans",
+        "path": "Observation.hasMember",
+        "sliceName": "secretionsFromReproductiveOrgans",
+        "short": "Išskyros iš lyties organų / Secretions from reproductive organs",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1406"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:regularContractions",
+        "path": "Observation.hasMember",
+        "sliceName": "regularContractions",
+        "short": "Reguliarūs sąrėmiai/ Regular contractions",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-289707002-e096-nt"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

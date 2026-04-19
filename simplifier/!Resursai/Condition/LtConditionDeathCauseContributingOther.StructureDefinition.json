@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-contributing-other",
+  "name": "LtEspbiConditionDeathCauseContributingOther",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "definition": "Nurodoma mirties priežasties kategorija: contributing (\"Kita svarbi patologinė būklė\").",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DeathCauseCategory",
+                  "code": "contributing",
+                  "display": "Kita svarbi patologinė būklė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.category.coding.code",
+        "path": "Condition.category.coding.code",
+        "fixedCode": "contributing"
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "definition": "Kitos ligos ar būklės, sąlygojusios naujagimio mirtį, kodas.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am arba klasifikatoriuje rare-diseases."
+      },
+      {
+        "id": "Condition.code.text",
+        "path": "Condition.code.text",
+        "definition": "Į medicininį perinatalinės mirties liudijimą įrašomas kitos ligos ar būklės, sąlygojusios naujagimio mirtį, tekstas."
+      }
+    ]
+  }
+}

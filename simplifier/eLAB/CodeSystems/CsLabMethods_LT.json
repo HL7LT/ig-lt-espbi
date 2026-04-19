@@ -1,0 +1,2310 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-lab-methods",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2024-08-07T16:50:01.11+00:00"
+  },
+  "language": "lt",
+  "url": "https://www.medicinosnk.lt/CodeSystem/lt-lab-methods",
+  "identifier": [
+    {
+      "system": "short-code",
+      "value": "short-code"
+    }
+  ],
+  "version": "0.3.28",
+  "title": "LT LAB metodai",
+  "_title": {
+    "extension": [
+      {
+        "extension": [
+          {
+            "url": "lang",
+            "valueCode": "en"
+          },
+          {
+            "url": "content",
+            "valueString": "LT LAB methods"
+          }
+        ],
+        "url": "http://hl7.org/fhir/StructureDefinition/translation"
+      }
+    ]
+  },
+  "status": "active",
+  "experimental": false,
+  "date": "2024-07-31T00:00:00Z",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": false,
+  "content": "complete",
+  "supplements": "http://snomed.info/sct",
+  "property": [
+    {
+      "code": "display",
+      "uri": "http://terminology.hl7.org/CodeSystem/designation-usage|display",
+      "description": "Display",
+      "type": "string"
+    },
+    {
+      "code": "parent-method",
+      "type": "Coding"
+    },
+    {
+      "code": "snomed-code",
+      "type": "Coding"
+    }
+  ],
+  "concept": [
+    {
+      "code": "AAS",
+      "display": "Atominės absorbcijos spektrofotometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306401008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AGGL",
+      "display": "Agliutinacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708104000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AMP",
+      "display": "Amperometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306389007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AT-PCR",
+      "display": "Atvirkštinės transkripcijos realaus laiko PGR ",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "104167008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AUTO",
+      "display": "Automatizuotas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702659008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BCG",
+      "display": "Bromkrezolio žaliojo",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303770001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BCP",
+      "display": "Bromkrezolio violetinio",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303771002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "C",
+      "display": "Chromatografijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303858005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "C/MS/MS",
+      "display": "Chromatografijos / masių spektrometrijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306402001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CALC",
+      "display": "Apskaičiuojamas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702873001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CC-M",
+      "display": "Rankinis ląstelių skaičiavimas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702663001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CDC",
+      "display": "Nuo komplemento priklausomas citotoksiškumas (limfocitotoksinis metodas)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303953000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CEF",
+      "display": "Kapiliarinė elektroforezė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70581000052105"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CHROM",
+      "display": "Chromogeninis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708069005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CLIA",
+      "display": "Chemiliuminescencinė imunoanalizė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1259935006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "COAG",
+      "display": "Koagulometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702946003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "COLCOUNT",
+      "display": "Kolonijų skaičiavimas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306903004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "COUL",
+      "display": "Kulometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304253004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CULT",
+      "display": "Pasėlis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702658000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CULT-AE",
+      "display": "Aerobinis pasėlis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703750006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CULT-AN",
+      "display": "Anaerobinis pasėlis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703751005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CULT-AUTO",
+      "display": "Automatizuotas pasėlis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702658000"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "8359006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CULT-AUTOSPEC",
+      "display": "Automatizuotas mikroorganizmui specifinis pasėlis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703752003"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "8359006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CULT-CELL",
+      "display": "Ląstelių kultūros metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304269006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CULT-SPEC",
+      "display": "Mikroorganizmui specifinis pasėlis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703752003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DEB",
+      "display": "DEB metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304286000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DIGMICRO",
+      "display": "Skaitmeninė mikroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303974004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DIGMICRO-FLOW",
+      "display": "Skaitmeninė tėkmės morfologija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304041006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DISKD",
+      "display": "Diskų difuzijos metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303975003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DMICRO",
+      "display": "Tamsaus lauko mikroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258094008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DMICRO-IMM",
+      "display": "Imunofluorescentinė mikroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258094008"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1331921003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "EIA",
+      "display": "Imunofermentinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703447009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ELCHEM",
+      "display": "Elektrocheminis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304054004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ELISA",
+      "display": "Imunofermentinė analizė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "68431000052104"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ENTER",
+      "display": "Įvedamas rodiklis"
+    },
+    {
+      "code": "ENZYM",
+      "display": "Fermentinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70621000052105"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258026004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "EP",
+      "display": "Elektroforezės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703450007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ESR-W",
+      "display": "Westergreno",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703459008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ESR-WMOD",
+      "display": "Modifikuotas Westergreno",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703459008"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "18307000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FC",
+      "display": "Tėkmės citometrija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708058007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FC-MICROSPHERE",
+      "display": "mikrosferų srauto analizė",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303990004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FMICRO",
+      "display": "Fluorescencinė mikroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258099003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FMICRO-ACRD",
+      "display": "Dažymas Akridino oranžiniu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258099003"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303819000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FMICRO-AR",
+      "display": "Fluorescencinė mikroskopija (dažymas Auramino-Rodamino būdu)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258099003"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303848006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FPD",
+      "display": "Užšalimo taško",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258125002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GC",
+      "display": "Dujų chromatografijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70561000052104"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GDH",
+      "display": "Gliukozės dehidrogenazės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70621000052105"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258026004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GOD",
+      "display": "Gliukozės oksidazės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70621000052105"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258026004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "H-CGH",
+      "display": "Lyginamoji genomo hibridizacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303855008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "H-CISH",
+      "display": "Chromogenic in situ hybridization technique",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "787997001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "H-FISH",
+      "display": "Fluorescence in situ hybridization technique",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303773004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "H-HPA",
+      "display": "Hibridizacijos apsaugos reakcija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303854007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "H-NAH",
+      "display": "Nukleorūgščių hibridizacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702674005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "H-NSTRING",
+      "display": "NanoString nCounter",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304245007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HA",
+      "display": "Hemagliutinacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303766009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HA-GELL",
+      "display": "Hemagliutinacija gelio stulpelyje",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306895000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HA-MICRO",
+      "display": "Hemagliutinacija mikroplokštelėje",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304258008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HEX",
+      "display": "Heksokinazės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70621000052105"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258026004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HPLC",
+      "display": "Skysčių chromatografijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306399002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IA",
+      "display": "Imunocheminis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "726449005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IA-RAPID",
+      "display": "Greitasis imunocheminis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708099001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IB",
+      "display": "Imunoblotas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703446000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IEF",
+      "display": "Izoelektrinio fokusavimo elektroforezės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304163000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IEP",
+      "display": "Imunoelektroforezės",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708063006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IF",
+      "display": "Imunofluorescencija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703444002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IFE",
+      "display": "Imunofiksacijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708064000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IHA",
+      "display": "Netiesioginė hemagliutinacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303856009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IIF",
+      "display": "Netiesioginė imunofluorescencija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "767096000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IMD",
+      "display": "Imuninės difuzijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708062001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IMNEPH",
+      "display": "Imunonefelometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303999003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IMTURB",
+      "display": "Imunoturbidimetrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303966000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "INSPECT",
+      "display": "Įvertinimas vizualiai",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "129433002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IR-SPECS",
+      "display": "Infraraudonoji spektroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708077009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IRMA",
+      "display": "Imunoradiometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303857000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ISE",
+      "display": "Jonams selektyviųjų elektrodų metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703445001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IVY",
+      "display": "Ivy",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303973005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KARYO",
+      "display": "Citogenetinis kariotipo nustatymo metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306297003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KARYO-CULT-CELL",
+      "display": "Citogenetinis kariotipo nustatymo ląstelių kultūroje metodas ",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306297003"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304269006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LA",
+      "display": "Latekso agliutinacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703448004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LC/MS/MS",
+      "display": "Skysčių chromatografijos / masių spektrometrijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306399002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LFA",
+      "display": "Imunochromatografinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "66731000052108"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO",
+      "display": "Šviesinė mikroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-BETKE",
+      "display": "Kleihauerio-Betke",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708076000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-CFW",
+      "display": "Dažymas Calcofluor baltuoju",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303814005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-CN",
+      "display": "Dažymas Cylio-Nilseno būdu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303825001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-CNMOD",
+      "display": "Modifikuotas Cylio-Nilseno dažymas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708128003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-CONC",
+      "display": "Koncentravimo metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703461004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-CYTO",
+      "display": "Citologinis dažymas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702665008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-CYTOCENT",
+      "display": "Citologinis dažymas su citocentrifugavimu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1331920002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-GIEMSA",
+      "display": "Dažymas Gimza būdu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1331912004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-GMS",
+      "display": "GMS dažymas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303821005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-GRAM",
+      "display": "Dažymas Gramo būdu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708061008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-HEMC",
+      "display": "Šviesaus lauko mikroskopija, skaičiavimas hemocitometru",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306906007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-KOH",
+      "display": "Mikroskopija su KOH",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708075001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-LFL",
+      "display": "Dažymas Loeffler metileno mėliu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303847001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-MPO",
+      "display": "Mieloperoksidazės dažymas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303815006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-NBT",
+      "display": "Dažymas nitromėlio tetrazoliu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304263007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-SUPRA",
+      "display": "Supravitalinis dažymas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304038002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-WET",
+      "display": "Natyvinė mikroskopija (wet preparation)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703457005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LMICRO-WRIGT",
+      "display": "Dažymas Wright būdu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "257425005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703441005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LTA",
+      "display": "Optinės agregometrijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304081004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MALDI-TOF",
+      "display": "Masių spektrometrija MALDI-TOF",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "83581000052107"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MAR",
+      "display": "Mišri antiglobulino reakcija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304051007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MGIT",
+      "display": "Automatizuotas mikroorganizmui specifinis pasėlis (MGIT)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306896004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MIC",
+      "display": "MSK nustatymas gradientine juostele",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703442003"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MIC-AUTO",
+      "display": "MSK nustatymas automatizuotu metodu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703442003"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "8359006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MIC-DIL",
+      "display": "MSK nustatymas praskiedimų metodu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703442003"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "263696007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MOLGEN",
+      "display": "Molekulinės genetikos metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708068002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NBU-CHROM",
+      "display": "CHROM, Bethesda metodo Nijmegen modifikacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "708069005"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303972000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NBU-COAG",
+      "display": "COAG, Bethesda metodo Nijmegen modifikacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702946003"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303972000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NEPH",
+      "display": "Nefelometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "359838000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PA",
+      "display": "Dalelių agliutinacija"
+    },
+    {
+      "code": "PCR",
+      "display": "Polimerazės grandininė reakcija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258066000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-ARMS",
+      "display": "Amplification refractory mutation system technique",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304052000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-DIGITAL",
+      "display": "skaitmeninis PGR",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303992007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-HRM",
+      "display": "Lydymosi kreivės PGR",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304165007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-HYB",
+      "display": "Polimerazės grandininė reakcija ir nukleorūgščių hibridizacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258066000"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "702674005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-MLPA",
+      "display": "Dauginė liguojamų zondų amplifikacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304087000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-MLPA-MS",
+      "display": "Metilinimui specifinė dauginė liguojamų zondų amplifikacija ",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304164006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-MULTI",
+      "display": "dauginė PGR",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303998006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-REVERSE-RT",
+      "display": "Atvirkštinės transkripcijos realaus laiko PGR",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304249001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-RT",
+      "display": "Realaus laiko PGR",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70601000052104"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PCR-RT+CEF",
+      "display": "RL-PGR \nDNR fragmentų ilgio analizė kapiliarinėje elektroforezėje",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70601000052104"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70581000052105"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PMICRO",
+      "display": "Fazinio kontrasto mikroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258126001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PMICRO-HEMC",
+      "display": "Fazių kontrasto mikroskopija, skaičiavimas hemocitometru",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "258126001"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306906007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "POLMICRO",
+      "display": "Poliarizuotos šviesos mikroskopija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303971007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "POLMICRO-CYTOCENT",
+      "display": "Poliarizuotos šviesos mikroskopija su citocentrifugavimu",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303971007"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1331920002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "POT",
+      "display": "Potenciometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "83601000052101"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PROP-7H10",
+      "display": "Proporcijų metodas (7H10)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304289007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PROP-7H11",
+      "display": "Proporcijų metodas (7H11)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304288004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PROP-MOD",
+      "display": "Modifikuotas proporcijų metodas (lėtai augančioms mikobakterijoms)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306897008"
+          }
+        }
+      ]
+    },
+    {
+      "code": "RIA",
+      "display": "Radioimuninis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "703449007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ROSETTE",
+      "display": "Rozečių metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303969007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ROTEM",
+      "display": "Rotacinė tromboelastografija, tromboelastometrija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306388004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "RP-PCR",
+      "display": "RP-PGR (nuo kartotinių sekų priklausoma PGR)",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303997001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SANDELL",
+      "display": "Sandell-Kolthoff reakcija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303967009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SEER",
+      "display": "Sonoreometrija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306411001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SEQ",
+      "display": "Sekvenavimas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304162005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SEQ-PYRO",
+      "display": "pirosekoskaita",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70591000052107"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SEQ-RED",
+      "display": "Restriction endonuclease digestion of chromatin coupled to deep sequencing technique",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304046001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SPECPHOT",
+      "display": "Spektrofotometrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70621000052105"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SPECPHOT, AAS, SANDELL",
+      "display": "PHOT, AAS, Sandell-Kolthoff reakcija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "70621000052105"
+          }
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1303967009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SPIMM",
+      "display": "Kietosios fazės antigeno sukibimo metodas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "260227000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "STRIP-AUTO",
+      "display": "Automatizuotas juostelinis tyrimas",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "737102004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "STRIP-MAN",
+      "display": "Juostelinis tyrimas, aptikimo riba <= 20 mg/L",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "737103009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TEG",
+      "display": "Tromboelastografija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306386000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TEG-R",
+      "display": "Rezonansinė TEG",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1306902009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TMA",
+      "display": "Transkripcijos medijuota amplifikacija",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304048000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TURB",
+      "display": "Turbidimetrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "83611000052104"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TXT",
+      "display": "Aprašomasis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "281296001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "VOL",
+      "display": "Volumetrinis",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304254005"
+          }
+        }
+      ]
+    },
+    {
+      "code": "WBA",
+      "display": "Impedanso agregometrijos",
+      "property": [
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "1304086009"
+          }
+        }
+      ]
+    }
+  ]
+}

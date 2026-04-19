@@ -1,0 +1,459 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person-mother-of-deceased",
+  "name": "LtEspbiRelatedPersonMotherOfDeceased",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "RelatedPerson",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "RelatedPerson.implicitRules",
+        "path": "RelatedPerson.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.language",
+        "path": "RelatedPerson.language",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.text",
+        "path": "RelatedPerson.text",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.contained",
+        "path": "RelatedPerson.contained",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson",
+        "path": "RelatedPerson.extension",
+        "sliceName": "ltExtRelatedPerson",
+        "definition": "Nuoroda į susijusio asmens (motinos) Patient resursą."
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson.id",
+        "path": "RelatedPerson.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson.value[x]",
+        "path": "RelatedPerson.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000092495"
+            }
+          }
+        ]
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson.value[x].id",
+        "path": "RelatedPerson.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson.value[x].extension",
+        "path": "RelatedPerson.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson.value[x].type",
+        "path": "RelatedPerson.extension.value[x].type",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson.value[x].identifier",
+        "path": "RelatedPerson.extension.value[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.extension:ltExtRelatedPerson.value[x].display",
+        "path": "RelatedPerson.extension.value[x].display",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.modifierExtension",
+        "path": "RelatedPerson.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.identifier",
+        "path": "RelatedPerson.identifier",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.identifier.id",
+        "path": "RelatedPerson.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.identifier.extension",
+        "path": "RelatedPerson.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.identifier.use",
+        "path": "RelatedPerson.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.identifier.type",
+        "path": "RelatedPerson.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.identifier.system",
+        "path": "RelatedPerson.identifier.system",
+        "example": [
+          {
+            "label": "example",
+            "valueUri": "http://esveikata.lt/Identifier/PersonalCode"
+          }
+        ]
+      },
+      {
+        "id": "RelatedPerson.identifier.value",
+        "path": "RelatedPerson.identifier.value",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "45612120010"
+          }
+        ]
+      },
+      {
+        "id": "RelatedPerson.identifier.period",
+        "path": "RelatedPerson.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.identifier.assigner",
+        "path": "RelatedPerson.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.active",
+        "path": "RelatedPerson.active",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.patient",
+        "path": "RelatedPerson.patient",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "RelatedPerson.patient.id",
+        "path": "RelatedPerson.patient.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.patient.extension",
+        "path": "RelatedPerson.patient.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.patient.type",
+        "path": "RelatedPerson.patient.type",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.patient.identifier",
+        "path": "RelatedPerson.patient.identifier",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.patient.display",
+        "path": "RelatedPerson.patient.display",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship",
+        "path": "RelatedPerson.relationship",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "coding.system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.relationship.id",
+        "path": "RelatedPerson.relationship.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship.extension",
+        "path": "RelatedPerson.relationship.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship.coding.id",
+        "path": "RelatedPerson.relationship.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship.coding.extension",
+        "path": "RelatedPerson.relationship.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship.coding.version",
+        "path": "RelatedPerson.relationship.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship.coding.userSelected",
+        "path": "RelatedPerson.relationship.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother",
+        "path": "RelatedPerson.relationship",
+        "sliceName": "mother",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.id",
+        "path": "RelatedPerson.relationship.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.extension",
+        "path": "RelatedPerson.relationship.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.coding",
+        "path": "RelatedPerson.relationship.coding",
+        "example": [
+          {
+            "label": "example",
+            "valueCoding": {
+              "system": "http://esveikata.lt/classifiers/RelatedPerson/Type",
+              "code": "1",
+              "display": "mama"
+            }
+          }
+        ]
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.coding.id",
+        "path": "RelatedPerson.relationship.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.coding.extension",
+        "path": "RelatedPerson.relationship.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.coding.version",
+        "path": "RelatedPerson.relationship.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.coding.code",
+        "path": "RelatedPerson.relationship.coding.code",
+        "fixedCode": "1"
+      },
+      {
+        "id": "RelatedPerson.relationship:mother.coding.userSelected",
+        "path": "RelatedPerson.relationship.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:other_relationships",
+        "path": "RelatedPerson.relationship",
+        "sliceName": "other_relationships"
+      },
+      {
+        "id": "RelatedPerson.relationship:other_relationships.id",
+        "path": "RelatedPerson.relationship.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:other_relationships.extension",
+        "path": "RelatedPerson.relationship.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:other_relationships.coding.id",
+        "path": "RelatedPerson.relationship.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:other_relationships.coding.extension",
+        "path": "RelatedPerson.relationship.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:other_relationships.coding.version",
+        "path": "RelatedPerson.relationship.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.relationship:other_relationships.coding.userSelected",
+        "path": "RelatedPerson.relationship.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.name",
+        "path": "RelatedPerson.name",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueHumanName": {
+              "family": "Pavardenė",
+              "given": [
+                "Vardenė",
+                "Antravardenė"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "RelatedPerson.name.id",
+        "path": "RelatedPerson.name.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.name.extension",
+        "path": "RelatedPerson.name.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.name.use",
+        "path": "RelatedPerson.name.use",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.name.text",
+        "path": "RelatedPerson.name.text",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.name.family",
+        "path": "RelatedPerson.name.family",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.name.given",
+        "path": "RelatedPerson.name.given",
+        "min": 1
+      },
+      {
+        "id": "RelatedPerson.name.prefix",
+        "path": "RelatedPerson.name.prefix",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.name.suffix",
+        "path": "RelatedPerson.name.suffix",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.name.period",
+        "path": "RelatedPerson.name.period",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.telecom",
+        "path": "RelatedPerson.telecom",
+        "example": [
+          {
+            "label": "example",
+            "valueContactPoint": {
+              "system": "phone",
+              "value": "+37065656565"
+            }
+          },
+          {
+            "label": "example",
+            "valueContactPoint": {
+              "system": "email",
+              "value": "vardene.pavardene@gmail.com"
+            }
+          }
+        ]
+      },
+      {
+        "id": "RelatedPerson.telecom.id",
+        "path": "RelatedPerson.telecom.id",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.telecom.extension",
+        "path": "RelatedPerson.telecom.extension",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.telecom.use",
+        "path": "RelatedPerson.telecom.use",
+        "definition": "Kontakto naudojimo tipas.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/contact-point-use. Galimos reikšmės: home | work | temp | old | mobile.\r\n\r\n",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.telecom.rank",
+        "path": "RelatedPerson.telecom.rank",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.telecom.period",
+        "path": "RelatedPerson.telecom.period",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.gender",
+        "path": "RelatedPerson.gender",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.birthDate",
+        "path": "RelatedPerson.birthDate",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.address",
+        "path": "RelatedPerson.address",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.photo",
+        "path": "RelatedPerson.photo",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.period",
+        "path": "RelatedPerson.period",
+        "max": "0"
+      },
+      {
+        "id": "RelatedPerson.communication",
+        "path": "RelatedPerson.communication",
+        "max": "0"
+      }
+    ]
+  }
+}

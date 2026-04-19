@@ -1,0 +1,350 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-devices",
+  "name": "LtEspbiProcedureDevices",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia",
+        "path": "Procedure.extension",
+        "sliceName": "ltEspbiExtAnesthesia",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-anesthesia"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.id",
+        "path": "Procedure.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x]",
+        "path": "Procedure.extension.value[x]",
+        "definition": "Anestezija. Reikšmė turėtų būti pasirenkama iš klasifikatoriaus.\r\n\r\n- Klasifikatoriaus rinkinio kodas: anesthesia.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/NGN/Anesthesia",
+                  "code": "1",
+                  "display": "Spinalinė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x].id",
+        "path": "Procedure.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x].extension",
+        "path": "Procedure.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x].coding.id",
+        "path": "Procedure.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x].coding.extension",
+        "path": "Procedure.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x].coding.version",
+        "path": "Procedure.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x].coding.userSelected",
+        "path": "Procedure.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.extension:ltEspbiExtAnesthesia.value[x].text",
+        "path": "Procedure.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "definition": "Procedūros kodas,  Procedūros apibūdinimas.\r\n\r\nProcedūros kodas ir apibūdinimas iš ACHI klasifikatoriaus.\r\nLeidžiama  nurodyti konkrečią procedūrą (pavyzdžiui „40903-00 Neuroendoskopija“ arba „40803-00 Stereotaksinis intrakranijinių koordinačių nustatymas“. Neleidžiama nurodyti skyrių kodų.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ACHI",
+                  "code": "42702-10",
+                  "display": "Kita lęšiuko ekstrakcija, implantuojant sulankstomą dirbtinį lęšį"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/ACHI"
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2025-10-22T06:12:40+00:00",
+              "end": "2025-10-22T07:32:40+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].id",
+        "path": "Procedure.occurrence[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].extension",
+        "path": "Procedure.occurrence[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].start",
+        "path": "Procedure.occurrence[x].start",
+        "short": "Procedūros pradžia / Start of the procedure",
+        "definition": "Procedūros pradžia.\r\n\r\nAmbulatorinės operacijos pradžios data ir laikas.",
+        "min": 1
+      },
+      {
+        "id": "Procedure.occurrence[x].end",
+        "path": "Procedure.occurrence[x].end",
+        "short": "Procedūros pabaiga / End of procedure",
+        "definition": "Procedūros pabaiga.\r\n\r\nAmbulatorinės operacijos pabaigos data ir laikas.",
+        "min": 1
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "function.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "definition": "Operaciją atliekantis gydytojas ir Operacinės slaugytojas.",
+        "min": 1
+      },
+      {
+        "id": "Procedure.performer:surgeon",
+        "path": "Procedure.performer",
+        "sliceName": "surgeon",
+        "short": "Operaciją atliekantis gydytojas / Physician performing the operation",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer:surgeon.function",
+        "path": "Procedure.performer.function",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct ",
+                  "code": "304292004",
+                  "display": "Surgeon"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:surgeon.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.performer:surgeon.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "fixedCode": "304292004"
+      },
+      {
+        "id": "Procedure.performer:nurse",
+        "path": "Procedure.performer",
+        "sliceName": "nurse",
+        "short": "Operacinės slaugytojas / Operating room nurse",
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer:nurse.function",
+        "path": "Procedure.performer.function",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct ",
+                  "code": "415075003",
+                  "display": "Perioperative nurse (occupation)"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:nurse.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.performer:nurse.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "fixedCode": "415075003"
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.concept",
+        "path": "Procedure.complication.concept",
+        "short": "Komplikacijos kodas ir pavadinimas / Complication code and name",
+        "definition": "Komplikacijos kodas ir pavadinimas.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/TLK-10-AM",
+                  "code": "T81.2",
+                  "display": "Atsitiktinė punkcija ar įplėšimas per procedūrą, neklasifikuojama kitur"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.complication.concept.coding",
+        "path": "Procedure.complication.concept.coding",
+        "min": 1
+      },
+      {
+        "id": "Procedure.complication.concept.coding.system",
+        "path": "Procedure.complication.concept.coding.system",
+        "patternUri": "http://esveikata.lt/classifiers/TLK-10-AM"
+      },
+      {
+        "id": "Procedure.complication.concept.coding.display",
+        "path": "Procedure.complication.concept.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Procedure.complication.concept.text",
+        "path": "Procedure.complication.concept.text",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication.reference",
+        "path": "Procedure.complication.reference",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "definition": " Papildomas aprašymas.",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Atlikta intraskilvelinė neuroendoskopija"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.focalDevice.manipulated",
+        "path": "Procedure.focalDevice.manipulated",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-implants"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Device/1000084"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "max": "0"
+      }
+    ]
+  }
+}

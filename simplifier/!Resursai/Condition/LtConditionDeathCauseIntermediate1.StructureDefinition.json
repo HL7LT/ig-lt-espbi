@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-intermediate1",
+  "name": "LtEspbiConditionDeathCauseIntermediate1",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "definition": "Nurodoma mirties priežasties kategorija: intermediate1 (\"Tarpinė mirties priežastis (1)\").",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DeathCauseCategory",
+                  "code": "intermediate1",
+                  "display": "Tarpinė mirties priežastis (1)"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Condition.category.coding.code",
+        "path": "Condition.category.coding.code",
+        "fixedCode": "intermediate1"
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "definition": "Tarpinės mirties priežasties (1) kodas.\r\nGalimos reikšmės nurodytos klasifikatoriuje tlk-10-am arba klasifikatoriuje rare-diseases."
+      },
+      {
+        "id": "Condition.code.text",
+        "path": "Condition.code.text",
+        "definition": "Į medicininį mirties liudijimą įrašomas tarpinės mirties priežasties (1) tekstas."
+      }
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-task",
+  "name": "LtEspbiTask",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Task",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Task",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Task.id",
+        "path": "Task.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.meta",
+        "path": "Task.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.status",
+        "path": "Task.status",
+        "short": "Užduoties atlikimo būsena / The current status of the task",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/task-status, kurio galimos reikšmės: draft |requested | received | accepted | rejected | ready | cancelled | in-progress | on-hold | failed | completed |entered-in-error.\r\n\r\nGalimos reikšmės:\r\n● pending: Nurodo, kad skyrimas (Order resursas) yra pateiktas E027 dokumente. Tuo atveju, kai Order resursas naudojamas pažymos užduoties aprašymui, ši būsena nurodo, kad užduoties vykdymas sustabdytas (pvz. pažymai išrašyti reikalingas paciento apsilankymas).\r\n● accepted: Nurodo, kad skyrimas yra vykdomas, t.y. pagal skyrimą yra pateiktas E200 arba E014 dokumentas.\r\n● complete: Nurodo, kad yra pateiktas atsakymo dokumentas pagal skyrimą (pvz E200-ats, E014-ats, E027-ats arba E063). Pažymos užduoties atveju, nurodo, kad užduotis atlikta sėkmingai.\r\n● cancelled: Pažymi atšauktą užduotį arba skyrimą. Toks skyrimas yra atšauktas dėl klaidos ir negali būti naudojamas kitam dokumentui pateikti.\r\n● aborted: Pažymi skyrimą, kurio panaudojimo dokumentas yra atšauktas. Skyrimas (būsenoje aborted) yra laisvas ir gali būti naudojamas kitam dokumentui pateikti.\r\nGalimos reikšmės nurodytos klasifikatoriuje order-outcome-status.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.intent",
+        "path": "Task.intent",
+        "short": "Užduoties paskirtis / Indicates the \"level\" of actionability associated with the Task",
+        "definition": "FHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/task-intent, kurio galimos reikšmės: unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.focus",
+        "path": "Task.focus",
+        "short": "Nuoroda į skyrimo duomenis (ServiceRequest resursas), kurių būseną aprašo šis Task resursas / The task that this is a response to",
+        "definition": "Nuoroda į paskirtos užduoties informaciją.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.focus.reference",
+        "path": "Task.focus.reference",
+        "min": 1
+      },
+      {
+        "id": "Task.authoredOn",
+        "path": "Task.authoredOn",
+        "short": "Užduoties sukūrimo data / Task Creation Date",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.lastModified",
+        "path": "Task.lastModified",
+        "short": "Atsakymo pateikimo data / When the response was made",
+        "definition": "Atsakymo duomenų pateikimo data. ",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-10-28T02:10:56+00:00"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.performer",
+        "path": "Task.performer",
+        "short": "Atsakymą pateikęs / užduotį atlikęs specialistas / Who made the response",
+        "definition": "Specialistas atlikęs užduotį.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.performer.actor",
+        "path": "Task.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Task.performer.actor.reference",
+        "path": "Task.performer.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "Task.note",
+        "path": "Task.note",
+        "short": "Papildomas aprašymas, aprašantis užduoties rezultatus / Comments made about the task",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.output",
+        "path": "Task.output",
+        "short": "Nuoroda į resursą, kuris buvo užduoties tikslas (pvz. Medicininė pažyma) / Information produced as part of task",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.output.type",
+        "path": "Task.output.type",
+        "short": "Užduoties vykdymo rezultato tipas / Label for output"
+      },
+      {
+        "id": "Task.output.value[x]",
+        "path": "Task.output.value[x]",
+        "short": "Užduoties vykdymo rezultatas (duomenų vertė arba nuoroda į resursą) / Result of output",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-diagnostic-report"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Immunization/101"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Task.output.value[x].reference",
+        "path": "Task.output.value[x].reference",
+        "min": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,5087 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e-aspn-1",
+  "name": "LtEspbiCompositionEAspn1",
+  "status": "draft",
+  "description": "E-ASPN-1 Paciento sveikatos būklės vertinimo forma",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "47420-5",
+                  "display": "Functional status assessment note"
+                }
+              ],
+              "text": "E-ASPN-1 Slaugos paslaugų poreikio nustatymo klausimynas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "47420-5"
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "short": "Informacija apie gydytoją / farmacijos specialistą / Information about the doctor/pharmacist",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "E-ASPN-1 Slaugos paslaugų poreikio nustatymo klausimynas"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "short": "Informacija apie asmens sveikatos priežiūros įstaigą / vaistinę / Organization who is the author of the document / pharmacy",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+                    "code": "30",
+                    "display": "ASPN būklės ar aplinkos vertinimas"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Provenance/1/_history/1"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0101",
+        "path": "Composition.section",
+        "sliceName": "01_0101",
+        "short": "Savirūpos vertinimas",
+        "definition": "Dokumento sekcija, kurioje yra slaugos paslaugų poreikio nustatymo klausimyno sub-sekcijos.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0101.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0101",
+                  "display": "Savirūpos vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0101.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0101.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0101"
+      },
+      {
+        "id": "Composition.section:01_0101.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102",
+        "path": "Composition.section.section",
+        "sliceName": "01_0102",
+        "short": "Savirūpa / Self-care",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0102",
+                  "display": "Savirūpos pagalbos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0102"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0102"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240001"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Observation/21/_history/1"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0102.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103",
+        "path": "Composition.section.section",
+        "sliceName": "01_0103",
+        "short": "Valgymas ir gėrimas / Eating and drinking",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0103",
+                  "display": "Valgymo ir gėrimo pagalbos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0103"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0103"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240002"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0101.section:01_0103.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104",
+        "path": "Composition.section",
+        "sliceName": "01_0104",
+        "short": "Asmens higienos ir rengimosi pagalbos poreikio vertinimas",
+        "definition": "Dokumento sekcija, kurioje yra slaugos paslaugų poreikio nustatymo klausimyno sub-sekcijos.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0104.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0104",
+                  "display": "Asmens higienos ir rengimosi pagalbos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0104.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0104.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0104"
+      },
+      {
+        "id": "Composition.section:01_0104.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105",
+        "path": "Composition.section.section",
+        "sliceName": "01_0105",
+        "short": "Higiena rūpinasi / Hygiene takes care",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0105",
+                  "display": "Higienos pagalbos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0105"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0105"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240003"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0105.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106",
+        "path": "Composition.section.section",
+        "sliceName": "01_0106",
+        "short": "Apsirengia ir apsiauna / Gets dressed",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0106",
+                  "display": "Apsirengt bei apsiauti pagalbos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0106"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0106"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240004"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0104.section:01_0106.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0107",
+        "path": "Composition.section",
+        "sliceName": "01_0107",
+        "short": "Regėjimas / Vision",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0107.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0107",
+                  "display": "Regėjimo sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0107.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0107.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0107"
+      },
+      {
+        "id": "Composition.section:01_0107.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0107"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240005"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0107.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0108",
+        "path": "Composition.section",
+        "sliceName": "01_0108",
+        "short": "Klausa / Hearing",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0108.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0108",
+                  "display": "Klausos sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0108.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0108.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0108"
+      },
+      {
+        "id": "Composition.section:01_0108.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0108"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240006"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0108.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109",
+        "path": "Composition.section",
+        "sliceName": "01_0109",
+        "short": "Judėjimas ir transportavimas / Movement and transportation",
+        "definition": "Dokumento sekcija, kurioje yra slaugos paslaugų poreikio nustatymo klausimyno sub-sekcijos.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0109.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0109",
+                  "display": "Judėjimo ir transportavimo pagalbos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0109.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0109.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0109"
+      },
+      {
+        "id": "Composition.section:01_0109.code.text",
+        "path": "Composition.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110",
+        "path": "Composition.section.section",
+        "sliceName": "01_0110",
+        "short": "Kūno padėtis / Body positiion",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0110",
+                  "display": "Kūno padėties vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0110"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0110"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240007"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0110.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111",
+        "path": "Composition.section.section",
+        "sliceName": "01_0111",
+        "short": "Judėjimas / Movement",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0111",
+                  "display": "Judėjimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0111"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0111"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240008"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0111.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112",
+        "path": "Composition.section.section",
+        "sliceName": "01_0112",
+        "short": "Griuvimo rizika / Risk of falling",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0112",
+                  "display": "Griuvimo rizikos vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0112"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0112"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240009"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0109.section:01_0112.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0113",
+        "path": "Composition.section",
+        "sliceName": "01_0113",
+        "short": "Klausimyno atsakymai / Movement coordination",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0113.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0113",
+                  "display": "Judesių koordinacijos sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0113.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0113.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0113"
+      },
+      {
+        "id": "Composition.section:01_0113.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0113.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0113"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240010"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0113.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0114",
+        "path": "Composition.section",
+        "sliceName": "01_0114",
+        "short": "Pusiausvyra / Balance",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0114.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0114",
+                  "display": "Pusiausvyros sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0114.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0114.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0114"
+      },
+      {
+        "id": "Composition.section:01_0114.code.text",
+        "path": "Composition.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0114.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0114.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0114"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240011"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0114.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115",
+        "path": "Composition.section",
+        "sliceName": "01_0115",
+        "short": "Orientacija / Orientation",
+        "definition": "Dokumento sekcija, kurioje yra slaugos paslaugų poreikio nustatymo klausimyno sub-sekcijos.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0115.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0115",
+                  "display": "Orientacijos sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0115.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0115.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0115"
+      },
+      {
+        "id": "Composition.section:01_0115.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116",
+        "path": "Composition.section.section",
+        "sliceName": "01_0116",
+        "short": "Orientacija laike / Orientation in time",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0116",
+                  "display": "Orientacijos laike sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0116"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0116"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240012"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0116.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117",
+        "path": "Composition.section.section",
+        "sliceName": "01_0117",
+        "short": "Orientacija erdvėje / Orientation in space",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.\r\n",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0117",
+                  "display": "Orientacijos erdvėje sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0117"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0117"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240013"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0117.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118",
+        "path": "Composition.section.section",
+        "sliceName": "01_0118",
+        "short": "Savęs suvokimas / Self-awareness",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0118",
+                  "display": "Savęs suvokimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0118"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0118"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240014"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0115.section:01_0118.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119",
+        "path": "Composition.section",
+        "sliceName": "01_0119",
+        "short": "Bendravimas / Communication",
+        "definition": "Dokumento sekcija, kurioje yra slaugos paslaugų poreikio nustatymo klausimyno sub-sekcijos.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0119",
+                  "display": "Bendravimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0119.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0119"
+      },
+      {
+        "id": "Composition.section:01_0119.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120",
+        "path": "Composition.section.section",
+        "sliceName": "01_0120",
+        "short": "Sąmonė / Consciousness",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0120",
+                  "display": "Samonės sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0120"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0120"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240015"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0120.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121",
+        "path": "Composition.section.section",
+        "sliceName": "01_0121",
+        "short": "Kalba / Speech",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0121",
+                  "display": "Kalbos sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0121"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0121"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240016"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0121.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136",
+        "path": "Composition.section.section",
+        "sliceName": "01_0136",
+        "short": "Minčių raiška / Expression of thoughts",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0136",
+                  "display": "Minčių raiškos sutrikimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0136"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0136"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240017"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0136.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122",
+        "path": "Composition.section.section",
+        "sliceName": "01_0122",
+        "short": "Pateiktos informacijos suvokimas / Understanding the information provided",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0122",
+                  "display": "Pateiktos informacijos suvokimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0122"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0122"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240018"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0122.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123",
+        "path": "Composition.section.section",
+        "sliceName": "01_0123",
+        "short": "Sprendimų priėmimas / Decision-making",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0123",
+                  "display": "Sprendimų priėmimo sugebėjimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0123"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0123"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240019"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0119.section:01_0123.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0124",
+        "path": "Composition.section",
+        "sliceName": "01_0124",
+        "short": "Vaistų vartojimas / Medication use",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0124.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0124",
+                  "display": "Vaistų vartojimo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0124.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0124.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0124"
+      },
+      {
+        "id": "Composition.section:01_0124.code.text",
+        "path": "Composition.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0124.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0124.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0124"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240020"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0124.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0125",
+        "path": "Composition.section",
+        "sliceName": "01_0125",
+        "short": "Gyvenamosios vietos aplinkos pritaikymas / Adaptation of the living environment ",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0125.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0125",
+                  "display": "Gyvenamosios vietos aplinkos pritaikymo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0125.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0125.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0125"
+      },
+      {
+        "id": "Composition.section:01_0125.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0125.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0125"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240021"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0125.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0126",
+        "path": "Composition.section",
+        "sliceName": "01_0126",
+        "short": "Specializuota priežiūra / Specialized care",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0126.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0126",
+                  "display": "Specializuotos priežiūros poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0126.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0126.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0126"
+      },
+      {
+        "id": "Composition.section:01_0126.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0126.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0126"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240022"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0126.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127",
+        "path": "Composition.section",
+        "sliceName": "01_0127",
+        "short": "Specialistų pagalba / Specialist help",
+        "definition": "Dokumento sekcija, kurioje yra slaugos paslaugų poreikio nustatymo klausimyno sub-sekcijos.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0127",
+                  "display": "Specialistų pagalbos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0127.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0127"
+      },
+      {
+        "id": "Composition.section:01_0127.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128",
+        "path": "Composition.section.section",
+        "sliceName": "01_0128",
+        "short": "Slaugytojo paslaugos / Nursing services",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0128",
+                  "display": "Slaugytojo paslaugos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0128"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0128"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240023"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0128.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129",
+        "path": "Composition.section.section",
+        "sliceName": "01_0129",
+        "short": "Slaugytojo paslaugų reguliarumas / Regularity of nursing services",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0129",
+                  "display": "Slaugytojo paslaugų reguliarumo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0129"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0129"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240024"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0129.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130",
+        "path": "Composition.section.section",
+        "sliceName": "01_0130",
+        "short": "Slaugytojo padėjėjo paslaugos / Nursing assistant services",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0130",
+                  "display": "Slaugytojo padėjėjo poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0130"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0130"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240025"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0130.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131",
+        "path": "Composition.section.section",
+        "sliceName": "01_0131",
+        "short": "Slaugytojo padėjėjo paslaugų reguliarumas / Regularity of nursing assistant services ",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0131",
+                  "display": "Slaugytojo padėjėjo paslaugos reguliarumo vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0131"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0131"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240026"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0131.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132",
+        "path": "Composition.section.section",
+        "sliceName": "01_0132",
+        "short": "Kineziterapeuto paslaugos / Physiotherapist services",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0132",
+                  "display": "Kineziterapeuto paslaugos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0132"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0132"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240027"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0132.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137",
+        "path": "Composition.section.section",
+        "sliceName": "01_0137",
+        "short": "Socialinės paslaugos / Social services",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code",
+        "path": "Composition.section.section.code",
+        "short": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją / A code identifying the kind of content contained within the section.",
+        "definition": "Kodas identifikuojantis dokumento sekcijos paskirtį ir joje esančią informaciją.\r\nGalimos reikšmės nurodytos klasifikatoriuje doc-section-code.",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0137",
+                  "display": "Socialinės paslaugos poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "01.0137"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding.display",
+        "path": "Composition.section.section.code.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.code.text",
+        "path": "Composition.section.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į resursą, kurio informacija yra naudojama sekcijos kontekste / A reference to the actual resource from which the narrative in the section is derived.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0137"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240028"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0127.section:01_0137.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0134",
+        "path": "Composition.section",
+        "sliceName": "01_0134",
+        "short": "Artimųjų dalyvavimas asmens priežiūroje / Involvement of relatives in personal care",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0134.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0134",
+                  "display": "Artimųjų asmenų dalyvivimo slaugoje vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0134.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0134.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0134"
+      },
+      {
+        "id": "Composition.section:01_0134.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0134.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0134"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240029"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0134.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0135",
+        "path": "Composition.section",
+        "sliceName": "01_0135",
+        "short": "Galutinis vertinimas / Final assessment",
+        "definition": "Dokumento sekcija, kurioje pateikiama nuoroda į Observation resursą, kuriame pateikiama tam tikra slaugos paslaugų poreikio nustatymo klausimyno informacija.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:01_0135.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/DocSectionCode",
+                  "code": "01.0135",
+                  "display": "Galutinis ASPN poreikio vertinimas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0135.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/DocSectionCode"
+      },
+      {
+        "id": "Composition.section:01_0135.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "01.0135"
+      },
+      {
+        "id": "Composition.section:01_0135.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:01_0135.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-01-0135"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/1112240030"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:01_0135.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      }
+    ]
+  }
+}

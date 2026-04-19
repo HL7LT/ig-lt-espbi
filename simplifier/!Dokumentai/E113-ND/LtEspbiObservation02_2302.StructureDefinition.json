@@ -1,0 +1,157 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-2302",
+  "name": "LtEspbiObservation02_2302",
+  "status": "draft",
+  "description": "Pirmo apsilankymo data / First visit date",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.2302",
+                  "display": "Pirmo apsilankymo data"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.2302"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Pirmo apsilankymo data / Date of first visit",
+        "definition": "E113-ND forma. Pirmo apsilankymo data \r\nData\r\nValidacijos taisyklės:\r\n• Lauko reikšmė turi būti mažesnė už duomenų pateikimo datą.",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-02-01T07:12:40.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-val-sta-1",
+            "severity": "error",
+            "human": "Date ant time must not be later than the current date.",
+            "expression": "$this <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "definition": "Apžiūros duomenų įvertinimas.\r\nGalimos reikšmės nurodytos klasifikatoriuje death-date-interpretation (Mirties datos interpretavimo kodas E106 ir E106-2-1 pažymose).\r\n\r\nFHIR R5 naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/observation-interpretation.\r\n\r\nE106 forma \r\nNelaimingo atsitikimo, savižudybės, žmogžudystės data nežinoma\r\nLaukas pildomas, bet neprivalomas, jei lauke „Gydytojo nuomone mirties rūšis“ nurodyta „Nelaimingas atsitikimas“, „Nelaimingas atsitikimas darbe“, „Savižudybė“ ar „Žmogžudystė“ ir laukas „Nelaimingo atsitikimo, savižudybės, žmogžudystės data“ neužpildytas. Laukas nepildomas, jei lauke „Gydytojo nuomone mirties rūšis“ nurodyta ne „Nelaimingas atsitikimas“, „Nelaimingas atsitikimas darbe“, „Savižudybė“ ar „Žmogžudystė“ arba laukas „Nelaimingo atsitikimo, savižudybės, žmogžudystės data“ užpildytas. Realizuota kaip: Nelaimingo atsitikimo, savižudybės, žmogžudystės data",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/Observation/Interpretation/DeathDate",
+                  "code": "2",
+                  "display": "Nelaimingo atsitikimo, savižudybės, žmogžudystės data nežinoma"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/Observation/Interpretation/DeathDate"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,731 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-11466000",
+  "name": "LtEspbiProcedure11466000",
+  "status": "draft",
+  "description": "Cesario Pjuvio Operacijos eiga / Cesarean Section Procedure Process",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure",
+        "path": "Procedure",
+        "constraint": [
+          {
+            "key": "pro-1",
+            "severity": "error",
+            "human": "When other indications for Cesarean section is selected 5 (Nėščiosios liga), text description must be provided.",
+            "expression": "reason.concept.where(coding.system = 'http://esveikata.lt/classifiers/NGN/OtherIndications' and coding.code = '5').exists() implies reason.concept.text.exists()"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.extension",
+        "path": "Procedure.extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.partOf",
+        "path": "Procedure.partOf",
+        "short": "Anestezija / Anesthesia",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-399248000"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "11466000",
+                  "display": "Cezario pjūvis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.code.coding.code",
+        "path": "Procedure.code.coding.code",
+        "fixedCode": "11466000"
+      },
+      {
+        "id": "Procedure.occurrence[x]",
+        "path": "Procedure.occurrence[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2025-02-01T10:30:02+00:00",
+              "end": "2025-02-01T11:30:02+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].id",
+        "path": "Procedure.occurrence[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].extension",
+        "path": "Procedure.occurrence[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.occurrence[x].start",
+        "path": "Procedure.occurrence[x].start",
+        "short": "Operacijos pradžia / Start of operation",
+        "definition": "Operacijos pradžia (E096-CPO). Data ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "pro-occ-1",
+            "severity": "error",
+            "human": "Date and time cannot be later than the current date and time.",
+            "expression": "$this <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.occurrence[x].end",
+        "path": "Procedure.occurrence[x].end",
+        "short": "Operacijos pabaiga / End of operation",
+        "definition": "Operacijos pabaiga (E096-CPO). Data ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "example",
+            "severity": "error",
+            "human": "Date and time cannot be later than the current date and time.",
+            "expression": "$this <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer",
+        "path": "Procedure.performer",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "function.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Procedure.performer:surgeon",
+        "path": "Procedure.performer",
+        "sliceName": "surgeon",
+        "short": "Operavo / Surgeon",
+        "definition": "Nuoroda į operaciją atliekanti gydytoją kataloge D2. Sveikatinimo specialistų katalogas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.performer:surgeon.function",
+        "path": "Procedure.performer.function",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "304292004",
+                  "display": "Surgeon"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:surgeon.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.performer:surgeon.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "fixedCode": "304292004"
+      },
+      {
+        "id": "Procedure.performer:surgeon.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:assisted",
+        "path": "Procedure.performer",
+        "sliceName": "assisted",
+        "short": "Asistavo / Assisted",
+        "definition": "Nuoroda į asistavimą teikiantį gydytoją kataloge D2. Sveikatinimo specialistų katalogas."
+      },
+      {
+        "id": "Procedure.performer:assisted.function",
+        "path": "Procedure.performer.function",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "22515006",
+                  "display": "Medical assistant"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:assisted.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.performer:assisted.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "fixedCode": "22515006"
+      },
+      {
+        "id": "Procedure.performer:assisted.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084761"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:anesthesiologist",
+        "path": "Procedure.performer",
+        "sliceName": "anesthesiologist",
+        "short": "Gydytojas anesteziologas reanimatologas / Anesthesiologist Intensive Care Doctor",
+        "definition": "Nuoroda į Gydytoją anesteziologą reanimatologą kataloge D2. Sveikatinimo specialistų katalogas.",
+        "min": 1
+      },
+      {
+        "id": "Procedure.performer:anesthesiologist.function",
+        "path": "Procedure.performer.function",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "88189002",
+                  "display": "Anesthesiologist"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:anesthesiologist.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.performer:anesthesiologist.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "fixedCode": "88189002"
+      },
+      {
+        "id": "Procedure.performer:anesthesiologist.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084763"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:nurse",
+        "path": "Procedure.performer",
+        "sliceName": "nurse",
+        "short": "Operacinės slaugytojas / Operating room nurse",
+        "definition": "Nuoroda į Operacinės slaugytoją kataloge D2. Sveikatinimo specialistų katalogas."
+      },
+      {
+        "id": "Procedure.performer:nurse.function",
+        "path": "Procedure.performer.function",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "415075003",
+                  "display": "Perioperative nurse"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer:nurse.function.coding.system",
+        "path": "Procedure.performer.function.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Procedure.performer:nurse.function.coding.code",
+        "path": "Procedure.performer.function.coding.code",
+        "fixedCode": "415075003"
+      },
+      {
+        "id": "Procedure.performer:nurse.actor",
+        "path": "Procedure.performer.actor",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084765"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason",
+        "path": "Procedure.reason",
+        "short": "Cezario pjūvio indikacijos / Indications for Cesarean section",
+        "definition": "Cezario pjūvio indikacijos (E096-CPO).\r\n\r\nNaudojamos pasirinkimo reikšmės:\r\n- Pakartotinė operacija \r\n- Distocija \r\n- Vaisiaus būklės ypatumai \r\n- Vaisiaus sėdmeninė pirmeiga \r\n- Kitos indikacijos",
+        "min": 1,
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/NGN/FetusConditionIssues",
+                    "code": "1",
+                    "display": "Įtariama nestabili vaisiaus būklė"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.reason.concept",
+        "path": "Procedure.reason.concept",
+        "min": 1,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-cesarean-section-indication"
+        }
+      },
+      {
+        "id": "Procedure.reason.concept.coding",
+        "path": "Procedure.reason.concept.coding",
+        "short": "Cezario pjūvio indikacija /  Indication for Cesarean section",
+        "definition": "**Pakartotinė operacija** (E096-CPO). Naudojamos   D.4.117.74. Pakartotinė operacija klasifikatoriaus reikšmės.\r\n- Sistema: http://esveikata.lt/classifiers/NGN/RepeatOperation\r\n- Klasifikatoriaus rinkinio kodas: repeat-operation\r\n\r\nValidacinė taisyklė:\r\n- Būtina pateikti, jeigu „Cezario pjūvio indikacija“ yra „Pakartotinė operacija“.\r\n\r\n**Distocija** (E096-CPO). Naudojamos D.4.117.75. Distocija klasifikatoriaus reikšmės.\r\n- Sistema: http://esveikata.lt/classifiers/NGN/Dystocia\r\n- Klasifikatoriaus rinkinio kodas: dystocia\r\n\r\nValidacinė taisyklė:\r\n- Būtina pateikti, jeigu „Cezario pjūvio indikacija“ yra „Distocija“.\r\n\r\n**Vaisiaus būklės ypatumai** (E096-CPO). Naudojamos D.4.117.76. Vaisiaus būklės ypatumai klasifikatoriaus reikšmės.\r\n- Sistema: http://esveikata.lt/classifiers/NGN/FetusConditionIssues\r\n- Klasifikatoriaus rinkinio kodas: fetus-condition-issues\r\n\r\nValidacinė taisyklė:\r\n- Būtina pateikti, jeigu „Cezario pjūvio indikacija“ yra „Vaisiaus būklės ypatumai“.\r\n\r\n**Vaisiaus sėdmeninė pirmeiga** (E096-CPO). Naudojamos D.4.117.77. Vaisiaus sėdmeninė pirmeiga  klasifikatoriaus reikšmės.\r\n- Sistema: http://esveikata.lt/classifiers/NGN/FetusBreechPresentation\r\n- Klasifikatoriaus rinkinio kodas: fetus-breech-presentation\r\n\r\nValidacinė taisyklė:\r\n- Būtina pateikti, jeigu „Cezario pjūvio indikacija“ yra „Vaisiaus sėdmeninė pirmeiga“.\r\n\r\n**Kitos indikacijos** (E096-CPO). Naudojamos D.4.117.78. Kitos gimdymo indikacijos klasifikatoriaus reikšmės.\r\n- Sistema: http://esveikata.lt/classifiers/NGN/OtherIndications\r\n- Klasifikatoriaus rinkinio kodas: ngn-other-indications\r\n\r\nValidacinė taisyklė:\r\n- Būtina pateikti, jeigu „Cezario pjūvio indikacija“ yra „Kitos indikacijos“.\r\n\r\n\r\n"
+      },
+      {
+        "id": "Procedure.reason.concept.text",
+        "path": "Procedure.reason.concept.text",
+        "short": "Nėščiosios liga / Pregnancy sickness",
+        "definition": "Nėščiosios liga (E096-CPO). Tekstas.\r\nVeikimo logika:\r\n- Teikiama, jeigu \"Cezario pjūvio indikacijos\" pasirenkama \"Nėščiosios liga\"."
+      },
+      {
+        "id": "Procedure.bodySite",
+        "path": "Procedure.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.complication",
+        "path": "Procedure.complication",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.focalDevice",
+        "path": "Procedure.focalDevice",
+        "max": "0"
+      },
+      {
+        "id": "Procedure.supportingInfo",
+        "path": "Procedure.supportingInfo",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Procedure.supportingInfo:bladder",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "bladder",
+        "short": "Šlapimo pūslė / Bladder",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1205"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004050"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:uterus",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "uterus",
+        "short": "Gimda įpjauta skalpeliu / Uterus",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-42253005"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004051"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:uterusIncisionLocation",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "uterusIncisionLocation",
+        "short": "Gimdos pjūvio vieta / Location of uterine incision",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1206"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004052"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:otherParticularities",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "otherParticularities",
+        "short": "Kiti ypatumai / Other particularities",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1211"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004053"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:placenta",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "placenta",
+        "short": "Placenta / Placenta",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1212"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004054"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:placentalAttachment",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "placentalAttachment",
+        "short": "Placentos prisitvirtinimas / Placental attachment",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1213"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004055"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:placentalHistologicalExamination",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "placentalHistologicalExamination",
+        "short": "Paskirtas placentos (-ų) histologinis tyrimas / Scheduled placental histological examination",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1207"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004056"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:uterineMuscleStitched",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "uterineMuscleStitched",
+        "short": "Gimdos raumuo susiūtas / Uterine muscle stitched",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1214"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004057"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:ovariesOtherOrgans",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "ovariesOtherOrgans",
+        "short": "Kiaušidės, kiti pilvo organai  / Ovaries, other abdominal organs",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1215"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004058"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:lostBlood",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "lostBlood",
+        "short": "Netekto kraujo kiekis  / Amount of lost blood",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1216"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004059"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:FoleyCatheter",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "FoleyCatheter",
+        "short": "Šlapimas pro Foley kateterį / Urine through the Foley catheter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1218"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004060"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:atypicalMoments",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "atypicalMoments",
+        "short": "Atipiniai operacijos momentai / Atypical moments of the operation",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1219"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004061"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Procedure.supportingInfo:incisionOfAbdominal",
+        "path": "Procedure.supportingInfo",
+        "sliceName": "incisionOfAbdominal",
+        "short": "Pilvo siena perpjauta pasluoksniui / The abdominal wall is incised",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-112978005"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004062"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

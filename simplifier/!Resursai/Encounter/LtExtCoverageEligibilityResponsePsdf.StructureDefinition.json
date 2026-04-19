@@ -1,0 +1,53 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-encounter-coverage-eligibility-response-psdf",
+  "name": "LtEspbiExtCoverageEligibilityResponsePsdf",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Encounter"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Draustumo (PSDF) būsenos informacija / Insurance (PSDF) status information",
+        "definition": "Draustumo (PSDF) būsenos informacija - ar pacientas draustas PSDF draudimu, draustumo būsenos tikrinimo laikas ir kt.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-encounter-coverage-eligibility-response-psdf"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-request-psdf"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

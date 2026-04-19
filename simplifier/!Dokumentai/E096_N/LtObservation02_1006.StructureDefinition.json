@@ -1,0 +1,529 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1006",
+  "name": "LtEspbiObservation02_1006",
+  "status": "draft",
+  "description": "Gimė / Born",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "constraint": [
+          {
+            "key": "obs-2",
+            "severity": "error",
+            "human": "If the pregnancy outcome is 237364002 (Negyvagimis), the hasMember slice \"stillbirth\" must be present.",
+            "expression": "valueCodeableConcept.coding.where(code = '237364002').exists() implies hasMember.where(sliceName = 'stillbirth').exists()"
+          },
+          {
+            "key": "obs-3",
+            "severity": "error",
+            "human": "If the pregnancy outcome is 281050002 (Gyvas naujagimis) \"Live birth\", the hasMember slice \"aliveNewborn\" must be present.",
+            "expression": "valueCodeableConcept.coding.where(code = '281050002').exists() implies hasMember.where(sliceName = 'aliveNewborn').exists()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.1006",
+                  "display": "Gimė"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode\""
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.1006"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Gimė / Born",
+        "definition": "Gimė (E096-N).\r\n\r\nNaudojamos D.4.117.14 Nėštumo baigtis klasifikatoriaus reikšmės.\r\n- Sistema: http://esveikata.lt/classifiers/NGN/PregnancyOutcome\r\n- Klasifikatoriaus rinkinio kodas: pregnancy-outcome\r\n\r\nValidacinė taisyklė:\r\n- Pateikiamos stulpelio \"E096-N\" reikšmės pažymėtos reikšme \"Taip\".",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/NGN/PregnancyOutcome",
+                  "code": "281050002",
+                  "display": "Gyvas naujagimis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].id",
+        "path": "Observation.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].extension",
+        "path": "Observation.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding",
+        "path": "Observation.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x].coding.id",
+        "path": "Observation.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.extension",
+        "path": "Observation.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.system",
+        "path": "Observation.value[x].coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/NGN/PregnancyOutcome"
+      },
+      {
+        "id": "Observation.value[x].coding.version",
+        "path": "Observation.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].coding.code",
+        "path": "Observation.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x].coding.userSelected",
+        "path": "Observation.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Observation.value[x].text",
+        "path": "Observation.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:stillbirth",
+        "path": "Observation.hasMember",
+        "sliceName": "stillbirth",
+        "short": "Negyvagimis / Stillbirth",
+        "definition": "Validacinė taisyklė:\r\n- Būtina pateikti, kai pasirenkama reikšme \"Negyvagimis\".",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-237364002"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5231"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:aliveNewborn",
+        "path": "Observation.hasMember",
+        "sliceName": "aliveNewborn",
+        "short": "Gyvas naujagimis / Alive newborn",
+        "definition": "Validacinė taisyklė:\r\n- Būtina pateikti, kai pasirenkama reikšme \"Gyvas naujagimis\"\r\n",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1019"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5232"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:fetalPrimordial",
+        "path": "Observation.hasMember",
+        "sliceName": "fetalPrimordial",
+        "short": "Vaisiaus pirmeiga / Fetal primordial",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1007"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/525"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:umbilicalCordFeatures",
+        "path": "Observation.hasMember",
+        "sliceName": "umbilicalCordFeatures",
+        "short": "Viršktelės ypatybės / Features of the umbilical cord",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1008"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/526"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:umbilicalCordWrapped",
+        "path": "Observation.hasMember",
+        "sliceName": "umbilicalCordWrapped",
+        "short": "Virkštelė apsisukusi apie / Umbilical cord wrapped around",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1009"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/527"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:umbilicalCordWrapsCount",
+        "path": "Observation.hasMember",
+        "sliceName": "umbilicalCordWrapsCount",
+        "short": "Virkštelės apsisukimų kartai / Number of umbilical cord wraps",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1010"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/528"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:umbilicalCordBloodPHLac",
+        "path": "Observation.hasMember",
+        "sliceName": "umbilicalCordBloodPHLac",
+        "short": "Virkštelės kraujo pH/Lac / Umbilical cord blood pH/Lac",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1011"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/529"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:amnioticFluidColor",
+        "path": "Observation.hasMember",
+        "sliceName": "amnioticFluidColor",
+        "short": "Vaisiaus vandenų spalva / Amniotic fluid color",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1013"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5210"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:weight",
+        "path": "Observation.hasMember",
+        "sliceName": "weight",
+        "short": "Svoris / Weight",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-29463-7"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/294630965211"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:height",
+        "path": "Observation.hasMember",
+        "sliceName": "height",
+        "short": "Ūgis / Height",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8302-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/83020965212"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:headCircumference",
+        "path": "Observation.hasMember",
+        "sliceName": "headCircumference",
+        "short": "Galvos apimtis / Head circumference",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8290-9"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5213"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:sex",
+        "path": "Observation.hasMember",
+        "sliceName": "sex",
+        "short": "Lytis / Sex",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-46098-0"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/460980965214"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:resuscitation",
+        "path": "Observation.hasMember",
+        "sliceName": "resuscitation",
+        "short": "Gaivinimas / Resuscitation",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-72115-9"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5215"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:resuscitation.reference",
+        "path": "Observation.hasMember.reference",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Observation/5215"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,427 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request-aspn-3",
+  "name": "LtEspbiServiceRequestAspn3",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ServiceRequest",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ServiceRequest.implicitRules",
+        "path": "ServiceRequest.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.language",
+        "path": "ServiceRequest.language",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.text",
+        "path": "ServiceRequest.text",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.contained",
+        "path": "ServiceRequest.contained",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtServiceRequestActivityJustification",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtServiceRequestActivityJustification",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-servicerequest/activityJustification"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.extension:ltEspbiExtServiceRequestActivityEstimation",
+        "path": "ServiceRequest.extension",
+        "sliceName": "ltEspbiExtServiceRequestActivityEstimation",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-servicerequest/activityEstimation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.modifierExtension",
+        "path": "ServiceRequest.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.identifier",
+        "path": "ServiceRequest.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.instantiatesCanonical",
+        "path": "ServiceRequest.instantiatesCanonical",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.instantiatesUri",
+        "path": "ServiceRequest.instantiatesUri",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.basedOn",
+        "path": "ServiceRequest.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.replaces",
+        "path": "ServiceRequest.replaces",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.requisition",
+        "path": "ServiceRequest.requisition",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.status",
+        "path": "ServiceRequest.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "active"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.intent",
+        "path": "ServiceRequest.intent",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "plan"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.category",
+        "path": "ServiceRequest.category",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "308335008",
+                  "display": "Encounter"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.category.id",
+        "path": "ServiceRequest.category.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.extension",
+        "path": "ServiceRequest.category.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.id",
+        "path": "ServiceRequest.category.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.extension",
+        "path": "ServiceRequest.category.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.version",
+        "path": "ServiceRequest.category.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.category.coding.userSelected",
+        "path": "ServiceRequest.category.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.priority",
+        "path": "ServiceRequest.priority",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.doNotPerform",
+        "path": "ServiceRequest.doNotPerform",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code",
+        "path": "ServiceRequest.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "text": "tekstas"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.code.id",
+        "path": "ServiceRequest.code.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.extension",
+        "path": "ServiceRequest.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.id",
+        "path": "ServiceRequest.code.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.extension",
+        "path": "ServiceRequest.code.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.concept.coding",
+        "path": "ServiceRequest.code.concept.coding",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.code.reference",
+        "path": "ServiceRequest.code.reference",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.orderDetail",
+        "path": "ServiceRequest.orderDetail",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.quantity[x]",
+        "path": "ServiceRequest.quantity[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject",
+        "path": "ServiceRequest.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/12345"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.subject.id",
+        "path": "ServiceRequest.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.extension",
+        "path": "ServiceRequest.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.type",
+        "path": "ServiceRequest.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.identifier",
+        "path": "ServiceRequest.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.subject.display",
+        "path": "ServiceRequest.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.focus",
+        "path": "ServiceRequest.focus",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.encounter",
+        "path": "ServiceRequest.encounter",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.asNeeded[x]",
+        "path": "ServiceRequest.asNeeded[x]",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.authoredOn",
+        "path": "ServiceRequest.authoredOn",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2025-12-16T06:03:03+00:00"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.requester",
+        "path": "ServiceRequest.requester",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performerType",
+        "path": "ServiceRequest.performerType",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.performer",
+        "path": "ServiceRequest.performer",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.location",
+        "path": "ServiceRequest.location",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason",
+        "path": "ServiceRequest.reason",
+        "max": "1",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "text": "tekstas"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.reason.id",
+        "path": "ServiceRequest.reason.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.extension",
+        "path": "ServiceRequest.reason.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept",
+        "path": "ServiceRequest.reason.concept",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.reason.concept.id",
+        "path": "ServiceRequest.reason.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.extension",
+        "path": "ServiceRequest.reason.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.coding",
+        "path": "ServiceRequest.reason.concept.coding",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.reason.concept.text",
+        "path": "ServiceRequest.reason.concept.text",
+        "min": 1
+      },
+      {
+        "id": "ServiceRequest.reason.reference",
+        "path": "ServiceRequest.reason.reference",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.insurance",
+        "path": "ServiceRequest.insurance",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.supportingInfo",
+        "path": "ServiceRequest.supportingInfo",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.specimen",
+        "path": "ServiceRequest.specimen",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.bodySite",
+        "path": "ServiceRequest.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.bodyStructure",
+        "path": "ServiceRequest.bodyStructure",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.note",
+        "path": "ServiceRequest.note",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Vertinimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.note.id",
+        "path": "ServiceRequest.note.id",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.note.extension",
+        "path": "ServiceRequest.note.extension",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.patientInstruction",
+        "path": "ServiceRequest.patientInstruction",
+        "max": "0"
+      },
+      {
+        "id": "ServiceRequest.relevantHistory",
+        "path": "ServiceRequest.relevantHistory",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-newborn",
+  "name": "LtEspbiCarePlanNewborn",
+  "status": "draft",
+  "description": "Naujagimio tyrimų planas / Newborn screening plan",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CarePlan",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CarePlan.status",
+        "path": "CarePlan.status",
+        "short": "Naujagimio tyrimų plano būsena / Care plan status",
+        "definition": "FHIR R5 atveju turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/request-status|5.0.0. Galimos reikšmės: draft | active | on-hold | revoked | completed | entered-in-error | unknown."
+      },
+      {
+        "id": "CarePlan.intent",
+        "path": "CarePlan.intent",
+        "short": "Klinikinis ar administracinis ketinimas / The level of intentionality associated with the care plan",
+        "definition": "FHIR R5 privalomas laukas, turėtų būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/care-plan-intent|5.0.0. Galimos reikšmės: proposal | plan | order | option | directive."
+      },
+      {
+        "id": "CarePlan.goal",
+        "path": "CarePlan.goal",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity",
+        "path": "CarePlan.activity",
+        "min": 1
+      },
+      {
+        "id": "CarePlan.note",
+        "path": "CarePlan.note",
+        "short": "Pastabos / General notes",
+        "definition": "Pastabos / su naujagimio tyrimų planu susijusi papildoma informacija."
+      }
+    ]
+  }
+}

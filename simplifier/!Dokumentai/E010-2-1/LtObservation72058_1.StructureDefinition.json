@@ -1,0 +1,124 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-72058-1",
+  "name": "LtEspbiObservation72058_1",
+  "status": "draft",
+  "description": "Skiepas nuo gripo / Flu vaccine",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "72058-1",
+                  "display": "Influenza virus vaccination received"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "72058-1"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Skiepas nuo gripo / Flu vaccine",
+        "definition": "nuo Gripo (E010-2-1).\r\nE063 → \"Vakcinacijos įrašas\" → \"Informacija apie skiepus\" → \"Užkrečiamųjų ligų, nuo kurių skiepijama, pavadinimai laisvu tekstu\" → Reikšmė\r\n\r\n**Veikimo logika**:\r\n- Jeigu D.4.42. Užkrečiamųjų ligų, nuo kurių skiepijama, klasifikatorius → \"Užkrečiamųjų ligų, nuo kurių skiepijama, kodas\"->Reikšmė yra viena iš šių (85805, 85810, 85768, 85805, 85773, 85772, 85809, 85779, 85790, 85779, 85793), tada išvedamas tekstas:\r\n• Skiepyta\r\nJei nėra:\r\n• Neskiepyta\r\n\r\n**Validacinė taisyklė**:\r\n- Atrenkami skiepai, kurių  E063 → \"Vakcinacijos įrašas\" → \"Informacija apie skiepus\" → \"Skiepijimo data\" → Reikšmė \" yra ne vėlesnė nei metai nuo:\r\n\r\n- jeigu yra patvirtinta E096-GE, tai E096-GE→ \"Medicininiai duomenys\" → \"Placentos užgimimo laikas\" → Reikšmė   \r\n- jeigu nėra patvirtintos  E096-GE, tai parenkama E096-N → \"Medicininiai duomenys\" → \"Naujagimio įrašas (Vaisius A)\" → \"Gimimo data ir laikas\"→ Reikšmė. \r\n- jeigu nėra patvirtintos E096-GE ir E096-N, tada parenkama E096-N → \"Medicininiai duomenys\" → \"Naujagimio įrašas\" → \"Gimimo data ir laikas\" → Reikšmė ir E096-N  → \"NGN antraštė\" → \"Nėštumo pirmoji diena\" → Reikšmė + 40sav.",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Taip"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

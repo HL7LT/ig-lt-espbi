@@ -1,0 +1,224 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elab-organization",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/elab-organization",
+  "version": "0.3.28",
+  "name": "ElabOrganization",
+  "status": "active",
+  "date": "2023-02-09",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "Įstaiga arba padalinys / Organization",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "interface",
+      "uri": "http://hl7.org/fhir/interface",
+      "name": "Interface Pattern"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Organization",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Organization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Organization.identifier",
+        "path": "Organization.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 3
+      },
+      {
+        "id": "Organization.identifier.system",
+        "path": "Organization.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "Organization.identifier.value",
+        "path": "Organization.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Organization.identifier:SVEIDRA",
+        "path": "Organization.identifier",
+        "sliceName": "SVEIDRA",
+        "short": "SVEIDRA identifikatorius / SVEIDRA identifier",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier:SVEIDRA.system",
+        "path": "Organization.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/SVEIDRAID"
+      },
+      {
+        "id": "Organization.identifier:JAR",
+        "path": "Organization.identifier",
+        "sliceName": "JAR",
+        "short": "JAR kodas / JAR code",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier:JAR.system",
+        "path": "Organization.identifier.system",
+        "patternUri": "http://esveikata.lt/classifiers/Identifier/JAR"
+      },
+      {
+        "id": "Organization.identifier:ESPBI",
+        "path": "Organization.identifier",
+        "sliceName": "ESPBI",
+        "short": "ESPBI id",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier:ESPBI.system",
+        "path": "Organization.identifier.system",
+        "patternUri": "http://esveikata.lt/Identifier/ESPBI"
+      },
+      {
+        "id": "Organization.active",
+        "path": "Organization.active",
+        "short": "Ar įstaiga yra veikianti / Whether the organization's record is still in active use",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.name",
+        "path": "Organization.name",
+        "short": "Įstaigos pavadinimas / Title",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact",
+        "path": "Organization.contact",
+        "short": "Įstaigos kontaktinė informacija / Official contact details for the Organization",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact.telecom",
+        "path": "Organization.contact.telecom",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Contact details (phone/email and more)",
+        "min": 1
+      },
+      {
+        "id": "Organization.contact.telecom.value",
+        "path": "Organization.contact.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "Organization.contact.telecom:Phone",
+        "path": "Organization.contact.telecom",
+        "sliceName": "Phone",
+        "short": "Telefono numeris / Phone number",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact.telecom:Phone.system",
+        "path": "Organization.contact.telecom.system",
+        "fixedCode": "phone"
+      },
+      {
+        "id": "Organization.contact.telecom:Email",
+        "path": "Organization.contact.telecom",
+        "sliceName": "Email",
+        "short": "Elektroninio pašto adresas / Email",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact.telecom:Email.system",
+        "path": "Organization.contact.telecom.system",
+        "fixedCode": "email"
+      },
+      {
+        "id": "Organization.contact.address",
+        "path": "Organization.contact.address",
+        "short": "Įstaigos adresas / Adress",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.partOf",
+        "path": "Organization.partOf",
+        "short": "Įstaiga, kuriai priklausi ši įstaiga/padalinys / The organization of which this organization forms a part",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/elab-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

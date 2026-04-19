@@ -1,0 +1,133 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-17369002",
+  "name": "LtEspbiObservation17369002",
+  "status": "draft",
+  "description": "Savaiminis persileidimas / nesivystantis nėštumas/ Spontaneous miscarriage",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "17369002",
+                  "display": "Miscarriage"
+                }
+              ],
+              "text": "Savaiminis persileidimas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "17369002"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Savaiminių persileidimų skaičius / Number of spontaneous miscarriage",
+        "definition": "Savaiminis persileidimas / nesivystantis nėštumas (E010-2-1).\r\nViso įrašų skaičius, kur moters (Paciento)  E113-ND → \"Medicininiai duomenys\" → \"Ankstesni nėštumai ir jų baigtys\" → \"Informacija iš Paciento ESI\" → \"Nėštumo baigtis\" -> \"Nėštumo nutraukimo priežastis\" → Viena iš reikšmių:\r\n- D.4.117.14 Nėštumo baigtis → Pavadinimas → \"Savaiminis persileidimas\"\r\n- D.4.117.14 Nėštumo baigtis → Pavadinimas → \"Nesivystantis nėštumas / vaisiaus žūtis\"\r\n- D.4.117.14 Nėštumo baigtis → Pavadinimas → \"Gerybinė pūslinė išvisa\"\r\n\r\nViso įrašų skaičius, kur moters (Paciento)  E113-ND → \"Medicininiai duomenys\" → \"Ankstesni nėštumai ir jų baigtys\" → \"Pacientės pateikta informacija\" → \"Nėštumo baigtis\" -> \"Nėštumo nutraukimo priežastis\" → Viena iš reikšmių:\r\n- D.4.117.14 Nėštumo baigtis → Pavadinimas\"→ \"Savaiminis persileidimas\"\r\n- D.4.117.14 Nėštumo baigtis → Pavadinimas → \"Nesivystantis nėštumas / vaisiaus žūtis\"\r\n- D.4.117.14 Nėštumo baigtis → Pavadinimas → \"Gerybinė pūslinė išvisa\"\r\n\r\n**Skaičiavimo logika**:\r\n- Sudedami įrašų skaičiai pagal pateiktas aukščiau esančias sąlygas ir išvedamas sveikasis skaičius.\r\n\r\n**Validacinė taisyklė**:\r\nSkaičius lygus arba daugiau už 0 (nulį).",
+        "min": 1,
+        "type": [
+          {
+            "code": "integer"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueInteger": 1
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-val-1",
+            "severity": "error",
+            "human": "Value must be greater than or equal to 0.",
+            "expression": "valueInteger >= 0"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

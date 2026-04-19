@@ -1,0 +1,96 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-med-request/paperPrescriptionMedicalAids",
+  "name": "LtEspbiExtMedPaperPrescriptionMedicalAids",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension.extension:GroupCode",
+        "path": "Extension.extension",
+        "sliceName": "GroupCode",
+        "short": "Popieriniame recepte nurodytas MPP grupės kodas / In the paper prescription the MPP group code",
+        "definition": "Popieriniame recepte nurodytas MPP grupės kodas.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:GroupCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:GroupCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "GroupCode"
+      },
+      {
+        "id": "Extension.extension:GroupCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:GroupName",
+        "path": "Extension.extension",
+        "sliceName": "GroupName",
+        "short": "Popieriniame recepte nurodytas MPP grupės pavadinimas / In the paper prescription the MPP group name",
+        "definition": "Popieriniame recepte nurodytas MPP grupės pavadinimas.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:GroupName.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:GroupName.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "GroupName"
+      },
+      {
+        "id": "Extension.extension:Name",
+        "path": "Extension.extension",
+        "sliceName": "Name",
+        "short": "Popieriniame recepte nurodytas MPP konkretus pavadinimas / In the paper prescription the MPP name",
+        "definition": "Popieriniame recepte nurodytas MPP konkretus pavadinimas.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Name.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Name.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Name"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-med-request/paperPrescriptionMedicalAids"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-med-prescription/prescriptionStatus",
+  "name": "LtEspbiExtPrescriptionStatus",
+  "status": "draft",
+  "description": "Skyrimo būsena / Prescription status",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationRequest"
+    },
+    {
+      "type": "element",
+      "expression": "DeviceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Skyrimo būsena / Prescription status",
+        "definition": "Skyrimo būsena",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 3
+      },
+      {
+        "id": "Extension.extension:statusCode",
+        "path": "Extension.extension",
+        "sliceName": "statusCode",
+        "short": "Būsenos kodas / Status code",
+        "definition": "Būsenos kodas.\r\nGalimos reikšmės:\r\n● valid : Patikrintas.\r\n● active : Galioja.\r\n● entered in error : Atšauktas.\r\n\r\nGalimos reikšmės nurodytos klasifikatoriuje prescription-status.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusCode.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusCode.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusCode"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].id",
+        "path": "Extension.extension.value[x].id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].extension",
+        "path": "Extension.extension.value[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding",
+        "path": "Extension.extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding.id",
+        "path": "Extension.extension.value[x].coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding.extension",
+        "path": "Extension.extension.value[x].coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding.system",
+        "path": "Extension.extension.value[x].coding.system",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding.version",
+        "path": "Extension.extension.value[x].coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding.code",
+        "path": "Extension.extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding.display",
+        "path": "Extension.extension.value[x].coding.display",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].coding.userSelected",
+        "path": "Extension.extension.value[x].coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusCode.value[x].text",
+        "path": "Extension.extension.value[x].text",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWho",
+        "path": "Extension.extension",
+        "sliceName": "statusWho",
+        "short": "Būseną pakeitęs asmuo / Person who has given the status",
+        "definition": "Būseną pakeitęs asmuo. Nuoroda į Practitioner resursą.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusWho.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWho.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusWho"
+      },
+      {
+        "id": "Extension.extension:statusWho.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statusWhen",
+        "path": "Extension.extension",
+        "sliceName": "statusWhen",
+        "short": "Būsenos keitimo data ir laikas / Status update time and date",
+        "definition": "Būsenos keitimo data ir laikas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusWhen.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusWhen.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusWhen"
+      },
+      {
+        "id": "Extension.extension:statusWhen.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statusReason",
+        "path": "Extension.extension",
+        "sliceName": "statusReason",
+        "short": "Būsenos keitimo priežastis / Status update resoning",
+        "definition": "Būsenos keitimo priežastis (privalomumas priklauso nuo būsenos kodo).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:statusReason.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:statusReason.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statusReason"
+      },
+      {
+        "id": "Extension.extension:statusReason.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-med-prescription/prescriptionStatus"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

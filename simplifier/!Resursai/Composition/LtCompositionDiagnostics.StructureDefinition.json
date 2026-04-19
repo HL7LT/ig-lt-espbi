@@ -1,0 +1,854 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-diagnostics",
+  "name": "LtEspbiCompositionDiagnostics",
+  "status": "draft",
+  "description": "Duomenų kompozicijos specializuotas profilis, skirtas patologijos ir kitų diagnostinių tyrimų bei kitiems dokumentams / Composition profile for pathology and other diagnostic study, and other documents.\n \nProfilis sukurtas pagal LtEspbiComposition profilį. Šis profilis paveldi LtEspbiComposition resurso profilio struktūrą, tačiau jame yra pašalinti (nustatytas kardinalumas 0..0) tie duomenų elementai ir vidiniai elementai, kurie diagnostinių tyrimų dokumentuose nenaudojami.",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.meta",
+        "path": "Composition.meta",
+        "short": "Resurso metaduomenys / Metadata about the resource",
+        "definition": "Resurso metaduomenys."
+      },
+      {
+        "id": "Composition.meta.id",
+        "path": "Composition.meta.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.extension",
+        "path": "Composition.meta.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.lastUpdated",
+        "path": "Composition.meta.lastUpdated",
+        "short": "Pakutinio atnaujinimo data ir laikas / Last update date and time",
+        "definition": "Resurso paskutinio atnaujinimo (sukūrimo arba keitimo) data ir laikas."
+      },
+      {
+        "id": "Composition.meta.source",
+        "path": "Composition.meta.source",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.profile",
+        "path": "Composition.meta.profile",
+        "short": "Resurso duomenų modelis / Data model of the resource",
+        "definition": "Resurso duomenų modelis, tai yra, profilio, kurio pagrindu buvo sukurtas resursas, URL reikšmė, pvz., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-lt-espbi-composition-xxx\", kur \"xxx\" atitinka dokumento tipą (pvz., \"E025\" dokumento atveju URL reikšmė būtų \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e025\").\r\nJei tas pats profilis (tas pats URL) turi kelias versijas, reikiama versija nurodoma, prie resurso profilio URL pridedant vertikalų brūkšnį ir versijos numerį, pvz., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e025|1.0.0\". Nenurodžius versijos laikoma, kad resurso profilio versija yra naujausia.\r\nPastaba: tas pats resurso profilis (tas pats URL) gali turėti skirtingas versijas tik tuo atveju, jei duomenų modelis tarp skirtingų versijų yra suderiniamas - jei nesuderinamas (pvz., atsiranda ar naikinamas tam tikras privalomas laukas), resurso profilio URL privalo pasikeisti, pvz., \"http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e025-v29\"."
+      },
+      {
+        "id": "Composition.meta.security",
+        "path": "Composition.meta.security"
+      },
+      {
+        "id": "Composition.meta.security.id",
+        "path": "Composition.meta.security.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.security.extension",
+        "path": "Composition.meta.security.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.security.version",
+        "path": "Composition.meta.security.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.security.userSelected",
+        "path": "Composition.meta.security.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.tag",
+        "path": "Composition.meta.tag"
+      },
+      {
+        "id": "Composition.meta.tag.id",
+        "path": "Composition.meta.tag.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.tag.extension",
+        "path": "Composition.meta.tag.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.tag.version",
+        "path": "Composition.meta.tag.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.meta.tag.userSelected",
+        "path": "Composition.meta.tag.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.implicitRules",
+        "path": "Composition.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Composition.language",
+        "path": "Composition.language",
+        "max": "0"
+      },
+      {
+        "id": "Composition.text",
+        "path": "Composition.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.contained",
+        "path": "Composition.contained",
+        "max": "0"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment.value[x]",
+        "path": "Composition.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/123546789"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification.value[x]",
+        "path": "Composition.extension.value[x]",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/QualificationCode",
+                  "code": "221227",
+                  "display": "Gydytojas neurologas"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.modifierExtension",
+        "path": "Composition.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.url",
+        "path": "Composition.url",
+        "definition": "URL, kuriuo gali būti pasiekiama kompozicija (Composition resursas)."
+      },
+      {
+        "id": "Composition.identifier",
+        "path": "Composition.identifier",
+        "definition": "Dokumento antraštės identifikatorius kompozicijoje."
+      },
+      {
+        "id": "Composition.identifier.id",
+        "path": "Composition.identifier.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.identifier.extension",
+        "path": "Composition.identifier.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.identifier.use",
+        "path": "Composition.identifier.use",
+        "max": "0"
+      },
+      {
+        "id": "Composition.identifier.type",
+        "path": "Composition.identifier.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.identifier.period",
+        "path": "Composition.identifier.period",
+        "max": "0"
+      },
+      {
+        "id": "Composition.identifier.assigner",
+        "path": "Composition.identifier.assigner",
+        "max": "0"
+      },
+      {
+        "id": "Composition.version",
+        "path": "Composition.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "final"
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.id",
+        "path": "Composition.type.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.type.extension",
+        "path": "Composition.type.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.type.coding.id",
+        "path": "Composition.type.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.type.coding.extension",
+        "path": "Composition.type.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.type.coding.version",
+        "path": "Composition.type.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.type.coding.userSelected",
+        "path": "Composition.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "definition": "Kompozicijos kategorija."
+      },
+      {
+        "id": "Composition.category.id",
+        "path": "Composition.category.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.category.extension",
+        "path": "Composition.category.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.category.coding",
+        "path": "Composition.category.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.category.coding.id",
+        "path": "Composition.category.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.category.coding.extension",
+        "path": "Composition.category.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.category.coding.system",
+        "path": "Composition.category.coding.system",
+        "min": 1
+      },
+      {
+        "id": "Composition.category.coding.version",
+        "path": "Composition.category.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.category.coding.code",
+        "path": "Composition.category.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Composition.category.coding.display",
+        "path": "Composition.category.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding.userSelected",
+        "path": "Composition.category.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.category.text",
+        "path": "Composition.category.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1000017309"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.subject.id",
+        "path": "Composition.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.subject.extension",
+        "path": "Composition.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.subject.type",
+        "path": "Composition.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.subject.identifier",
+        "path": "Composition.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.subject.display",
+        "path": "Composition.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Encounter/1000017570"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.encounter.id",
+        "path": "Composition.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.encounter.extension",
+        "path": "Composition.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.encounter.type",
+        "path": "Composition.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.encounter.identifier",
+        "path": "Composition.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.encounter.display",
+        "path": "Composition.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "Dokumento parengimo data ir laikas / The time the document was created",
+        "definition": "Dokumento parengimo data ir laikas.",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T06:12:40.031+00:00"
+          }
+        ]
+      },
+      {
+        "id": "Composition.useContext",
+        "path": "Composition.useContext",
+        "max": "0"
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "max": "1"
+      },
+      {
+        "id": "Composition.author.id",
+        "path": "Composition.author.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.author.extension",
+        "path": "Composition.author.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.author.type",
+        "path": "Composition.author.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.author.identifier",
+        "path": "Composition.author.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.author.display",
+        "path": "Composition.author.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.name",
+        "path": "Composition.name",
+        "max": "0"
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "definition": "Dokumento pavadinimas."
+      },
+      {
+        "id": "Composition.note",
+        "path": "Composition.note",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.id",
+        "path": "Composition.attester.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.extension",
+        "path": "Composition.attester.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.modifierExtension",
+        "path": "Composition.attester.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.mode",
+        "path": "Composition.attester.mode",
+        "short": "Patvirtinimo tipas / The type of attestation",
+        "definition": "Galimos reikšmės pagal FHIR R5: personal | professional | legal | official.",
+        "binding": {
+          "strength": "extensible"
+        }
+      },
+      {
+        "id": "Composition.attester.mode.id",
+        "path": "Composition.attester.mode.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.mode.extension",
+        "path": "Composition.attester.mode.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.mode.coding.id",
+        "path": "Composition.attester.mode.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.mode.coding.extension",
+        "path": "Composition.attester.mode.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.mode.coding.version",
+        "path": "Composition.attester.mode.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.mode.coding.userSelected",
+        "path": "Composition.attester.mode.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.time",
+        "path": "Composition.attester.time",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.party.id",
+        "path": "Composition.attester.party.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.party.extension",
+        "path": "Composition.attester.party.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.party.type",
+        "path": "Composition.attester.party.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.party.identifier",
+        "path": "Composition.attester.party.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.attester.party.display",
+        "path": "Composition.attester.party.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Organization/1000092467"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.custodian.id",
+        "path": "Composition.custodian.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian.extension",
+        "path": "Composition.custodian.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian.type",
+        "path": "Composition.custodian.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian.identifier",
+        "path": "Composition.custodian.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian.display",
+        "path": "Composition.custodian.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.id",
+        "path": "Composition.relatesTo.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.extension",
+        "path": "Composition.relatesTo.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.classifier",
+        "path": "Composition.relatesTo.classifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.label",
+        "path": "Composition.relatesTo.label",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.display",
+        "path": "Composition.relatesTo.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.citation",
+        "path": "Composition.relatesTo.citation",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.document",
+        "path": "Composition.relatesTo.document",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.resource",
+        "path": "Composition.relatesTo.resource",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference.id",
+        "path": "Composition.relatesTo.resourceReference.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference.extension",
+        "path": "Composition.relatesTo.resourceReference.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference.type",
+        "path": "Composition.relatesTo.resourceReference.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference.identifier",
+        "path": "Composition.relatesTo.resourceReference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.resourceReference.display",
+        "path": "Composition.relatesTo.resourceReference.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.publicationStatus",
+        "path": "Composition.relatesTo.publicationStatus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.relatesTo.publicationDate",
+        "path": "Composition.relatesTo.publicationDate",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.id",
+        "path": "Composition.event.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.extension",
+        "path": "Composition.event.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.modifierExtension",
+        "path": "Composition.event.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.period",
+        "path": "Composition.event.period",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.id",
+        "path": "Composition.event.detail.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.extension",
+        "path": "Composition.event.detail.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.concept.id",
+        "path": "Composition.event.detail.concept.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.concept.extension",
+        "path": "Composition.event.detail.concept.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.id",
+        "path": "Composition.event.detail.concept.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.extension",
+        "path": "Composition.event.detail.concept.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.version",
+        "path": "Composition.event.detail.concept.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.concept.coding.userSelected",
+        "path": "Composition.event.detail.concept.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.concept.text",
+        "path": "Composition.event.detail.concept.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.reference.id",
+        "path": "Composition.event.detail.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.reference.extension",
+        "path": "Composition.event.detail.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.reference.type",
+        "path": "Composition.event.detail.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.reference.identifier",
+        "path": "Composition.event.detail.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail.reference.display",
+        "path": "Composition.event.detail.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.id",
+        "path": "Composition.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.extension",
+        "path": "Composition.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.modifierExtension",
+        "path": "Composition.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.title",
+        "path": "Composition.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.code.id",
+        "path": "Composition.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.code.extension",
+        "path": "Composition.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.code.coding.id",
+        "path": "Composition.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.code.coding.extension",
+        "path": "Composition.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.code.coding.version",
+        "path": "Composition.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.code.coding.userSelected",
+        "path": "Composition.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.author",
+        "path": "Composition.section.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section.focus.id",
+        "path": "Composition.section.focus.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.focus.extension",
+        "path": "Composition.section.focus.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.focus.type",
+        "path": "Composition.section.focus.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.focus.identifier",
+        "path": "Composition.section.focus.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.focus.display",
+        "path": "Composition.section.focus.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.orderedBy",
+        "path": "Composition.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.entry.id",
+        "path": "Composition.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.entry.extension",
+        "path": "Composition.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.entry.type",
+        "path": "Composition.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.entry.identifier",
+        "path": "Composition.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.entry.display",
+        "path": "Composition.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section.emptyReason",
+        "path": "Composition.section.emptyReason",
+        "max": "0"
+      }
+    ]
+  }
+}

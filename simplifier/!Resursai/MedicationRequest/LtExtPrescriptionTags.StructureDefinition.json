@@ -1,0 +1,469 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-med-prescription/prescriptionTags",
+  "name": "LtEspbiExtPrescriptionTags",
+  "status": "draft",
+  "description": "Papildomos recepto žymos / Additional prescription tags",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationRequest.dispenseRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Papildomos recepto žymos / Additional prescription tags",
+        "definition": "Papildomos recepto žymos",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Gkk",
+        "path": "Extension.extension",
+        "sliceName": "Gkk",
+        "short": "GK sprendimas",
+        "definition": "GK sprendimas",
+        "max": "1",
+        "constraint": [
+          {
+            "key": "ext-3",
+            "severity": "error",
+            "human": "If 'tag' is true, a string value for 'exp' must be provided.",
+            "expression": "extension.where(url = 'tag').valueBoolean = true implies extension.where(url = 'exp').valueString.exists()"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Gkk.extension",
+        "path": "Extension.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:tag",
+        "path": "Extension.extension.extension",
+        "sliceName": "tag",
+        "short": "GK sprendimo žyma",
+        "definition": "GK sprendimo žyma",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:tag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:tag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:tag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:exp",
+        "path": "Extension.extension.extension",
+        "sliceName": "exp",
+        "short": "GK skyrimo pagrindimas (privalomas, jeigu žyma yra true)",
+        "definition": "GK skyrimo pagrindimas (privalomas, jeigu žyma yra true)",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:exp.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:exp.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "exp"
+      },
+      {
+        "id": "Extension.extension:Gkk.extension:exp.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Gkk.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Gkk"
+      },
+      {
+        "id": "Extension.extension:Gkk.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:special",
+        "path": "Extension.extension",
+        "sliceName": "special",
+        "short": "Ypatingas skyrimas / Special appointment",
+        "definition": "Ypatingas skyrimas.",
+        "max": "1",
+        "constraint": [
+          {
+            "key": "ext-3",
+            "severity": "error",
+            "human": "If 'tag' is true, a string value for 'exp' must be provided",
+            "expression": "extension.where(url = 'tag').valueBoolean = true implies extension.where(url = 'exp').valueString.exists()"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:special.extension",
+        "path": "Extension.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:special.extension:tag",
+        "path": "Extension.extension.extension",
+        "sliceName": "tag",
+        "short": "Ypatingo skyrimo žyma / Special designation tag",
+        "definition": "Ypatingo skyrimo žyma.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:special.extension:tag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:special.extension:tag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:special.extension:tag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:special.extension:exp",
+        "path": "Extension.extension.extension",
+        "sliceName": "exp",
+        "short": "Ypatingo skyrimo pagrindimas (privalomas, jeigu žyma yra true) / Justification for special appointment (required if Tag is true)",
+        "definition": "Ypatingo skyrimo pagrindimas (privalomas, jeigu žyma yra true).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:special.extension:exp.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:special.extension:exp.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "exp"
+      },
+      {
+        "id": "Extension.extension:special.extension:exp.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:special.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "special"
+      },
+      {
+        "id": "Extension.extension:special.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nominal",
+        "path": "Extension.extension",
+        "sliceName": "nominal",
+        "short": "Vardinis vaistas / Nominal medication",
+        "definition": "Vardinis vaistas.",
+        "max": "1",
+        "constraint": [
+          {
+            "key": "ext-4",
+            "severity": "error",
+            "human": "If 'tag' is true, the 'confirm' extension must be present",
+            "expression": "extension.where(url = 'tag').valueBoolean = true implies extension.where(url = 'confirm').exists()"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:nominal.extension",
+        "path": "Extension.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Extension.extension:nominal.extension:tag",
+        "path": "Extension.extension.extension",
+        "sliceName": "tag",
+        "short": "Vardinio vaisto žyma / Nominal medication tag",
+        "definition": "Vardinio vaisto žyma..",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:tag.extension",
+        "path": "Extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:tag.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:tag.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm",
+        "path": "Extension.extension.extension",
+        "sliceName": "confirm",
+        "short": "Patvirtinimas, jog yra paciento sutikimas vartoti vardinius vaistus ir yra užpildytas vardinio vaisto skyrimo pareiškimas (privalomas, jeigu žyma yra true) / Confirmation that the patient has consented to use branded medication and that a branded medication prescription statement has been statement was signed (required if the flag is true)",
+        "definition": "Patvirtinimas, jog yra paciento sutikimas vartoti vardinius vaistus ir yra užpildytas vardinio vaisto skyrimo pareiškimas (privalomas, jeigu žyma yra true).",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension",
+        "path": "Extension.extension.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:tag",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "tag",
+        "short": "Patvirtinimo žyma / Given consent tag",
+        "definition": "Patvirtinimo žyma.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:tag.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:tag.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "tag"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:tag.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:declarationValid",
+        "path": "Extension.extension.extension.extension",
+        "sliceName": "declarationValid",
+        "short": "Pareiškimo galiojimo pabaigos data / The expiration date of the confirmation",
+        "definition": "Pareiškimo galiojimo pabaigos data.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:declarationValid.extension",
+        "path": "Extension.extension.extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:declarationValid.url",
+        "path": "Extension.extension.extension.extension.url",
+        "fixedUri": "declarationValid"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.extension:declarationValid.value[x]",
+        "path": "Extension.extension.extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.url",
+        "path": "Extension.extension.extension.url",
+        "fixedUri": "confirm"
+      },
+      {
+        "id": "Extension.extension:nominal.extension:confirm.value[x]",
+        "path": "Extension.extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:nominal.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "nominal"
+      },
+      {
+        "id": "Extension.extension:nominal.value[x]",
+        "path": "Extension.extension.value[x]",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:firstPrescribingTag",
+        "path": "Extension.extension",
+        "sliceName": "firstPrescribingTag",
+        "short": "Pirmo paskyrimo žyma / First prescribtion tag",
+        "definition": "Pirmo paskyrimo žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:firstPrescribingTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:firstPrescribingTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "firstPrescribingTag"
+      },
+      {
+        "id": "Extension.extension:firstPrescribingTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:specialistDecisionTag",
+        "path": "Extension.extension",
+        "sliceName": "specialistDecisionTag",
+        "short": "Specialisto sprendimu žyma / Specialist decision tag",
+        "definition": "Specialisto sprendimu žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:specialistDecisionTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:specialistDecisionTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "specialistDecisionTag"
+      },
+      {
+        "id": "Extension.extension:specialistDecisionTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:labelingExemptionTag",
+        "path": "Extension.extension",
+        "sliceName": "labelingExemptionTag",
+        "short": "Ženklinimo išimtis žyma / Labeling exemption tag",
+        "definition": "Ženklinimo išimtis žyma",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:labelingExemptionTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:labelingExemptionTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "labelingExemptionTag"
+      },
+      {
+        "id": "Extension.extension:labelingExemptionTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:byDemandTag",
+        "path": "Extension.extension",
+        "sliceName": "byDemandTag",
+        "short": "Esant poreikiui žyma / By demand tag",
+        "definition": "Esant poreikiui žyma.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:byDemandTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:byDemandTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "byDemandTag"
+      },
+      {
+        "id": "Extension.extension:byDemandTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/lt-med-prescription/prescriptionTags"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-goal-e-aspn-3",
+  "name": "LtEspbiGoalEAspn3",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Goal",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-goal-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Goal.subject.id",
+        "path": "Goal.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "Goal.subject.extension",
+        "path": "Goal.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "Goal.subject.reference",
+        "path": "Goal.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "Goal.subject.type",
+        "path": "Goal.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "Goal.subject.identifier",
+        "path": "Goal.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Goal.subject.display",
+        "path": "Goal.subject.display",
+        "max": "0"
+      }
+    ]
+  }
+}

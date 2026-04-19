@@ -1,0 +1,373 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-lab-results-bmrk",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2025-06-17T19:20:03.46+00:00"
+  },
+  "language": "lt",
+  "url": "https://www.medicinosnk.lt/CodeSystem/lt-lab-results-bmrk",
+  "version": "0.3.28",
+  "versionAlgorithmString": "semver",
+  "title": "LT LAB atsakymų BMRK",
+  "_title": {
+    "extension": [
+      {
+        "extension": [
+          {
+            "url": "lang",
+            "valueCode": "en"
+          },
+          {
+            "url": "content",
+            "valueString": "LT LAB results BMRK"
+          }
+        ],
+        "url": "http://hl7.org/fhir/StructureDefinition/translation"
+      }
+    ]
+  },
+  "status": "active",
+  "experimental": false,
+  "date": "2024-03-29T00:00:00Z",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "property": [
+    {
+      "code": "display",
+      "uri": "http://terminology.hl7.org/CodeSystem/designation-usage|display",
+      "description": "Display",
+      "type": "string"
+    },
+    {
+      "code": "snomed-code",
+      "description": "SNOMED kodas",
+      "type": "Coding"
+    },
+    {
+      "code": "snomed-fsn",
+      "type": "string"
+    },
+    {
+      "code": "status",
+      "uri": "http://hl7.org/fhir/concept-properties#status",
+      "description": "Status",
+      "type": "code"
+    }
+  ],
+  "concept": [
+    {
+      "code": "10828004",
+      "display": "Teigiamas",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Positive (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "10828004"
+          }
+        }
+      ]
+    },
+    {
+      "code": "117444000",
+      "display": "Tekstas (aprašomasis)",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Text value (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "117444000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "260373001",
+      "display": "Rasta",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Detected (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "260373001"
+          }
+        }
+      ]
+    },
+    {
+      "code": "260385009",
+      "display": "Neigiamas",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Negative (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "260385009"
+          }
+        }
+      ]
+    },
+    {
+      "code": "260415000",
+      "display": "Nerasta",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Not detected (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "260415000"
+          }
+        }
+      ]
+    },
+    {
+      "code": "261029002",
+      "display": "Sterilu",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Sterile (qualifier value) "
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "261029002"
+          }
+        }
+      ]
+    },
+    {
+      "code": "264868006",
+      "display": "Augimo nėra",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "No growth (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "264868006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "371928007",
+      "display": "Kliniškai nereikšminga",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Not significant (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "371928007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "386134007",
+      "display": "Kliniškai reikšminga",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Significant (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "386134007"
+          }
+        }
+      ]
+    },
+    {
+      "code": "62604006",
+      "display": "Užteršimas",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Contaminated (qualifier value)"
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "62604006"
+          }
+        }
+      ]
+    },
+    {
+      "code": "863956004",
+      "display": "Nesterilu",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "snomed-fsn"
+          },
+          "value": "Non-sterile (qualifier value) "
+        }
+      ],
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        },
+        {
+          "code": "snomed-code",
+          "valueCoding": {
+            "system": "snomed-ct",
+            "code": "863956004"
+          }
+        }
+      ]
+    }
+  ]
+}

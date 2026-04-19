@@ -1,0 +1,130 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "administrative-gender",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2023-07-28T11:20:34.752+00:00"
+  },
+  "url": "http://esveikata.lt/fhir/CodeSystem/administrative-gender",
+  "version": "0.3.28",
+  "name": "AdministrativeGender",
+  "status": "active",
+  "date": "2023-03-25T00:00:00Z",
+  "publisher": "Registrų Centras",
+  "contact": [
+    {
+      "name": "Registrų Centras",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.registrucentras.lt/"
+        },
+        {
+          "system": "email",
+          "value": "esveikata@registrucentras.lt"
+        }
+      ]
+    }
+  ],
+  "description": "The gender of a person used for administrative purposes.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "LT",
+          "display": "Lithuania"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 4,
+  "concept": [
+    {
+      "code": "female",
+      "display": "Female",
+      "definition": "Female.",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "definition"
+          },
+          "value": "Female."
+        },
+        {
+          "language": "en",
+          "use": {
+            "code": "display"
+          },
+          "value": "Female"
+        }
+      ]
+    },
+    {
+      "code": "male",
+      "display": "Male",
+      "definition": "Male.",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "definition"
+          },
+          "value": "Male."
+        },
+        {
+          "language": "en",
+          "use": {
+            "code": "display"
+          },
+          "value": "Male"
+        }
+      ]
+    },
+    {
+      "code": "other",
+      "display": "Other",
+      "definition": "Other.",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "definition"
+          },
+          "value": "Other."
+        },
+        {
+          "language": "en",
+          "use": {
+            "code": "display"
+          },
+          "value": "Other"
+        }
+      ]
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "Unknown.",
+      "designation": [
+        {
+          "language": "en",
+          "use": {
+            "code": "definition"
+          },
+          "value": "Unknown."
+        },
+        {
+          "language": "en",
+          "use": {
+            "code": "display"
+          },
+          "value": "Unknown"
+        }
+      ]
+    }
+  ]
+}

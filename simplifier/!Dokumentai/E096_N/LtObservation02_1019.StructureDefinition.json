@@ -1,0 +1,260 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1019",
+  "name": "LtEspbiObservation02_1019",
+  "status": "draft",
+  "description": "Gyvas naujagimis / Alive newborn",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.1019",
+                  "display": "Gyvas naujagimis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.1019"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "0"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Vardas / Name",
+        "definition": "Vardas (E096-N).\r\nLaisvai įvedamas tektas.\r\n\r\nValidacinė taisyklė:\r\n- Būtina pateikti, kai lauke \"Gimė\" pasirenkama reikšme \"Gyvas naujagimis\".",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueString": "Vardas"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "Pavardė / Surname",
+        "definition": "Pavardė (E096-N).\r\nLaisvai įvedamas tektas.\r\n\r\nValidacinė taisyklė:\r\n- Būtina pateikti, kai lauke \"Gimė\" pasirenkama reikšme \"Gyvas naujagimis\".",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "Pavardė"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.hasMember:apgar1min",
+        "path": "Observation.hasMember",
+        "sliceName": "apgar1min",
+        "short": "Apgar balas po 1 min. / Apgar score at 1 minute",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1021"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5216"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:apgar5min",
+        "path": "Observation.hasMember",
+        "sliceName": "apgar5min",
+        "short": "Apgar balas po 5 min. / Apgar score after 5 min.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1024"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5217"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:apgar10min",
+        "path": "Observation.hasMember",
+        "sliceName": "apgar10min",
+        "short": "Apgar balas po 10 min. / Apgar score after 10 min.",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1027"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/5218"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:firstFeeding",
+        "path": "Observation.hasMember",
+        "sliceName": "firstFeeding",
+        "short": "Naujagimio pirmasis maitinimas / Newborn's first feeding",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1028"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/53"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:newbornTransfer",
+        "path": "Observation.hasMember",
+        "sliceName": "newbornTransfer",
+        "short": "Naujagimio perkėlimas / Transfer of the newborn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1029"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/54"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

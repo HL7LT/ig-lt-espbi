@@ -1,0 +1,93 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/ltnhr-medication/extemporaneous",
+  "name": "LtEspbiExtExtemporaneous",
+  "status": "draft",
+  "description": "Ekstemporalaus vaisto duomenys / Extemporaneous drug data",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Medication"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Ekstemporalaus vaisto duomenys / Extemporaneous medication data",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:extemporaneousDescription",
+        "path": "Extension.extension",
+        "sliceName": "extemporaneousDescription",
+        "short": "Sudedamųjų dalių aprašymas / Description of ingredients",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:extemporaneousDescription.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:extemporaneousDescription.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "extemporaneousDescription"
+      },
+      {
+        "id": "Extension.extension:extemporaneousDescription.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:extemporaneousMethod",
+        "path": "Extension.extension",
+        "sliceName": "extemporaneousMethod",
+        "short": "Gaminimo metodas / Manufacturing method",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:extemporaneousMethod.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:extemporaneousMethod.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "extemporaneousMethod"
+      },
+      {
+        "id": "Extension.extension:extemporaneousMethod.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/Profile/ltnhr-medication/extemporaneous"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

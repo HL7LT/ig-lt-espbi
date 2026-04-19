@@ -1,0 +1,29 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "lt-espbi-cs-place-of-first-examination-of-newborn",
+  "url": "http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-place-of-first-examination-of-newborn",
+  "version": "1.0.0",
+  "name": "LtEspbiCsPlaceOfFirstExaminationOfNewborn",
+  "status": "active",
+  "date": "2026-02-13",
+  "description": "Naujagimio pirmos apžiūros vieta / Place of first examination of a newborn",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "1",
+      "display": "Gimdymo palatoje",
+      "definition": "Gimdymo palatoje"
+    },
+    {
+      "code": "2",
+      "display": "Operacinėje",
+      "definition": "Operacinėje"
+    },
+    {
+      "code": "3",
+      "display": "Palatoje",
+      "definition": "Palatoje"
+    }
+  ]
+}

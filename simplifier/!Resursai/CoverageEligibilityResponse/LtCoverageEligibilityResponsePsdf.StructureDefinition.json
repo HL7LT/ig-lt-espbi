@@ -1,0 +1,95 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-response-psdf",
+  "name": "LtEspbiCoverageEligibilityResponsePsdf",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CoverageEligibilityResponse",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-response",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CoverageEligibilityResponse",
+        "path": "CoverageEligibilityResponse",
+        "constraint": [
+          {
+            "key": "psdf-ins-1",
+            "severity": "error",
+            "human": "The insurance block is mandatory if the outcome is 'complete'.",
+            "expression": "\"outcome = 'complete' implies insurance.exists()\"",
+            "source": "Jei outcome yra 'complete', insurance blokas yra privalomas."
+          }
+        ]
+      },
+      {
+        "id": "CoverageEligibilityResponse.serviced[x]",
+        "path": "CoverageEligibilityResponse.serviced[x]",
+        "short": "Data (arba laikotarpis), kuriam buvo tikrintas PSDF draustumas / Date (or period) for which PSDF (Compulsory Health Insurance) eligibility is verified",
+        "definition": "Data (arba laikotarpis), kuriam buvo tikrintas PSDF draustumas."
+      },
+      {
+        "id": "CoverageEligibilityResponse.created",
+        "path": "CoverageEligibilityResponse.created",
+        "short": "Atsakymo į užklausą gavimo data ir laikas / Response date and time",
+        "definition": "Data ir laikas, kada atsakymas į užklausą buvo gautas (sukurtas)."
+      },
+      {
+        "id": "CoverageEligibilityResponse.request",
+        "path": "CoverageEligibilityResponse.request",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-request-psdf"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurer",
+        "path": "CoverageEligibilityResponse.insurer",
+        "definition": "Nuoroda į draudiko, kuris sugeneravo atsakymą, Organization resursą. PSDF draudimo atveju tai turėtų būti Valstybinė ligonių kasa (VLK), kurios JAR kodas yra 191351679."
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance",
+        "path": "CoverageEligibilityResponse.insurance",
+        "short": "Paciento PSDF draustumo informacija / Patient PSDF insurance information",
+        "definition": "Paciento PSDF draustumo informacija. Laukas privalomas, jei \"outcome\" = \"complete\".",
+        "max": "1"
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance.coverage",
+        "path": "CoverageEligibilityResponse.insurance.coverage",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-psdf"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance.inforce",
+        "path": "CoverageEligibilityResponse.insurance.inforce",
+        "short": "Draustumo (PSDF) būsena / The PSDF (Compulsory Health Insurance) status",
+        "definition": "PSDF draustumo galiojimo CoverageEligibilityRequest.serviced[x] nurodytai datai ar laikotarpiui statusas (Taip / Ne).",
+        "min": 1
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance.benefitPeriod",
+        "path": "CoverageEligibilityResponse.insurance.benefitPeriod",
+        "short": "Periodas, kurį galioja PSDF draustumas / The period during which the PSDF (Compulsory Health Insurance) is valid",
+        "definition": "Periodas, kurį galioja PSDF draustumas."
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance.item",
+        "path": "CoverageEligibilityResponse.insurance.item",
+        "max": "0"
+      }
+    ]
+  }
+}

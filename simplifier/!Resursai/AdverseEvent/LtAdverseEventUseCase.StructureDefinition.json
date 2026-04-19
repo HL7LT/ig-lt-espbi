@@ -1,0 +1,370 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-adverse-event-use-case",
+  "name": "LtEspbiAdverseEventUseCase",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "AdverseEvent",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-adverse-event",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "AdverseEvent.implicitRules",
+        "path": "AdverseEvent.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.language",
+        "path": "AdverseEvent.language",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.text",
+        "path": "AdverseEvent.text",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.contained",
+        "path": "AdverseEvent.contained",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.extension",
+        "path": "AdverseEvent.extension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.extension:ltExtMessageType",
+        "path": "AdverseEvent.extension",
+        "sliceName": "ltExtMessageType",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.extension:ltExtMessageAbout",
+        "path": "AdverseEvent.extension",
+        "sliceName": "ltExtMessageAbout",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.extension:ltExtNotifiedSpecialist",
+        "path": "AdverseEvent.extension",
+        "sliceName": "ltExtNotifiedSpecialist",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.modifierExtension",
+        "path": "AdverseEvent.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.identifier",
+        "path": "AdverseEvent.identifier",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.status",
+        "path": "AdverseEvent.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "completed"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.actuality",
+        "path": "AdverseEvent.actuality",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "actual"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.category",
+        "path": "AdverseEvent.category",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.code",
+        "path": "AdverseEvent.code",
+        "definition": "Reakcijos kodas (coding laukas) ir bendros reakcijos į skiepijimą pastabos (text lauke).\nGalimos reikšmės nurodytos klasifikatoriuje response-to-vaccination (http://esveikata.lt/classifiers/response-to-vaccination).\r\n\r\nFHIR R5 rekomenduoja naudoti reikšmių sąrašą http://hl7.org/fhir/ValueSet/adverse-event-type.",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/response-to-vaccination",
+                  "code": "20",
+                  "display": "Sepsis"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.code.id",
+        "path": "AdverseEvent.code.id",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.code.extension",
+        "path": "AdverseEvent.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.code.coding.id",
+        "path": "AdverseEvent.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.code.coding.extension",
+        "path": "AdverseEvent.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.code.coding.version",
+        "path": "AdverseEvent.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.code.coding.userSelected",
+        "path": "AdverseEvent.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.subject",
+        "path": "AdverseEvent.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/32856257683256"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.subject.id",
+        "path": "AdverseEvent.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.subject.extension",
+        "path": "AdverseEvent.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.subject.type",
+        "path": "AdverseEvent.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.subject.identifier",
+        "path": "AdverseEvent.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.subject.display",
+        "path": "AdverseEvent.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.encounter",
+        "path": "AdverseEvent.encounter",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.occurrence[x]",
+        "path": "AdverseEvent.occurrence[x]",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.detected",
+        "path": "AdverseEvent.detected",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.recordedDate",
+        "path": "AdverseEvent.recordedDate",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.resultingEffect",
+        "path": "AdverseEvent.resultingEffect",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.location",
+        "path": "AdverseEvent.location",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.seriousness",
+        "path": "AdverseEvent.seriousness",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.outcome",
+        "path": "AdverseEvent.outcome",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.recorder",
+        "path": "AdverseEvent.recorder",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/22212568"
+            }
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.recorder.id",
+        "path": "AdverseEvent.recorder.id",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.recorder.extension",
+        "path": "AdverseEvent.recorder.extension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.recorder.type",
+        "path": "AdverseEvent.recorder.type",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.recorder.identifier",
+        "path": "AdverseEvent.recorder.identifier",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.recorder.display",
+        "path": "AdverseEvent.recorder.display",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.participant",
+        "path": "AdverseEvent.participant",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.study",
+        "path": "AdverseEvent.study",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.expectedInResearchStudy",
+        "path": "AdverseEvent.expectedInResearchStudy",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity",
+        "path": "AdverseEvent.suspectEntity",
+        "max": "1"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.id",
+        "path": "AdverseEvent.suspectEntity.id",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.extension",
+        "path": "AdverseEvent.suspectEntity.extension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.modifierExtension",
+        "path": "AdverseEvent.suspectEntity.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x]",
+        "path": "AdverseEvent.suspectEntity.instance[x]",
+        "type": [
+          {
+            "code": "Reference"
+          }
+        ]
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x].id",
+        "path": "AdverseEvent.suspectEntity.instance[x].id",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x].extension",
+        "path": "AdverseEvent.suspectEntity.instance[x].extension",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x].reference",
+        "path": "AdverseEvent.suspectEntity.instance[x].reference",
+        "min": 1
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x].type",
+        "path": "AdverseEvent.suspectEntity.instance[x].type",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x].identifier",
+        "path": "AdverseEvent.suspectEntity.instance[x].identifier",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.instance[x].display",
+        "path": "AdverseEvent.suspectEntity.instance[x].display",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.suspectEntity.causality",
+        "path": "AdverseEvent.suspectEntity.causality",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.contributingFactor",
+        "path": "AdverseEvent.contributingFactor",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.preventiveAction",
+        "path": "AdverseEvent.preventiveAction",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.mitigatingAction",
+        "path": "AdverseEvent.mitigatingAction",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.supportingInfo",
+        "path": "AdverseEvent.supportingInfo",
+        "max": "0"
+      },
+      {
+        "id": "AdverseEvent.note",
+        "path": "AdverseEvent.note",
+        "max": "0",
+        "example": [
+          {
+            "label": "example",
+            "valueAnnotation": {
+              "text": "some reaction remarks as text"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-dispense-tags",
+  "name": "LtEspbiExtDeviceDispenseTags",
+  "status": "draft",
+  "description": "MPP ar medicinos prietaiso išdavimo būdo žymos / MPP or medical device dispensing method tags",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceDispense"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "MPP ar medicinos prietaiso išdavimo būdo žymos / MPP or medical device dispensing method tags",
+        "definition": "MPP ar medicinos prietaiso išdavimo būdo žymos",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:TagsNoValidPrescriptionTag",
+        "path": "Extension.extension",
+        "sliceName": "TagsNoValidPrescriptionTag",
+        "short": "Išdavimas be galiojančio recepto / Dispensing without a valid prescription",
+        "definition": "Išdavimas be galiojančio recepto",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:TagsNoValidPrescriptionTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:TagsNoValidPrescriptionTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "TagsNoValidPrescriptionTag"
+      },
+      {
+        "id": "Extension.extension:TagsNoValidPrescriptionTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:OverLimitQuantityTag",
+        "path": "Extension.extension",
+        "sliceName": "OverLimitQuantityTag",
+        "short": "Išduodamas didesnis MPP ar medicinos prietaisų kiekis / A larger quantity of MPP or medical devices is issued",
+        "definition": "Išduodamas didesnis MPP ar medicinos prietaisų kiekis",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:OverLimitQuantityTag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:OverLimitQuantityTag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "OverLimitQuantityTag"
+      },
+      {
+        "id": "Extension.extension:OverLimitQuantityTag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-dispense-tags"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-usage",
+  "name": "LtEspbiDeviceUsage",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DeviceUsage",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DeviceUsage",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DeviceUsage.status",
+        "path": "DeviceUsage.status",
+        "short": "Būsena / Status",
+        "definition": "Medicinos priemonės naudojimo būsena.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/deviceusage-status. Galimos reikšmės: active | completed | not-done | entered-in-error | intended | stopped | on-hold.",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceUsage.patient",
+        "path": "DeviceUsage.patient",
+        "short": "Pacientas naudojantis medicinos priemonę / Patient using device",
+        "definition": "Pacientas, kuris naudojo medicinos priemonę.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceUsage.patient.reference",
+        "path": "DeviceUsage.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceUsage.derivedFrom",
+        "path": "DeviceUsage.derivedFrom",
+        "short": "Papildoma informacija / Supporting information",
+        "definition": "Nuoroda į susijusią procedūrą, pagal kurią sudarytas šis medicinos priemonės naudojimo įrašas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceUsage.derivedFrom.reference",
+        "path": "DeviceUsage.derivedFrom.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceUsage.timing[x]",
+        "path": "DeviceUsage.timing[x]",
+        "short": "Medicinos priemonės naudojimo laikas / Time of use of devices",
+        "definition": "Medicinos priemonės naudojimo laikas.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceUsage.timing[x].start",
+        "path": "DeviceUsage.timing[x].start",
+        "short": "Naudojimo pradžios data / Start date of use",
+        "definition": "Medicinos priemonės naudojimo pradžios data.",
+        "min": 1
+      },
+      {
+        "id": "DeviceUsage.timing[x].end",
+        "path": "DeviceUsage.timing[x].end",
+        "short": "Naudojimo pabaigos data / Start date of use",
+        "definition": "Medicinos priemonės naudojimo pabaigos data.",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceUsage.device",
+        "path": "DeviceUsage.device",
+        "short": "Nuoroda į naudojamą medicinos priemonę / Reference to device used",
+        "definition": "Nuoroda į naudojamą medicinos priemonę.",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceUsage.device.reference",
+        "path": "DeviceUsage.device.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceUsage.device.reference.reference",
+        "path": "DeviceUsage.device.reference.reference",
+        "min": 1
+      }
+    ]
+  }
+}

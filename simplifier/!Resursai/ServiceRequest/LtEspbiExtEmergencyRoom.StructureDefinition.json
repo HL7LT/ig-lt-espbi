@@ -1,0 +1,58 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-emergency-room",
+  "name": "LtEspbiExtEmergencyRoom",
+  "status": "draft",
+  "description": "Skubiosios medicinos pagalbos skyrius / Emergency room",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "ServiceRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Skubiosios medicinos pagalbos skyrius / Emergency room",
+        "definition": "Skubiosios medicinos pagalbos skyrius.\r\n\r\nPožymis, ar pacientas yra siunčiamas skubiajai medicinos pagalbai (priėmimo skyriuje) suteikti. \n\nPrivaloma pažymėti tuo atveju, jei \"Sveikatos priežiūros specialisto, kuriam siunčiama, profesinė kvalifikacija\" lauke nenurodyta  sveikatos priežiūros specialisto, kuriam siunčiama, profesinė kvalifikacija ir pacientui turi būti suteikta pagalba skubiosios medicinos pagalbos skyriuje.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/Extension/lt-espbi-ext-emergency-room"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "If code is \"Kita\", CodeableConcept.text must be present and not empty.",
+            "expression": "coding.where(system = 'http://esveikata.lt/fhir/CodeSystem/lt-espbi-cs-service-request-indication' and code = 'Kita').exists() implies (text.exists() and text.trim() != '')"
+          }
+        ]
+      }
+    ]
+  }
+}

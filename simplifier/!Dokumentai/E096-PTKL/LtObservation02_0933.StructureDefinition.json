@@ -1,0 +1,406 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0933",
+  "name": "LtEspbiObservation02_0933",
+  "status": "draft",
+  "description": "Bendra informacija pagalbos teikimo pabaigoje / General information at the end of assistance",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "max": "0"
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://esveikata.lt/classifiers/ObservationCode",
+                  "code": "02.0933",
+                  "display": "Bendra informacija pagalbos teikimo pabaigoje"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://esveikata.lt/classifiers/ObservationCode"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "02.0933"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "Pacientė nuvežta į  intensyvios terapijos skyrių / Patient transported to the intensive care unit",
+        "definition": "Pacientė nuvežta į  intensyvios terapijos skyrių (E096-PTKL).\r\nData ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2024-10-22T07:13:54.031+00:00"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-eff-2",
+            "severity": "error",
+            "human": "Effective date ant time must not be later than the current date.",
+            "expression": "effectiveDateTime <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "Kraujavimas sustabdytas / Bleeding stopped",
+        "definition": "Kraujavimas sustabdytas (E096-PTKL).\r\nData ir laikas.\r\n\r\nValidacinė taisyklė:\r\n- Negali būti vėlesnė už dabartinę datą ir laiką.",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "obs-val-1-02-0933",
+            "severity": "error",
+            "human": "Date ant time must not be later than the current date.",
+            "expression": "valueDateTime <= now()"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "max": "0"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "max": "0"
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.hasMember:lostBlood",
+        "path": "Observation.hasMember",
+        "sliceName": "lostBlood",
+        "short": "Visas netekto kraujo kiekis in ml / Total amount of lost blood in ml",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0935"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004101"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:infusedCrystalloid",
+        "path": "Observation.hasMember",
+        "sliceName": "infusedCrystalloid",
+        "short": "Sulašinta kristaloidinių tirpalų kiekis in ml / Amount of infused crystalloid solutions in ml",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0941"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004103"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:infusedRedBloodCells",
+        "path": "Observation.hasMember",
+        "sliceName": "infusedRedBloodCells",
+        "short": "Įpilta eritrocitų masės (vienetų skaičius) / Infused units of packed red blood cells",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0938"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004105"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:freshFrozenPlasma",
+        "path": "Observation.hasMember",
+        "sliceName": "freshFrozenPlasma",
+        "short": "Sulašinta šviežiai šaldytos plazmos kiekis in ml /Amount of thawed fresh frozen plasma in ml",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0942"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004107"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:cryoprecipitate",
+        "path": "Observation.hasMember",
+        "sliceName": "cryoprecipitate",
+        "short": "Sulašinta krioprecipitato dozių /Thawed doses of cryoprecipitate",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0943"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004109"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:infusedColloid",
+        "path": "Observation.hasMember",
+        "sliceName": "infusedColloid",
+        "short": "Sulašinta koloidinių tirpalų kiekis ml / Amount of infused colloid solutions in ml",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0951"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004111"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:oxytocinPrescribed",
+        "path": "Observation.hasMember",
+        "sliceName": "oxytocinPrescribed",
+        "short": "Skirtas oksitocino kiekis (veikimo vienetai) / The amount of oxytocin prescribed",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0944"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/0210041013"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:amountOfMisoprostol",
+        "path": "Observation.hasMember",
+        "sliceName": "amountOfMisoprostol",
+        "short": "Skirtas misoprospolio kiekis  mikrogramais / The prescribed amount of misoprostol in micrograms",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0945"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004115"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:amountOfMethylergometrine",
+        "path": "Observation.hasMember",
+        "sliceName": "amountOfMethylergometrine",
+        "short": "Skirtas metilergometrino kiekis  miligramais/The prescribed amount of methylergometrine in milligrams",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0946"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004117"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:amountOfCarbetocin",
+        "path": "Observation.hasMember",
+        "sliceName": "amountOfCarbetocin",
+        "short": "Skirtas karbetocino kiekis mikrogramais / The prescribed amount of carbetocin in micrograms",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0947"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004119"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.hasMember:otherMedications",
+        "path": "Observation.hasMember",
+        "sliceName": "otherMedications",
+        "short": "Kiti skirti medikamentai / Other prescribed medications",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-0948"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004121"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}

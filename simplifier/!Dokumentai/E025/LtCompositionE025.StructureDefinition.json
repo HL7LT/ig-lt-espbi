@@ -1,0 +1,4938 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-e025",
+  "name": "LtEspbiCompositionE025",
+  "status": "draft",
+  "description": "E025 Ambulatorinio apsilankymo aprašymas",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-composition-domain",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "min": 2,
+        "max": "2"
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorDepartment",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorDepartment",
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:ltEspbiExtAuthorQualification",
+        "path": "Composition.extension",
+        "sliceName": "ltEspbiExtAuthorQualification",
+        "min": 1
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34108-1"
+                }
+              ],
+              "text": "Ambulatorinio apsilankymo aprašymas"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.type.coding",
+        "path": "Composition.type.coding",
+        "short": "Dokumento tipas E096-AN  dokumentui / Document type by loinc for E096-AN document"
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "fixedCode": "34108-1"
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "min": 1
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1000084759"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "example": [
+          {
+            "label": "example",
+            "valueString": "E025 Ambulatorinio apsilankymo aprašymas"
+          }
+        ]
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "max": "0"
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "min": 1
+      },
+      {
+        "id": "Composition.relatesTo",
+        "path": "Composition.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/EventType",
+                    "code": "2",
+                    "display": "Ambulatorinės gydymo paslaugos suteikimas (apsilankymas)"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Provenance/1112230001"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData",
+        "path": "Composition.section",
+        "sliceName": "clinicalData",
+        "short": "Medicininiai duomenys / Clinical/Medical Data",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "55752-0"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "55752-0"
+      },
+      {
+        "id": "Composition.section:clinicalData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint",
+        "path": "Composition.section.section",
+        "sliceName": "complaint",
+        "short": "Nusiskundimai / Complaint",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "75322-8"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "75322-8"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nusiskundimų aprašas / Complaint info",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-75322-8-string"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004045"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:complaint.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis",
+        "path": "Composition.section.section",
+        "sliceName": "anamnesis",
+        "short": "Ligos anamnezė / Disease Anamnesis",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11348-0"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "11348-0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Detali anamnezės informacija / Detailed anamnesis info",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-11348-0"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004047"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:anamnesis.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition",
+        "path": "Composition.section.section",
+        "sliceName": "objectiveCondition",
+        "short": "Būklės įvertinimas (objektyviai) / Objective condition",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8716-3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "8716-3"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Detali būklės įvertinimo informacija / Detailed objective condition info",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-8716-3-e025"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004049"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:objectiveCondition.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan",
+        "path": "Composition.section.section",
+        "sliceName": "testsAndConsultationsPlan",
+        "short": "Tyrimų / konsultacijų planas (paskirti tyrimų ir konsultacijų siuntimai, diagnozių sąrašas) / Tests and Consultations Plan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "56851-9"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "56851-9"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.entry",
+        "path": "Composition.section.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section",
+        "path": "Composition.section.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription",
+        "path": "Composition.section.section.section",
+        "sliceName": "testsAndConsultationsPlanDescription",
+        "short": "Tyrimų / konsultacijų plano aprašymas / Tests and Consultations Plan description",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "56447-6"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "56447-6"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Detalus tyrimų / konsultacijų plano aprašymas / Detailed Tests and Consultations Plan description info",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-56447-6"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004050"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:testsAndConsultationsPlan.section:testsAndConsultationsPlanDescription.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults",
+        "path": "Composition.section.section",
+        "sliceName": "diagnosticLabResults",
+        "short": "Atliktų laboratorinių ir instrumentinių tyrimų informacija / Info about diagnostic/lab results",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34075-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "34075-2"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.entry",
+        "path": "Composition.section.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section",
+        "path": "Composition.section.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments",
+        "path": "Composition.section.section.section",
+        "sliceName": "diagnosticLabResultsDocuments",
+        "short": "Informacija apie atliktų laboratorinių ir instrumentinių tyrimų med. dokumentus / Info about diagnostic/lab results documents",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11488-4"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "11488-4"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Atliktų laboratorinių ir instrumentinių tyrimų dokumentu sąrašas / Diagnostic/lab results docs list",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/114884"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:diagnosticLabResultsDocuments.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription",
+        "path": "Composition.section.section.section",
+        "sliceName": "labTestsDescription",
+        "short": "Atliktų laboratorinių ir instrumentinių tyrimų aprašymas / Performed lab tests description",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "30954-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "30954-2"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Atliktų laboratorinių ir instrumentinių tyrimų duomenys / Performed lab tests data",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-30954-2-e025"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004051"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosticLabResults.section:labTestsDescription.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis",
+        "path": "Composition.section.section",
+        "sliceName": "diagnosis",
+        "short": "Diagnozės / Diagnosis",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "11535-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "11535-2"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Diagnozių sąrašas / Diagnosis list",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-11535-2-flag"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/115352"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:diagnosis.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies",
+        "path": "Composition.section.section",
+        "sliceName": "allergies",
+        "short": "Alergijos / Allergies",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48765-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "48765-2"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Naujai nustatytų alergijų sąrašas / Detected allergies list",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-48765-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/487652"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:allergies.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors",
+        "path": "Composition.section.section",
+        "sliceName": "riskFactors",
+        "short": "Rizikos veiksniai / Risk factors",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "46467-7",
+                  "display": "Risk factors"
+                }
+              ],
+              "text": "Rizikos veiksniai"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "46467-7"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Rizikos veiksniai / Risk factors",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-80943009-risk-factor"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/464677"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:riskFactors.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment",
+        "path": "Composition.section.section",
+        "sliceName": "performedTreatment",
+        "short": "Taikytas gydymas / Performed treatment",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "55753-8"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "55753-8"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.entry",
+        "path": "Composition.section.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section",
+        "path": "Composition.section.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment",
+        "path": "Composition.section.section.section",
+        "sliceName": "medicationTreatment",
+        "short": "Taikytas medikamentinis gydymas / Performed medication treatment",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10183-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "fixedCode": "10183-2"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Medikamentinio gydymo duomenys / Medication treatment data",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-10183-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004053"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:medicationTreatment.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures",
+        "path": "Composition.section.section.section",
+        "sliceName": "surgeryProcedures",
+        "short": "Atliktos chirurginės procedūros / Performed surgery procedures",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "47519-4"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "47519-4"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Atliktų chirurginių procedūrų sąrašas / Surgical performed procedures list",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-devices"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "ProcedureDevices/475194"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:surgeryProcedures.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication",
+        "path": "Composition.section.section.section",
+        "sliceName": "nonMedication",
+        "short": "Taikytas nemedikamentinis gydymas / Performed non-medication treatment",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "62387-6"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "62387-6"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.entry",
+        "path": "Composition.section.section.section.entry",
+        "short": "Taikyto gydymo duomenys / Performed treatment data",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-62387-6-string"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004055"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:performedTreatment.section:nonMedication.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment",
+        "path": "Composition.section.section",
+        "sliceName": "recommendationsForTreatment",
+        "short": "Gydymo, slaugos, darbo, ambulatorinės priežiūros rekomendacijos / Recommendations for treatment",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "http://loinc.org",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "39221-7"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "39221-7"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.entry",
+        "path": "Composition.section.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section",
+        "path": "Composition.section.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Gydymo, slaugos, darbo, ambulatorinės priežiūros rekomendacijos (tekstinis aprašymas) / Treatment recommendations",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025",
+        "path": "Composition.section.section.section",
+        "sliceName": "previousE025",
+        "short": "Informacija apie susietą E025 (jeigu gydymas tęsiamas) / Info about previous E025 if treatment is continued",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34108-1"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "34108-1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/3381"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:previousE025.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations",
+        "path": "Composition.section.section.section",
+        "sliceName": "treatmentRecommendations",
+        "short": "Gydymo, slaugos, darbo, ambulatorinės priežiūros rekomendacijos (aprašymas) / Treatment recommendations",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.id",
+        "path": "Composition.section.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.extension",
+        "path": "Composition.section.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.modifierExtension",
+        "path": "Composition.section.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.title",
+        "path": "Composition.section.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code",
+        "path": "Composition.section.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "39223-3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.id",
+        "path": "Composition.section.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.extension",
+        "path": "Composition.section.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.coding",
+        "path": "Composition.section.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.coding.id",
+        "path": "Composition.section.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.coding.extension",
+        "path": "Composition.section.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.coding.system",
+        "path": "Composition.section.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.coding.version",
+        "path": "Composition.section.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.coding.code",
+        "path": "Composition.section.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "39223-3"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.code.coding.userSelected",
+        "path": "Composition.section.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.author",
+        "path": "Composition.section.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.focus",
+        "path": "Composition.section.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.text",
+        "path": "Composition.section.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.orderedBy",
+        "path": "Composition.section.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.entry",
+        "path": "Composition.section.section.section.entry",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-39223-3"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004057"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.entry.id",
+        "path": "Composition.section.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.entry.extension",
+        "path": "Composition.section.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.entry.reference",
+        "path": "Composition.section.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.entry.type",
+        "path": "Composition.section.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.entry.identifier",
+        "path": "Composition.section.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.entry.display",
+        "path": "Composition.section.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.emptyReason",
+        "path": "Composition.section.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:recommendationsForTreatment.section:treatmentRecommendations.section",
+        "path": "Composition.section.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks",
+        "path": "Composition.section.section",
+        "sliceName": "remarks",
+        "short": "Pastabos / Remarks",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48767-8"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "48767-8"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Nuoroda į pastabas / Reference to remarks",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-48767-8-remarks"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004059"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:clinicalData.section:remarks.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:visitType",
+        "path": "Composition.section",
+        "sliceName": "visitType",
+        "short": "Apsilankymo paslaugos tipas / Visit service type",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:visitType.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "75525-6",
+                  "display": "Type of encounter [MSCDM]"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:visitType.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:visitType.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "75525-6"
+      },
+      {
+        "id": "Composition.section:visitType.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:visitType.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-75525-6"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021005010"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:visitType.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:preventiveProgram",
+        "path": "Composition.section",
+        "sliceName": "preventiveProgram",
+        "short": "Prevencinė programa / Preventive program",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:preventiveProgram.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "39250-6",
+                  "display": "Program participation, name CPHS"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:preventiveProgram.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:preventiveProgram.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "39250-6"
+      },
+      {
+        "id": "Composition.section:preventiveProgram.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:preventiveProgram.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-39250-6"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021005011"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:preventiveProgram.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData",
+        "path": "Composition.section",
+        "sliceName": "additionalData",
+        "short": "Papildomi duomenys / Additional Data",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:additionalData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "52535-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:additionalData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "52535-2"
+      },
+      {
+        "id": "Composition.section:additionalData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section",
+        "path": "Composition.section.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            },
+            {
+              "type": "value",
+              "path": "code.coding.system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome",
+        "path": "Composition.section.section",
+        "sliceName": "newbornAtHome",
+        "short": "Pirmoji naujagimio apžiūra namuose / Information in Case of Newborn Baby Examination (at home)",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "57075-4"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "57075-4"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Pirmosios naujagimio apžiūros namuose duomenys / Additional Information in Case of Newborn Baby Examination (at home)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-57075-4-new-born"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Observation/021004062"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:newbornAtHome.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData",
+        "path": "Composition.section.section",
+        "sliceName": "certificateData",
+        "short": "Medicininės pažymos / Medical certificate data",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "103695000"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "103695000"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Medicininių pažymų duomenys / Medical certificate data",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-medical-certificate"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Provenance/1112230015"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateData.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice",
+        "path": "Composition.section.section",
+        "sliceName": "alertsToPolice",
+        "short": "Pranešimai policijos elektroninių paslaugų sistemai / The list of alerts to police",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "44944-7"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "44944-7"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Sąrašas pranešimų policijos elektroninių paslaugų sistemai / The list of alerts sent to police system",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request-for-alert-police"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "ServiceRequest/114888"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:alertsToPolice.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice",
+        "path": "Composition.section.section",
+        "sliceName": "docsSentToPolice",
+        "short": "Informacija apie siunčiamą medicininį dokumentą (medicininio dokumento pavadinimas, data) / Info about medical docs sent to police",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "57133-1"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "57133-1"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Sąrašas siunčiamų dokumentų policijai / The list of docs sent to police",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-submitted-document"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Provenance/114890"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:docsSentToPolice.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven",
+        "path": "Composition.section.section",
+        "sliceName": "certificateGiven",
+        "short": "Išduotas nedarbingumo pažymėjimas / pažyma / Certificate given (Incapacity for Work, Maternity leave, some Medical certificate)",
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.id",
+        "path": "Composition.section.section.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.extension",
+        "path": "Composition.section.section.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.modifierExtension",
+        "path": "Composition.section.section.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.title",
+        "path": "Composition.section.section.title",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code",
+        "path": "Composition.section.section.code",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "365389004"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.id",
+        "path": "Composition.section.section.code.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.extension",
+        "path": "Composition.section.section.code.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.coding",
+        "path": "Composition.section.section.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.coding.id",
+        "path": "Composition.section.section.code.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.coding.extension",
+        "path": "Composition.section.section.code.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.coding.system",
+        "path": "Composition.section.section.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.coding.version",
+        "path": "Composition.section.section.code.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.coding.code",
+        "path": "Composition.section.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "365389004"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.code.coding.userSelected",
+        "path": "Composition.section.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.author",
+        "path": "Composition.section.section.author",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.focus",
+        "path": "Composition.section.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.text",
+        "path": "Composition.section.section.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.orderedBy",
+        "path": "Composition.section.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.entry",
+        "path": "Composition.section.section.entry",
+        "short": "Sąrašas nedarbingumo pažymėjimų / pažymų / The list of Certificate of Incapacity for Work",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-list-365389004"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "List/114886"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.entry.id",
+        "path": "Composition.section.section.entry.id",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.entry.extension",
+        "path": "Composition.section.section.entry.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.entry.reference",
+        "path": "Composition.section.section.entry.reference",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.entry.type",
+        "path": "Composition.section.section.entry.type",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.entry.identifier",
+        "path": "Composition.section.section.entry.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.entry.display",
+        "path": "Composition.section.section.entry.display",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.emptyReason",
+        "path": "Composition.section.section.emptyReason",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:additionalData.section:certificateGiven.section",
+        "path": "Composition.section.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:mentalHealthData",
+        "path": "Composition.section",
+        "sliceName": "mentalHealthData",
+        "short": "Nuoroda į Psichikos sveikatos duomenų priedą E030 / Reference to Mental Health Data Annex",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:mentalHealthData.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18594-2"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:mentalHealthData.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:mentalHealthData.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "18594-2"
+      },
+      {
+        "id": "Composition.section:mentalHealthData.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:mentalHealthData.entry",
+        "path": "Composition.section.entry",
+        "short": "Detali informacija apie susietą E030 med dokumentą / Reference to E030 document",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference-18594-2"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/5530"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:mentalHealthData.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:diabetesConsultation",
+        "path": "Composition.section",
+        "sliceName": "diabetesConsultation",
+        "short": "Konsultacinės pagalbos sergančiajam cukriniu diabetu priedas / Annex to consultative care for a patient with diabetes mellitus",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:diabetesConsultation.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34760-9",
+                  "display": "Diabetology Consult note"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:diabetesConsultation.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:diabetesConsultation.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "34760-9"
+      },
+      {
+        "id": "Composition.section:diabetesConsultation.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:diabetesConsultation.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/5531"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:diabetesConsultation.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:diabeticFootCare",
+        "path": "Composition.section",
+        "sliceName": "diabeticFootCare",
+        "short": "Diabetinės pėdos priežiūros priedas / Diabetic foot care supplement",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:diabeticFootCare.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34828-4",
+                  "display": "Podiatry Consult note"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:diabeticFootCare.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:diabeticFootCare.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "34828-4"
+      },
+      {
+        "id": "Composition.section:diabeticFootCare.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:diabeticFootCare.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/5532"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:diabeticFootCare.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:sexualViolence",
+        "path": "Composition.section",
+        "sliceName": "sexualViolence",
+        "short": "Galimai seksualinį smurtą patyrusio moteriškos lyties asmens apžiūros ir ištyrimo lapo priedas / Appendix to the examination and investigation form for a female person who may have experienced sexual violence",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:sexualViolence.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "112314-0",
+                  "display": "Forensic Medicine Outpatient Note"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:sexualViolence.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Composition.section:sexualViolence.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "112314-0"
+      },
+      {
+        "id": "Composition.section:sexualViolence.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:sexualViolence.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/5533"
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:sexualViolence.section",
+        "path": "Composition.section.section",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:sexualViolenceAftercare",
+        "path": "Composition.section",
+        "sliceName": "sexualViolenceAftercare",
+        "short": "Priežiūros po seksualinio smurto lapo priedas / Attachment to the post-sexual violence care form",
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:sexualViolenceAftercare.code",
+        "path": "Composition.section.code",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18776-5",
+                  "display": "Plan of care note"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:sexualViolenceAftercare.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Composition.section:sexualViolenceAftercare.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "fixedCode": "18776-5"
+      },
+      {
+        "id": "Composition.section:sexualViolenceAftercare.focus",
+        "path": "Composition.section.focus",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:sexualViolenceAftercare.entry",
+        "path": "Composition.section.entry",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-document-reference"
+            ]
+          }
+        ],
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "DocumentReference/5534"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,983 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-request-erec-01",
+  "name": "LtEspbiMedicationRequestErec01",
+  "status": "draft",
+  "description": "Vaisto skyrimo bei recepto duomenys /  Medication request and prescription data",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationRequest",
+  "baseDefinition": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-request",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationRequest.meta",
+        "path": "MedicationRequest.meta"
+      },
+      {
+        "id": "MedicationRequest.meta.extension:ltEspbiExtPrescriptionLock",
+        "path": "MedicationRequest.meta.extension",
+        "sliceName": "ltEspbiExtPrescriptionLock",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-prescription-lock"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.meta.lastUpdated",
+        "path": "MedicationRequest.meta.lastUpdated",
+        "short": "Paskutinio resurso atnaujinimo/keitimo data ir laikas / When the resource version last changed",
+        "definition": "Paskutinio resurso atnaujinimo/keitimo data ir laikas"
+      },
+      {
+        "id": "MedicationRequest.meta.profile",
+        "path": "MedicationRequest.meta.profile",
+        "short": "Resurso struktūros versiją identifikuojantis profilis / A profile identifying a version of a document structure",
+        "definition": "Resurso struktūros versiją identifikuojantis profilis"
+      },
+      {
+        "id": "MedicationRequest.implicitRules",
+        "path": "MedicationRequest.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.language",
+        "path": "MedicationRequest.language",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.text",
+        "path": "MedicationRequest.text",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.extension:ltEspbiExtPrescriptionStatus",
+        "path": "MedicationRequest.extension",
+        "sliceName": "ltEspbiExtPrescriptionStatus",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/prescriptionStatus"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.identifier",
+        "path": "MedicationRequest.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.basedOn",
+        "path": "MedicationRequest.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.priorPrescription",
+        "path": "MedicationRequest.priorPrescription",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.groupIdentifier",
+        "path": "MedicationRequest.groupIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.status",
+        "path": "MedicationRequest.status",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "active"
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.status.extension:ltEspbiExtStatusWho",
+        "path": "MedicationRequest.status.extension",
+        "sliceName": "ltEspbiExtStatusWho"
+      },
+      {
+        "id": "MedicationRequest.status.extension:ltEspbiExtStatusWho.id",
+        "path": "MedicationRequest.status.extension.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.id",
+        "path": "MedicationRequest.statusReason.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.extension",
+        "path": "MedicationRequest.statusReason.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.coding.id",
+        "path": "MedicationRequest.statusReason.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.coding.extension",
+        "path": "MedicationRequest.statusReason.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.coding.version",
+        "path": "MedicationRequest.statusReason.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.coding.display",
+        "path": "MedicationRequest.statusReason.coding.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.coding.userSelected",
+        "path": "MedicationRequest.statusReason.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.statusReason.text",
+        "path": "MedicationRequest.statusReason.text",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.intent",
+        "path": "MedicationRequest.intent",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "order"
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.category.id",
+        "path": "MedicationRequest.category.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.category.extension",
+        "path": "MedicationRequest.category.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.category.coding.id",
+        "path": "MedicationRequest.category.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.category.coding.extension",
+        "path": "MedicationRequest.category.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.category.coding.version",
+        "path": "MedicationRequest.category.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.category.coding.userSelected",
+        "path": "MedicationRequest.category.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.category.text",
+        "path": "MedicationRequest.category.text",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.priority",
+        "path": "MedicationRequest.priority",
+        "example": [
+          {
+            "label": "example",
+            "valueCode": "urgent"
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.medication",
+        "path": "MedicationRequest.medication",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "reference": {
+                "reference": "Medication/1234567"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.medication.id",
+        "path": "MedicationRequest.medication.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.medication.extension",
+        "path": "MedicationRequest.medication.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.medication.concept",
+        "path": "MedicationRequest.medication.concept",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.medication.reference.id",
+        "path": "MedicationRequest.medication.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.medication.reference.extension",
+        "path": "MedicationRequest.medication.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.medication.reference.type",
+        "path": "MedicationRequest.medication.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.medication.reference.identifier",
+        "path": "MedicationRequest.medication.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.medication.reference.display",
+        "path": "MedicationRequest.medication.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.subject",
+        "path": "MedicationRequest.subject",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Patient/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.subject.id",
+        "path": "MedicationRequest.subject.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.subject.extension",
+        "path": "MedicationRequest.subject.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.subject.type",
+        "path": "MedicationRequest.subject.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.subject.identifier",
+        "path": "MedicationRequest.subject.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.subject.display",
+        "path": "MedicationRequest.subject.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.informationSource",
+        "path": "MedicationRequest.informationSource",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.encounter",
+        "path": "MedicationRequest.encounter",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "Encounter/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.encounter.id",
+        "path": "MedicationRequest.encounter.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.encounter.extension",
+        "path": "MedicationRequest.encounter.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.encounter.type",
+        "path": "MedicationRequest.encounter.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.encounter.identifier",
+        "path": "MedicationRequest.encounter.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.encounter.display",
+        "path": "MedicationRequest.encounter.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.supportingInformation",
+        "path": "MedicationRequest.supportingInformation",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.authoredOn",
+        "path": "MedicationRequest.authoredOn",
+        "example": [
+          {
+            "label": "example",
+            "valueDateTime": "2012-05-12"
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.requester",
+        "path": "MedicationRequest.requester",
+        "example": [
+          {
+            "label": "example",
+            "valueReference": {
+              "reference": "PractitionerRole/1234567"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.requester.id",
+        "path": "MedicationRequest.requester.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.requester.extension",
+        "path": "MedicationRequest.requester.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.requester.type",
+        "path": "MedicationRequest.requester.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.requester.identifier",
+        "path": "MedicationRequest.requester.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.requester.display",
+        "path": "MedicationRequest.requester.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reported",
+        "path": "MedicationRequest.reported",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.performerType",
+        "path": "MedicationRequest.performerType",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.performer",
+        "path": "MedicationRequest.performer",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.device",
+        "path": "MedicationRequest.device",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.recorder",
+        "path": "MedicationRequest.recorder",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason",
+        "path": "MedicationRequest.reason",
+        "definition": "Diagnozė dėl kurios kuriamas skyrimas. ",
+        "example": [
+          {
+            "label": "example",
+            "valueCodeableReference": {
+              "concept": {
+                "coding": [
+                  {
+                    "system": "http://esveikata.lt/classifiers/TLK-10-AM",
+                    "code": "J11.1",
+                    "display": "Gripas su kitais kvėpavimo takų pažeidimais, virusas nenustatytas"
+                  }
+                ]
+              },
+              "reference": {
+                "reference": "Condition/1234567"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.reason.id",
+        "path": "MedicationRequest.reason.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason.extension",
+        "path": "MedicationRequest.reason.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason.concept",
+        "path": "MedicationRequest.reason.concept",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason.reference.id",
+        "path": "MedicationRequest.reason.reference.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason.reference.extension",
+        "path": "MedicationRequest.reason.reference.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason.reference.type",
+        "path": "MedicationRequest.reason.reference.type",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason.reference.identifier",
+        "path": "MedicationRequest.reason.reference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.reason.reference.display",
+        "path": "MedicationRequest.reason.reference.display",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.courseOfTherapyType",
+        "path": "MedicationRequest.courseOfTherapyType",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.insurance",
+        "path": "MedicationRequest.insurance",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.note",
+        "path": "MedicationRequest.note",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.renderedDosageInstruction",
+        "path": "MedicationRequest.renderedDosageInstruction",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.effectiveDosePeriod",
+        "path": "MedicationRequest.effectiveDosePeriod",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.id",
+        "path": "MedicationRequest.dosageInstruction.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.extension",
+        "path": "MedicationRequest.dosageInstruction.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.modifierExtension",
+        "path": "MedicationRequest.dosageInstruction.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.sequence",
+        "path": "MedicationRequest.dosageInstruction.sequence",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.additionalInstruction",
+        "path": "MedicationRequest.dosageInstruction.additionalInstruction",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.id",
+        "path": "MedicationRequest.dosageInstruction.timing.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.extension",
+        "path": "MedicationRequest.dosageInstruction.timing.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.modifierExtension",
+        "path": "MedicationRequest.dosageInstruction.timing.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.event",
+        "path": "MedicationRequest.dosageInstruction.timing.event",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.id",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.extension",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.count",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.count",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.countMax",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.countMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.durationMax",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.durationMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.durationUnit",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.durationUnit",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.dayOfWeek",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.dayOfWeek",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.timeOfDay",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.timeOfDay",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.repeat.offset",
+        "path": "MedicationRequest.dosageInstruction.timing.repeat.offset",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.timing.code",
+        "path": "MedicationRequest.dosageInstruction.timing.code",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.asNeededFor",
+        "path": "MedicationRequest.dosageInstruction.asNeededFor",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.site",
+        "path": "MedicationRequest.dosageInstruction.site",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.route.id",
+        "path": "MedicationRequest.dosageInstruction.route.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.route.extension",
+        "path": "MedicationRequest.dosageInstruction.route.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.route.coding.id",
+        "path": "MedicationRequest.dosageInstruction.route.coding.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.route.coding.extension",
+        "path": "MedicationRequest.dosageInstruction.route.coding.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.route.coding.version",
+        "path": "MedicationRequest.dosageInstruction.route.coding.version",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.route.coding.userSelected",
+        "path": "MedicationRequest.dosageInstruction.route.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.route.text",
+        "path": "MedicationRequest.dosageInstruction.route.text",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.method.id",
+        "path": "MedicationRequest.dosageInstruction.method.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.method.extension",
+        "path": "MedicationRequest.dosageInstruction.method.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.method.coding",
+        "path": "MedicationRequest.dosageInstruction.method.coding",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.doseAndRate",
+        "path": "MedicationRequest.dosageInstruction.doseAndRate",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.maxDosePerPeriod",
+        "path": "MedicationRequest.dosageInstruction.maxDosePerPeriod",
+        "example": [
+          {
+            "label": "example",
+            "valueRatio": {
+              "numerator": {
+                "value": 7,
+                "unit": "mg",
+                "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "d",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.maxDosePerPeriod.id",
+        "path": "MedicationRequest.dosageInstruction.maxDosePerPeriod.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.maxDosePerPeriod.extension",
+        "path": "MedicationRequest.dosageInstruction.maxDosePerPeriod.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.maxDosePerPeriod.numerator.id",
+        "path": "MedicationRequest.dosageInstruction.maxDosePerPeriod.numerator.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.maxDosePerPeriod.numerator.extension",
+        "path": "MedicationRequest.dosageInstruction.maxDosePerPeriod.numerator.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dosageInstruction.maxDosePerLifetime",
+        "path": "MedicationRequest.dosageInstruction.maxDosePerLifetime",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtDrugInteractionQueryId",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtDrugInteractionQueryId",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/drugInteractionQueryId"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtAtc",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtAtc",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/atc"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtPrescriptionTag",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtPrescriptionTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/prescriptionTag"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtPrescriptionTags",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtPrescriptionTags",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/prescriptionTags"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtRequestCompensation",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtRequestCompensation",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/compensation"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtAagaSgasNumber",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtAagaSgasNumber",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/aagaSgasNumber"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtRequestDispensePackage",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtRequestDispensePackage",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-med-prescription/dispensePackage"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.extension:ltEspbiExtExpectedDeliveryDate",
+        "path": "MedicationRequest.dispenseRequest.extension",
+        "sliceName": "ltEspbiExtExpectedDeliveryDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/lt-espbi-med-request/expectedDeliveryDate"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.modifierExtension",
+        "path": "MedicationRequest.dispenseRequest.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.initialFill",
+        "path": "MedicationRequest.dispenseRequest.initialFill",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.dispenseInterval",
+        "path": "MedicationRequest.dispenseRequest.dispenseInterval",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.validityPeriod",
+        "path": "MedicationRequest.dispenseRequest.validityPeriod",
+        "example": [
+          {
+            "label": "example",
+            "valuePeriod": {
+              "start": "2026-01-13T07:00:00+00:00",
+              "end": "2026-01-14T20:00:00+00:00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.validityPeriod.id",
+        "path": "MedicationRequest.dispenseRequest.validityPeriod.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.validityPeriod.extension",
+        "path": "MedicationRequest.dispenseRequest.validityPeriod.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
+        "path": "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.quantity",
+        "path": "MedicationRequest.dispenseRequest.quantity",
+        "example": [
+          {
+            "label": "example",
+            "valueQuantity": {
+              "value": 5,
+              "unit": "mg",
+              "system": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit",
+              "code": "mg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.quantity.id",
+        "path": "MedicationRequest.dispenseRequest.quantity.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.quantity.extension",
+        "path": "MedicationRequest.dispenseRequest.quantity.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.expectedSupplyDuration",
+        "path": "MedicationRequest.dispenseRequest.expectedSupplyDuration",
+        "min": 1,
+        "example": [
+          {
+            "label": "example",
+            "valueDuration": {
+              "value": 7,
+              "unit": "d",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            }
+          }
+        ]
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.expectedSupplyDuration.id",
+        "path": "MedicationRequest.dispenseRequest.expectedSupplyDuration.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.expectedSupplyDuration.extension",
+        "path": "MedicationRequest.dispenseRequest.expectedSupplyDuration.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.expectedSupplyDuration.comparator",
+        "path": "MedicationRequest.dispenseRequest.expectedSupplyDuration.comparator",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.dispenser",
+        "path": "MedicationRequest.dispenseRequest.dispenser",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.dispenserInstruction.id",
+        "path": "MedicationRequest.dispenseRequest.dispenserInstruction.id",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.dispenserInstruction.extension",
+        "path": "MedicationRequest.dispenseRequest.dispenserInstruction.extension",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.dispenserInstruction.author[x]",
+        "path": "MedicationRequest.dispenseRequest.dispenserInstruction.author[x]",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.dispenserInstruction.time",
+        "path": "MedicationRequest.dispenseRequest.dispenserInstruction.time",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.dispenseRequest.doseAdministrationAid",
+        "path": "MedicationRequest.dispenseRequest.doseAdministrationAid",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.substitution",
+        "path": "MedicationRequest.substitution",
+        "max": "0"
+      },
+      {
+        "id": "MedicationRequest.eventHistory",
+        "path": "MedicationRequest.eventHistory",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-response",
+  "name": "LtEspbiCoverageEligibilityResponse",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CoverageEligibilityResponse",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CoverageEligibilityResponse.id",
+        "path": "CoverageEligibilityResponse.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.status",
+        "path": "CoverageEligibilityResponse.status",
+        "short": "Būsena / Status",
+        "definition": "Pagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/fm-status. Galimos reikšmės: active | cancelled | draft | entered-in-error.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.purpose",
+        "path": "CoverageEligibilityResponse.purpose",
+        "short": "Nurodo, kokiu tikslu pateikiamas atsakymas / Indicates the purpose for which the responce is provided",
+        "definition": "Nurodo, kokiam tikslui pateikiamas atsakymas į draudimo užklausą.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose. Galimos reikšmės: auth-requirements | benefits | discovery | validation.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.patient",
+        "path": "CoverageEligibilityResponse.patient",
+        "short": "Pacientas, kuriam tikrintas draustumas / Patient whose insurance has been verified",
+        "definition": "Nuoroda į paciento, kuriam tikrintas draustumas, resursą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.patient.reference",
+        "path": "CoverageEligibilityResponse.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "CoverageEligibilityResponse.created",
+        "path": "CoverageEligibilityResponse.created",
+        "short": "Draustumo (PSDF) būsenos tikrinimo laikas / Date and time when the insurance status was checked in registries",
+        "definition": "Draustumo būsenos tikrinimo SVEIDRA sistemoje data ir laikas.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.request",
+        "path": "CoverageEligibilityResponse.request",
+        "short": "Užklausos nuoroda / Eligibility request reference",
+        "definition": "Nuoroda į konkrečią užklausą, į kurią šis resursas atsako.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.request.reference",
+        "path": "CoverageEligibilityResponse.request.reference",
+        "min": 1
+      },
+      {
+        "id": "CoverageEligibilityResponse.outcome",
+        "path": "CoverageEligibilityResponse.outcome",
+        "short": "Draustumo tikrinimo būsena /The insurance assertion status",
+        "definition": "Draustumo tikrinimo būsena.\r\n\r\nPagal FHIR R5 turi būti naudojamas reikšmių sąrašas  http://hl7.org/fhir/ValueSet/eligibility-outcome. Galimos reikšmės: queued | complete | error | partial.",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurer",
+        "path": "CoverageEligibilityResponse.insurer",
+        "short": "Draudikas / Coverage issuer",
+        "definition": "Draudikas (Organization), kuris sugeneravo šį atsakymą.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurer.reference",
+        "path": "CoverageEligibilityResponse.insurer.reference",
+        "min": 1
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance",
+        "path": "CoverageEligibilityResponse.insurance",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance.coverage",
+        "path": "CoverageEligibilityResponse.insurance.coverage",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CoverageEligibilityResponse.insurance.inforce",
+        "path": "CoverageEligibilityResponse.insurance.inforce",
+        "short": "Draustumo (PSDF) būsena /The insurance status",
+        "definition": "Draustumo (PSDF) būsena - ar pacientas draustas, ar ne.",
+        "min": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/Profile/lt-device-dispense/lowIncome",
+  "name": "LtEspbiExtDeviceLowIncome",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DeviceDispense"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:Compensated",
+        "path": "Extension.extension",
+        "sliceName": "Compensated",
+        "short": "Kompensuojamoji priemoka / Allowance for compensation",
+        "definition": "Kompensuojamoji priemoka.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Compensated.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Compensated.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Compensated"
+      },
+      {
+        "id": "Extension.extension:Compensated.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Money"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:Tag",
+        "path": "Extension.extension",
+        "sliceName": "Tag",
+        "short": "Požymis, ar pacientas yra asmuo, gaunantis mažas pajamas / Indication of whether the patient is a low-income individual ",
+        "definition": "Požymis, ar pacientas yra asmuo, gaunantis mažas pajamas.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:Tag.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:Tag.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "Tag"
+      },
+      {
+        "id": "Extension.extension:Tag.value[x]",
+        "path": "Extension.extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:SurchargeEligible",
+        "path": "Extension.extension",
+        "sliceName": "SurchargeEligible",
+        "short": "Požymis, ar sukauptas Priemokų krepšelis / Attribute if Copayment busket was created",
+        "definition": "Požymis, ar sukauptas Priemokų krepšelis.",
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:SurchargeEligible.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:SurchargeEligible.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "SurchargeEligible"
+      },
+      {
+        "id": "Extension.extension:SurchargeEligible.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-med-dispense/lowIncome"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

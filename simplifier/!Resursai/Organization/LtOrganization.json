@@ -1,0 +1,354 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization",
+  "name": "LtEspbiOrganization",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Organization",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Organization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Organization.id",
+        "path": "Organization.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.meta",
+        "path": "Organization.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier",
+        "path": "Organization.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "description": "Organizacijos identifikatoriai",
+          "rules": "open"
+        },
+        "short": "Sveikatos priežiūros įstaigos identifikatorius / Identifier for the organization that is used to identify the organization.",
+        "definition": "Galimi identifikatoriai:\r\njuridinių asmenų registro (JAR) įstaigos kodas. Identifikuojančios sistemos pavadinimas - http://esveikata.lt/classifiers/Identifier/JAR, sveikatos priežiūros organizacinio vieneto (įstaigos, jos filialo, skyriaus, filialo skyriaus ir pan.)\r\n\r\nKodas SVEIDRA IS sistemoje, identifikuojančios sistemos pavadinimas - http://esveikata.lt/classifiers/Identifier/SVEIDRAID.\r\n\r\nVAPRIS veiklos vietos identifikatorius. Identifikuojančios sistemos pavadinimas - http://esveikata.lt/classifiers/Identifier/ActivityPlaceNumber\r\n\r\nSPĮLIS veiklos vietos identifikatorius. Identifikuojančios sistemos pavadinimas - http://esveikata.lt/classifiers/Identifier/SPILISActivityPlaceNumber",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier:JAR",
+        "path": "Organization.identifier",
+        "sliceName": "JAR",
+        "short": "Sveikatinimo įstaigos kodas (JAR)",
+        "definition": "Sveikatinimo įstaigos kodas (JAR) / Registration Cod",
+        "max": "1"
+      },
+      {
+        "id": "Organization.identifier:JAR.system",
+        "path": "Organization.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Identifier/JAR"
+      },
+      {
+        "id": "Organization.identifier:JAR.value",
+        "path": "Organization.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Organization.identifier:SVEIDRAID",
+        "path": "Organization.identifier",
+        "sliceName": "SVEIDRAID",
+        "short": "Sveikatos priežiūros organizacinio vieneto (įstaigos, jos filialo, skyriaus, filialo skyriaus ir pan.) kodas SVEIDRA IS sistemoje",
+        "definition": "Sveikatos priežiūros organizacinio vieneto (įstaigos, jos filialo, skyriaus, filialo skyriaus ir pan.) kodas SVEIDRA IS sistemoje / SVEIDRA ID issued by National health insurance fund",
+        "max": "1"
+      },
+      {
+        "id": "Organization.identifier:SVEIDRAID.system",
+        "path": "Organization.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Identifier/SVEIDRAID"
+      },
+      {
+        "id": "Organization.identifier:SVEIDRAID.value",
+        "path": "Organization.identifier.value",
+        "min": 1,
+        "mustHaveValue": true
+      },
+      {
+        "id": "Organization.identifier:VAPRIS",
+        "path": "Organization.identifier",
+        "sliceName": "VAPRIS",
+        "short": "VAPRIS veiklos vietos identifikatorius",
+        "max": "1"
+      },
+      {
+        "id": "Organization.identifier:VAPRIS.system",
+        "path": "Organization.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/Identifier/ActivityPlaceNumber"
+      },
+      {
+        "id": "Organization.identifier:VAPRIS.value",
+        "path": "Organization.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Organization.identifier:SPILIS",
+        "path": "Organization.identifier",
+        "sliceName": "SPILIS",
+        "short": "SPĮLIS veiklos vietos identifikatorius",
+        "max": "1"
+      },
+      {
+        "id": "Organization.identifier:SPILIS.system",
+        "path": "Organization.identifier.system",
+        "min": 1
+      },
+      {
+        "id": "Organization.identifier:SPILIS.value",
+        "path": "Organization.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Organization.active",
+        "path": "Organization.active",
+        "short": "Nurodo ar įstaiga yra aktyvi ir gali būti naudojama / Whether the organization's record is still in active use",
+        "definition": "Jei laukas nenurodytas įstaiga yra aktyvi.",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.type",
+        "path": "Organization.type",
+        "short": "Organizacijos tipas: pagrindinis sveikatos priežiūros paslaugų teikėjas (visa ligoninė) arba jos skyrius / Type of organization: main Healthcare Provider (whole Hospital) or its department",
+        "definition": "Nurodomas įstaigos tipas - sveikatinimo paslaugų įstaiga arba sveikatinimo paslaugų įstaigos padalinys.\r\nGalimos reikšmės nurodytos klasifikatoriuje organization-type.\r\n\r\nFHIR R5 numatyta, kad duomenys imami iš http://terminology.hl7.org/CodeSystem/organization-type.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.name",
+        "path": "Organization.name",
+        "short": "Sveikatos priežiūros įstaigos pavadinimas / A name associated with the organization",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact",
+        "path": "Organization.contact",
+        "short": "Organizacijos kontaktiniai duomenys/ Official contact details for the Organization",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact.telecom",
+        "path": "Organization.contact.telecom",
+        "short": "Įstaigos ar padalinio kontaktiniai duomenys",
+        "definition": "Įstaigos ar padalinio kontaktiniai duomenys: telefono numeris (system - phone), mobilaus telefono numeris (system - phone, use - mobile),  elektroninio pašto adresas (system - email), E. pristatymo dėžutė (system - other) / Contact details",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact.telecom.value",
+        "path": "Organization.contact.telecom.value",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact.address",
+        "path": "Organization.contact.address",
+        "short": "Įstaigos registracijos adresas arba įstaigos ar jos padalinio veiklos adreso duomenys (vietovė, gatvė, namo numeris, korpuso numeris) / Address for the contact",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.contact.address.extension",
+        "path": "Organization.contact.address.extension",
+        "min": 1
+      },
+      {
+        "id": "Organization.contact.address.extension:ltExtAddressIdentifier",
+        "path": "Organization.contact.address.extension",
+        "sliceName": "ltExtAddressIdentifier",
+        "min": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-organization/addressIdentifier"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Organization.partOf",
+        "path": "Organization.partOf",
+        "short": "Tuo atveju jei ligoninės skyrius, nuoroda į tėvinį skyrių ar sveikatinimo organizaciją",
+        "definition": "Tuo atveju jei ligoninės skyrius, nuoroda į tėvinį skyrių ar sveikatinimo organizaciją / In case of department, reference to parent department or health organization",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.partOf.reference",
+        "path": "Organization.partOf.reference",
+        "min": 1
+      },
+      {
+        "id": "Organization.qualification",
+        "path": "Organization.qualification",
+        "short": "Įstaigos licencijų duomenys / Organization licenses",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.qualification.extension",
+        "path": "Organization.qualification.extension",
+        "min": 1
+      },
+      {
+        "id": "Organization.qualification.extension:ltExtLicensesStatus",
+        "path": "Organization.qualification.extension",
+        "sliceName": "ltExtLicensesStatus",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-organization/licenses.status"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Organization.qualification.extension:ltExtStatusChangeDate",
+        "path": "Organization.qualification.extension",
+        "sliceName": "ltExtStatusChangeDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/Profile/ltnhr-organization/licenses.statusChangedDate"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Organization.qualification.identifier",
+        "path": "Organization.qualification.identifier",
+        "short": "Licencijos numeris / License number",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Organization.qualification.identifier.system",
+        "path": "Organization.qualification.identifier.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/Identifier/OrganizationLicenseNumber"
+      },
+      {
+        "id": "Organization.qualification.identifier.value",
+        "path": "Organization.qualification.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "Organization.qualification.code",
+        "path": "Organization.qualification.code",
+        "short": "Licencijos rūšis",
+        "definition": "Licencijos rūšis / License type"
+      },
+      {
+        "id": "Organization.qualification.code.coding",
+        "path": "Organization.qualification.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.qualification.code.coding.system",
+        "path": "Organization.qualification.code.coding.system",
+        "mustHaveValue": true
+      },
+      {
+        "id": "Organization.qualification.code.coding.code",
+        "path": "Organization.qualification.code.coding.code",
+        "mustHaveValue": false
+      },
+      {
+        "id": "Organization.qualification.code.coding:LicenseType",
+        "path": "Organization.qualification.code.coding",
+        "sliceName": "LicenseType",
+        "short": "Licencijos rūšis",
+        "definition": "Licencijos rūšis / License type",
+        "max": "1"
+      },
+      {
+        "id": "Organization.qualification.code.coding:LicenseType.system",
+        "path": "Organization.qualification.code.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/OrganizationLicenseType"
+      },
+      {
+        "id": "Organization.qualification.code.coding:LicenseType.code",
+        "path": "Organization.qualification.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Organization.qualification.code.coding:LicenseType.display",
+        "path": "Organization.qualification.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Organization.qualification.code.coding:AdditionalLicenseType",
+        "path": "Organization.qualification.code.coding",
+        "sliceName": "AdditionalLicenseType",
+        "short": "Papildomos licencijos rūšis",
+        "definition": "Papildomos licencijos rūšis / Additional license type",
+        "max": "1"
+      },
+      {
+        "id": "Organization.qualification.code.coding:AdditionalLicenseType.system",
+        "path": "Organization.qualification.code.coding.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/OrganizationAdditionalLicenseType"
+      },
+      {
+        "id": "Organization.qualification.code.coding:AdditionalLicenseType.code",
+        "path": "Organization.qualification.code.coding.code",
+        "min": 1
+      },
+      {
+        "id": "Organization.qualification.code.coding:AdditionalLicenseType.display",
+        "path": "Organization.qualification.code.coding.display",
+        "min": 1
+      },
+      {
+        "id": "Organization.qualification.period",
+        "path": "Organization.qualification.period",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.qualification.period.start",
+        "path": "Organization.qualification.period.start",
+        "short": "Licencijos išdavimo data",
+        "definition": "Licencijos išdavimo data / License issue date",
+        "min": 1
+      }
+    ]
+  }
+}

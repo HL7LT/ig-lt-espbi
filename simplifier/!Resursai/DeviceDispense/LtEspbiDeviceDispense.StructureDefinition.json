@@ -1,0 +1,275 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-dispence",
+  "name": "LtEspbiDeviceDispense",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DeviceDispense",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DeviceDispense",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DeviceDispense.id",
+        "path": "DeviceDispense.id",
+        "short": "Resurso identifikatorius / Logical id of the resource",
+        "definition": "Resurso unikalus identifikatorius, naudojamas resurso URL adresuose. Kartą priskirta, ši reikšmė niekada nesikeičia.",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.meta",
+        "path": "DeviceDispense.meta",
+        "short": "Resurso meta duomenys / Resource meta data",
+        "definition": "Resurso meta duomenys ",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.meta.profile",
+        "path": "DeviceDispense.meta.profile",
+        "short": "Resurso struktūros versiją identifikuojantis profilis / Profiles this resource claims to conform to",
+        "definition": "Resurso struktūros versiją identifikuojantis profilis.\r\n",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DeviceDispense.extension",
+        "path": "DeviceDispense.extension",
+        "min": 4,
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtStatusChangeInformation",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtStatusChangeInformation",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-status-change-information"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceCompensationTag",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceCompensationTag",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-compensation-tag"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDeviceDueDate",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDeviceDueDate",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-due-date"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.extension:ltEspbiExtDevicePrice",
+        "path": "DeviceDispense.extension",
+        "sliceName": "ltEspbiExtDevicePrice",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-price"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.basedOn",
+        "path": "DeviceDispense.basedOn",
+        "short": "MPP ar medicinos prietaisų skyrimas.",
+        "definition": "MPP ar medicinos prietaisų skyrimas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.basedOn.reference",
+        "path": "DeviceDispense.basedOn.reference",
+        "short": "Nuoroda į vaisto ar MPP skyrimo resursą / Link to a resource for prescribing a medication or MPP",
+        "definition": "Nuoroda į vaisto ar MPP skyrimo resursą.",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.status",
+        "path": "DeviceDispense.status",
+        "short": "MPP ar medicinos prietaisų išdavimo būsena",
+        "definition": "MPP ar medicinos prietaisų išdavimo būsena."
+      },
+      {
+        "id": "DeviceDispense.device",
+        "path": "DeviceDispense.device",
+        "short": "Išduotas vaistas ar MPP / Dispensed medication or MPP",
+        "definition": "Išduotas vaistas ar MPP",
+        "type": [
+          {
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.device.reference",
+        "path": "DeviceDispense.device.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.device.reference.reference",
+        "path": "DeviceDispense.device.reference.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.subject",
+        "path": "DeviceDispense.subject",
+        "short": "Pacientas ar sveikatos priežiūros specialistas, kuriam yra išduodami MPP ar medicinos preitaisai.",
+        "definition": "Pacientas ar sveikatos priežiūros specialistas, kuriam yra išduodami MPP ar medicinos preitaisai.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner",
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.subject.reference",
+        "path": "DeviceDispense.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.receiver",
+        "path": "DeviceDispense.receiver",
+        "short": "MPP ar medicinos prietaisą atsiėmęs asmuo / Person who collected the MPP or medical device",
+        "definition": "MPP ar medicinos prietaisą atsiėmęs asmuo.",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.receiver.reference",
+        "path": "DeviceDispense.receiver.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.performer",
+        "path": "DeviceDispense.performer",
+        "short": "Farmacijos specialistas ar sveikatos priežiūros specialistas, kuris išduoda MPP ar medicinos prietaisą.",
+        "definition": "Farmacijos specialistas ar sveikatos priežiūros specialistas, kuris išduoda MPP ar medicinos prietaisą.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.performer.actor",
+        "path": "DeviceDispense.performer.actor",
+        "short": "Atlikęs funkciją daktaras / Practioner which performed function",
+        "definition": "Atlikęs funkciją daktaras ",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner-role"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DeviceDispense.performer.actor.reference",
+        "path": "DeviceDispense.performer.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.quantity",
+        "path": "DeviceDispense.quantity",
+        "short": "MPP ar medicinos prietaisų vienetų skaičius./ Number of MPP or medical devices units",
+        "definition": "MPP ar medicinos prietaisų vienetų skaičius.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.quantity.value",
+        "path": "DeviceDispense.quantity.value",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.quantity.unit",
+        "path": "DeviceDispense.quantity.unit",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.quantity.system",
+        "path": "DeviceDispense.quantity.system",
+        "min": 1,
+        "patternUri": "http://esveikata.lt/classifiers/PharmaceuticalFormMeasureUnit"
+      },
+      {
+        "id": "DeviceDispense.quantity.code",
+        "path": "DeviceDispense.quantity.code",
+        "min": 1
+      },
+      {
+        "id": "DeviceDispense.whenHandedOver",
+        "path": "DeviceDispense.whenHandedOver",
+        "short": "MPP ar medicinos prietaiso išdavimo data / Date of issue of MPP or medical device",
+        "definition": "MPP ar medicinos prietaiso išdavimo data. ",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.note",
+        "path": "DeviceDispense.note",
+        "short": "Papildoma informacija pacientui / Additional information for the patient",
+        "definition": "Papildoma informacija pacientui.",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DeviceDispense.usageInstruction",
+        "path": "DeviceDispense.usageInstruction",
+        "short": "MPP ar medicinos prietaiso naudojimo instrukcijos / Instructions for use of the MPP or medical device",
+        "definition": "MPP ar medicinos prietaiso naudojimo instrukcijos.",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}
