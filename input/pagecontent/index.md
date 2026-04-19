@@ -24,6 +24,27 @@ Adopt the ESPBI resources to HL7 LT and EU EHDS foundations so that
 conformance against `ESPBI` implies conformance against the relevant
 HL7 LT base profile.
 
+## Achieved Results
+
+Concrete outcomes delivered to date. Each item links to the PR or
+release that produced it.
+
+| Outcome | Metric / artifact |
+|---------|-------------------|
+| Simplifier JSON → FSH converter automated | `scripts/migrate-simplifier-with-chef.sh` (GoFSH-backed, classifies + buckets 1,151 source files) |
+| First migration pass snapshot published | **`release-0.1.0`** branch — 218 generated `.fsh` files (12 CodeSystems, 13 ValueSets, 175 Extensions, 19 generic profiles) preserved under `input/fsh/migrated/` for historical reference |
+| Metadata-rule repair applied across the FSH tree | `scripts/fix-profile-metadata-rules.py` (idempotent) rewrote 1,151 of 1,166 files — 1,151 `* url` → `* ^url`, 1,151 `* status` → `* ^status`, 1,126 `* name` → `* ^name`, 1,073 invalid `Id:` normalised, 53 `* date`, 45 `* publisher` |
+| Structural duplicates merged | 4 eLAB Profile pairs consolidated, 11 URL-tail Id collisions disambiguated (22 files), 1 orphan `Parent:` reference resolved, 3 `Parent:` typos corrected |
+| SUSHI compilation clean | **4,129 → 0 errors** (see `fix1.md`) |
+| Clean-state snapshot published | **`release-0.2.0`** branch — post-fix `main` at 0 errors |
+| Sibling-IG dependency inventory complete | All 5 declared dependencies (`LTBase` 27 profiles, `LTLab` 35, `LTLifestyle` 21, `LTVitalSigns` 0, EU) reviewed for re-parenting fit |
+| Phase 2 re-parenting map locked | 1,162 ESPBI profiles classified — 63 roots + ~1,100 domain descendants; 28 roots targeted at LTBase, 2 at LTLab, 33 retained on FHIR core; ~850 profiles will inherit LT constraints transitively once the ~30 root edits land |
+
+Reference PRs:
+
+- [#1](https://github.com/HL7LT/ig-lt-espbi/pull/1) — metadata-rule rewrite + duplicate merge (4,129 → 0 errors)
+- [#2](https://github.com/HL7LT/ig-lt-espbi/pull/2) — Phase 2 design (this document)
+
 ## Migration Plan
 
 The migration from Simplifier JSON into FSH under `input/fsh`, and the
