@@ -1,5 +1,5 @@
 Profile: ElabDiagnosticReport
-Parent: DiagnosticReport
+Parent: DiagnosticReportLt
 Id: elab-diagnostic-report
 Title: "eLAB Diagnostic Report"
 Description: "E200/a laboratorinio tyrimo atsakymo protokolas / E200/a diagnostic report"

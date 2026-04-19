@@ -1,5 +1,5 @@
 Profile: LtEspbiCondition
-Parent: Condition
+Parent: ConditionLt
 Id: lt-espbi-condition
 Title: "LtEspbiCondition"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition"

@@ -26,7 +26,7 @@ sushi .
 | # | Cluster               | Files | Status              | SUSHI after |
 |---|-----------------------|------:|---------------------|-------------|
 | 1 | `admin`               |    13 | ✅ done             | **0 errors** |
-| 2 | `clinical-singletons` |     7 | ⏳ pending          | — |
+| 2 | `clinical-singletons` |     7 | ✅ done             | **0 errors** |
 | 3 | `document-carriers`   |     6 | ⏳ pending          | — |
 | 4 | `observation`         |     2 | ⏳ pending (674-profile cascade) | — |
 | 5 | `specimen`            |     2 | ⏳ pending          | — |
@@ -57,3 +57,40 @@ files listed.
 
 **Result:** `sushi .` compiles with **0 errors** (1 pre-existing
 warning). No conflicts surfaced from the LTBase tightening.
+
+## Cluster 2 — Clinical singletons (done)
+
+7 root profiles re-parented. Fan-out inherited by their ESPBI
+descendants:
+
+- `LtEspbiCondition` → `ConditionLt`: pulls `LtEspbiConditionDeathCauseDomain`
+  (10 descendants) and `LtEspbiConditionDeathDomain` (1) along for the
+  ride, so ~12 profiles now conform to `ConditionLt`.
+- `LtEspbiDiagnosticReport` → `DiagnosticReportLt`: pulls
+  `LtEspbiDiagnosticReportDomain` (7 descendants) — 8 profiles total.
+- `LtEspbiDocumentReference` → `DocumentReferenceLt`: 10 direct
+  descendants.
+- `LtEspbiProcedure` → `ProcedureLt`: pulls `LtEspbiProcedureDomain`
+  (15 descendants) — 16 profiles total.
+- `LtEspbiGoal` → `GoalLt`: singleton.
+
+| File                                                                       | Before                | After                  |
+|----------------------------------------------------------------------------|-----------------------|------------------------|
+| `input/fsh/Resursai/Condition/LtCondition.StructureDefinition.fsh`         | `Condition`           | `ConditionLt`          |
+| `input/fsh/Resursai/Procedure/LtProcedure.StructureDefinition.fsh`         | `Procedure`           | `ProcedureLt`          |
+| `input/fsh/Resursai/Goal/LtGoal.StructureDefinition.fsh`                   | `Goal`                | `GoalLt`               |
+| `input/fsh/Resursai/DiagnosticReport/LtDiagnosticReport.StructureDefinition.fsh` | `DiagnosticReport` | `DiagnosticReportLt`   |
+| `input/fsh/eLAB/DiagnosticReport_eLAB.StructureDefinition.fsh`             | `DiagnosticReport`    | `DiagnosticReportLt`   |
+| `input/fsh/Resursai/DocumentReference/LtDocumentReference.StructureDefinition.fsh` | `DocumentReference` | `DocumentReferenceLt`  |
+| `input/fsh/eLAB/DocumentReference_eLAB.StructureDefinition.fsh`            | `DocumentReference`   | `DocumentReferenceLt`  |
+
+Note: `ElabDiagnosticReport` targets `DiagnosticReportLt` for
+symmetry with the generic report profile. `LaboratoryReportLt` (a
+more specific LTBase profile) was considered but not chosen — the
+pre-existing `ElabDiagnosticReport` differential does not yet match
+the laboratory-report shape, so aligning to it would require
+simultaneous structural changes. Deferred to a future increment.
+
+**Result:** `sushi .` compiles with **0 errors**. Approximately **55
+ESPBI profiles** now conform to LTBase via cluster 2 (7 roots + 48
+transitively-inheriting descendants).
