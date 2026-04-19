@@ -1,6 +1,6 @@
 Extension: LtEspbiExtDevPrescriptionStatus
 Parent: Extension
-Id: prescriptionStatus
+Id: lt-espbi-ext-dev-prescription-status
 Title: "LtEspbiExtDevPrescriptionStatus"
 * ^url = "http://esveikata.lt/Profile/lt-dev-request/prescriptionStatus"
 * ^name = "LtEspbiExtDevPrescriptionStatus"

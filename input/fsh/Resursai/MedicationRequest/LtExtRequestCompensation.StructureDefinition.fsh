@@ -1,6 +1,6 @@
 Extension: LtEspbiExtRequestCompensation
 Parent: Extension
-Id: compensation
+Id: lt-espbi-ext-request-compensation
 Title: "LtEspbiExtRequestCompensation"
 Description: "Kompensacija / Compensation"
 * ^url = "http://esveikata.lt/Profile/lt-med-prescription/compensation"

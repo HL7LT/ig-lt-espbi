@@ -1,6 +1,6 @@
 Extension: LtEspbiExtRequestDispensePackage
 Parent: Extension
-Id: dispensePackage
+Id: lt-espbi-ext-request-dispense-package
 Title: "LtEspbiExtRequestDispensePackage"
 Description: "Pakuotė / Package"
 * ^url = "http://esveikata.lt/Profile/lt-med-prescription/dispensePackage"

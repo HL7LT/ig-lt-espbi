@@ -1,6 +1,6 @@
 Extension: LtEspbiExtCompensation
 Parent: Extension
-Id: compensation
+Id: lt-espbi-ext-compensation
 Title: "LtEspbiExtCompensation"
 * ^url = "http://esveikata.lt/Profile/ltnhr-medication-knowledge/compensation"
 * ^name = "LtEspbiExtCompensation"

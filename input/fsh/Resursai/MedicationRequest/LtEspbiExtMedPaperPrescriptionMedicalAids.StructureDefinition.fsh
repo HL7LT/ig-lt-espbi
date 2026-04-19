@@ -1,6 +1,6 @@
 Extension: LtEspbiExtMedPaperPrescriptionMedicalAids
 Parent: Extension
-Id: paperPrescriptionMedicalAids
+Id: lt-espbi-ext-med-paper-prescription-medical-aids
 Title: "LtEspbiExtMedPaperPrescriptionMedicalAids"
 * ^url = "http://esveikata.lt/Profile/lt-med-request/paperPrescriptionMedicalAids"
 * ^name = "LtEspbiExtMedPaperPrescriptionMedicalAids"

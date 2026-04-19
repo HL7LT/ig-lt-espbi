@@ -1,7 +1,7 @@
 Profile: ElabObservationBase
 Parent: Observation
 Id: elab-observation-base
-Title: "ElabObservationBase"
+Title: "eLAB Observation Base"
 Description: "Bazinis profilis skirtas tiek panelėms tiek analitėms / Base profile for observations and panels"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/elab-observation-base"
 * ^name = "ElabObservationBase"

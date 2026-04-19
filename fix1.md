@@ -118,48 +118,129 @@ The target profiles already existed under the correct spelling; these
 were just `Dispence` → `Dispense` and `Chargeitem` → `ChargeItem`
 transcription errors.
 
-## Result: 4,129 → 17 errors
+## Result after the mechanical pass: 4,129 → 17 errors
 
 ```
 | Don't be shell-shocked.               17 Errors       1 Warning |
 ```
 
-## What the remaining 17 errors are
+## Second pass: merge duplicates
 
-All are structural and need human judgement, not a rewrite:
+After the mechanical rewrite landed, the 17 remaining errors fell into
+three categories: duplicate Profile/Extension names between sibling
+files, duplicate Ids caused by URL-tail collisions across different
+resource contexts, and one orphan `Parent:` reference. All need per-case
+decisions, handled by the steps below.
 
-### Duplicate extension Ids (11 errors)
+### Step 1 — Merge eLAB Profile pairs (5 duplicate-name errors → 0)
 
-Two or three files across different resource contexts share the same
-last-URL-segment, so the script's URL-derived Id collides. Examples:
+Four pairs in `input/fsh/eLAB/` each declared the same `Profile:` name
+in two sibling files — a full Lithuanian/English definition in
+`*_eLAB.StructureDefinition.fsh` and a shorter English-only stub in
+`Elab*.fsh`. The stubs were added later and never fully populated.
 
-| Id             | Files that claim it                                                                                                                              |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| `statusWho`    | `Resursai/DeviceRequest/LtEspbiExtStatusWho.…`, `Resursai/MedicationDispense/LtEspbiExtStatusWho.…`, `Resursai/MedicationRequest/LtExtStatusWho.…` |
-| `compensation` | `Resursai/MedicationKnowledge/LtExtMedicationCompensation.…`, `Resursai/MedicationRequest/LtExtRequestCompensation.…`                              |
-| `lowIncome`, `dispensePackage`, `documentCountry`, `prescriptionStatus`, `paperPrescriptionTags`, `paperPrescriptionMedicalAids`, `lowestPriceTag`, `expectedDeliveryDate`, `aagaSgasNumber` | two files each |
+For each pair we **kept the `*_eLAB` file** (it already has `^url`,
+`^status`, `^date`, `^publisher`, and the bilingual `Description`),
+**merged in the stub's more natural English `Title:`**, and
+**deleted the stub**:
 
-Fix: assign each an Id derived from the Profile name
-(`lt-espbi-ext-dev-status-who`, `lt-espbi-ext-med-dispense-status-who`, …)
-— a decision that overlaps with the suffix-naming migration and is
-better done in that later pass.
+| Kept                                                 | Title merged from stub        | Deleted                        |
+|------------------------------------------------------|-------------------------------|--------------------------------|
+| `input/fsh/eLAB/DiagnosticReport_eLAB.StructureDefinition.fsh` | `"eLAB Diagnostic Report"`     | `input/fsh/eLAB/ElabDiagnosticReport.fsh` |
+| `input/fsh/eLAB/Observation_eLAB.StructureDefinition.fsh`      | `"eLAB Observation"`           | `input/fsh/eLAB/ElabObservation.fsh`      |
+| `input/fsh/eLAB/ObservationBase_eLAB.StructureDefinition.fsh`  | `"eLAB Observation Base"`      | `input/fsh/eLAB/ElabObservationBase.fsh`  |
+| `input/fsh/eLAB/Specimen_eLAB.StructureDefinition.fsh`         | `"eLAB Specimen"`              | `input/fsh/eLAB/ElabSpecimen.fsh`         |
 
-### Duplicate Profile names in eLAB (5 errors)
+While editing `DiagnosticReport_eLAB.StructureDefinition.fsh` we also
+normalised two camelCase identifiers to kebab-case to match the rest
+of the IG and the stub's convention:
 
-`ElabDiagnosticReport`, `ElabObservation`, `ElabObservationBase`,
-`ElabSpecimen`, and extension `LtEspbiExtStatusWho` are each declared
-in two sibling files — short stubs in `input/fsh/eLAB/Elab*.fsh` and
-full definitions in `input/fsh/eLAB/*_eLAB.StructureDefinition.fsh`.
-One member of each pair is redundant; deleting the stubs is a
-candidate for PR #2.
+| Field   | Before                              | After                                |
+|---------|-------------------------------------|--------------------------------------|
+| `Id:`   | `elab-diagnosticreport`             | `elab-diagnostic-report`             |
+| `^url`  | `.../elab-diagnosticReport`         | `.../elab-diagnostic-report`         |
 
-### Orphan parent (1 error)
+### Step 2 — Disambiguate the `LtEspbiExtStatusWho` name clash (1 duplicate-name error → 0)
+
+The file `input/fsh/Resursai/MedicationRequest/LtExtStatusWho.StructureDefinition.fsh`
+declared `Extension: LtEspbiExtStatusWho`, colliding with the
+identically-named extension in `Resursai/MedicationDispense/`.
+Because the URL on each side was different, the intent was clearly two
+distinct extensions — the MedicationRequest-side Extension name had
+been copy-pasted from the MedicationDispense version and never
+renamed to match its filename.
+
+Renamed the MedicationRequest-side extension to match its filename:
+
+| Field   | Before                    | After                    |
+|---------|---------------------------|--------------------------|
+| Header  | `Extension: LtEspbiExtStatusWho` | `Extension: LtExtStatusWho` |
+| `Title:`| `"LtEspbiExtStatusWho"`   | `"LtExtStatusWho"`       |
+| `^name` | `"LtEspbiExtStatusWho"`   | `"LtExtStatusWho"`       |
+| `Id:`   | `statusWho`               | `lt-ext-status-who`      |
+
+### Step 3 — Replace colliding URL-tail-derived Ids with Profile-name-derived Ids (11 duplicate-Id errors → 0)
+
+When two or three files in different resource folders share the same
+last-URL-segment, the Id script in the mechanical pass produced the
+same `Id:` for all of them. Because each file's `Profile:`/`Extension:`
+name already encodes the resource context (`LtEspbiExtDevStatusWho`
+vs `LtEspbiExtStatusWho`), we fell back to a Profile-name-kebab-cased
+Id for the 22 files in the 11 collision groups. Applied by
+`/tmp/fix-dup-ids.py` (one-shot, not retained in the repo), all
+produced unique Ids:
+
+| Original colliding Id          | File → New Id                                                                                                                                                                                                            |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `statusWho`                    | `Resursai/DeviceRequest/LtEspbiExtStatusWho.…` → `lt-espbi-ext-dev-status-who`; `Resursai/MedicationDispense/LtEspbiExtStatusWho.…` → `lt-espbi-ext-status-who` (MedicationRequest-side already renamed in step 2)           |
+| `prescriptionStatus`           | `.../DeviceRequest/LtEspbiExtPrescriptionStatus.…` → `lt-espbi-ext-dev-prescription-status`; `.../MedicationRequest/LtExtPrescriptionStatus.…` → `lt-espbi-ext-prescription-status`                                         |
+| `paperPrescriptionTags`        | `.../DeviceRequest/LtEspbiExtDevPaperPrescriptionTags.…` → `lt-espbi-ext-dev-paper-prescription-tags`; `.../MedicationRequest/LtEspbiExtMedPaperPrescriptionTags.…` → `lt-espbi-ext-med-paper-prescription-tags`            |
+| `paperPrescriptionMedicalAids` | `.../DeviceRequest/LtEspbiExtDevPaperPrescriptionMedicalAids.…` → `lt-espbi-ext-dev-paper-prescription-medical-aids`; `.../MedicationRequest/LtEspbiExtMedPaperPrescriptionMedicalAids.…` → `lt-espbi-ext-med-paper-prescription-medical-aids` |
+| `lowestPriceTag`               | `.../MedicationDispense/LtEspbiExtLowestPriceTag.…` → `lt-espbi-ext-lowest-price-tag`; `.../MedicationKnowledge/LtEspbiExtLowestPriceTag.…` → `lt-espbi-ext-medication-knowledge-lowest-price-tag`                          |
+| `lowIncome`                    | `.../MedicationDispense/LtExtLowIncome.…` → `lt-espbi-ext-low-income`; `.../DeviceDispense/LtEspbiExtDeviceLowIncome.…` → `lt-espbi-ext-device-low-income`                                                                  |
+| `expectedDeliveryDate`         | `.../DeviceRequest/LtEspbiExtDevExpectedDeliveryDate.…` → `lt-espbi-ext-dev-expected-delivery-date`; `.../MedicationRequest/LtExtExpectedDeliveryDate.…` → `lt-espbi-ext-expected-delivery-date`                            |
+| `documentCountry`              | `.../Patient/LtExtDocumentCountry.…` → `lt-espbi-ext-patient-document-country`; `.../Coverage/LtExtDocumentCountry.…` → `lt-espbi-ext-coverage-document-country`                                                            |
+| `dispensePackage`              | `.../MedicationDispense/LtExtDispensePackage.…` → `lt-espbi-ext-dispense-package`; `.../MedicationRequest/LtExtDispensePackage.…` → `lt-espbi-ext-request-dispense-package`                                                 |
+| `compensation`                 | `.../MedicationKnowledge/LtExtMedicationCompensation.…` → `lt-espbi-ext-compensation`; `.../MedicationRequest/LtExtRequestCompensation.…` → `lt-espbi-ext-request-compensation`                                             |
+| `aagaSgasNumber`               | `.../DeviceRequest/LtEspbiExtAagaSgasNumber.…` → `lt-espbi-ext-dev-aaga-sgas-number`; `.../MedicationRequest/LtExtAagaSgasNumber.…` → `lt-espbi-ext-aaga-sgas-number`                                                       |
+
+No attribute merging was needed — each extension has a distinct URL,
+Description, and role in its resource context. Only the Id needed to
+become unique.
+
+### Step 4 — Align orphan parent with its own Id / URL (1 orphan-parent error → 0)
 
 `input/fsh/Dokumentai/E027-VA/LtEspbiObservation21958_4_d.StructureDefinition.fsh`
-declares `Parent: LtEspbiObservationDomainDevice`, but no such profile
-exists. Siblings `LtEspbiObservationDomain` and `LtEspbiObservationDevice`
-both exist — the intent is unclear and needs a clinical-modelling
-decision.
+referenced `Parent: LtEspbiObservationDomainDevice`, which did not
+exist. A profile in `input/fsh/Resursai/Observation/` had
+`Profile: LtEspbiObservationDevice` but `Id: lt-espbi-observation-domain-device`
+and `^url` ending in `.../lt-espbi-observation-domain-device` — the
+Profile-name shorthand had drifted away from the Id/URL. No other
+file referenced the short form, so we renamed the profile itself to
+match its Id and URL:
+
+| Field          | Before                                           | After                                                   |
+|----------------|--------------------------------------------------|---------------------------------------------------------|
+| `Profile:`     | `LtEspbiObservationDevice`                       | `LtEspbiObservationDomainDevice`                        |
+| `Title:`       | `"LtEspbiObservationDevice"`                     | `"LtEspbiObservationDomainDevice"`                      |
+| `^name`        | `"LtEspbiObservationDevice"`                     | `"LtEspbiObservationDomainDevice"`                      |
+
+File edited: `input/fsh/Resursai/Observation/LtEspbiObservationDevice.StructureDefinition.fsh`
+(filename is still `…Device.StructureDefinition.fsh`; renaming the
+file is deferred because it would rewrite git history without
+compilation benefit).
+
+## Result after both passes: 0 errors
+
+```
+| Don't be koi about asking for help.    0 Errors       1 Warning |
+```
+
+The sole remaining warning is pre-existing and unrelated to this work:
+
+```
+warn  Configuration property parameters/special-url has a value with an unexpected type.
+```
 
 ## How to re-run
 
@@ -175,4 +256,6 @@ sushi .
 ```
 
 The script is safe to re-run after future conversions — on already-fixed
-files it reports `rewrote 0` and makes no changes.
+files it reports `rewrote 0` and makes no changes. The second-pass
+merge decisions in this document were one-shot edits and do not need
+re-applying.

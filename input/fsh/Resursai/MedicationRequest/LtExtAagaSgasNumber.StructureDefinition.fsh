@@ -1,6 +1,6 @@
 Extension: LtEspbiExtAagaSgasNumber
 Parent: Extension
-Id: aagaSgasNumber
+Id: lt-espbi-ext-aaga-sgas-number
 Title: "LtEspbiExtAagaSgasNumber"
 Description: "AAGA/SGAS numeris / AAGA/SGAS number"
 * ^url = "http://esveikata.lt/Profile/lt-med-prescription/aagaSgasNumber"

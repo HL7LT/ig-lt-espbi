@@ -1,8 +1,8 @@
 Profile: ElabObservation
 Parent: ElabObservationBase
 Id: elab-observation
-Title: "ElabObservation"
-Description: "Analitės reikšmė / Observation"
+Title: "eLAB Observation"
+Description: "Analitės reikšmė / eLAB laboratory observation."
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/elab-observation"
 * ^name = "ElabObservation"
 * ^status = #active
