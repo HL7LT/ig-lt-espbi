@@ -1,5 +1,5 @@
 Profile: LtEspbiPractitionerRole
-Parent: PractitionerRole
+Parent: PractitionerRoleLt
 Id: ltpractitionerrole
 Title: "LtEspbiPractitionerRole"
 Description: "Sveikatos priežiūros specialisto vaidmens organizacijoje profilis / PractitionerRole profile"

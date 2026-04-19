@@ -1,5 +1,5 @@
 Profile: ElabPractitionerRole
-Parent: PractitionerRole
+Parent: PractitionerRoleLt
 Id: elab-practitionerrole
 Title: "ElabPractitionerRole"
 Description: "Sveikatos priežiūros specialisto rolė įstaigoje / Practitioner role in organization"

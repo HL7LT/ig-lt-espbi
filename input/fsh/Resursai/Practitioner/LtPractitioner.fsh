@@ -1,5 +1,5 @@
 Profile: LtEspbiPractitioner
-Parent: Practitioner
+Parent: PractitionerLt
 Id: ltpractitioner
 Title: "LtEspbiPractitioner"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-practitioner"
