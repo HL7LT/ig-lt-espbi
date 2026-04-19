@@ -1,7 +1,7 @@
 Profile: LtEspbiChargeItem
-Parent: Chargeitem
-Id: mychargeitem.structuredefinition
+Parent: ChargeItem
+Id: lt-espbi-charge-item
 Title: "LtEspbiChargeItem"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-charge-item"
-* name = "LtEspbiChargeItem"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-charge-item"
+* ^name = "LtEspbiChargeItem"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Extension: LtEspbiExtMessageType
 Parent: Extension
-Id: ltextmessagetype.structuredefinition
+Id: messageType
 Title: "LtEspbiExtMessageType"
-* url = "http://esveikata.lt/Profile/ltnhr-adverseevent/messageType"
-* name = "LtEspbiExtMessageType"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-adverseevent/messageType"
+* ^name = "LtEspbiExtMessageType"
+* ^status = #draft

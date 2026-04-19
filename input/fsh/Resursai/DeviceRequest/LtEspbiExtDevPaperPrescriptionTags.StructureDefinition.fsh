@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDevPaperPrescriptionTags
 Parent: Extension
-Id: ltespbiextdevpaperprescriptiontags.structuredefinition
+Id: lt-espbi-ext-dev-paper-prescription-tags
 Title: "LtEspbiExtDevPaperPrescriptionTags"
-* url = "http://esveikata.lt/Profile/lt-dev-request/paperPrescriptionTags"
-* name = "LtEspbiExtDevPaperPrescriptionTags"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-dev-request/paperPrescriptionTags"
+* ^name = "LtEspbiExtDevPaperPrescriptionTags"
+* ^status = #draft

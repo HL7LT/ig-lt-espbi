@@ -1,7 +1,7 @@
 Profile: LtEspbiImmunizationEvaluation
 Parent: ImmunizationEvaluation
-Id: ltimmunizationevaluation.structuredefinition
+Id: lt-espbi-immunization-evaluation
 Title: "LtEspbiImmunizationEvaluation"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-evaluation"
-* name = "LtEspbiImmunizationEvaluation"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-immunization-evaluation"
+* ^name = "LtEspbiImmunizationEvaluation"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Profile: LtEspbiProvenanceEventText
 Parent: LtEspbiProvenance
-Id: ltprovenanceeventtext.structuredefinition
+Id: lt-espbi-provenance-event-text
 Title: "LtEspbiProvenanceEventText"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event-text"
-* name = "LtEspbiProvenanceEventText"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance-event-text"
+* ^name = "LtEspbiProvenanceEventText"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Extension: LtEspbiExtAdditionalService
 Parent: Extension
-Id: ltextadditionalservice.structuredefinition
+Id: additionalService
 Title: "LtEspbiExtAdditionalService"
-* url = "http://esveikata.lt/Profile/ltnhr-servicerequest/additionalService"
-* name = "LtEspbiExtAdditionalService"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-servicerequest/additionalService"
+* ^name = "LtEspbiExtAdditionalService"
+* ^status = #draft

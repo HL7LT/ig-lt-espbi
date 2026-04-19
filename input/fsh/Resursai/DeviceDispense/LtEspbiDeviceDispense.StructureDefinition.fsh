@@ -1,7 +1,7 @@
 Profile: LtEspbiDeviceDispense
 Parent: DeviceDispense
-Id: ltespbidevicedispense.structuredefinition
+Id: lt-espbi-device-dispence
 Title: "LtEspbiDeviceDispense"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-dispence"
-* name = "LtEspbiDeviceDispense"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-dispence"
+* ^name = "LtEspbiDeviceDispense"
+* ^status = #draft

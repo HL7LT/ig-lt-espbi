@@ -1,7 +1,7 @@
 Profile: LtEspbiDeviceUsage
 Parent: DeviceUsage
-Id: ltespbideviceusage.structuredefinition
+Id: lt-espbi-device-usage
 Title: "LtEspbiDeviceUsage"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-usage"
-* name = "LtEspbiDeviceUsage"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-usage"
+* ^name = "LtEspbiDeviceUsage"
+* ^status = #draft

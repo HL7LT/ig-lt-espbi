@@ -1,7 +1,7 @@
 Profile: LtEspbiAdverseEvent
 Parent: AdverseEvent
-Id: ltadverseevent.structuredefinition
+Id: lt-espbi-adverse-event
 Title: "LtEspbiAdverseEvent"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-adverse-event"
-* name = "LtEspbiAdverseEvent"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-adverse-event"
+* ^name = "LtEspbiAdverseEvent"
+* ^status = #draft

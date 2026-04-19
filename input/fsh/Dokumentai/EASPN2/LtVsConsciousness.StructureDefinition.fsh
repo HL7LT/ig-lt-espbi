@@ -1,7 +1,7 @@
 Profile: LtEspbiVsConsciousness
 Parent: http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-value-set
-Id: ltvsconsciousness.structuredefinition
+Id: lt-espbi-vs-consciousness
 Title: "LtEspbiVsConsciousness"
-* url = "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-consciousness"
-* name = "LtEspbiVsConsciousness"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-consciousness"
+* ^name = "LtEspbiVsConsciousness"
+* ^status = #draft

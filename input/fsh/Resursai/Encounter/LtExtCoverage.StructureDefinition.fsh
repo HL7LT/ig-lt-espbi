@@ -1,7 +1,7 @@
 Extension: LtEspbiExtCoverage
 Parent: Extension
-Id: ltextcoverage.structuredefinition
+Id: lt-espbi-encounter-coverage
 Title: "LtEspbiExtCoverage"
-* url = "http://esveikata.lt/fhir/Extension/lt-espbi-encounter-coverage"
-* name = "LtEspbiExtCoverage"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/Extension/lt-espbi-encounter-coverage"
+* ^name = "LtEspbiExtCoverage"
+* ^status = #draft

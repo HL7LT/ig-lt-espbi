@@ -1,7 +1,7 @@
 Profile: LtEspbiCarePlanDomain
 Parent: LtEspbiCarePlan
-Id: ltespbicareplandomain.structuredefinition
+Id: lt-espbi-care-plan-domain
 Title: "LtEspbiCarePlanDomain"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-domain"
-* name = "LtEspbiCarePlanDomain"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan-domain"
+* ^name = "LtEspbiCarePlanDomain"
+* ^status = #draft

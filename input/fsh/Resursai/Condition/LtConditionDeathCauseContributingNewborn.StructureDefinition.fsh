@@ -1,7 +1,7 @@
 Profile: LtEspbiConditionDeathCauseContributingNewborn
 Parent: LtEspbiConditionDeathCauseDomain
-Id: ltconditiondeathcausecontributingnewborn.structuredefinition
+Id: lt-espbi-condition-death-cause-contributing-newborn
 Title: "LtEspbiConditionDeathCauseContributingNewborn"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-contributing-newborn"
-* name = "LtEspbiConditionDeathCauseContributingNewborn"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-contributing-newborn"
+* ^name = "LtEspbiConditionDeathCauseContributingNewborn"
+* ^status = #draft

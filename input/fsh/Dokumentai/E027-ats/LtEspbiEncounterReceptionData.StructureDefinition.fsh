@@ -1,7 +1,7 @@
 Profile: LtEspbiEncounterReceptionData
 Parent: LtEspbiEncounter
-Id: ltespbiencounterreceptiondata.structuredefinition
+Id: lt-espbi-encounter-reception-data
 Title: "LtEspbiEncounterReceptionData"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter-reception-data"
-* name = "LtEspbiEncounterReceptionData"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter-reception-data"
+* ^name = "LtEspbiEncounterReceptionData"
+* ^status = #draft

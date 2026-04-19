@@ -1,7 +1,7 @@
 Extension: LtEspbiExtRemainsDiscoveryLocation
 Parent: Extension
-Id: ltespbiextremainsdiscoverylocation.structuredefinition
+Id: lt-espbi-ext-remains-discovery-location
 Title: "LtEspbiExtRemainsDiscoveryLocation"
-* url = "http://esveikata.lt/fhir/Extension/lt-espbi-ext-remains-discovery-location"
-* name = "LtEspbiExtRemainsDiscoveryLocation"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/Extension/lt-espbi-ext-remains-discovery-location"
+* ^name = "LtEspbiExtRemainsDiscoveryLocation"
+* ^status = #draft

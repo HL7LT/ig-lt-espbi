@@ -1,7 +1,7 @@
 Extension: LtEspbiExtSubstanceSource
 Parent: Extension
-Id: ltespbiextsubstancesource.structuredefinition
+Id: substanceSource
 Title: "LtEspbiExtSubstanceSource"
-* url = "http://esveikata.lt/Profile/ltnhr-substance/substanceSource"
-* name = "LtEspbiExtSubstanceSource"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-substance/substanceSource"
+* ^name = "LtEspbiExtSubstanceSource"
+* ^status = #draft

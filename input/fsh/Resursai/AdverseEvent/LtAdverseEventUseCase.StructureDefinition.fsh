@@ -1,7 +1,7 @@
 Profile: LtEspbiAdverseEventUseCase
 Parent: LtEspbiAdverseEvent
-Id: ltadverseeventusecase.structuredefinition
+Id: lt-espbi-adverse-event-use-case
 Title: "LtEspbiAdverseEventUseCase"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-adverse-event-use-case"
-* name = "LtEspbiAdverseEventUseCase"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-adverse-event-use-case"
+* ^name = "LtEspbiAdverseEventUseCase"
+* ^status = #draft

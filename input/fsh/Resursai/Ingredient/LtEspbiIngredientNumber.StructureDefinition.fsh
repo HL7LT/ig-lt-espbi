@@ -1,7 +1,7 @@
 Extension: LtEspbiExtIngredientNumber
 Parent: Extension
-Id: ltespbiingredientnumber.structuredefinition
+Id: ingredient.ingredientNumber
 Title: "LtEspbiExtIngredientNumber"
-* url = "http://esveikata.lt/Profile/ltnhr-ingredient/ingredient.ingredientNumber"
-* name = "LtEspbiExtIngredientNumber"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-ingredient/ingredient.ingredientNumber"
+* ^name = "LtEspbiExtIngredientNumber"
+* ^status = #draft

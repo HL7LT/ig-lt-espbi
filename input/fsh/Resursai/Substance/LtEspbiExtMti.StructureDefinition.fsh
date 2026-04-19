@@ -1,7 +1,7 @@
 Extension: LtEspbiExtMti
 Parent: Extension
-Id: ltespbiextmti.structuredefinition
+Id: mti
 Title: "LtEspbiExtMti"
-* url = "http://esveikata.lt/Profile/ltnhr-substance/mti"
-* name = "LtEspbiExtMti"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-substance/mti"
+* ^name = "LtEspbiExtMti"
+* ^status = #draft

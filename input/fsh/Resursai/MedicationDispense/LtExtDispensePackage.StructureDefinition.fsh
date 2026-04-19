@@ -1,8 +1,8 @@
 Extension: LtEspbiExtDispensePackage
 Parent: Extension
-Id: ltextdispensepackage.structuredefinition
+Id: lt-espbi-ext-dispense-package
 Title: "LtEspbiExtDispensePackage"
 Description: "Pakuotė / Package"
-* url = "http://esveikata.lt/Profile/lt-med-dispense/dispensePackage"
-* name = "LtEspbiExtDispensePackage"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-med-dispense/dispensePackage"
+* ^name = "LtEspbiExtDispensePackage"
+* ^status = #draft

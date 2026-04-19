@@ -1,7 +1,7 @@
 Profile: LtEspbiEncounter
 Parent: Encounter
-Id: ltencounter.structuredefinition
+Id: lt-espbi-encounter
 Title: "LtEspbiEncounter"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
-* name = "LtEspbiEncounter"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-encounter"
+* ^name = "LtEspbiEncounter"
+* ^status = #draft

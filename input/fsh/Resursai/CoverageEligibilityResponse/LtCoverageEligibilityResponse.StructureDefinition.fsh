@@ -1,7 +1,7 @@
 Profile: LtEspbiCoverageEligibilityResponse
 Parent: CoverageEligibilityResponse
-Id: ltcoverageeligibilityresponse.structuredefinition
+Id: lt-espbi-coverage-eligibility-response
 Title: "LtEspbiCoverageEligibilityResponse"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-response"
-* name = "LtEspbiCoverageEligibilityResponse"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage-eligibility-response"
+* ^name = "LtEspbiCoverageEligibilityResponse"
+* ^status = #draft

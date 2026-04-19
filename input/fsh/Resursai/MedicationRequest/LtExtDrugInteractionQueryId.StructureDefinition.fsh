@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDrugInteractionQueryId
 Parent: Extension
-Id: ltextdruginteractionqueryid.structuredefinition
+Id: drugInteractionQueryId
 Title: "LtEspbiExtDrugInteractionQueryId"
-* url = "http://esveikata.lt/Profile/lt-med-prescription/drugInteractionQueryId"
-* name = "LtEspbiExtDrugInteractionQueryId"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-med-prescription/drugInteractionQueryId"
+* ^name = "LtEspbiExtDrugInteractionQueryId"
+* ^status = #draft

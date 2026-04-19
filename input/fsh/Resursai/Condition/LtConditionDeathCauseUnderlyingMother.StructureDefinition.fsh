@@ -1,7 +1,7 @@
 Profile: LtEspbiConditionDeathCauseUnderlyingMother
 Parent: LtEspbiConditionDeathCauseDomain
-Id: ltconditiondeathcauseunderlyingmother.structuredefinition
+Id: lt-espbi-condition-death-cause-underlying-mother
 Title: "LtEspbiConditionDeathCauseUnderlyingMother"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-underlying-mother"
-* name = "LtEspbiConditionDeathCauseUnderlyingMother"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-death-cause-underlying-mother"
+* ^name = "LtEspbiConditionDeathCauseUnderlyingMother"
+* ^status = #draft

@@ -1,8 +1,8 @@
-Extension: LtEspbiExtStatusWho
+Extension: LtExtStatusWho
 Parent: Extension
-Id: ltextstatuswho.structuredefinition
-Title: "LtEspbiExtStatusWho"
-Description: "Būseną pakeitęs asmuo / Person who updated status"
-* url = "http://esveikata.lt/Profile/lt-espbi-med-request/statusWho"
-* name = "LtEspbiExtStatusWho"
-* status = "draft"
+Id: lt-ext-status-who
+Title: "LtExtStatusWho"
+Description: "Būseną pakeitęs asmuo / Person who updated status."
+* ^url = "http://esveikata.lt/Profile/lt-espbi-med-request/statusWho"
+* ^name = "LtExtStatusWho"
+* ^status = #draft

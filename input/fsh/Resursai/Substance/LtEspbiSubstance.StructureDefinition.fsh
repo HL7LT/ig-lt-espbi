@@ -1,7 +1,7 @@
 Profile: LtEspbiSubstance
 Parent: Substance
-Id: ltespbisubstance.structuredefinition
+Id: lt-espbi-substance
 Title: "LtEspbiSubstance"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-substance"
-* name = "LtEspbiSubstance"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-substance"
+* ^name = "LtEspbiSubstance"
+* ^status = #draft

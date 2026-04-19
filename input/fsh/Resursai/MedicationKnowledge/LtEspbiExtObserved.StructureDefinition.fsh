@@ -1,7 +1,7 @@
 Extension: LtEspbiExtObserved
 Parent: Extension
-Id: ltespbiextobserved.structuredefinition
+Id: observed
 Title: "LtEspbiExtObserved"
-* url = "http://esveikata.lt/Profile/ltnhr-medication-knowledge/observed"
-* name = "LtEspbiExtObserved"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-medication-knowledge/observed"
+* ^name = "LtEspbiExtObserved"
+* ^status = #draft

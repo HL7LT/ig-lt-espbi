@@ -1,7 +1,7 @@
 Extension: LtEspbiExtPatientNotified
 Parent: Extension
-Id: ltextpatientnotified.structuredefinition
+Id: patientNotified
 Title: "LtEspbiExtPatientNotified"
-* url = "http://esveikata.lt/Profile/ltnhr-careplan/patientNotified"
-* name = "LtEspbiExtPatientNotified"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-careplan/patientNotified"
+* ^name = "LtEspbiExtPatientNotified"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Extension: LtEspbiExtPatientAgreementDocument
 Parent: Extension
-Id: ltextpatientagreementdocument.structuredefinition
+Id: patientAgreementDocument
 Title: "LtEspbiExtPatientAgreementDocument"
-* url = "http://esveikata.lt/Profile/ltnhr-encounter/patientAgreementDocument"
-* name = "LtEspbiExtPatientAgreementDocument"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-encounter/patientAgreementDocument"
+* ^name = "LtEspbiExtPatientAgreementDocument"
+* ^status = #draft

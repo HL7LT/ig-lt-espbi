@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDeviceLowIncome
 Parent: Extension
-Id: ltespbiextdevicelowincome.structuredefinition
+Id: lt-espbi-ext-device-low-income
 Title: "LtEspbiExtDeviceLowIncome"
-* url = "http://esveikata.lt/Profile/lt-device-dispense/lowIncome"
-* name = "LtEspbiExtDeviceLowIncome"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-device-dispense/lowIncome"
+* ^name = "LtEspbiExtDeviceLowIncome"
+* ^status = #draft

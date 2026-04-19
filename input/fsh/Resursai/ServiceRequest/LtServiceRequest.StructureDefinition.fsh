@@ -1,7 +1,7 @@
 Profile: LtEspbiServiceRequest
 Parent: ServiceRequest
-Id: ltservicerequest.structuredefinition
+Id: lt-espbi-service-request
 Title: "LtEspbiServiceRequest"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
-* name = "LtEspbiServiceRequest"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-service-request"
+* ^name = "LtEspbiServiceRequest"
+* ^status = #draft

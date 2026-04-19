@@ -1,7 +1,7 @@
 Profile: LtEspbiRelatedPerson
 Parent: RelatedPerson
-Id: ltrelatedperson.structuredefinition
+Id: lt-espbi-related-person
 Title: "LtEspbiRelatedPerson"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person"
-* name = "LtEspbiRelatedPerson"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-related-person"
+* ^name = "LtEspbiRelatedPerson"
+* ^status = #draft

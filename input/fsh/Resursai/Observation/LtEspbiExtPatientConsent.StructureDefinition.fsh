@@ -1,8 +1,8 @@
 Extension: LtEspbiExtPatientConsent
 Parent: Extension
-Id: ltespbiextpatientconsent.structuredefinition
+Id: patientConsent
 Title: "LtEspbiExtPatientConsent"
 Description: "Paciento sutikimas. Naudojamas rizikos veiksnio aprašyme."
-* url = "http://esveikata.lt/Profile/ltnhr-observation/patientConsent"
-* name = "LtEspbiExtPatientConsent"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-observation/patientConsent"
+* ^name = "LtEspbiExtPatientConsent"
+* ^status = #draft

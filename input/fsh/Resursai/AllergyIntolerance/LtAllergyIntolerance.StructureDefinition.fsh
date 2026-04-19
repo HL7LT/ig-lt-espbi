@@ -1,7 +1,7 @@
 Profile: LtEspbiAllergyIntolerance
 Parent: AllergyIntolerance
-Id: ltallergyintolerance.structuredefinition
+Id: lt-espbi-allergy-intolerance
 Title: "LtEspbiAllergyIntolerance"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-allergy-intolerance"
-* name = "LtEspbiAllergyIntolerance"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-allergy-intolerance"
+* ^name = "LtEspbiAllergyIntolerance"
+* ^status = #draft

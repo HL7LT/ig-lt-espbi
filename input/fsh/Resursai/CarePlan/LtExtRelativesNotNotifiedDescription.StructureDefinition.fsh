@@ -1,7 +1,7 @@
 Extension: LtEspbiExtRelativesNotNotifiedDescription
 Parent: Extension
-Id: ltextrelativesnotnotifieddescription.structuredefinition
+Id: relativesNotNotifiedDescription
 Title: "LtEspbiExtRelativesNotNotifiedDescription"
-* url = "http://esveikata.lt/Profile/ltnhr-careplan/relativesNotNotifiedDescription"
-* name = "LtEspbiExtRelativesNotNotifiedDescription"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-careplan/relativesNotNotifiedDescription"
+* ^name = "LtEspbiExtRelativesNotNotifiedDescription"
+* ^status = #draft

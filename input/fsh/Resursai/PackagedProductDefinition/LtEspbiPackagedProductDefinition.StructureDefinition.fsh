@@ -1,7 +1,7 @@
 Profile: LtEspbiPackagedProductDefinition
 Parent: PackagedProductDefinition
-Id: ltespbipackagedproductdefinition.structuredefinition
+Id: lt-espbi-packaged-product-definition
 Title: "LtEspbiPackagedProductDefinition"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-packaged-product-definition"
-* name = "LtEspbiPackagedProductDefinition"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-packaged-product-definition"
+* ^name = "LtEspbiPackagedProductDefinition"
+* ^status = #draft

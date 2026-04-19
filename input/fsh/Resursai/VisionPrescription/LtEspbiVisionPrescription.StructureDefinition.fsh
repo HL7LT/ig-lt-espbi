@@ -1,7 +1,7 @@
 Profile: LtEspbiVisionPrescription
 Parent: VisionPrescription
-Id: ltespbivisionprescription.structuredefinition
+Id: lt-espbi-vision-prescription
 Title: "LtEspbiVisionPrescription"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-vision-prescription"
-* name = "LtEspbiVisionPrescription"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-vision-prescription"
+* ^name = "LtEspbiVisionPrescription"
+* ^status = #draft

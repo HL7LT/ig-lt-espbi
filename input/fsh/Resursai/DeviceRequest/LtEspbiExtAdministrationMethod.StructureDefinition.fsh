@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDevAdministrationMethod
 Parent: Extension
-Id: ltespbiextadministrationmethod.structuredefinition
+Id: administrationMethod
 Title: "LtEspbiExtDevAdministrationMethod"
-* url = "http://esveikata.lt/Profile/lt-med-reques/administrationMethod"
-* name = "LtEspbiExtDevAdministrationMethod"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-med-reques/administrationMethod"
+* ^name = "LtEspbiExtDevAdministrationMethod"
+* ^status = #draft

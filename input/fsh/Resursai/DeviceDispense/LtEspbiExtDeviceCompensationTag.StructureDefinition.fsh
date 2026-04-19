@@ -1,8 +1,8 @@
 Extension: LtEspbiExtDeviceCompensationTag
 Parent: Extension
-Id: ltespbiextdevicecompensationtag.structuredefinition
+Id: lt-espbi-ext-device-compensation-tag
 Title: "LtEspbiExtDeviceCompensationTag"
 Description: "Požymis, ar kompensuojamas / Tag of whether compensation is provided"
-* url = "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-compensation-tag"
-* name = "LtEspbiExtDeviceCompensationTag"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/Extension/lt-espbi-ext-device-compensation-tag"
+* ^name = "LtEspbiExtDeviceCompensationTag"
+* ^status = #draft

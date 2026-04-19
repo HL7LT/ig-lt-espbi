@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDevSatusReasonCode
 Parent: Extension
-Id: ltespbiextsatusreasoncode.structuredefinition
+Id: statusReasonCode
 Title: "LtEspbiExtDevSatusReasonCode"
-* url = "http://esveikata.lt/Profile/lt-dev-request/statusReasonCode"
-* name = "LtEspbiExtDevSatusReasonCode"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-dev-request/statusReasonCode"
+* ^name = "LtEspbiExtDevSatusReasonCode"
+* ^status = #draft

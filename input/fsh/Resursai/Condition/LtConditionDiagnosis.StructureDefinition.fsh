@@ -1,8 +1,8 @@
 Profile: LtEspbiConditionDiagnosis
 Parent: LtEspbiCondition
-Id: ltconditiondiagnosis.structuredefinition
+Id: lt-espbi-condition-diagnosis
 Title: "LtEspbiConditionDiagnosis"
 Description: "Diagnozė / Diagnosis"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-diagnosis"
-* name = "LtEspbiConditionDiagnosis"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-condition-diagnosis"
+* ^name = "LtEspbiConditionDiagnosis"
+* ^status = #draft

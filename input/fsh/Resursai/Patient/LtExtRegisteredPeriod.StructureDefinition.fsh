@@ -1,7 +1,7 @@
 Extension: LtEspbiExtRegisteredPeriod
 Parent: Extension
-Id: ltextregisteredperiod.structuredefinition
+Id: registeredPeriod
 Title: "LtEspbiExtRegisteredPeriod"
-* url = "http://esveikata.lt/Profile/ltnhr-patient/registeredPeriod"
-* name = "LtEspbiExtRegisteredPeriod"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-patient/registeredPeriod"
+* ^name = "LtEspbiExtRegisteredPeriod"
+* ^status = #draft
