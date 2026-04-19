@@ -1,7 +1,7 @@
 Profile: LtEspbiMedicationKnowledge
 Parent: MedicationKnowledge
-Id: ltespbimedicationknowledge.structuredefinition
+Id: lt-espbi-medication-knowledge
 Title: "LtEspbiMedicationKnowledge"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-knowledge"
-* name = "LtEspbiMedicationKnowledge"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-knowledge"
+* ^name = "LtEspbiMedicationKnowledge"
+* ^status = #draft

@@ -1,8 +1,8 @@
 Profile: LtEspbiObservation75525_6
 Parent: LtEspbiObservationDomain
-Id: ltobservation75525_6.structuredefinition
+Id: lt-espbi-observation-75525-6
 Title: "LtEspbiObservation75525_6"
 Description: "Apsilankymo paslaugos tipas / Visit service type"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-75525-6"
-* name = "LtEspbiObservation75525_6"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-75525-6"
+* ^name = "LtEspbiObservation75525_6"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Profile: LtEspbiProvenance
 Parent: Provenance
-Id: ltprovenance.structuredefinition
+Id: lt-espbi-provenance
 Title: "LtEspbiProvenance"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance"
-* name = "LtEspbiProvenance"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-provenance"
+* ^name = "LtEspbiProvenance"
+* ^status = #draft

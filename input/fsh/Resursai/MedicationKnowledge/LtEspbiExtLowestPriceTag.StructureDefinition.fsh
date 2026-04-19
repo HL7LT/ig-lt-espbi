@@ -1,7 +1,7 @@
 Extension: LtEspbiExtMedicationKnowledgeLowestPriceTag
 Parent: Extension
-Id: ltespbiextlowestpricetag.structuredefinition
+Id: lowestPriceTag
 Title: "LtEspbiExtMedicationKnowledgeLowestPriceTag"
-* url = "http://esveikata.lt/Profile/ltnhr-medication-knowledge/lowestPriceTag"
-* name = "LtEspbiExtMedicationKnowledgeLowestPriceTag"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-medication-knowledge/lowestPriceTag"
+* ^name = "LtEspbiExtMedicationKnowledgeLowestPriceTag"
+* ^status = #draft

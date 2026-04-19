@@ -1,8 +1,8 @@
 Profile: LtEspbiProcedureFetalSurgicalProcedures
 Parent: LtEspbiProcedureDomain
-Id: ltprocedurefetalsurgicalprocedures.structuredefinition
+Id: lt-espbi-procedure-fetal-surgical-procedures
 Title: "LtEspbiProcedureFetalSurgicalProcedures"
 Description: "Vaisiaus chirurginės procedūros / Fetal surgical procedures"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-fetal-surgical-procedures"
-* name = "LtEspbiProcedureFetalSurgicalProcedures"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-fetal-surgical-procedures"
+* ^name = "LtEspbiProcedureFetalSurgicalProcedures"
+* ^status = #draft

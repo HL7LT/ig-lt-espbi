@@ -1,7 +1,7 @@
 Profile: LtEspbiDeviceRequest
 Parent: DeviceRequest
-Id: ltespbidevicerequest.structuredefinition
+Id: lt-espbi-device-request
 Title: "LtEspbiDeviceRequest"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-request"
-* name = "LtEspbiDeviceRequest"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-device-request"
+* ^name = "LtEspbiDeviceRequest"
+* ^status = #draft

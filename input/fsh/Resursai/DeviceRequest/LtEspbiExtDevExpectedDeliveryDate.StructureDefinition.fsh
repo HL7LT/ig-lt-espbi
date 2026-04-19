@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDevExpectedDeliveryDate
 Parent: Extension
-Id: ltespbiextdevexpecteddeliverydate.structuredefinition
+Id: expectedDeliveryDate
 Title: "LtEspbiExtDevExpectedDeliveryDate"
-* url = "http://esveikata.lt/Profile/lt-dev-request/expectedDeliveryDate"
-* name = "LtEspbiExtDevExpectedDeliveryDate"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-dev-request/expectedDeliveryDate"
+* ^name = "LtEspbiExtDevExpectedDeliveryDate"
+* ^status = #draft

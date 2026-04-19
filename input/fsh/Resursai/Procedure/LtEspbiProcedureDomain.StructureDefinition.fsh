@@ -1,7 +1,7 @@
 Profile: LtEspbiProcedureDomain
 Parent: LtEspbiProcedure
-Id: ltespbiproceduredomain.structuredefinition
+Id: lt-espbi-procedure-domain
 Title: "LtEspbiProcedureDomain"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain"
-* name = "LtEspbiProcedureDomain"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure-domain"
+* ^name = "LtEspbiProcedureDomain"
+* ^status = #draft

@@ -1,8 +1,8 @@
 Extension: LtEspbiExtRequestCompensation
 Parent: Extension
-Id: ltextrequestcompensation.structuredefinition
+Id: compensation
 Title: "LtEspbiExtRequestCompensation"
 Description: "Kompensacija / Compensation"
-* url = "http://esveikata.lt/Profile/lt-med-prescription/compensation"
-* name = "LtEspbiExtRequestCompensation"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-med-prescription/compensation"
+* ^name = "LtEspbiExtRequestCompensation"
+* ^status = #draft

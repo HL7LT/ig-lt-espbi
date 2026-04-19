@@ -1,7 +1,7 @@
 Profile: LtEspbiMedicationDispense
 Parent: MedicationDispense
-Id: ltmedicationdispense.structuredefinition
+Id: lt-espbi-medication-dispence
 Title: "LtEspbiMedicationDispense"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-dispence"
-* name = "LtEspbiMedicationDispense"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-medication-dispence"
+* ^name = "LtEspbiMedicationDispense"
+* ^status = #draft

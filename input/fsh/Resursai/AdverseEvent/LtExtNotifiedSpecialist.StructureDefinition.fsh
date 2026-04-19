@@ -1,7 +1,7 @@
 Extension: LtEspbiExtNotifiedSpecialist
 Parent: Extension
-Id: ltextnotifiedspecialist.structuredefinition
+Id: notifiedSpecialist
 Title: "LtEspbiExtNotifiedSpecialist"
-* url = "http://esveikata.lt/Profile/ltnhr-adverseevent/notifiedSpecialist"
-* name = "LtEspbiExtNotifiedSpecialist"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-adverseevent/notifiedSpecialist"
+* ^name = "LtEspbiExtNotifiedSpecialist"
+* ^status = #draft

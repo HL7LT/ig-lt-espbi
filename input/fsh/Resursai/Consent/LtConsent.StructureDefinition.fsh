@@ -1,7 +1,7 @@
 Profile: LtEspbiConsent
 Parent: Consent
-Id: ltconsent.structuredefinition
+Id: lt-espbi-consent
 Title: "LtEspbiConsent"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-consent"
-* name = "LtEspbiConsent"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-consent"
+* ^name = "LtEspbiConsent"
+* ^status = #draft

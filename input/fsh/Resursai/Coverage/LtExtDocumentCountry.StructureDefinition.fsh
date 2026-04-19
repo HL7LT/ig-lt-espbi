@@ -1,7 +1,7 @@
 Extension: LtEspbiExtCoverageDocumentCountry
 Parent: Extension
-Id: ltextdocumentcountry.structuredefinition
+Id: documentCountry
 Title: "LtEspbiExtCoverageDocumentCountry"
-* url = "http://esveikata.lt/Profile/ltnhr-Coverage/documentCountry"
-* name = "LtEspbiExtCoverageDocumentCountry"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-Coverage/documentCountry"
+* ^name = "LtEspbiExtCoverageDocumentCountry"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Profile: LtEspbiGoalEAspn3
 Parent: LtEspbiGoalDomain
-Id: ltespbigoaleaspn3.structuredefinition
+Id: lt-espbi-goal-e-aspn-3
 Title: "LtEspbiGoalEAspn3"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-goal-e-aspn-3"
-* name = "LtEspbiGoalEAspn3"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-goal-e-aspn-3"
+* ^name = "LtEspbiGoalEAspn3"
+* ^status = #draft

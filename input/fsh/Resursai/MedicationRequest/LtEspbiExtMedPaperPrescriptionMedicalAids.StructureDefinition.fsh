@@ -1,7 +1,7 @@
 Extension: LtEspbiExtMedPaperPrescriptionMedicalAids
 Parent: Extension
-Id: ltespbiextmedpaperprescriptionmedicalaids.structuredefinition
+Id: paperPrescriptionMedicalAids
 Title: "LtEspbiExtMedPaperPrescriptionMedicalAids"
-* url = "http://esveikata.lt/Profile/lt-med-request/paperPrescriptionMedicalAids"
-* name = "LtEspbiExtMedPaperPrescriptionMedicalAids"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-med-request/paperPrescriptionMedicalAids"
+* ^name = "LtEspbiExtMedPaperPrescriptionMedicalAids"
+* ^status = #draft

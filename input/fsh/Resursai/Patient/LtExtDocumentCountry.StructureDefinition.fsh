@@ -1,7 +1,7 @@
 Extension: LtEspbiExtPatientDocumentCountry
 Parent: Extension
-Id: ltextdocumentcountry.structuredefinition
+Id: documentCountry
 Title: "LtEspbiExtPatientDocumentCountry"
-* url = "http://esveikata.lt/Profile/ltnhr-patient/documentCountry"
-* name = "LtEspbiExtPatientDocumentCountry"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-patient/documentCountry"
+* ^name = "LtEspbiExtPatientDocumentCountry"
+* ^status = #draft

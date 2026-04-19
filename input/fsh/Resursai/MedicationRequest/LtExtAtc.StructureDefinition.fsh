@@ -1,8 +1,8 @@
 Extension: LtEspbiExtAtc
 Parent: Extension
-Id: ltextatc.structuredefinition
+Id: atc
 Title: "LtEspbiExtAtc"
 Description: "ATC"
-* url = "http://esveikata.lt/Profile/lt-med-prescription/atc"
-* name = "LtEspbiExtAtc"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-med-prescription/atc"
+* ^name = "LtEspbiExtAtc"
+* ^status = #draft

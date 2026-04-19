@@ -1,7 +1,7 @@
 Extension: LtEspbiExtLicensesStatus
 Parent: Extension
-Id: ltextlicensesstatus.structuredefinition
+Id: licenses.status
 Title: "LtEspbiExtLicensesStatus"
-* url = "http://esveikata.lt/Profile/ltnhr-organization/licenses.status"
-* name = "LtEspbiExtLicensesStatus"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-organization/licenses.status"
+* ^name = "LtEspbiExtLicensesStatus"
+* ^status = #draft

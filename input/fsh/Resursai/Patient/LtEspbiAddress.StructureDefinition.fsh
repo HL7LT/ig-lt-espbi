@@ -1,7 +1,7 @@
 Profile: LtEspbiAddress
 Parent: Address
-Id: ltespbiaddress.structuredefinition
+Id: lt-espbi-address
 Title: "LtEspbiAddress"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-address"
-* name = "LtEspbiAddress"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-address"
+* ^name = "LtEspbiAddress"
+* ^status = #draft

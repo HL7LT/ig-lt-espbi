@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDocumentRegisteredBy
 Parent: Extension
-Id: ltextdocumentregisteredby.structuredefinition
+Id: documentRegisteredBy
 Title: "LtEspbiExtDocumentRegisteredBy"
-* url = "http://esveikata.lt/Profile/ltnhr-patient/documentRegisteredBy"
-* name = "LtEspbiExtDocumentRegisteredBy"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-patient/documentRegisteredBy"
+* ^name = "LtEspbiExtDocumentRegisteredBy"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Extension: LtEspbiExtCompensation
 Parent: Extension
-Id: ltextmedicationcompensation.structuredefinition
+Id: compensation
 Title: "LtEspbiExtCompensation"
-* url = "http://esveikata.lt/Profile/ltnhr-medication-knowledge/compensation"
-* name = "LtEspbiExtCompensation"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-medication-knowledge/compensation"
+* ^name = "LtEspbiExtCompensation"
+* ^status = #draft

@@ -1,8 +1,8 @@
 Profile: LtEspbiObservation408780005
 Parent: LtEspbiObservationDomain
-Id: ltobservation408780005.structuredefinition
+Id: lt-espbi-observation-408780005
 Title: "LtEspbiObservation408780005"
 Description: "Vaisiaus vandenų spalva / Fetal fluid color"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-408780005"
-* name = "LtEspbiObservation408780005"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-408780005"
+* ^name = "LtEspbiObservation408780005"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Profile: LtEspbiBinary
 Parent: Binary
-Id: ltespbibinary.structuredefinition
+Id: lt-espbi-binary
 Title: "LtEspbiBinary"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-binary"
-* name = "LtEspbiBinary"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-binary"
+* ^name = "LtEspbiBinary"
+* ^status = #draft

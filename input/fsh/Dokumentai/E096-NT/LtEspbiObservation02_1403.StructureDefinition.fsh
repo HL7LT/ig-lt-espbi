@@ -1,8 +1,8 @@
 Profile: LtEspbiObservation02_1403
 Parent: LtEspbiObservationDomain
-Id: ltespbiobservation02_1403.structuredefinition
+Id: lt-espbi-observation-02-1403
 Title: "LtEspbiObservation02_1403"
 Description: "Būklė hospitalizuojant / Condition at hospitalization"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1403"
-* name = "LtEspbiObservation02_1403"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-observation-02-1403"
+* ^name = "LtEspbiObservation02_1403"
+* ^status = #draft

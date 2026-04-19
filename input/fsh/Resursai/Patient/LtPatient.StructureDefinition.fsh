@@ -1,7 +1,7 @@
 Profile: LtEspbiPatient
 Parent: Patient
-Id: ltpatient.structuredefinition
+Id: lt-espbi-patient
 Title: "LtEspbiPatient"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
-* name = "LtEspbiPatient"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-patient"
+* ^name = "LtEspbiPatient"
+* ^status = #draft

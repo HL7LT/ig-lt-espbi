@@ -1,8 +1,8 @@
 Extension: LtEspbiExtNursingOrder
 Parent: Extension
-Id: ltespbiextnursingorder.structuredefinition
+Id: nursingOrder
 Title: "LtEspbiExtNursingOrder"
 Description: "Siuntimo Slaugos paslaugos namuose duomenys / ServiceRequest Home Care Services data"
-* url = "http://esveikata.lt/Profile/ltnhr-servicerequest/nursingOrder"
-* name = "LtEspbiExtNursingOrder"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-servicerequest/nursingOrder"
+* ^name = "LtEspbiExtNursingOrder"
+* ^status = #draft

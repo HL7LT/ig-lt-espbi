@@ -1,7 +1,7 @@
 Profile: LtEspbiCoverage
 Parent: Coverage
-Id: ltcoverage.structuredefinition
+Id: lt-espbi-coverage
 Title: "LtEspbiCoverage"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage"
-* name = "LtEspbiCoverage"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-coverage"
+* ^name = "LtEspbiCoverage"
+* ^status = #draft

@@ -1,7 +1,7 @@
 Profile: LtEspbiVsPatientEnvironmentComplianceLevel
 Parent: http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-value-set
-Id: ltvspatientenvironmentcompliancelevel.structuredefinition
+Id: lt-espbi-vs-patient-environment-compliance-level
 Title: "LtEspbiVsPatientEnvironmentComplianceLevel"
-* url = "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-patient-environment-compliance-level"
-* name = "LtEspbiVsPatientEnvironmentComplianceLevel"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/ValueSet/lt-espbi-vs-patient-environment-compliance-level"
+* ^name = "LtEspbiVsPatientEnvironmentComplianceLevel"
+* ^status = #draft

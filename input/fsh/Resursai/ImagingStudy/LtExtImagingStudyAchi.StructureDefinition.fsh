@@ -1,8 +1,8 @@
 Extension: LtEspbiExtAchiCode
 Parent: Extension
-Id: ltextimagingstudyachi.structuredefinition
+Id: achi-code
 Title: "LtEspbiExtAchiCode"
 Description: "ACHI kodas / ACHI code"
-* url = "http://esveikata.lt/Profile/ltnhr-imagingstudy/achi-code"
-* name = "LtEspbiExtAchiCode"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-imagingstudy/achi-code"
+* ^name = "LtEspbiExtAchiCode"
+* ^status = #draft

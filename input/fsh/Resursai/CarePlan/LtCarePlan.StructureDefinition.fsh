@@ -1,7 +1,7 @@
 Profile: LtEspbiCarePlan
 Parent: CarePlan
-Id: ltcareplan.structuredefinition
+Id: lt-espbi-care-plan
 Title: "LtEspbiCarePlan"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan"
-* name = "LtEspbiCarePlan"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan"
+* ^name = "LtEspbiCarePlan"
+* ^status = #draft

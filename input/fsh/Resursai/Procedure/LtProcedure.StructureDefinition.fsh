@@ -1,7 +1,7 @@
 Profile: LtEspbiProcedure
 Parent: Procedure
-Id: ltprocedure.structuredefinition
+Id: lt-espbi-procedure
 Title: "LtEspbiProcedure"
-* url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure"
-* name = "LtEspbiProcedure"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-procedure"
+* ^name = "LtEspbiProcedure"
+* ^status = #draft

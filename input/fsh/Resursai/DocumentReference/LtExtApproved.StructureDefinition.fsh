@@ -1,7 +1,7 @@
 Extension: LtEspbiExtApproved
 Parent: Extension
-Id: ltextapproved.structuredefinition
+Id: approved
 Title: "LtEspbiExtApproved"
-* url = "http://esveikata.lt/Profile/ltnhr-documentreference/approved"
-* name = "LtEspbiExtApproved"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-documentreference/approved"
+* ^name = "LtEspbiExtApproved"
+* ^status = #draft

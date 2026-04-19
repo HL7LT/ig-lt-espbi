@@ -1,8 +1,8 @@
 Extension: LtEspbiExtAnesthesia
 Parent: Extension
-Id: ltespbiextanesthesia.structuredefinition
+Id: lt-espbi-ext-anesthesia
 Title: "LtEspbiExtAnesthesia"
 Description: "Anestezija / Anesthesia"
-* url = "http://esveikata.lt/fhir/Extension/lt-espbi-ext-anesthesia"
-* name = "LtEspbiExtAnesthesia"
-* status = "draft"
+* ^url = "http://esveikata.lt/fhir/Extension/lt-espbi-ext-anesthesia"
+* ^name = "LtEspbiExtAnesthesia"
+* ^status = #draft

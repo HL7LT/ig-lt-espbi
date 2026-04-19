@@ -1,7 +1,7 @@
 Extension: LtEspbiExtAppliesPeriod
 Parent: Extension
-Id: ltextappliesperiod.structuredefinition
+Id: appliesPeriod
 Title: "LtEspbiExtAppliesPeriod"
-* url = "http://esveikata.lt/Profile/ltnhr-alert/appliesPeriod"
-* name = "LtEspbiExtAppliesPeriod"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-alert/appliesPeriod"
+* ^name = "LtEspbiExtAppliesPeriod"
+* ^status = #draft

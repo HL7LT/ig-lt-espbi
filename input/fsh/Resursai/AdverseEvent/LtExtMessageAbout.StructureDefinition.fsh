@@ -1,7 +1,7 @@
 Extension: LtEspbiExtMessageAbout
 Parent: Extension
-Id: ltextmessageabout.structuredefinition
+Id: messageAbout
 Title: "LtEspbiExtMessageAbout"
-* url = "http://esveikata.lt/Profile/ltnhr-adverseevent/messageAbout"
-* name = "LtEspbiExtMessageAbout"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-adverseevent/messageAbout"
+* ^name = "LtEspbiExtMessageAbout"
+* ^status = #draft

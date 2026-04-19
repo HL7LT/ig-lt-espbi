@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDevRequestIssue
 Parent: Extension
-Id: ltespbiextrequestissue.structuredefinition
+Id: issue
 Title: "LtEspbiExtDevRequestIssue"
-* url = "http://esveikata.lt/Profile/lt-dev-request/issue"
-* name = "LtEspbiExtDevRequestIssue"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-dev-request/issue"
+* ^name = "LtEspbiExtDevRequestIssue"
+* ^status = #draft

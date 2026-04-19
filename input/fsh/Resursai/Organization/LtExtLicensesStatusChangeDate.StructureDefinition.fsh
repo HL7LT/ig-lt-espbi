@@ -1,7 +1,7 @@
 Extension: LtEspbiExtStatusChangeDate
 Parent: Extension
-Id: ltextlicensesstatuschangedate.structuredefinition
+Id: licenses.statusChangedDate
 Title: "LtEspbiExtStatusChangeDate"
-* url = "http://esveikata.lt/Profile/ltnhr-organization/licenses.statusChangedDate"
-* name = "LtEspbiExtStatusChangeDate"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/ltnhr-organization/licenses.statusChangedDate"
+* ^name = "LtEspbiExtStatusChangeDate"
+* ^status = #draft

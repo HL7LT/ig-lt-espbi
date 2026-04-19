@@ -1,7 +1,7 @@
 Extension: LtEspbiExtDeviceDurationOfUse
 Parent: Extension
-Id: ltespbiextdevicedurationofuse.structuredefinition
+Id: durationOfUse
 Title: "LtEspbiExtDeviceDurationOfUse"
-* url = "http://esveikata.lt/Profile/lt-device-dispense/durationOfUse"
-* name = "LtEspbiExtDeviceDurationOfUse"
-* status = "draft"
+* ^url = "http://esveikata.lt/Profile/lt-device-dispense/durationOfUse"
+* ^name = "LtEspbiExtDeviceDurationOfUse"
+* ^status = #draft
