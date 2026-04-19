@@ -29,8 +29,8 @@ sushi .
 | 2 | `clinical-singletons` |     7 | ✅ done             | **0 errors** |
 | 3 | `document-carriers`   |     6 | ✅ done             | **0 errors** |
 | 4 | `observation`         |     2 | ✅ done (674-profile cascade) | **0 errors** |
-| 5 | `specimen`            |     2 | ⏳ pending          | — |
-| 6 | `imaging`             |     1 | ⏳ pending          | — |
+| 5 | `specimen`            |     2 | ✅ done             | **0 errors** |
+| 6 | `imaging`             |     1 | ✅ done             | **0 errors** |
 
 ## Cluster 1 — Administrative resources (done)
 
@@ -143,3 +143,60 @@ tighter vital-signs / lab / lifestyle bindings" — did not
 materialise. `ObservationLt` in the current LTBase build is
 constraint-compatible with every downstream ESPBI Observation
 profile; no conflict fix-ups were needed.
+
+## Cluster 5 — Specimen (done)
+
+The only cluster that targets `LTLab` rather than `LTBase`, since
+LTBase does not profile Specimen.
+
+| File                                                              | Before        | After            |
+|-------------------------------------------------------------------|---------------|------------------|
+| `input/fsh/Resursai/Specimen/LtSpecimen.StructureDefinition.fsh`  | `Specimen`    | `SpecimenLtLab`  |
+| `input/fsh/eLAB/Specimen_eLAB.StructureDefinition.fsh`            | `Specimen`    | `SpecimenLtLab`  |
+
+**Result:** `sushi .` compiles with **0 errors**.
+
+## Cluster 6 — Imaging (done)
+
+| File                                                                          | Before         | After            |
+|-------------------------------------------------------------------------------|----------------|------------------|
+| `input/fsh/Resursai/ImagingStudy/LtImagingStudy.StructureDefinition.fsh`      | `ImagingStudy` | `ImagingStudyLt` |
+
+**Result:** `sushi .` compiles with **0 errors**.
+
+## Summary
+
+31 root files re-parented across 6 clusters. `sushi .` compiles with
+**0 errors** at every increment, and **0 errors** at the end of Phase 3.
+Approximately **~770 ESPBI profiles now transitively inherit HL7 LT
+constraints**:
+
+- 13 admin roots (low fan-out)
+- 7 clinical-singleton roots + ~48 domain descendants
+- 6 document-carrier roots + ~55 domain descendants
+- 2 Observation roots + 672 via `LtEspbiObservationDomain` and direct
+  children
+- 2 Specimen roots (→ LTLab)
+- 1 Imaging root
+
+33 ESPBI roots remain on FHIR core as documented in the Phase 2 plan
+— no LTBase / LTLab equivalent exists today for them (Bundle, Binary,
+AllergyIntolerance, AdverseEvent, Consent, Coverage, Device*,
+Medication*, Immunization*, Provenance, Questionnaire*, Communication,
+List, ChargeItem, Task, VisionPrescription, Ingredient, Substance).
+These stay as-is until the corresponding LTBase profiles are authored
+or until we decide they belong only in ESPBI.
+
+## How to re-apply / verify
+
+```bash
+# Quick inventory:
+scripts/reparent-to-ltbase.py --list
+
+# Verify nothing drifted — a fully-applied tree reports changed=0
+# for every cluster (all lines "already-done"):
+scripts/reparent-to-ltbase.py --cluster=all
+
+# Full compile check:
+sushi .
+```

@@ -1,5 +1,5 @@
 Profile: LtEspbiImagingStudy
-Parent: ImagingStudy
+Parent: ImagingStudyLt
 Id: lt-espbi-imaging-study
 Title: "LtEspbiImagingStudy"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-imaging-study"
