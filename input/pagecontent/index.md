@@ -39,11 +39,13 @@ release that produced it.
 | Clean-state snapshot published | **`release-0.2.0`** branch — post-fix `main` at 0 errors |
 | Sibling-IG dependency inventory complete | All 5 declared dependencies (`LTBase` 27 profiles, `LTLab` 35, `LTLifestyle` 21, `LTVitalSigns` 0, EU) reviewed for re-parenting fit |
 | Phase 2 re-parenting map locked | 1,162 ESPBI profiles classified — 63 roots + ~1,100 domain descendants; 28 roots targeted at LTBase, 2 at LTLab, 33 retained on FHIR core; ~850 profiles will inherit LT constraints transitively once the ~30 root edits land |
+| Phase 3 re-parenting applied | `scripts/reparent-to-ltbase.py` used to land 6 clusters (admin → clinical → document carriers → observation → specimen → imaging) — 31 root `Parent:` edits, `sushi .` at **0 errors** throughout, ~770 ESPBI profiles now transitively inherit LTBase / LTLab constraints |
 
 Reference PRs:
 
 - [#1](https://github.com/HL7LT/ig-lt-espbi/pull/1) — metadata-rule rewrite + duplicate merge (4,129 → 0 errors)
-- [#2](https://github.com/HL7LT/ig-lt-espbi/pull/2) — Phase 2 design (this document)
+- [#2](https://github.com/HL7LT/ig-lt-espbi/pull/2) — Phase 2 design
+- [#3](https://github.com/HL7LT/ig-lt-espbi/pull/3) — Phase 3 implementation (this document)
 
 ## Migration Plan
 
@@ -225,8 +227,11 @@ divergence requiring LTBase coordination.
 ## Current Phase
 
 **Phase 2 complete** — re-parenting map locked in above.
-**Phase 3 in progress** — implementation will proceed cluster by
-cluster as described in the phase order.
+**Phase 3 complete** — all 6 clusters (31 root files) re-parented to
+their HL7 LT targets with `sushi .` staying at 0 errors throughout.
+Approximately **~770 ESPBI profiles now transitively inherit HL7 LT
+base constraints** via the re-parented roots. See `fix2.md` for the
+per-cluster report.
 
 Additional context documents:
 
@@ -235,3 +240,4 @@ Additional context documents:
 - `fix1.md` — metadata-rule rewrite + duplicate merge that took the
   first compile from 4,129 → 0 errors.
 - `update1.md` — summary of what changed in the Phase 2 planning pass.
+- `fix2.md` — Phase 3 re-parenting report, cluster by cluster.
