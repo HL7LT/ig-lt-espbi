@@ -28,7 +28,7 @@ sushi .
 | 1 | `admin`               |    13 | ✅ done             | **0 errors** |
 | 2 | `clinical-singletons` |     7 | ✅ done             | **0 errors** |
 | 3 | `document-carriers`   |     6 | ✅ done             | **0 errors** |
-| 4 | `observation`         |     2 | ⏳ pending (674-profile cascade) | — |
+| 4 | `observation`         |     2 | ✅ done (674-profile cascade) | **0 errors** |
 | 5 | `specimen`            |     2 | ⏳ pending          | — |
 | 6 | `imaging`             |     1 | ⏳ pending          | — |
 
@@ -124,3 +124,22 @@ transitively-inheriting descendants).
 **Result:** `sushi .` compiles with **0 errors**. Approximately **61
 ESPBI profiles** now conform to LTBase via cluster 3 (6 roots + 55
 transitively-inheriting descendants).
+
+## Cluster 4 — Observation (done, heaviest cascade)
+
+The risky step: `LtEspbiObservation` has 12 direct descendants and
+`LtEspbiObservationDomain` (a child of `LtEspbiObservation`) has 662
+descendants. Re-parenting two files propagates `ObservationLt`'s
+constraints through **674 ESPBI profiles**.
+
+| File                                                              | Before          | After            |
+|-------------------------------------------------------------------|-----------------|------------------|
+| `input/fsh/Resursai/Observation/LtObservation.StructureDefinition.fsh` | `Observation`  | `ObservationLt`  |
+| `input/fsh/eLAB/ObservationBase_eLAB.StructureDefinition.fsh`     | `Observation`   | `ObservationLt`  |
+
+**Result:** `sushi .` compiles with **0 errors**. The Phase 2
+design's noted risk — "expect ≥1 round of post-reparenting fixes for
+tighter vital-signs / lab / lifestyle bindings" — did not
+materialise. `ObservationLt` in the current LTBase build is
+constraint-compatible with every downstream ESPBI Observation
+profile; no conflict fix-ups were needed.

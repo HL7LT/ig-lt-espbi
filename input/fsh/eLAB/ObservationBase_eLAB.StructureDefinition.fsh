@@ -1,5 +1,5 @@
 Profile: ElabObservationBase
-Parent: Observation
+Parent: ObservationLt
 Id: elab-observation-base
 Title: "eLAB Observation Base"
 Description: "Bazinis profilis skirtas tiek panelėms tiek analitėms / Base profile for observations and panels"
