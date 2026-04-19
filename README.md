@@ -10,8 +10,8 @@ align with the shared HL7 LT building blocks.
 
 | | |
 |---|---|
-| **Canonical** | `http://esveikata.lt/fhir/espbi` |
-| **Package id** | `lt.esveikata.fhir.espbi` |
+| **Canonical** | `http://esveikata.lt/fhir` |
+| **Package id** | `lt.esveikata.fhir` |
 | **FHIR version** | R5 (5.0.0) |
 | **Current version** | `0.0.1` (draft) |
 | **Publisher** | Registrų centras |
@@ -19,9 +19,18 @@ align with the shared HL7 LT building blocks.
 
 ## Status
 
-Active migration from Simplifier JSON to FSH. `sushi .` compiles with
-**0 errors** as of PR #1. See [input/migration.md](input/migration.md)
-for the full migration narrative and the current phase plan in
+Migration from Simplifier JSON to FSH is complete. `sushi .` compiles
+with **0 errors** on `main`. 31 ESPBI root profiles were re-parented
+to their HL7 LT base equivalents in Phase 3; approximately **770
+profiles now transitively inherit `LTBase` / `LTLab` constraints**.
+
+The full IG Publisher run still reports outstanding findings captured
+in [todo.md](todo.md) — see also
+[overview-of-migration-process.md](overview-of-migration-process.md)
+for the high-level summary and recommendations (including the proposal
+to split this IG into smaller domain IGs). Detailed per-phase reports
+live in [fix1.md](fix1.md) (metadata-rule repair),
+[fix2.md](fix2.md) (LTBase re-parenting), and the phase tracker in
 [input/pagecontent/index.md](input/pagecontent/index.md).
 
 ## Build
@@ -41,6 +50,20 @@ java -jar ../publisher.jar -ig .
 ./_gencontinuous.sh   # rebuild on file changes
 ./_updatePublisher.sh # fetch the latest publisher.jar
 ```
+
+Build knobs relevant to this IG:
+
+- [`ig.ini`](ig.ini) — IG Publisher entry point (points at the
+  generated `ImplementationGuide-*.json`, template reference).
+- [`fsh.ini`](fsh.ini) — `[FSH] timeout = 1200` (seconds). Gives the
+  SUSHI step 20 minutes for full-tree rebuilds of the ~1,150 ESPBI
+  FSH profiles.
+- [`sushi-config.yaml`](sushi-config.yaml) — SUSHI config (id,
+  canonical, dependencies, menu, parameters). **Do not reorder** the
+  `dependencies:` block.
+- [`.claude/settings.json`](.claude/settings.json) — permissions
+  allowlist for Claude Code users and matching 20-minute Bash
+  timeout.
 
 ## Project structure
 
@@ -83,7 +106,8 @@ FHIR package resolution.
 
 ## Migration tooling
 
-Two scripts in `scripts/`:
+Three scripts in `scripts/`, each idempotent (safe to re-run) and with
+`--dry-run` where applicable:
 
 - **`migrate-simplifier-with-chef.sh`** — converts JSON under
   `simplifier/` to FSH via a locally-running
@@ -92,41 +116,56 @@ Two scripts in `scripts/`:
   `baseDefinition` into seven ordered buckets (terminology-cs → vs →
   datatypes → extensions → generic → dependent → compositions) and
   writes output to `input/fsh/migrated/<bucket>/<id>.fsh`. Output is
-  gitignored on `main`; retained on `release-*` branches as a
-  historical snapshot. See [input/migration.md](input/migration.md).
+  gitignored on `main`; retained on `release-0.1.0` as a historical
+  snapshot. See [input/migration.md](input/migration.md).
 
-- **`fix-profile-metadata-rules.py`** — idempotent rewrite of profile
-  metadata rules (`* url = …` → `* ^url = …`, etc.) and invalid `Id:`
-  directives across the existing FSH tree. Takes `--dry-run`. See
-  [fix1.md](fix1.md) for details and numbers (4,129 → 0 SUSHI errors).
+- **`fix-profile-metadata-rules.py`** — rewrite of profile metadata
+  rules (`* url = …` → `* ^url = …`, `* status = "draft"` →
+  `* ^status = #draft`, etc.) and invalid `Id:` directives across the
+  existing FSH tree. See [fix1.md](fix1.md) for numbers (4,129 → 0
+  SUSHI errors across 1,151 files).
+
+- **`reparent-to-ltbase.py`** — deterministic re-parenting driver
+  with a baked-in mapping. Switches a root ESPBI profile's `Parent:`
+  from a FHIR core resource to its `LTBase` / `LTLab` equivalent;
+  refuses to modify a file whose current `Parent:` does not match the
+  expected value, so stale mappings cannot silently overwrite
+  reviewed files. Supports `--list`, `--cluster=<name>`,
+  `--cluster=all`. See [fix2.md](fix2.md).
 
 ## Branches and releases
 
 | Branch | Purpose |
 |---|---|
 | `main` | latest reviewed state; compiles with 0 SUSHI errors |
-| `release-0.1.0` | snapshot including the `input/fsh/migrated/` GoFSH output from the first migration pass (218 files) |
-| `release-0.2.0` | post-fix-PR#1 snapshot (0 errors) |
+| `release-0.1.0` | snapshot with the `input/fsh/migrated/` GoFSH output from the first migration pass (218 files) |
+| `release-0.2.0` | post-fix-#1 clean-state snapshot (0 SUSHI errors after the metadata-rule repair) |
+| `release-0.3.0` | post-Phase-3 snapshot: 31 ESPBI roots re-parented to `LTBase` / `LTLab`; IG canonical aligned to `http://esveikata.lt/fhir` |
 
 ## Reference documentation
 
+- **[overview-of-migration-process.md](overview-of-migration-process.md)** — high-level summary of the three-phase
+  migration, tooling, and recommendations (including the proposal to
+  split ESPBI into smaller domain IGs).
 - **[input/pagecontent/index.md](input/pagecontent/index.md)** — IG
-  introduction + phase-by-phase migration plan (Phase 2 re-parenting
-  map, Phase 3 order).
-- **[input/migration.md](input/migration.md)** — Simplifier JSON → FSH
-  migration narrative, bucket counts, GoFSH problems observed,
+  introduction, phase tracker, achieved-results section,
+  re-parenting map, Phase 3 order.
+- **[input/migration.md](input/migration.md)** — Simplifier JSON →
+  FSH migration narrative, bucket counts, GoFSH problems observed,
   post-conversion review checklist.
 - **[fix1.md](fix1.md)** — mechanical metadata-rule repair +
-  duplicate-merge that took the first compile from 4,129 → 0 errors.
-- **[update1.md](update1.md)** — Phase 2 design summary (re-parent
-  ESPBI roots to HL7 LT base profiles).
+  duplicate-merge (4,129 → 0 SUSHI errors).
+- **[update1.md](update1.md)** — Phase 2 design pass summary.
+- **[fix2.md](fix2.md)** — Phase 3 re-parenting report, cluster by
+  cluster.
+- **[todo.md](todo.md)** — outstanding IG Publisher QA findings and
+  prioritised action list.
 - **[migration.md](migration.md)** — machine-generated per-run log
   from the Simplifier migration script.
 
 ## Naming conventions
 
-ESPBI uses the `LtEspbi*` prefix historically. The HL7 LT workspace-wide
-convention favours a `*LtEspbi` / `*-lt-espbi` suffix, being rolled out
-as part of Phase 3; where profile and file names still use the prefix
-form, they will be migrated alongside the re-parenting work described
-in `index.md`.
+ESPBI uses the `LtEspbi*` prefix historically. The HL7 LT
+workspace-wide convention favours a `*LtEspbi` / `*-lt-espbi` suffix.
+Profile and file names that still use the prefix form are candidates
+for a future rename sweep.
