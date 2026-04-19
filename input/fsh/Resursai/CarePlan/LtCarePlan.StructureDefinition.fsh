@@ -1,5 +1,5 @@
 Profile: LtEspbiCarePlan
-Parent: CarePlan
+Parent: CarePlanLt
 Id: lt-espbi-care-plan
 Title: "LtEspbiCarePlan"
 * ^url = "http://esveikata.lt/fhir/StructureDefinition/lt-espbi-care-plan"

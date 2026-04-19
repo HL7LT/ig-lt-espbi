@@ -1,5 +1,5 @@
 Profile: ElabServiceRequest
-Parent: ServiceRequest
+Parent: ServiceRequestLt
 Id: elab-servicerequest
 Title: "ElabServiceRequest"
 Description: "Užsakytas laboratorinis tyrimas / A record of a request for service to be performed"

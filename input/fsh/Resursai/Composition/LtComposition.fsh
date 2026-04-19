@@ -1,5 +1,5 @@
 Profile: LtEspbiComposition
-Parent: Composition
+Parent: CompositionLt
 Id: ltcomposition
 Title: "LtEspbiComposition"
 Description: "Duomenų kompozicijos profilis / Composition profile"

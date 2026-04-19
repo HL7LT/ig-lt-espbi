@@ -1,5 +1,5 @@
 Profile: ElabCompositionE200
-Parent: Composition
+Parent: LaboratoryCompositionLt
 Id: elab-composition-e200
 Title: "ElabCompositionE200"
 Description: "E200/a kompozicija / E200/a composition"

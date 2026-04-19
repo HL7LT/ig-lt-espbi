@@ -27,7 +27,7 @@ sushi .
 |---|-----------------------|------:|---------------------|-------------|
 | 1 | `admin`               |    13 | ✅ done             | **0 errors** |
 | 2 | `clinical-singletons` |     7 | ✅ done             | **0 errors** |
-| 3 | `document-carriers`   |     6 | ⏳ pending          | — |
+| 3 | `document-carriers`   |     6 | ✅ done             | **0 errors** |
 | 4 | `observation`         |     2 | ⏳ pending (674-profile cascade) | — |
 | 5 | `specimen`            |     2 | ⏳ pending          | — |
 | 6 | `imaging`             |     1 | ⏳ pending          | — |
@@ -93,4 +93,34 @@ simultaneous structural changes. Deferred to a future increment.
 
 **Result:** `sushi .` compiles with **0 errors**. Approximately **55
 ESPBI profiles** now conform to LTBase via cluster 2 (7 roots + 48
+transitively-inheriting descendants).
+
+## Cluster 3 — Document carriers (done)
+
+6 root profiles. The heaviest fan-out in this cluster is
+`LtEspbiComposition`:
+
+- `LtEspbiComposition` → `CompositionLt`: pulls
+  `LtEspbiCompositionDomain` (46 descendants) and
+  `LtEspbiCompositionDiagnostics` (2) along — ≈ **48 profiles**
+  inherit.
+- `ElabCompositionE200` → `LaboratoryCompositionLt`: the one case in
+  Phase 3 where we chose a specialty LTBase profile (the laboratory
+  composition) over the generic one — this is the right fit for an
+  eLAB E200 envelope.
+- `LtEspbiServiceRequest` → `ServiceRequestLt`: 5 direct descendants.
+- `LtEspbiCarePlan` → `CarePlanLt`: 2 via `LtEspbiCarePlanDomain`.
+- `LtEspbiEncounter` → `EncounterLt`: 2 direct descendants.
+
+| File                                                                   | Before                | After                      |
+|------------------------------------------------------------------------|-----------------------|----------------------------|
+| `input/fsh/Resursai/Composition/LtComposition.fsh`                     | `Composition`         | `CompositionLt`            |
+| `input/fsh/eLAB/Composition_E200_eLAB.StructureDefinition.fsh`         | `Composition`         | `LaboratoryCompositionLt`  |
+| `input/fsh/Resursai/ServiceRequest/LtServiceRequest.StructureDefinition.fsh` | `ServiceRequest` | `ServiceRequestLt`         |
+| `input/fsh/eLAB/ServiceRequest_eLAB.StructureDefinition.fsh`           | `ServiceRequest`      | `ServiceRequestLt`         |
+| `input/fsh/Resursai/CarePlan/LtCarePlan.StructureDefinition.fsh`       | `CarePlan`            | `CarePlanLt`               |
+| `input/fsh/Resursai/Encounter/LtEncounter.StructureDefinition.fsh`     | `Encounter`           | `EncounterLt`              |
+
+**Result:** `sushi .` compiles with **0 errors**. Approximately **61
+ESPBI profiles** now conform to LTBase via cluster 3 (6 roots + 55
 transitively-inheriting descendants).
